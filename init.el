@@ -78,7 +78,7 @@
 (add-hook 'before-save-hook 'my-delete-trailing-blank-lines)
 
 ;; ---------------------------------------------------------------------------
-;; tool box
+;; 普通のredo
 
 (require 'redo+)
  (setq undo-no-redo t)
@@ -86,7 +86,7 @@
  (setq undo-strong-limit 90000)
 
 ;; ---------------------------------------------------------------------------
-;; tool box
+;; アスタリスク付バッファは飛ばす
 
 (defun astarisked? (buf-name)
   (= 42 (car (string-to-list buf-name))))
