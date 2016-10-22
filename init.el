@@ -4,9 +4,14 @@
 
 (add-to-list
  'package-archives
- '("melpa"          . "https://melpa.milkbox.net/packages/") t)
+ '("melpa" . "https://melpa.org/packages/") t)
 
 (package-initialize)
+(package-refresh-contents)
+
+(package-install 'use-package)
+(use-package magit
+  :ensure t)
 
 ;; ---------------------------------------------------------------------------
 ;; 諸設定
@@ -48,10 +53,12 @@
 (set-default-font "Ubuntu Mono-8")
 
 ;;---------------------------------------------------------------------------
-;; 行末のwhitespaceを削除
+;; 行末のwhitespaceを削除 (from http://qiita.com/scalper/items/12b211b246dfbcb6bc6d)
 (setq delete-trailing-whitespace-exclude-patterns
       (list "\\.md$" "\\.markdown$"))
+
 (require 'cl)
+
 (defun delete-trailing-whitespace-with-exclude-pattern ()
   (interactive)
   (cond
@@ -60,16 +67,12 @@
      (loop for pattern in delete-trailing-whitespace-exclude-patterns
            thereis (string-match pattern buffer-file-name)))
     (delete-trailing-whitespace))))
+
 (add-hook 'before-save-hook
           'delete-trailing-whitespace-with-exclude-pattern)
 
 ;;---------------------------------------------------------------------------
-;; ファイル末尾の改行を削除
-
-
-;;---------------------------------------------------------------------------
-;; ファイル末尾の改行を削除
-;; http://www.emacswiki.org/emacs/DeletingWhitespace
+;; ファイル末尾の改行を削除 (from http://www.emacswiki.org/emacs/DeletingWhitespace)
 (defun my-delete-trailing-blank-lines ()
   "Deletes all blank lines at the end of the file."
   (interactive)
@@ -84,10 +87,19 @@
 ;; ---------------------------------------------------------------------------
 ;; 普通のredo
 
-(require 'redo+)
- (setq undo-no-redo t)
- (setq undo-limit 60000)
- (setq undo-strong-limit 90000)
+(use-package redo+
+  :config
+  (setq undo-no-redo t)
+  (setq undo-limit 60000)
+  (setq undo-strong-limit 90000))
+
+;; ---------------------------------------------------------------------------
+;; アスタリスク付バッファは飛ばす
+
+(add-hook 'emacs-lisp-mode-hook
+   (lambda ()
+      (setq indent-tabs-mode t)
+      (setq tab-width 2)))
 
 ;; ---------------------------------------------------------------------------
 ;; アスタリスク付バッファは飛ばす
@@ -229,20 +241,23 @@
       (most-narrow-match-lexical-insert-parenthesis ?\( ?\))))))
 
 ;;---------------------------------------------------------------------------
+;; prefix key
 
-(global-unset-key "\C-e")
+(global-unset-key "\C-e") ;; 移動系 prefix
 
-(global-unset-key "\C-a")
+(global-unset-key "\C-a") ;; 編集系 prefix
 
-(global-unset-key "\C-z") ;; (prev ctrl-zでwindowが最小化) しない
+(global-unset-key "\C-z") ;; 機能系 prefix
 
 ;;---------------------------------------------------------------------------
-;; prefix なし
+;; no prefix
 (global-set-key (kbd "C-S-k") 'backward-kill-line)
 
+;; delete action
 (global-set-key "\C-h"   'delete-backward-char)
 (global-set-key "\M-h"   'backward-kill-word)
 
+;; undo & redo
 (global-set-key "\C-q"   'undo)
 (global-set-key "\M-q"   'redo)
 
@@ -256,14 +271,14 @@
 ;; コメントアウト
 (global-set-key "\C-a\C-a" 'comment-dwim)
 
-;; Shell
+;; shell
 (global-set-key "\C-e\C-c" 'shell)
 
 ;; バッファ移動 (アスタリスク付バッファはスキップ)
 (global-set-key "\C-e\C-b" 'previous-buffer-with-skip*)
 (global-set-key "\C-e\C-f" 'next-buffer-with-skip*)
 
-;; parenthesis advisary
+;; 括弧操作
 (global-set-key [C-return]    'kill-until-corresp-paren)
 (global-set-key "\C-l"        'insert-parenthesis)
 (global-set-key (kbd "C-S-l") 'insert-angle-brackets)
