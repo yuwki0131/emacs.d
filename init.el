@@ -15,6 +15,8 @@
 (use-package magit
   :ensure t)
 
+(add-to-list 'load-path "~/.emacs.d/dconf")
+
 ;; ---------------------------------------------------------------------------
 ;; 諸設定
 (setq inhibit-startup-message t) ;; 起動時の画面は、いらない
@@ -50,9 +52,6 @@
 ;; エンコーディング
 (set-language-environment "Japanese")
 (setq default-buffer-file-coding-system 'utf-8)
-
-;; フォント
-(set-default-font "Ubuntu Mono-8")
 
 ;;---------------------------------------------------------------------------
 ;; 行末のwhitespaceを削除 (from http://qiita.com/scalper/items/12b211b246dfbcb6bc6d)
@@ -255,6 +254,10 @@
     (cond
      ((= ?\( (following-char))
       (most-narrow-match-lexical-insert-parenthesis ?\( ?\))))))
+
+;; ---------------------------------------------------------------------------
+;; local elisp files
+(require 'appearance-conf)
 
 ;;---------------------------------------------------------------------------
 ;; prefix key
