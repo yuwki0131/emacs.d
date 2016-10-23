@@ -1,10 +1,12 @@
 ;; ---------------------------------------------------------------------------
 ;; パッケージマネージャ
+;; ---------------------------------------------------------------------------
 (require 'package)
 
-(add-to-list
- 'package-archives
- '("melpa" . "https://melpa.org/packages/") t)
+(setq package-archives
+      '(("gnu" . "http://elpa.gnu.org/packages/")
+        ("melpa" . "https://melpa.org/packages/")
+        ("org" . "http://orgmode.org/elpa/")))
 
 (package-initialize)
 (package-refresh-contents)
@@ -86,20 +88,34 @@
 
 ;; ---------------------------------------------------------------------------
 ;; 普通のredo
-
+;;---------------------------------------------------------------------------
 (use-package redo+
   :config
   (setq undo-no-redo t)
   (setq undo-limit 60000)
   (setq undo-strong-limit 90000))
 
-;; ---------------------------------------------------------------------------
-;; アスタリスク付バッファは飛ばす
+;;---------------------------------------------------------------------------
+;; visual regexp steroids : 正規表現の拡張
+;;---------------------------------------------------------------------------
+(use-package visual-regexp-steroids
+  :config
+  (setq vr/engine 'java))
 
-(add-hook 'emacs-lisp-mode-hook
-   (lambda ()
-      (setq indent-tabs-mode t)
-      (setq tab-width 2)))
+;;---------------------------------------------------------------------------
+;; mouse disable : マウス禁止
+;;---------------------------------------------------------------------------
+(use-package disable-mouse
+  :config
+  (global-disable-mouse-mode))
+
+;;---------------------------------------------------------------------------
+;; smooth scroll : スクロールなめらか
+;;---------------------------------------------------------------------------
+(use-package smooth-scroll
+  :config
+  (setq mouse-wheel-scroll-amount '(1 ((shift) . 1)))
+  (smooth-scroll-mode t))
 
 ;; ---------------------------------------------------------------------------
 ;; アスタリスク付バッファは飛ばす
@@ -267,6 +283,10 @@
 
 ;; 置換
 (global-set-key "\C-z\C-r" 'replace-string)
+
+;; 正規表現置換
+(global-set-key "\C-\M-s" 'vr/isearch-forward)
+(global-set-key "\C-\M-r" 'vr/isearch-backward)
 
 ;; コメントアウト
 (global-set-key "\C-a\C-a" 'comment-dwim)
