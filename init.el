@@ -49,6 +49,9 @@
 ;; 行番号フォーマット
 (setq linum-format " %4d ")
 
+;; 折り返しを表示
+(setq truncate-lines t)
+
 ;; file名の補完で大文字小文字を区別しない
 (setq completion-ignore-case t)
 
@@ -61,6 +64,9 @@
 ;; エンコーディング
 (set-language-environment "Japanese")
 (setq default-buffer-file-coding-system 'utf-8)
+
+;; scratchの初期のメッセージ
+(setq initial-scratch-message ";; hello world, emacs !!")
 
 ;;---------------------------------------------------------------------------
 ;; 行末のwhitespaceを削除 (from http://qiita.com/scalper/items/12b211b246dfbcb6bc6d)
@@ -93,37 +99,6 @@
       (delete-blank-lines))))
 
 (add-hook 'before-save-hook 'my-delete-trailing-blank-lines)
-
-;; ---------------------------------------------------------------------------
-;; 普通のredo
-;;---------------------------------------------------------------------------
-(use-package redo+
-  :config
-  (setq undo-no-redo t)
-  (setq undo-limit 60000)
-  (setq undo-strong-limit 90000))
-
-;;---------------------------------------------------------------------------
-;; visual regexp steroids : 正規表現の拡張
-;;---------------------------------------------------------------------------
-(use-package visual-regexp-steroids
-  :config
-  (setq vr/engine 'java))
-
-;;---------------------------------------------------------------------------
-;; mouse disable : マウス禁止
-;;---------------------------------------------------------------------------
-(use-package disable-mouse
-  :config
-  (global-disable-mouse-mode))
-
-;;---------------------------------------------------------------------------
-;; smooth scroll : スクロールなめらか
-;;---------------------------------------------------------------------------
-(use-package smooth-scroll
-  :config
-  (setq mouse-wheel-scroll-amount '(1 ((shift) . 1)))
-  (smooth-scroll-mode t))
 
 ;; ---------------------------------------------------------------------------
 ;; アスタリスク付バッファは飛ばす
