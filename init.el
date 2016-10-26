@@ -1,5 +1,5 @@
 ;; ---------------------------------------------------------------------------
-;; パッケージマネージャ
+;; パッケージマネージャ (package.el & use-package)
 ;; ---------------------------------------------------------------------------
 (require 'package)
 
@@ -9,13 +9,22 @@
         ("org" . "http://orgmode.org/elpa/")))
 
 (package-initialize)
-(package-refresh-contents)
+
+;; package-refresh-contentsは初回起動時1回のみ実行
+;; 必要に応じて.emacs.dの以下のファイルを削除で、起動時にrefresh
+;; ※起動毎の実行は重い
+(defvar package-refresh-contents-lock
+  "~/.emacs.d/.no-package-refresh-contents")
+
+(when (not (file-exists-p package-refresh-contents-lock))
+  (package-refresh-contents)
+  (with-temp-buffer
+    (insert (concat "package-refresh-contents\n last: " (current-time-string)))
+    (write-file package-refresh-contents-lock)))
 
 (package-install 'use-package)
 (use-package magit
   :ensure t)
-
-(add-to-list 'load-path "~/.emacs.d/dconf")
 
 ;; ---------------------------------------------------------------------------
 ;; 諸設定
@@ -257,7 +266,17 @@
 
 ;; ---------------------------------------------------------------------------
 ;; local elisp files
+;; ---------------------------------------------------------------------------
+(add-to-list 'load-path "~/.emacs.d/dconf")
+
+;; エディタの外観/サイズ調整
 (require 'appearance-conf)
+
+;; 標準機能(package-install不要)
+(require 'standard-conf)
+
+;; 非標準機能(要package-install)
+(require 'nonstandard-conf)
 
 ;;---------------------------------------------------------------------------
 ;; prefix key
