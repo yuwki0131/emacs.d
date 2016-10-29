@@ -122,7 +122,6 @@
                 (not (string= current-buffer-name (buffer-name))))
       (previous-buffer))))
 
-
 ;;---------------------------------------------------------------------------
 ;; 括弧 挿入
 
@@ -254,13 +253,20 @@
 (require 'nonstandard-conf)
 
 ;;---------------------------------------------------------------------------
-;; prefix key
+;; prefix key <unset keys>
+;; _ _ E _ _ _ U _ o _
+;;  A _ _ _ _ _ _ _ _
+;;   Z X C _ _ _ m
 
 (global-unset-key "\C-e") ;; 移動系 prefix
 
 (global-unset-key "\C-a") ;; 編集系 prefix
 
 (global-unset-key "\C-z") ;; 機能系 prefix
+
+(global-unset-key "\M-m") ;; (line topへ) いかない
+
+(global-unset-key "\M-j") ;; (enter) しない
 
 ;;---------------------------------------------------------------------------
 ;; no prefix
@@ -270,6 +276,14 @@
 (global-set-key "\C-h"   'delete-backward-char)
 (global-set-key "\M-h"   'backward-kill-word)
 
+;; move by paragraph
+(global-set-key "\C-m" 'forward-paragraph)
+(global-set-key "\M-m" 'backward-paragraph)
+
+;; next / previous buffer with skip *
+(global-set-key "\C-\M-f" 'next-buffer-with-skip*)
+(global-set-key "\C-\M-p" 'previous-buffer-with-skip*)
+
 ;; undo & redo
 (global-set-key "\C-q"   'undo)
 (global-set-key "\M-q"   'redo)
@@ -278,18 +292,89 @@
 (global-set-key "\M-p"   'scroll-up-in-place)
 (global-set-key "\M-n"   'scroll-down-in-place)
 
+;;---------------------------------------------------------------------------
+;; Z prefix (to work something)
+
+;; キーバインドの表示
+(global-set-key "\C-z\C-k" 'describe-bindings)
+
+;; 手前の空白を削除 (delete until black key)
+(global-set-key "\C-zp" 'toggle-truncate-lines)
+
+;; 手前の空白を削除 (delete until black key)
+(global-set-key "\C-z\C-d" 'delete-until-black)
+
 ;; 置換
 (global-set-key "\C-z\C-r" 'replace-string)
 
-;; 正規表現置換
+;; vr/isearch側の正規表現置換
 (global-set-key "\C-\M-s" 'vr/isearch-forward)
 (global-set-key "\C-\M-r" 'vr/isearch-backward)
 
-;; コメントアウト
+;; change encoding
+(global-set-key "\C-zf"    'set-file-name-coding-system)
+
+;;---------------------------------------------------------------------------
+;; A prefix (to edit somewhat)
+;; insert-white spaces
+(defun white-plus (n)
+  (if (= n 0)
+      '()
+     `((global-set-key
+        ,(concat "\C-a" (number-to-string n))
+        '(lambda () (interactive) (insert-spaces ,n)))
+       . ,(white-plus (- n 1)))))
+
+(defmacro white-plus-m ()
+  `(progn . ,(white-plus 9)))
+
+(white-plus-m)
+
+;; insert-bar
+(defvar inserting-comment-line
+  (apply #'concat (mapcar #'(lambda (x) "-") (number-sequence 1 40))))
+
+(defun insert--s ()
+  (interactive)
+  (insert inserting-comment-line))
+
+;; comment out
 (global-set-key "\C-a\C-a" 'comment-dwim)
 
-;; shell
+;; upcase/downcase-word
+(global-set-key "\C-a\C-u" 'upcase-word)
+(global-set-key "\C-a\C-p" 'downcase-word)
+
+;; kill current buffer
+(global-set-key "\C-a\C-k" 'kill-this-buffer)
+
+;; insert-time key
+(global-set-key "\C-a\C-d" 'insert-time)
+
+;; insert commment line
+(global-set-key "\C-a\C-m" 'insert--s)
+
+;; multi-comment-out-in keys
+(global-set-key "\C-a\C-a" 'comment-dwim)
+
+;;---------------------------------------------------------------------------
+;; E prefix (to move somewhere)
+
+;; 正規表現検索
+(global-set-key "\C-e\C-s" 'search-forward-regexp)
+(global-set-key "\C-e\C-r" 'search-backward-regexp)
+
+;; デフォルトの行先頭後尾移動 Ctrl-e / Ctrl-a の再設定.
+(global-set-key "\C-e\C-a" 'move-beginning-of-line)
+(global-set-key "\C-e\C-e" 'move-end-of-line)
+
+;; quick shell
 (global-set-key "\C-e\C-c" 'shell)
+(global-set-key "\C-e\C-v" 'move-to-scratch)
+(global-set-key "\C-e\C-w" 'move-to-repl)
+
+;; top center bottom間移動
+(global-set-key "\C-e\C-l" 'recenter-top-bottom)
 
 ;; バッファ移動 (アスタリスク付バッファはスキップ)
 (global-set-key "\C-e\C-b" 'previous-buffer-with-skip*)
