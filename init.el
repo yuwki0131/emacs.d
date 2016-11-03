@@ -68,176 +68,6 @@
 ;; scratchの初期のメッセージ
 (setq initial-scratch-message ";; hello world, emacs !!")
 
-;;---------------------------------------------------------------------------
-;; 行末のwhitespaceを削除 (from http://qiita.com/scalper/items/12b211b246dfbcb6bc6d)
-(setq delete-trailing-whitespace-exclude-patterns
-      (list "\\.md$" "\\.markdown$"))
-
-(require 'cl)
-
-(defun delete-trailing-whitespace-with-exclude-pattern ()
-  (interactive)
-  (cond
-   ((equal
-     nil
-     (loop for pattern in delete-trailing-whitespace-exclude-patterns
-           thereis (string-match pattern buffer-file-name)))
-    (delete-trailing-whitespace))))
-
-(add-hook 'before-save-hook
-          'delete-trailing-whitespace-with-exclude-pattern)
-
-;;---------------------------------------------------------------------------
-;; ファイル末尾の改行を削除 (from http://www.emacswiki.org/emacs/DeletingWhitespace)
-(defun my-delete-trailing-blank-lines ()
-  "Deletes all blank lines at the end of the file."
-  (interactive)
-  (save-excursion
-    (save-restriction
-      (widen)
-      (goto-char (point-max))
-      (delete-blank-lines))))
-
-(add-hook 'before-save-hook 'my-delete-trailing-blank-lines)
-
-;; ---------------------------------------------------------------------------
-;; アスタリスク付バッファは飛ばす
-
-(defun astarisked? (buf-name)
-  (= 42 (car (string-to-list buf-name))))
-
-(defun next-buffer-with-skip* ()
-  (interactive)
-  (let ((current-buffer-name (buffer-name)))
-    (next-buffer)
-    (while (and (astarisked? (buffer-name))
-                (not (string= current-buffer-name (buffer-name))))
-      (next-buffer))))
-
-(defun previous-buffer-with-skip* ()
-  (interactive)
-  (let ((current-buffer-name (buffer-name)))
-    (previous-buffer)
-    (while (and (astarisked? (buffer-name))
-                (not (string= current-buffer-name (buffer-name))))
-      (previous-buffer))))
-
-;;---------------------------------------------------------------------------
-;; 括弧 挿入
-
-(defun insert-squares ()
-  (interactive)
-  (insert "[]")
-  (goto-char (- (point) 1)))
-
-(defun insert-brackets ()
-  (interactive)
-  (insert "{}")
-  (goto-char (- (point) 1)))
-
-(defun insert-angle-brackets ()
-  (interactive)
-  (insert "<>")
-  (goto-char (- (point) 1)))
-
-(defun insert-parenthesis ()
-  (interactive)
-  (insert "()")
-  (goto-char (- (point) 1)))
-
-;;---------------------------------------------------------------------------
-;; 括弧 削除
-
-;; 対応する括弧までを削除(後方only)
-(defun delete-backward-corresp-paren ()
-  (interactive)
-  (delete-char (- (scan-lists (point) 1 0) (point))))
-
-;; 対応する括弧までを削除
-(defun kill-until-corresp-paren ()
-  (interactive)
-  (save-excursion
-    (let* ((current-point (point))
-           (current-char  (following-char))
-           (last-char     (progn (backward-char) (following-char)))
-           (vec           (cond ((= ?\) last-char) -1)
-                                ((= ?\( current-char) 1)
-                                (t nil))))
-      (if vec
-          (kill-region current-point (scan-lists current-point vec 0))))))
-
-;; 対応する括弧を削除
-(defun match-delete-parenthesis (beginp endp)
-  (delete-char 1)
-  (forward-char 1)
-  (let ((counter 1))
-    (while (> counter 0)
-      (cond
-       ((= beginp (following-char)) (setq counter (+ counter 1)))
-       ((= endp   (following-char)) (setq counter (- counter 1)))
-       ((= -1 (following-char)) (setq counter -1)))
-      (forward-char 1))
-    (if (not (= counter -1))
-	(progn
-	  (forward-char -1)
-	  (delete-char 1)
-	  ))))
-
-(defun delete-parenthesis ()
-  (interactive)
-  (save-excursion
-    (forward-char -1)
-    (cond
-     ((= ?\( (following-char)) (match-delete-parenthesis ?\( ?\)))
-     ((= ?\{ (following-char)) (match-delete-parenthesis ?\{ ?\}))
-     ((= ?\[ (following-char)) (match-delete-parenthesis ?\[ ?\])))))
-
-(defun most-wide-match-lexical-insert-parenthesis (beginp endp)
-  (insert "(")
-  (let (((counter 1))
-    (while (> counter 0)
-      (cond
-       ((= beginp (following-char)) (setq counter (+ counter 1)))
-       ((= endp   (following-char)) (setq counter (- counter 1)))
-       ((= -2 (following-char)) (setq counter -2)))
-      (forward-char 1))
-    (progn
-      (forward-char -1)
-      (insert ")")))))
-
-(defun most-wide-lexical-insert-parenthesis ()
- (interactive)
-  (save-excursion
-    (cond
-     ((= ?\( (following-char))
-      (most-wide-match-lexical-insert-parenthesis ?\( ?\))))))
-
-(defun most-narrow-match-lexical-insert-parenthesis (beginp endp)
-  (insert "(")
-  (let ((counter 0) (found-most-narrow-parenthesis nil))
-    (while (and (or (not found-most-narrow-parenthesis)
-		    (> counter 0))
-		(not (= counter -2)))
-      (cond
-       ((= beginp (following-char))
-	(progn
-	  (setq counter (+ counter 1))
-	  (setq found-most-narrow-parenthesis t)))
-       ((= endp   (following-char))
-	(setq counter (- counter 1)))
-       ((= -2 (following-char))
-	(setq counter -2))))
-    (prognp
-      (forward-char -1)
-      (insert ")"))))
-
-(defun most-narrow-lexical-insert-parenthesis ()
-  (interactive)
-  (save-excursion
-    (cond
-     ((= ?\( (following-char))
-      (most-narrow-match-lexical-insert-parenthesis ?\( ?\))))))
-
 ;; ---------------------------------------------------------------------------
 ;; local elisp files
 ;; ---------------------------------------------------------------------------
@@ -251,6 +81,12 @@
 
 ;; 非標準機能(要package-install)
 (require 'nonstandard-conf)
+
+;; 外部のpackage化されてない追加機能(package-install不要)
+(require 'external-elisp)
+
+;; 自作の追加機能(package-install不要)
+(require 'internal-elisp)
 
 ;;---------------------------------------------------------------------------
 ;; prefix key <unset keys>
