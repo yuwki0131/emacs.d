@@ -30,7 +30,7 @@
   (global-disable-mouse-mode))
 
 ;;---------------------------------------------------------------------------
-;; smooth scroll : スクロールなめらか
+;; smooth scroll : スクロール滑川
 ;;---------------------------------------------------------------------------
 (use-package smooth-scroll
   :config
@@ -42,8 +42,8 @@
 ;;---------------------------------------------------------------------------
 (use-package auto-complete
   :config
-  (require 'auto-complete-config)
-  (global-auto-complete-mode t))
+  (ac-config-default)
+  (add-to-list 'ac-dictionary-directories "~/.emacs.d/ac-dict"))
 
 ;;---------------------------------------------------------------------------
 ;; provide
