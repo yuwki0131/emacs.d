@@ -83,10 +83,10 @@
 
 ;; モードラインの色の設定(active)
 (set-face-attribute 'mode-line nil
-    :foreground "lightcyan" :background color/darkcyan
+    :foreground "lightcyan" :background "black"
     :inverse-video nil
     :weight 'bold
-    :height 85
+    :height 100
     :box '(:line-width 1 :color "black" :style nil))
 
 ;; モードラインの色の設定(inactive)
@@ -94,7 +94,7 @@
     :foreground "lightcyan" :background color/darkcyan
     :inverse-video nil
     :weight 'extra-light
-    :height 85
+    :height 100
     :box '(:line-width 1 :color "gray30" :style nil))
 
 ;;---------------------------------------------------------------------------

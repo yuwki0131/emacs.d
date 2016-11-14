@@ -46,6 +46,54 @@
   (add-to-list 'ac-dictionary-directories "~/.emacs.d/ac-dict"))
 
 ;;---------------------------------------------------------------------------
+;; ace jump mode : 任意の場所に3ストロークで移動
+;;---------------------------------------------------------------------------
+(use-package ace-jump-mode)
+
+;;---------------------------------------------------------------------------
+;; anzu : モードラインの右側に検索中の単語数を表示
+;;---------------------------------------------------------------------------
+(use-package anzu
+  :config
+  (global-anzu-mode t))
+
+;;---------------------------------------------------------------------------
+;; auto highlight symbol : カーソル位置のシンボルの自動ハイライト
+;;---------------------------------------------------------------------------
+(use-package auto-highlight-symbol
+  :config
+  (global-auto-highlight-symbol-mode t))
+
+;;---------------------------------------------------------------------------
+;; auto highlight symbol : カーソル位置のシンボルの自動ハイライト
+;;---------------------------------------------------------------------------
+(use-package auto-highlight-symbol
+  :config
+  (global-auto-highlight-symbol-mode t))
+
+;;---------------------------------------------------------------------------
+;; google this : ググる
+;;---------------------------------------------------------------------------
+;; key-bind : google-this
+
+(use-package google-this
+  :config
+  (google-this-mode t)
+  (setq google-this-location-suffix "co.jp")
+  (global-auto-highlight-symbol-mode t)
+  (defun google-this-url ()
+    "URL for google searches."
+    (concat google-this-base-url google-this-location-suffix
+	    "/search?q=%s&hl=ja&num=100&as_qdr=y5&lr=lang_ja")))
+
+;;---------------------------------------------------------------------------
+;; auto highlight symbol : カーソル位置のシンボルの自動ハイライト
+;;---------------------------------------------------------------------------
+(use-package auto-highlight-symbol
+  :config
+  (global-auto-highlight-symbol-mode t))
+
+;;---------------------------------------------------------------------------
 ;; provide
 ;;---------------------------------------------------------------------------
 (provide 'nonstandard-conf)

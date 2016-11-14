@@ -123,24 +123,27 @@
 (global-set-key (kbd "C-S-k") 'backward-kill-line)
 
 ;; delete action
-(global-set-key "\C-h"   'delete-backward-char)
-(global-set-key "\M-h"   'backward-kill-word)
+(global-set-key "\C-h"     'delete-backward-char)
+(global-set-key "\M-h"     'backward-kill-word)
 
 ;; move by paragraph
-(global-set-key "\C-m" 'forward-paragraph)
-(global-set-key "\M-m" 'backward-paragraph)
+(global-set-key "\C-m"     'forward-paragraph)
+(global-set-key "\M-m"     'backward-paragraph)
 
 ;; next / previous buffer with skip *
-(global-set-key "\C-\M-f" 'next-buffer-with-skip*)
-(global-set-key "\C-\M-p" 'previous-buffer-with-skip*)
+(global-set-key "\C-\M-f"  'next-buffer-with-skip*)
+(global-set-key "\C-\M-p"  'previous-buffer-with-skip*)
 
 ;; undo & redo
-(global-set-key "\C-q"   'undo)
-(global-set-key "\M-q"   'redo)
+(global-set-key "\C-q"     'undo)
+(global-set-key "\M-q"     'redo)
 
 ;; カーソル位置固定のままスクロール
-(global-set-key "\M-p"   'scroll-up-in-place)
-(global-set-key "\M-n"   'scroll-down-in-place)
+(global-set-key "\M-p"     'scroll-up-in-place)
+(global-set-key "\M-n"     'scroll-down-in-place)
+
+;; ace jump mode
+(global-set-key "\M-a"     'ace-jump-mode)
 
 ;;---------------------------------------------------------------------------
 ;; Z prefix (to work something)
@@ -149,7 +152,7 @@
 (global-set-key "\C-z\C-k" 'describe-bindings)
 
 ;; 手前の空白を削除 (delete until black key)
-(global-set-key "\C-zp" 'toggle-truncate-lines)
+(global-set-key "\C-zp"    'toggle-truncate-lines)
 
 ;; 手前の空白を削除 (delete until black key)
 (global-set-key "\C-z\C-d" 'delete-until-black)
@@ -158,8 +161,8 @@
 (global-set-key "\C-z\C-r" 'replace-string)
 
 ;; vr/isearch側の正規表現置換
-(global-set-key "\C-\M-s" 'vr/isearch-forward)
-(global-set-key "\C-\M-r" 'vr/isearch-backward)
+(global-set-key "\C-\M-s"  'vr/isearch-forward)
+(global-set-key "\C-\M-r"  'vr/isearch-backward)
 
 ;; change encoding
 (global-set-key "\C-zf"    'set-file-name-coding-system)
