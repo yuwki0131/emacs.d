@@ -10,9 +10,12 @@
 
 (package-initialize)
 
+;; ---------------------------------------------------------------------------
+;; 初回起動時設定(package-refresh-contents & package-install大量)
+;; ---------------------------------------------------------------------------
 ;; package-refresh-contentsは初回起動時1回のみ実行
 ;; 必要に応じて.emacs.dの以下のファイルを削除で、起動時にrefresh
-;; ※起動毎の実行は重い
+;; ※ 起動毎の実行は重い
 (defvar package-refresh-contents-lock
   "~/.emacs.d/.no-package-refresh-contents")
 
@@ -28,9 +31,15 @@
 
 ;; ---------------------------------------------------------------------------
 ;; 諸設定
-(setq inhibit-startup-message t) ;; 起動時の画面は、いらない
-(tool-bar-mode -1)               ;; ツールバーは、いらない
-(menu-bar-mode -1)               ;; メニューバーは、いらない
+
+;; 起動時の画面は、いらない
+(setq inhibit-startup-message t)
+
+;; ツールバーは、いらない
+(tool-bar-mode -1)
+
+;; メニューバーは、いらない
+(menu-bar-mode -1)
 
 ;; beep音消す
 (setq visible-bell t)
@@ -61,12 +70,14 @@
 ;; カーソルタイプ
 (setq default-cursor-type '(bar . 2))
 
-;; エンコーディング
+;; 日本語環境
 (set-language-environment "Japanese")
+
+;; エンコーディング
 (setq default-buffer-file-coding-system 'utf-8)
 
 ;; scratchの初期のメッセージ
-(setq initial-scratch-message ";; hello world, emacs !!")
+(setq initial-scratch-message ";; hello world, emacs !!\n;; (´･_･`)\n")
 
 ;; ---------------------------------------------------------------------------
 ;; local elisp files
@@ -81,6 +92,9 @@
 
 ;; 非標準機能(要package-install)
 (require 'nonstandard-conf)
+
+;; 言語設定(要package-install)
+(require 'language-conf)
 
 ;; 外部のpackage化されてない追加機能(package-install不要)
 (require 'external-elisp)
@@ -140,7 +154,7 @@
 ;; 手前の空白を削除 (delete until black key)
 (global-set-key "\C-z\C-d" 'delete-until-black)
 
-;; 置換
+;; replace string my shortcut
 (global-set-key "\C-z\C-r" 'replace-string)
 
 ;; vr/isearch側の正規表現置換
@@ -193,12 +207,18 @@
 ;; multi-comment-out-in keys
 (global-set-key "\C-a\C-a" 'comment-dwim)
 
+;; merge 2 lines
+(global-set-key "\C-a\C-f" 'merge2lines)
+
 ;;---------------------------------------------------------------------------
 ;; E prefix (to move somewhere)
 
 ;; 正規表現検索
 (global-set-key "\C-e\C-s" 'search-forward-regexp)
 (global-set-key "\C-e\C-r" 'search-backward-regexp)
+
+;; Visual Regexp
+(global-set-key "\C-e\C-d" 'vr/query-replace)
 
 ;; デフォルトの行先頭後尾移動 Ctrl-e / Ctrl-a の再設定.
 (global-set-key "\C-e\C-a" 'move-beginning-of-line)
@@ -216,9 +236,15 @@
 (global-set-key "\C-e\C-b" 'previous-buffer-with-skip*)
 (global-set-key "\C-e\C-f" 'next-buffer-with-skip*)
 
+;; TODOコメント管理
+(global-set-key (kbd "C-.") 'goto-next-TODO)
+
 ;; 括弧操作
 (global-set-key [C-return]    'kill-until-corresp-paren)
 (global-set-key "\C-l"        'insert-parenthesis)
 (global-set-key (kbd "C-S-l") 'insert-angle-brackets)
 (global-set-key "\M-l"        'insert-brackets)
 (global-set-key (kbd "M-L")   'insert-squares)
+
+;; 一時的なコマンド束縛用
+(global-set-key "\M-j" 'temp-command)

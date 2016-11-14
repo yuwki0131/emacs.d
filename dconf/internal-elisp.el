@@ -44,6 +44,52 @@
   (google-with-chrome-open (buffer-substring (mark) (point))))
 
 ;;---------------------------------------------------------------------------
+;; merge 2 lines / merge current line & next line
+;;---------------------------------------------------------------------------
+;; key-bind : merge2lines
+
+(defun merge2lines ()
+  (interactive)
+  (save-excursion
+    (delete-region
+     (point)
+     (progn (re-search-forward "^[ \t\n]+" nil t) (point))))
+  (insert " "))
+
+;;---------------------------------------------------------------------------
+;; kill the other buffers / 現在のbuffer以外のbufferをすべて閉じる
+;;---------------------------------------------------------------------------
+;; key-bind : kill-the-other-buffers
+
+(defun kill-the-other-buffers ()
+  (interactive)
+  (dolist (buffer (buffer-list))
+    (when (not (eq (current-buffer) buffer))
+      (kill-buffer buffer))))
+
+;;---------------------------------------------------------------------------
+;; TODO search / TODOコメント 管理
+;;---------------------------------------------------------------------------
+;; key-bind : goto-next-TODO
+;; TODO : 未実装(書きかけ) listup-TODO
+
+(defconst TODO-symbol "TODO")
+
+(defun goto-next-TODO ()
+  (interactive)
+  (next-line)
+  (let ((result (search-forward TODO-symbol nil t)))
+    (message result)
+    (if (not result)
+      (progn (beginning-of-buffer)
+	     (search-forward TODO-symbol nil t)))))
+
+;;---------------------------------------------------------------------------
+;; LWRE search & replace / 簡易正規表現検索
+;;---------------------------------------------------------------------------
+;; TODO : 未実装
+
+;;---------------------------------------------------------------------------
 ;; insert date / 日付の挿入
 ;;---------------------------------------------------------------------------
 ;; key-bind : insert-time key
@@ -209,8 +255,9 @@
 (defun match-repl-pattern? (buffer-name)
   (or (string= "*haskell*" buffer-name)
       (string= "*cider-repl localhost*" buffer-name)
-      (string= "* Racket REPL *" buffer-name)
+      (string= "*Racket REPL*" buffer-name)
       (string= "*scheme*" buffer-name)
+      (string= "*inferior-lisp*" buffer-name)
       (string= "*Python*" buffer-name)
       (string= "*scratch*" buffer-name)))
 
@@ -242,6 +289,7 @@
 ;; white-plus
 ;;---------------------------------------------------------------------------
 ;; bind-key : white plus keys
+
 (defun insert-spaces (n)
   (interactive)
   (dotimes (i n) (insert " ")))
