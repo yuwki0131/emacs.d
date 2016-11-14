@@ -7,41 +7,23 @@
 ;;---------------------------------------------------------------------------
 
 ;;---------------------------------------------------------------------------
-;; google with chrome / chromeを開いて検索
+;; grep this & grep find here / grepを & grep find 現在のbuffer/pathで実行
 ;;---------------------------------------------------------------------------
-;; key-insert : google-with-chrome
+;; key-bind : grep-this, grep-find-this
 
-(defvar windows-chrome
-  "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe")
-
-(defvar linux-chrome
-  "google-chrome")
-
-(defun modify-blank (word)
-  (let ((tokens (mapcar (lambda (x) (concat "+" x)) (split-string word))))
-    (substring (apply 'concat tokens) 1)))
-
-(defun google-with-chrome-open (word)
-  (let ((new-word (modify-blank word)))
-    (cond
-     ((eq 'gnu/linux system-type)
-      (let ((command (concat linux-chrome " google.com/#q=" new-word)))
-        (message (shell-command-to-string command))))
-     ((eq 'windows-nt system-type)
-      (let ((command
-             (concat "\"" windows-chrome "\"" " google.com/#q=" new-word)))
-        (message (shell-command-to-string command))))
-     'else
-     (message "unknown os error: unable to search"))))
-
-(defun search-input-with-google ()
+(defun grep-this ()
   (interactive)
-  (let ((word (read-from-minibuffer "search with google : ")))
-    (google-with-chrome-open word)))
+  (let ((word (read-from-minibuffer "grep this buffer : "))
+	(file-name (buffer-file-name (current-buffer))))
+    (if (not file-name)
+	(message "unknown file")
+      (grep (format "grep --color -nH -e \"%s\" %s" word file-name)))))
 
-(defun search-region-with-google ()
+(defun grep-find-this ()
   (interactive)
-  (google-with-chrome-open (buffer-substring (mark) (point))))
+  (let ((word (read-from-minibuffer "grep find . : "))
+	(command ))
+    (grep-find (format "find . -type f -exec grep --color -nH -e %s {} +" word))))
 
 ;;---------------------------------------------------------------------------
 ;; merge 2 lines / merge current line & next line

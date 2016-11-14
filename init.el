@@ -70,11 +70,8 @@
 ;; カーソルタイプ
 (setq default-cursor-type '(bar . 2))
 
-;; 日本語環境
-(set-language-environment "Japanese")
-
 ;; エンコーディング
-(setq default-buffer-file-coding-system 'utf-8)
+(prefer-coding-system 'utf-8-unix)
 
 ;; scratchの初期のメッセージ
 (setq initial-scratch-message ";; hello world, emacs !!\n;; (´･_･`)\n")
@@ -101,7 +98,7 @@
 
 ;;---------------------------------------------------------------------------
 ;; prefix key <unset keys>
-;; _ _ E _ _ _ U _ o _
+;; q w E r t y U _ o _
 ;;  A _ _ _ _ _ _ _ _
 ;;   Z X C _ _ _ m
 
@@ -163,6 +160,10 @@
 
 ;; change encoding
 (global-set-key "\C-zf"    'set-file-name-coding-system)
+
+;; grep this % grep find this
+(global-set-key "\C-z\C-b" 'grep-this)
+(global-set-key "\C-z\C-f" 'grep-find-this)
 
 ;;---------------------------------------------------------------------------
 ;; A prefix (to edit somewhat)
