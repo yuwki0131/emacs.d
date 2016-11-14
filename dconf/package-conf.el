@@ -10,7 +10,7 @@
 ;; emacs server
 ;;---------------------------------------------------------------------------
 ;; terminalで emacsclient <file name>
-(use-package 'server
+(use-package server
   :config
   (unless (server-running-p)
     (server-start)))
