@@ -87,11 +87,8 @@
 ;; エディタの外観/サイズ調整
 (require 'appearance-conf)
 
-;; 標準機能(package-install不要)
-(require 'standard-conf)
-
-;; 非標準機能(要package-install)
-(require 'nonstandard-conf)
+;; 外部パッケージ(要package-install)
+(require 'package-conf)
 
 ;; 言語設定(要package-install)
 (require 'language-conf)
