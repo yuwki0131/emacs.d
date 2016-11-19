@@ -6,6 +6,37 @@
 ;;---------------------------------------------------------------------------
 ;;---------------------------------------------------------------------------
 
+;; ---------------------------------------------------------------------------
+;; パッケージマネージャ (package.el & use-package)
+;; ---------------------------------------------------------------------------
+(require 'package)
+
+(setq package-archives
+      '(("gnu" . "http://elpa.gnu.org/packages/")
+        ("melpa" . "https://melpa.org/packages/")
+        ("org" . "http://orgmode.org/elpa/")))
+
+(package-initialize)
+
+;; ---------------------------------------------------------------------------
+;; 初回起動時設定(package-refresh-contents & package-install大量)
+;; ---------------------------------------------------------------------------
+;; package-refresh-contentsは初回起動時1回のみ実行
+;; 必要に応じて.emacs.dの以下のファイルを削除で、起動時にrefresh
+;; ※ 起動毎の実行は重い
+(defvar package-refresh-contents-lock
+  "~/.emacs.d/.no-package-refresh-contents")
+
+(when (not (file-exists-p package-refresh-contents-lock))
+  (package-refresh-contents)
+  (with-temp-buffer
+    (insert (concat "package-refresh-contents\n last: " (current-time-string)))
+    (write-file package-refresh-contents-lock)))
+
+(package-install 'use-package)
+(use-package magit
+  :ensure t)
+
 ;;---------------------------------------------------------------------------
 ;; emacs server
 ;;---------------------------------------------------------------------------

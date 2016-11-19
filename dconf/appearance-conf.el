@@ -87,6 +87,7 @@
     :inverse-video nil
     :weight 'bold
     :height 100
+    :font "Ubuntu Mono"
     :box '(:line-width 1 :color "black" :style nil))
 
 ;; モードラインの色の設定(inactive)
@@ -95,6 +96,7 @@
     :inverse-video nil
     :weight 'extra-light
     :height 100
+    :font "Ubuntu Mono"
     :box '(:line-width 1 :color "gray30" :style nil))
 
 ;;---------------------------------------------------------------------------

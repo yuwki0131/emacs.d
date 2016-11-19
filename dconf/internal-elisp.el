@@ -21,9 +21,9 @@
 
 (defun grep-find-this ()
   (interactive)
-  (let ((word (read-from-minibuffer "grep find . : "))
-	(command ))
-    (grep-find (format "find . -type f -exec grep --color -nH -e %s {} +" word))))
+  (let ((word (read-from-minibuffer "grep find . : ")))
+    (grep-find
+     (format "find . -type f -exec grep --color -nH -e %s {} +" word))))
 
 ;;---------------------------------------------------------------------------
 ;; merge 2 lines / merge current line & next line
