@@ -1,4 +1,3 @@
-# emacs.d
+# 自分用 ~/.emacs.d
 
-my new .emacs.d
-発展途上
+発展途上 & 未確認 (´・_・`)
