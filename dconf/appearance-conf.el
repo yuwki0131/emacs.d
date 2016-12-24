@@ -108,7 +108,7 @@
 (setq default-cursor-type '(bar . 2))
 
 ;; タイトルバー
-(setq frame-title-format "%b")
+(setq frame-title-format "emacs : %b")
 
 ;; モードライン
 (display-time)

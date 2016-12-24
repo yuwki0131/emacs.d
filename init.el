@@ -21,6 +21,12 @@
 (package-initialize)
 
 ;;; ---------------------------------------------------------------------------
+;;; use package : 以降use-packageでインストール
+;;; ---------------------------------------------------------------------------
+
+(package-install 'use-package)
+
+;;; ---------------------------------------------------------------------------
 ;;; 初回起動時設定(package-refresh-contents & package-install大量)
 ;;; ---------------------------------------------------------------------------
 ;; package-refresh-contentsは初回起動時1回のみ実行
@@ -37,7 +43,10 @@
     (insert (concat "package-refresh-contents\n last: " (current-time-string)))
     (write-file package-refresh-contents-lock)))
 
-(package-install 'use-package)
+;;; ---------------------------------------------------------------------------
+;;; magit : emacs git client
+;;; ---------------------------------------------------------------------------
+
 (use-package magit
   :ensure t)
 
@@ -47,6 +56,9 @@
 
 ;; 設定ファイルのディレクトリ
 (add-to-list 'load-path "~/.emacs.d/dconf")
+
+;; 外部パッケージの設定
+(require 'package-conf)
 
 ;; 雑多な設定
 (require 'bizz-conf)
