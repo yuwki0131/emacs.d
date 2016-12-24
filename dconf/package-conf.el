@@ -10,15 +10,6 @@
 ;;; emacs server
 ;;; ---------------------------------------------------------------------------
 ;; terminalで emacsclient <file name>
-(use-package server
-  :config
-  (unless (server-running-p)
-    (server-start)))
-
-;;; ---------------------------------------------------------------------------
-;;; emacs server
-;;; ---------------------------------------------------------------------------
-;; terminalで emacsclient <file name>
 (use-package auto-compile
   :config
   (setq load-prefer-newer t)

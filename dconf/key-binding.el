@@ -72,7 +72,7 @@
 (global-set-key (kbd "C-.")  'goto-next-TODO)
 
 ;; アンダースコア挿入
-(global-set-key (kbd "\C-:") 'insert-underscore)
+(global-set-key (kbd "C-:") 'insert-underscore)
 
 ;; 括弧操作
 (global-set-key [C-return]      'kill-until-corresp-paren)
@@ -82,7 +82,7 @@
 (global-set-key (kbd "M-S-l")   'insert-squares)
 
 ;; 一時的なコマンド束縛用(テスト用/試用)
-(global-set-key "\M-j" 'temp-command)
+;(global-set-key "\M-j" 'temp-command)
 
 ;;; ---------------------------------------------------------------------------
 ;;; Z prefix (to work something)
@@ -99,6 +99,10 @@
 
 ;; replace string my shortcut
 (global-set-key "\C-z\C-r" 'replace-string)
+
+;; vr/isearch側の正規表現置換
+(global-set-key "\C-\M-s"  'vr/isearch-forward)
+(global-set-key "\C-\M-r"  'vr/isearch-backward)
 
 ;; change encoding
 (global-set-key "\C-zf"    'set-file-name-coding-system)
@@ -188,7 +192,7 @@
 (global-set-key "\C-e\C-b" 'previous-buffer-with-skip*)
 (global-set-key "\C-e\C-f" 'next-buffer-with-skip*)
 
-;;; ---------------------------------------------------------------------------
+;;;---------------------------------------------------------------------------
 ;;; provide
-;;; ---------------------------------------------------------------------------
+;;;---------------------------------------------------------------------------
 (provide 'key-binding)
