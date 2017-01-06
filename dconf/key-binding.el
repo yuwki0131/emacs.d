@@ -153,8 +153,9 @@
 ;; kill current buffer
 (global-set-key "\C-a\C-k" 'kill-this-buffer)
 
-;; insert-time key
-(global-set-key "\C-a\C-d" 'insert-time)
+;; insert-date key
+(global-set-key "\C-a\C-d" 'insert-date-normal)
+(global-set-key "\C-a\M-d" 'insert-date-markdown)
 
 ;; insert commment line
 (global-set-key "\C-a\C-m" 'insert--s)

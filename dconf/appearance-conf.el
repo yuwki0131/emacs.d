@@ -111,10 +111,10 @@
 (setq frame-title-format "emacs : %b")
 
 ;; モードライン
-(display-time)
-(setq display-time-day-and-date t)
-(setq display-time-string-forms
-      '((format "time : %s/%s(%s) [%s:%s]" month day dayname 24-hours minutes)))
+;; (display-time)
+(setq display-time-day-and-date -1)
+;; (setq display-time-string-forms
+;;       '((format "time : %s/%s(%s) [%s:%s]" month day dayname 24-hours minutes)))
 
 ;; 行番号フォーマット
 (setq linum-format " %4d ")

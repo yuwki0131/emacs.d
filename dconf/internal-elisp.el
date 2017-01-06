@@ -74,11 +74,15 @@
 ;;; ---------------------------------------------------------------------------
 ;;; insert date / 日付の挿入
 ;;; ---------------------------------------------------------------------------
-;; key-bind : insert-time key
+;; key-bind : insert-date key
 
-(defun insert-time ()
+(defun insert-date-normal ()
   (interactive)
   (insert (format-time-string "%Y/%m/%d %H:%M:%S")))
+
+(defun insert-date-markdown ()
+  (interactive)
+  (insert (format-time-string "%Y-%m-%d %H:%M")))
 
 ;;; ---------------------------------------------------------------------------
 ;;; fixed-scrolls / カーソル位置固定移動
@@ -242,7 +246,8 @@
       (string= "*ielm*" buffer-name)
       (string= "*inferior-lisp*" buffer-name)
       (string= "*Python*" buffer-name)
-      (string= "*scratch*" buffer-name)))
+      (string= "*scratch*" buffer-name)
+      (string= "*eshell*" buffer-name)))
 
 (defun move-to-repl ()
   (interactive)
