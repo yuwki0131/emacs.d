@@ -26,6 +26,7 @@
 ;;; ---------------------------------------------------------------------------
 ;;; 色設定
 ;;; ---------------------------------------------------------------------------
+;; M-x list-faces-display で編集対象の色を表示
 ;; 括弧の対応関係を色で示す
 (show-paren-mode t)
 (setq show-paren-style 'mixed)
@@ -39,7 +40,7 @@
 (defvar color/lightcyan "lightcyan")
 
 ;; 背景/前景の設定
-(set-background-color "#111111")
+(set-background-color "#1F1F1F")
 (set-foreground-color "#DDDDDD")
 
 ;; 各構文要素の色/タイプ(normal/italic/bold)の設定
@@ -49,7 +50,7 @@
   (set-face-bold-p     attr-symbol bold-param)
   (set-face-italic-p   attr-symbol italic-param))
 
-(set-face-fore-with-cbi 'font-lock-comment-face       "gray40"       nil t)
+(set-face-fore-with-cbi 'font-lock-comment-face       "#999999"      nil t)
 (set-face-fore-with-cbi 'font-lock-string-face        "deeppink"     t   nil)
 (set-face-fore-with-cbi 'font-lock-keyword-face       color/darkcyan t   nil)
 (set-face-fore-with-cbi 'font-lock-builtin-face       color/darkcyan nil nil)
@@ -59,18 +60,25 @@
 (set-face-fore-with-cbi 'font-lock-constant-face      "deeppink"     t   nil)
 (set-face-fore-with-cbi 'font-lock-warning-face       "deeppink"     nil t)
 
+(set-face-fore-with-cbi 'info-header-xref             color/darkcyan nil t)
+(set-face-fore-with-cbi 'info-xref                    color/darkcyan nil t)
+(set-face-fore-with-cbi 'link                         color/darkcyan nil t)
+(set-face-fore-with-cbi 'escape-glyph                 color/darkcyan nil nil)
+(set-face-fore-with-cbi 'minibuffer-prompt            "deeppink"     t   nil)
+
 ;; 対応する括弧に色をつける
 (set-face-background 'show-paren-match-face "white")
 (set-face-foreground 'show-paren-match-face "black")
 
 ;; カーソルの色
-(set-cursor-color "red")
+(set-cursor-color "deeppink")
 
 ;; カーソル行ハイライト
 (defface hlline-face
   '((((class color) (background dark))  (:background "#441200"))
     (((class color) (background light)) (:background "lightcyan"))
     (t ())) "*Face used by hl-line.")
+
 (setq hl-line-face 'hlline-face)
 (global-hl-line-mode)
 
@@ -80,12 +88,12 @@
 
 ;; 行番号(line-num)の色の設定
 (set-face-attribute 'linum nil
-    :foreground "white" :background color/darkcyan
+    :foreground "white" :background "#1F1F1F"
     :weight 'bold)
 
 ;; モードラインの色の設定(active)
 (set-face-attribute 'mode-line nil
-    :foreground "lightcyan" :background "black"
+    :foreground "lightcyan" :background "#1F1F1F"
     :inverse-video nil
     :weight 'bold
     :height 100
@@ -94,7 +102,7 @@
 
 ;; モードラインの色の設定(inactive)
 (set-face-attribute 'mode-line-inactive nil
-    :foreground "lightcyan" :background color/darkcyan
+    :foreground "lightcyan" :background "#333333"
     :inverse-video nil
     :weight 'extra-light
     :height 100
