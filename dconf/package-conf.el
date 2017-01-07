@@ -33,6 +33,50 @@
 ;;   (setq vr/engine 'java))
 
 ;;; ---------------------------------------------------------------------------
+;;; highlight numbers : 数値のハイライト
+;;; ---------------------------------------------------------------------------
+(use-package highlight-numbers
+  :config
+  (add-hook 'prog-mode-hook 'highlight-numbers-mode))
+
+;;; ---------------------------------------------------------------------------
+;;; highlight operators : 演算子のハイライト
+;;; ---------------------------------------------------------------------------
+(use-package highlight-operators
+  :config
+  (add-hook 'python-mode-hook 'highlight-operators-mode))
+
+;;; ---------------------------------------------------------------------------
+;;; highlight line plus : カーソル行ハイライト(拡張)
+;;; ---------------------------------------------------------------------------
+(use-package hl-line+
+  :config
+  (toggle-hl-line-when-idle)
+  (setq hl-line-idle-interval 3))
+
+;;; ---------------------------------------------------------------------------
+;;; highlight current-buffer : 現在のバッファをハイライト
+;;; ---------------------------------------------------------------------------
+(use-package hiwin
+  :config
+  (hiwin-activate)
+  (set-face-background 'hiwin-face "gray10"))
+
+;;; ---------------------------------------------------------------------------
+;;; highlight indent guides : インデントのハイライト
+;;; ---------------------------------------------------------------------------
+(use-package highlight-indent-guides
+  :config
+  (setq highlight-indent-guides-method 'character)
+  (set-face-background 'highlight-indent-guides-even-face "white")
+  (add-hook 'prog-mode-hook 'highlight-indent-guides-mode))
+
+;;; ---------------------------------------------------------------------------
+;;; nurumacs : sublime風アウトライン表示
+;;; ---------------------------------------------------------------------------
+(use-package nurumacs)
+
+;;; ---------------------------------------------------------------------------
 ;;; swoop : トークンレベル移動
 ;;; ---------------------------------------------------------------------------
 (use-package swoop)
@@ -61,32 +105,23 @@
   (add-to-list 'ac-dictionary-directories "~/.emacs.d/ac-dict"))
 
 ;;; ---------------------------------------------------------------------------
-;;; highlight indent guides : インデントのハイライト
-;;; ---------------------------------------------------------------------------
-(use-package highlight-indent-guides
-  :config
-  (setq highlight-indent-guides-method 'character)
-  (set-face-background 'highlight-indent-guides-even-face "white")
-  (add-hook 'prog-mode-hook 'highlight-indent-guides-mode))
-
-;;; ---------------------------------------------------------------------------
 ;;; ace jump mode : 任意の場所に3ストロークで移動
 ;;; ---------------------------------------------------------------------------
 ;; (use-package ace-jump-mode)
 
 ;;; ---------------------------------------------------------------------------
-;;; anzu : モードラインの右側に検索中の単語数を表示
+;;; anzu : モードラインの左側に検索中の単語数を表示
 ;;; ---------------------------------------------------------------------------
 (use-package anzu
   :config
   (global-anzu-mode t))
 
 ;;; ---------------------------------------------------------------------------
-;;; auto highlight symbol : カーソル位置のシンボルの自動ハイライト
+;;; highlight symbol : カーソル位置のシンボルの自動ハイライト
 ;;; ---------------------------------------------------------------------------
-(use-package auto-highlight-symbol
+(use-package highlight-symbol
   :config
-  (global-auto-highlight-symbol-mode t))
+  (add-hook 'prog-mode-hook 'highlight-symbol-mode))
 
 ;;; ---------------------------------------------------------------------------
 ;;; google this : ググる
@@ -102,13 +137,6 @@
     "URL for google searches."
     (concat google-this-base-url google-this-location-suffix
 	    "/search?q=%s&hl=ja&num=100&as_qdr=y5&lr=lang_ja")))
-
-;;; ---------------------------------------------------------------------------
-;;; auto highlight symbol : カーソル位置のシンボルの自動ハイライト
-;;; ---------------------------------------------------------------------------
-(use-package auto-highlight-symbol
-  :config
-  (global-auto-highlight-symbol-mode t))
 
 ;;; ---------------------------------------------------------------------------
 ;;; w3m : w3m in emacs

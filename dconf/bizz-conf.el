@@ -45,7 +45,10 @@
 (setq completion-ignore-case t)
 
 ;; バッファ自動再読み込み
-(global-auto-revert-mode 1)
+(global-auto-revert-mode t)
+
+;; バッファの終端を表示(空行表示)
+(setq-default indicate-empty-lines t)
 
 ;; カーソルタイプ
 (setq default-cursor-type '(bar . 2))

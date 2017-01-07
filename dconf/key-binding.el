@@ -74,6 +74,10 @@
 ;; アンダースコア挿入
 (global-set-key (kbd "C-:") 'insert-underscore)
 
+;; シンボル移動　(highlight-symbol-mode)
+(global-set-key (kbd "C-?") 'highlight-symbol-next)
+(global-set-key (kbd "C-!") 'highlight-symbol-prev)
+
 ;; 括弧操作
 (global-set-key [C-return]      'kill-until-corresp-paren)
 (global-set-key "\C-l"          'insert-parenthesis)
@@ -116,6 +120,9 @@
 
 ;; make buffer small
 (global-set-key "\C-zs"    'make-buffer-small)
+
+;; sublime 風outline
+(global-set-key "\C-z\C-o" 'nurumacs-map-toggle)
 
 ;;; ---------------------------------------------------------------------------
 ;;; A prefix (to edit somewhat)
@@ -192,6 +199,10 @@
 ;; バッファ移動 (アスタリスク付バッファはスキップ)
 (global-set-key "\C-e\C-b" 'previous-buffer-with-skip*)
 (global-set-key "\C-e\C-f" 'next-buffer-with-skip*)
+
+;; シンボル移動　(highlight-symbol-mode)
+(global-set-key "\C-e\C-n" 'highlight-symbol-next)
+(global-set-key "\C-e\C-p" 'highlight-symbol-prev)
 
 ;;;---------------------------------------------------------------------------
 ;;; provide
