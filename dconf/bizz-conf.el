@@ -53,10 +53,10 @@
 ;; カーソルタイプ
 (setq default-cursor-type '(bar . 2))
 
-;; scratchの初期のメッセージ
-(setq initial-scratch-message ";; hello world, emacs !!\n;; (´･_･`)\n")
+;; scratchの初期のメッセージ消去
+(setq initial-scratch-message nil)
 
-;; yes-or-no to y-or-n
+;; from yes-or-no to y-or-n
 (fset 'yes-or-no-p 'y-or-n-p)
 
 ;; 画像ファイル表示

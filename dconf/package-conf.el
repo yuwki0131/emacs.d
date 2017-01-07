@@ -7,19 +7,44 @@
 ;;; ---------------------------------------------------------------------------
 
 ;;; ---------------------------------------------------------------------------
+;;; failed-packages report : use-packageに失敗したパッケージのレポート
+;;; ---------------------------------------------------------------------------
+
+(defvar failed-packages '())
+
+(defmacro use-package-with-report (&rest body)
+  `(when (not (use-package . ,body))
+     (add-to-list 'failed-packages ,(symbol-name (car body)))))
+
+(defun interpose (ls obj)
+  (if (null ls)
+      nil
+    `(,(car ls) ,obj . ,(interpose (cdr ls) obj))))
+
+(defun report-failed-packages ()
+  (if (not failed-packages)
+      "all defined packages installed successfully"
+    (concat
+     "failed packages: \n"
+     (apply 'concat (interpose failed-packages "\n")))))
+
+(font-lock-add-keywords 'emacs-lisp-mode
+  '(("\\(use-package-with-report\\)" . font-lock-keyword-face)))
+
+;;; ---------------------------------------------------------------------------
 ;;; emacs server
 ;;; ---------------------------------------------------------------------------
 ;; terminalで emacsclient <file name>
-(use-package auto-compile
-  :config
-  (setq load-prefer-newer t)
-  (auto-compile-on-load-mode)
-  (auto-compile-on-save-mode))
+;; (use-package-with-report auto-compile
+;;   :config
+;;   (setq load-prefer-newer t)
+;;   (auto-compile-on-load-mode)
+;;   (auto-compile-on-save-mode))
 
 ;;; ---------------------------------------------------------------------------
 ;;; 普通のredo
 ;;; ---------------------------------------------------------------------------
-(use-package redo+
+(use-package-with-report redo+
   :config
   (setq undo-no-redo t)
   (setq undo-limit 60000)
@@ -28,28 +53,28 @@
 ;;; ---------------------------------------------------------------------------
 ;;; visual regexp steroids : 正規表現の拡張
 ;;; ---------------------------------------------------------------------------
-;; (use-package visual-regexp-steroids
+;; (use-package-with-report visual-regexp-steroids
 ;;   :config
 ;;   (setq vr/engine 'java))
 
 ;;; ---------------------------------------------------------------------------
 ;;; highlight numbers : 数値のハイライト
 ;;; ---------------------------------------------------------------------------
-(use-package highlight-numbers
+(use-package-with-report highlight-numbers
   :config
   (add-hook 'prog-mode-hook 'highlight-numbers-mode))
 
 ;;; ---------------------------------------------------------------------------
 ;;; highlight operators : 演算子のハイライト
 ;;; ---------------------------------------------------------------------------
-(use-package highlight-operators
+(use-package-with-report highlight-operators
   :config
   (add-hook 'python-mode-hook 'highlight-operators-mode))
 
 ;;; ---------------------------------------------------------------------------
 ;;; highlight line plus : カーソル行ハイライト(拡張)
 ;;; ---------------------------------------------------------------------------
-(use-package hl-line+
+(use-package-with-report hl-line+
   :config
   (toggle-hl-line-when-idle)
   (setq hl-line-idle-interval 3))
@@ -57,7 +82,7 @@
 ;;; ---------------------------------------------------------------------------
 ;;; highlight current-buffer : 現在のバッファをハイライト
 ;;; ---------------------------------------------------------------------------
-(use-package hiwin
+(use-package-with-report hiwin
   :config
   (hiwin-activate)
   (set-face-background 'hiwin-face "gray10"))
@@ -65,7 +90,7 @@
 ;;; ---------------------------------------------------------------------------
 ;;; highlight indent guides : インデントのハイライト
 ;;; ---------------------------------------------------------------------------
-(use-package highlight-indent-guides
+(use-package-with-report highlight-indent-guides
   :config
   (setq highlight-indent-guides-method 'character)
   (set-face-background 'highlight-indent-guides-even-face "white")
@@ -74,32 +99,40 @@
 ;;; ---------------------------------------------------------------------------
 ;;; nurumacs : sublime風アウトライン表示
 ;;; ---------------------------------------------------------------------------
-(use-package nurumacs)
+(use-package-with-report nurumacs)
 
 ;;; ---------------------------------------------------------------------------
-;;; swoop : トークンレベル移動
+;;; helm : helm
 ;;; ---------------------------------------------------------------------------
-(use-package swoop)
+(use-package-with-report helm
+  :config
+  (require 'helm-config)
+  (helm-mode 1))
+
+;;; ---------------------------------------------------------------------------
+;;; swoop : トークンレベル移動(検索系)
+;;; ---------------------------------------------------------------------------
+(use-package-with-report swoop)
 
 ;;; ---------------------------------------------------------------------------
 ;;; mouse disable : マウス禁止
 ;;; ---------------------------------------------------------------------------
-(use-package disable-mouse
+(use-package-with-report disable-mouse
   :config
   (global-disable-mouse-mode))
 
 ;;; ---------------------------------------------------------------------------
 ;;; smooth scroll : スクロール滑川
 ;;; ---------------------------------------------------------------------------
-(use-package smooth-scroll
-  :config
-  (setq mouse-wheel-scroll-amount '(1 ((shift) . 1)))
-  (smooth-scroll-mode t))
+;; (use-package-with-report smooth-scroll
+;;   :config
+;;   (setq mouse-wheel-scroll-amount '(1 ((shift) . 1)))
+;;   (smooth-scroll-mode t))
 
 ;;; ---------------------------------------------------------------------------
 ;;; auto complete : 自動補完
 ;;; ---------------------------------------------------------------------------
-(use-package auto-complete
+(use-package-with-report auto-complete
   :config
   (ac-config-default)
   (add-to-list 'ac-dictionary-directories "~/.emacs.d/ac-dict"))
@@ -107,19 +140,19 @@
 ;;; ---------------------------------------------------------------------------
 ;;; ace jump mode : 任意の場所に3ストロークで移動
 ;;; ---------------------------------------------------------------------------
-;; (use-package ace-jump-mode)
+;; (use-package-with-report ace-jump-mode)
 
 ;;; ---------------------------------------------------------------------------
 ;;; anzu : モードラインの左側に検索中の単語数を表示
 ;;; ---------------------------------------------------------------------------
-(use-package anzu
+(use-package-with-report anzu
   :config
   (global-anzu-mode t))
 
 ;;; ---------------------------------------------------------------------------
 ;;; highlight symbol : カーソル位置のシンボルの自動ハイライト
 ;;; ---------------------------------------------------------------------------
-(use-package highlight-symbol
+(use-package-with-report highlight-symbol
   :config
   (add-hook 'prog-mode-hook 'highlight-symbol-mode))
 
@@ -128,7 +161,7 @@
 ;;; ---------------------------------------------------------------------------
 ;; key-bind : google-this
 
-(use-package google-this
+(use-package-with-report google-this
   :config
   (google-this-mode t)
   (setq google-this-location-suffix "co.jp")
@@ -141,26 +174,26 @@
 ;;; ---------------------------------------------------------------------------
 ;;; w3m : w3m in emacs
 ;;; ---------------------------------------------------------------------------
-(use-package w3m-load
+(use-package-with-report w3m-load
   :config
   (setq w3m-command "w3m"))
 
 ;;; ---------------------------------------------------------------------------
 ;;; auto async byte compile : emacsのバイトコンパイルの自動化
 ;;; ---------------------------------------------------------------------------
-(use-package auto-async-byte-compile)
+(use-package-with-report auto-async-byte-compile)
 
 ;;; ---------------------------------------------------------------------------
 ;;; goto chg : 最後に変更した箇所へカーソルを移動
 ;;; ---------------------------------------------------------------------------
 ;; TODO : キーバインド未設定
-(use-package goto-chg)
+(use-package-with-report goto-chg)
 
 ;;; ---------------------------------------------------------------------------
 ;;; migemo : isearchをローマ字のままで日本語も検索可能に
 ;;; ---------------------------------------------------------------------------
 ;; required : sudo apt-get install cmigemo
-(use-package migemo
+(use-package-with-report migemo
   :config
   (when (executable-find "cmigemo")
     (setq migemo-options '("-q" "--emacs"))
@@ -175,7 +208,7 @@
 ;;; ---------------------------------------------------------------------------
 ;;; twittering mode : ついった
 ;;; ---------------------------------------------------------------------------
-(use-package twittering-mode
+(use-package-with-report twittering-mode
   :config
   (setq twittering-use-master-password t))
 
@@ -183,7 +216,7 @@
 ;;; 絵文字用フォントセット
 ;;; ---------------------------------------------------------------------------
 ;; source : http://qiita.com/tadsan/items/a67b28dd02bf819f3f4e
-(use-package emoji-fontset
+(use-package-with-report emoji-fontset
   :config
   (emoji-fontset-enable "Symbola"))
 
@@ -191,7 +224,7 @@
 ;;; にゃーん
 ;;; ---------------------------------------------------------------------------
 ;; original : https://www.youtube.com/watch?v=QH2-TGUlwu4
-(use-package nyan-mode
+(use-package-with-report nyan-mode
   :config
   (nyan-mode)
   (nyan-start-animation)

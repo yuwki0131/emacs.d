@@ -71,6 +71,14 @@
   (set-face-bold-p     attr-symbol bold-param)
   (set-face-italic-p   attr-symbol italic-param))
 
+;; 各構文要素の色(foreground, background)/タイプ(normal/italic/bold)の設定
+(defun set-face-fore-with-bfcbi
+    (attr-symbol color-name-fg color-name-bg bold-param italic-param)
+  (set-face-foreground attr-symbol color-name-fg)
+  (set-face-background attr-symbol color-name-bg)
+  (set-face-bold-p     attr-symbol bold-param)
+  (set-face-italic-p   attr-symbol italic-param))
+
 ;; coloring program
 (set-face-fore-with-cbi 'font-lock-comment-face       color/comment    nil t)
 (set-face-fore-with-cbi 'font-lock-doc-face           color/deeppink   nil t)
@@ -93,6 +101,13 @@
 (set-face-fore-with-cbi 'link                         color/deeppink   nil t)
 (set-face-fore-with-cbi 'escape-glyph                 color/darkcyan   nil nil)
 (set-face-fore-with-cbi 'minibuffer-prompt            color/deeppink   t   nil)
+
+;; coloring ac
+(set-face-fore-with-bfcbi 'ac-selection-face  color/deeppink "white"   t   nil)
+(set-face-fore-with-bfcbi 'ac-candidate-face  "white" color/darkcyan   t   nil)
+
+;; coloring helm
+(set-face-fore-with-bfcbi 'helm-selection  color/deeppink color/inactive t nil)
 
 ;; 対応する括弧に色をつける
 (set-face-background 'show-paren-match-face "white")
