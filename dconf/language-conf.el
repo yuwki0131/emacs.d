@@ -48,7 +48,7 @@
   (setq geiser-active-implementations '(guile)))
 
 ;;; ---------------------------------------------------------------------------
-;;; Common Lisp (SBCL / SLIME)の設定(checked)
+;;; Common Lisp (SBCL/SLIME)の設定 (checked)
 ;;; ---------------------------------------------------------------------------
 (setq inferior-lisp-program "/usr/bin/sbcl")
 
@@ -72,7 +72,6 @@
     (clj-refactor-mode 1)
     (yas-minor-mode 1) ; for adding require/use/import
     (cljr-add-keybindings-with-prefix "C-c C-m"))
-
   (add-hook 'clojure-mode-hook #'my-clojure-mode-hook))
 
 ;;; ---------------------------------------------------------------------------
@@ -137,7 +136,7 @@
   (add-to-list 'interpreter-mode-alist '("lua" . lua-mode)))
 
 ;;; ---------------------------------------------------------------------------
-;;; vimrc-mode : vimrc編集用
+;;; vimrc-mode : vimrc編集用 (checked)
 ;;; ---------------------------------------------------------------------------
 (use-package vimrc-mode)
 

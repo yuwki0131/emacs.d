@@ -124,6 +124,9 @@
 ;; sublime 風outline
 (global-set-key "\C-z\C-o" 'nurumacs-map-toggle)
 
+;; magit status
+(global-set-key "\C-zm"    'magit-status)
+
 ;;; ---------------------------------------------------------------------------
 ;;; A prefix (to edit somewhat)
 ;;; ---------------------------------------------------------------------------
@@ -184,7 +187,7 @@
 ;; Visual Regexp
 (global-set-key "\C-e\C-d" 'vr/query-replace)
 
-;; デフォルトの行先頭後尾移動 Ctrl-e / Ctrl-a の再設定.
+;; デフォルトの行先頭後尾移動 Ctrl-e / Ctrl-a の再設定
 (global-set-key "\C-e\C-a" 'move-beginning-of-line)
 (global-set-key "\C-e\C-e" 'move-end-of-line)
 
