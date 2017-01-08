@@ -19,14 +19,14 @@
   (set-face-attribute
    'default nil :family default-font-family :height 90)
   (set-fontset-font
-   'nil 'japanese-jisx0208 (font-spec :family default-font-family-jp :size 12)))
+   'nil 'japanese-jisx0208 (font-spec :family default-font-family-jp :height 90)))
 
 ;; Linux系の場合
 (when (eq system-type 'gnu/linux)
   (set-face-attribute
    'default nil :family default-font-family :height 100)
   (set-fontset-font
-   'nil 'japanese-jisx0208 (font-spec :family default-font-family-jp :size 12)))
+   'nil 'japanese-jisx0208 (font-spec :family default-font-family-jp :height 90)))
 
 ;;; ---------------------------------------------------------------------------
 ;;; 色設定

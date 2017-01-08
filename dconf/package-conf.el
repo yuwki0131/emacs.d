@@ -97,6 +97,13 @@
   (add-hook 'prog-mode-hook 'highlight-indent-guides-mode))
 
 ;;; ---------------------------------------------------------------------------
+;;; volatile highlights : 修正箇所のハイライト
+;;; ---------------------------------------------------------------------------
+(use-package-with-report volatile-highlights
+  :config
+  (volatile-highlights-mode t))
+
+;;; ---------------------------------------------------------------------------
 ;;; nurumacs : sublime風アウトライン表示
 ;;; ---------------------------------------------------------------------------
 (use-package-with-report nurumacs)
@@ -204,6 +211,13 @@
     (migemo-init)
     (setq migemo-command "cmigemo")
     (setq migemo-dictionary "/usr/share/cmigemo/utf-8/migemo-dict")))
+
+;;; ---------------------------------------------------------------------------
+;;; exec path from shell : シェルのpath設定引き継ぎ
+;;; ---------------------------------------------------------------------------
+(use-package-with-report exec-path-from-shell
+  :config
+  (exec-path-from-shell-initialize))
 
 ;;; ---------------------------------------------------------------------------
 ;;; twittering mode : ついった
