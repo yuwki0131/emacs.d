@@ -165,7 +165,7 @@
 ;; モードライン(時間非表示)
 ;; (display-time)
 ;; (setq display-time-string-forms
-;;       '((format "time : %s/%s(%s) [%s:%s]" month day dayname 24-hours minutes)))
+;; '((format "time : %s/%s(%s) [%s:%s]" month day dayname 24-hours minutes)))
 (setq display-time-day-and-date -1)
 
 ;; 行番号フォーマット
@@ -173,7 +173,9 @@
 
 ;; 画面サイズ初期化
 (setq initial-frame-alist
-      '((top . 20) (left . 0) (width . 128) (height . 75) (alpha . (95 85))))
+      '((top . 20) (left . 0)
+	(width . 128) (height . 75)
+	(alpha . (95 85))))
 
 ;;;---------------------------------------------------------------------------
 ;;; provide

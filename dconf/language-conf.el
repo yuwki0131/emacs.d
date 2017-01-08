@@ -141,29 +141,17 @@
 (use-package vimrc-mode)
 
 ;;; ---------------------------------------------------------------------------
-;;; jedi, flycheck : Python (unchecked)
+;;; jedi, epc, elpy, flycheck : Python (unchecked)
 ;;; ---------------------------------------------------------------------------
-;; auto complete
-(use-package jedi
-  :config
-  (require 'auto-complete-config)
-  (require 'epc)
-  (add-hook 'python-mode-hook 'jedi:setup)
-  (setq jedi:complete-on-dot t)
-  (add-to-list 'ac-sources 'ac-source-filename)
-  (add-to-list 'ac-sources 'ac-source-jedi-direct))
 (use-package python-environment)
 
-;; syntax check
-(use-package flycheck
+(use-package jedi
   :config
-  (add-hook 'python-mode-hook (lambda () (flymake-mode t))))
-(use-package flymake-python-pyflakes
-  :config
-  (flymake-python-pyflakes-load)
-  (setq flymake-python-pyflakes-executable
-	"/usr/bin/pyflakes")
-  (add-hook 'python-mode-hook (lambda () (flymake-mode t))))
+  (add-hook 'python-mode-hook 'jedi:setup)
+  (setq jedi:complete-on-dot t))
+
+(use-package epc)
+(use-package elpy)
 
 ;; PEP8 check
 (use-package py-autopep8
@@ -171,6 +159,35 @@
   (setq py-autopep8-options '("--max-line-length=200"))
   (setq flycheck-flake8-maximum-line-length 200)
   (py-autopep8-enable-on-save))
+
+(use-package flycheck-pyflakes
+  :config
+  (require 'tramp-cmds)
+  (add-hook 'python-mode-hook 'flymake-python-pyflakes-load)
+  (setq flymake-python-pyflakes-executable "/usr/bin/pyflakes")
+  (flymake-python-pyflakes-load)
+  (custom-set-variables
+   '(flymake-python-pyflakes-extra-arguments
+     (quote ("--max-line-length=120" "--ignore=E128"))))
+  (defun flymake-pyflakes-init ()
+  (when (not (subsetp (list (current-buffer)) (tramp-list-remote-buffers)))
+    (let* ((temp-file (flymake-init-create-temp-buffer-copy
+		       'flymake-create-temp-inplace))
+	   (local-file (file-relative-name
+			temp-file
+			(file-name-directory buffer-file-name))))
+      (list "pyflakes" (list local-file)))))
+  (add-to-list 'flymake-allowed-file-name-masks '("\\.py\\'" flymake-pyflakes-init)))
+
+(add-hook
+ 'python-mode-hook
+ '(lambda ()
+    (setq indent-tabs-mode nil)
+    (setq indent-level 4)
+    (setq python-indent 4)
+    (setq tab-width 4)
+    (setq imenu-create-index-function 'python-imenu-create-index)
+    (flymake-mode t)))
 
 ;;; ---------------------------------------------------------------------------
 ;;; provide

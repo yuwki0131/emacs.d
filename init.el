@@ -9,7 +9,6 @@
 ;;; ---------------------------------------------------------------------------
 ;;; パッケージマネージャ (package.el & use-package)
 ;;; ---------------------------------------------------------------------------
-
 (require 'package)
 
 (setq package-archives
@@ -21,10 +20,10 @@
 (package-initialize)
 
 ;;; ---------------------------------------------------------------------------
-;;; use package : 以降use-packageでインストール
+;;; use package : emacs パッケージ管理
 ;;; ---------------------------------------------------------------------------
-
-(package-install 'use-package)
+;; 以降use-packageでインストール
+(require 'use-package)
 
 ;;; ---------------------------------------------------------------------------
 ;;; 初回起動時設定(package-refresh-contents & package-install大量)
@@ -65,6 +64,9 @@
 
 ;; エディタの外観/サイズ調整
 (require 'appearance-conf)
+
+;; 言語共通設定(要package-install)
+(require 'common-lang-conf)
 
 ;; 言語設定(要package-install)
 (require 'language-conf)

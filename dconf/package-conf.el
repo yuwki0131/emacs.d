@@ -9,11 +9,10 @@
 ;;; ---------------------------------------------------------------------------
 ;;; failed-packages report : use-packageに失敗したパッケージのレポート
 ;;; ---------------------------------------------------------------------------
-
 (defvar failed-packages '())
 
 (defmacro use-package-with-report (&rest body)
-  `(when (not (use-package . ,body))
+  `(when (not (use-package . ,(append body '(:config 't))))
      (add-to-list 'failed-packages ,(symbol-name (car body)))))
 
 (defun interpose (ls obj)
@@ -21,28 +20,31 @@
       nil
     `(,(car ls) ,obj . ,(interpose (cdr ls) obj))))
 
+(defun add-semicolon (line)
+  (concat ";; " line))
+
 (defun report-failed-packages ()
   (if (not failed-packages)
-      "all defined packages installed successfully"
+      ";; all defined packages installed successfully"
     (concat
-     "failed packages: \n"
-     (apply 'concat (interpose failed-packages "\n")))))
+     ";; failed packages: \n"
+     (apply 'concat
+	    (interpose (mapcar add-semicolon failed-packages) "\n")))))
 
 (font-lock-add-keywords 'emacs-lisp-mode
   '(("\\(use-package-with-report\\)" . font-lock-keyword-face)))
 
 ;;; ---------------------------------------------------------------------------
-;;; emacs server
+;;; auto compile : elファイル自動コンパイル
 ;;; ---------------------------------------------------------------------------
-;; terminalで emacsclient <file name>
-;; (use-package-with-report auto-compile
-;;   :config
-;;   (setq load-prefer-newer t)
-;;   (auto-compile-on-load-mode)
-;;   (auto-compile-on-save-mode))
+(use-package-with-report auto-compile
+  :config
+  (setq load-prefer-newer t)
+  (auto-compile-on-load-mode)
+  (auto-compile-on-save-mode))
 
 ;;; ---------------------------------------------------------------------------
-;;; 普通のredo
+;;; redo+ : 普通のredo
 ;;; ---------------------------------------------------------------------------
 (use-package-with-report redo+
   :config
@@ -88,7 +90,7 @@
   (set-face-background 'hiwin-face "gray10"))
 
 ;;; ---------------------------------------------------------------------------
-;;; highlight indent guides : インデントのハイライト
+;;; highlight indent guides : インデント表示
 ;;; ---------------------------------------------------------------------------
 (use-package-with-report highlight-indent-guides
   :config
@@ -106,7 +108,7 @@
 ;;; ---------------------------------------------------------------------------
 ;;; nurumacs : sublime風アウトライン表示
 ;;; ---------------------------------------------------------------------------
-(use-package-with-report nurumacs)
+;; (use-package-with-report nurumacs)
 
 ;;; ---------------------------------------------------------------------------
 ;;; helm : helm
@@ -181,7 +183,7 @@
 ;;; ---------------------------------------------------------------------------
 ;;; w3m : w3m in emacs
 ;;; ---------------------------------------------------------------------------
-(use-package-with-report w3m-load
+(use-package-with-report w3m
   :config
   (setq w3m-command "w3m"))
 
@@ -218,6 +220,13 @@
 (use-package-with-report exec-path-from-shell
   :config
   (exec-path-from-shell-initialize))
+
+;;; ---------------------------------------------------------------------------
+;;; esup : emacs起動時間の計測
+;;; ---------------------------------------------------------------------------
+
+(use-package esup
+  :ensure t)
 
 ;;; ---------------------------------------------------------------------------
 ;;; twittering mode : ついった

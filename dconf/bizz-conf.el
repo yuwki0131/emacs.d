@@ -45,7 +45,7 @@
 (setq completion-ignore-case t)
 
 ;; バッファ自動再読み込み
-(global-auto-revert-mode t)
+;; (global-auto-revert-mode t)
 
 ;; バッファの終端を表示(空行表示)
 (setq-default indicate-empty-lines t)
@@ -69,7 +69,10 @@
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 ;; GC閾値 (この値が低いと画面がちらつくことがある)
-(setq gc-cons-threshold 400000000)        ; =~ 400M(default: 400K)
+(setq gc-cons-threshold 40960000000)        ; =~ 40000M(default: 400K)
+
+;; GCが発生した場合にレポート
+(setq garbage-collection-messages t)
 
 ;;; ---------------------------------------------------------------------------
 ;;; standard requires
