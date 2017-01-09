@@ -166,17 +166,18 @@
   (add-hook 'python-mode-hook 'flymake-python-pyflakes-load)
   (setq flymake-python-pyflakes-executable "/usr/bin/pyflakes")
   (flymake-python-pyflakes-load)
+  (setq flymake-gui-warnings-enabled t)
   (custom-set-variables
    '(flymake-python-pyflakes-extra-arguments
      (quote ("--max-line-length=120" "--ignore=E128"))))
   (defun flymake-pyflakes-init ()
-  (when (not (subsetp (list (current-buffer)) (tramp-list-remote-buffers)))
-    (let* ((temp-file (flymake-init-create-temp-buffer-copy
-		       'flymake-create-temp-inplace))
-	   (local-file (file-relative-name
-			temp-file
-			(file-name-directory buffer-file-name))))
-      (list "pyflakes" (list local-file)))))
+    (when (not (subsetp (list (current-buffer)) (tramp-list-remote-buffers)))
+      (let* ((temp-file (flymake-init-create-temp-buffer-copy
+			 'flymake-create-temp-inplace))
+	     (local-file (file-relative-name
+			  temp-file
+			  (file-name-directory buffer-file-name))))
+	(list "pyflakes" (list local-file)))))
   (add-to-list 'flymake-allowed-file-name-masks '("\\.py\\'" flymake-pyflakes-init)))
 
 (add-hook
