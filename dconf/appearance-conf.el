@@ -29,7 +29,7 @@
    'nil 'japanese-jisx0208 (font-spec :family default-font-family-jp :height 90)))
 
 ;;; ---------------------------------------------------------------------------
-;;; 色設定
+;;; 色設定(標準)
 ;;; ---------------------------------------------------------------------------
 ;; M-x list-faces-display で編集対象の色を表示
 ;; 括弧の対応関係を色で示す
@@ -56,8 +56,8 @@
 
 ;; gray系
 (defvar color/active "#101010")
-(defvar color/inactive "#303030")
-(defvar color/bggray "#0F0F0F")
+(defvar color/inactive "#393939")
+(defvar color/bggray "#1F1F1F")
 (defvar color/fggray "#E0E0E0")
 (defvar color/comment "#999999")
 
@@ -92,8 +92,8 @@
 (set-face-fore-with-cbi 'font-lock-warning-face       color/deeppink   nil t)
 
 ;; coloring program (extension)
-(set-face-fore-with-cbi 'highlight-numbers-number     color/deeppink   nil nil)
-(set-face-fore-with-cbi 'highlight-operators-face     color/limegreen  nil nil)
+;; (set-face-fore-with-cbi 'highlight-numbers-number     color/deeppink   nil nil)
+;; (set-face-fore-with-cbi 'highlight-operators-face     color/limegreen  nil nil)
 
 ;; coloring property
 (set-face-fore-with-cbi 'info-header-xref             color/darkcyan   nil t)
@@ -107,10 +107,10 @@
 (set-face-fore-with-bfcbi 'ac-candidate-face  "white" color/darkcyan   t   nil)
 
 ;; coloring helm
-(set-face-fore-with-bfcbi 'helm-selection  color/deeppink color/inactive t nil)
+;;(set-face-fore-with-bfcbi 'helm-selection  color/deeppink color/inactive t nil)
 
 ;; 対応する括弧に色をつける
-(set-face-background 'show-paren-match-face "white")
+;; (set-face-background 'show-paren-match-face "white")
 (set-face-foreground 'show-paren-match-face color/deeppink)
 
 ;; カーソルの色
@@ -124,7 +124,8 @@
 (setq hl-line-face 'hlline-face)
 
 ;; (setq hl-line-face 'underline)
-(global-hl-line-mode)
+;; 使用しない
+;; (global-hl-line-mode)
 
 ;; 選択範囲
 (set-face-foreground 'region "black")
@@ -154,6 +155,10 @@
     :box '(:line-width 1 :color "gray30" :style nil))
 
 ;;;---------------------------------------------------------------------------
+;;; 色設定(標準以外)
+;;;---------------------------------------------------------------------------
+
+;;;---------------------------------------------------------------------------
 ;;; ウィンドウ幅などの設定
 ;;;---------------------------------------------------------------------------
 ;; カーソルタイプ
@@ -163,9 +168,6 @@
 (setq frame-title-format "emacs : %b")
 
 ;; モードライン(時間非表示)
-;; (display-time)
-;; (setq display-time-string-forms
-;; '((format "time : %s/%s(%s) [%s:%s]" month day dayname 24-hours minutes)))
 (setq display-time-day-and-date -1)
 
 ;; 行番号フォーマット

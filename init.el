@@ -1,10 +1,7 @@
-;;;; ---------------------------------------------------------------------------
-;;;; ---------------------------------------------------------------------------
-;;;;
-;;;; emacs init.el
-;;;;
-;;;; ---------------------------------------------------------------------------
-;;;; ---------------------------------------------------------------------------
+;;; package --- emacs init.el
+;;; Commentary:
+;;;  Emacs init.el root
+;;; Code:
 
 ;;; ---------------------------------------------------------------------------
 ;;; パッケージマネージャ (package.el & use-package)
@@ -43,11 +40,28 @@
     (write-file package-refresh-contents-lock)))
 
 ;;; ---------------------------------------------------------------------------
-;;; magit : emacs git client
 ;;; ---------------------------------------------------------------------------
+;;; local elisp files(dconf下ファイル)の分割方針
 
-(use-package magit
-  :ensure t)
+;;; - package : 外部パッケージ(elpaからパッケージ要取得)の設定項目
+;;; - bizz : emacsデフォルト(elpaからパッケージの取得が不要)の設定項目
+;;; - appearance : bizzに引続き、emacsデフォルトの外見設定
+;;; - common-lang : 言語(*1)共通設定 or 複数言語に共通する設定(要elpaの設定)
+;;; - language : 特定の言語(*1)設定、1言語限定の設定
+
+;;; - external-eslip : 外部からコピペしてきたコードなど
+;;; - internal-eslip : 自作したコード
+
+;;; - key-binding : キーバインドは一括してここにまとめる
+
+;;; *1 : ここで言語は、プログラミング言語、DSLなどの形式言語のみ
+;;;      自然言語については、追々考えていきたい
+
+;;; ---------------------------------------------------------------------------
+;;; 問題点など
+;;; - 横断的関心事 (外部パッケージ(package)とappearanceで設定項目が分離するなど)
+;;; - 上に同じく、キーバインド定義がuse-package側でできないなどの問題がある
+;;;   しかし、Ctrl-Z, Ctrl+A, Ctrl+E系のバインドの記述は一箇所にまとめたい等
 
 ;;; ---------------------------------------------------------------------------
 ;;; local elisp files
@@ -57,35 +71,42 @@
 (add-to-list 'load-path "~/.emacs.d/dconf")
 
 ;; 外部パッケージの設定
-(require 'package-conf)
+(use-package package-conf)
 
 ;; 雑多な設定
-(require 'bizz-conf)
+(use-package bizz-conf)
 
 ;; エディタの外観/サイズ調整
-(require 'appearance-conf)
+(use-package appearance-conf)
 
 ;; 言語共通設定(要package-install)
-(require 'common-lang-conf)
+(use-package common-lang-conf)
 
 ;; 言語設定(要package-install)
-(require 'language-conf)
+(use-package language-conf)
 
 ;; 外部のpackage化されてない追加機能(package-install不要)
-(require 'external-elisp)
+(use-package external-elisp)
 
 ;; 自作の追加機能(package-install不要)
-(require 'internal-elisp)
+(use-package internal-elisp)
 
 ;; キーバインド設定(package-install不要)
-(require 'key-binding)
+(use-package key-binding)
 
 ;;; ---------------------------------------------------------------------------
 ;;; configuration report
 ;;; ---------------------------------------------------------------------------
-(insert ";; hello world, emacs !!\n;; (´･_･`)\n")
-(insert (report-failed-packages))
+(insert
+ (concat ";; " (emoji-shufflin) "\"hello world, emacs !!\"\n"
+	 ";; ('･_･`)\n\n"
+	 ";; load-config reports\n"
+	 (report-failed-packages)
+	 (report-gsskey)))
 
 ;;; ---------------------------------------------------------------------------
 ;;; temp (playground)
 ;;; ---------------------------------------------------------------------------
+
+(provide 'init)
+;;; init.el ends here

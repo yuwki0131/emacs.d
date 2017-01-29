@@ -1,15 +1,7 @@
-;;;; ---------------------------------------------------------------------------
-;;;; ---------------------------------------------------------------------------
-;;;;
-;;;; 言語共通 / common-lang-conf.el
-;;;;
-;;;; ---------------------------------------------------------------------------
-;;;; ---------------------------------------------------------------------------
-
-;;; ---------------------------------------------------------------------------
-;;; flymake : flymake
-;;; ---------------------------------------------------------------------------
-(use-package flymake)
+;;; package --- common-lang-conf.el (common settings for languages)
+;;; Commentary:
+;;;  言語共通の設定
+;;; Code:
 
 ;;; ---------------------------------------------------------------------------
 ;;; yasnippet : スニペット
@@ -29,6 +21,54 @@
 ;; (define-key yas-minor-mode-map (kbd "C-x i v") 'yas-visit-snippet-file)
 
 ;;; ---------------------------------------------------------------------------
+;;; sync
+;;; ---------------------------------------------------------------------------
+(use-package sync)
+
+;;; ---------------------------------------------------------------------------
+;;; highlight numbers : 数値のハイライト
+;;; ---------------------------------------------------------------------------
+(use-package-with-report highlight-numbers
+  :config
+  (add-hook 'prog-mode-hook 'highlight-numbers-mode))
+
+;;; ---------------------------------------------------------------------------
+;;; highlight operators : 演算子のハイライト
+;;; ---------------------------------------------------------------------------
+(use-package-with-report highlight-operators
+  :config
+  (add-hook 'python-mode-hook 'highlight-operators-mode)
+  (add-hook 'lua-mode-hook 'highlight-operators-mode))
+
+;;; ---------------------------------------------------------------------------
+;;; highlight sexp : Lispの同一カッコ内ハイライト
+;;; ---------------------------------------------------------------------------
+(use-package-with-report highlight-sexp
+  :config
+  (add-hook 'lisp-mode-hook 'highlight-sexp-mode)
+  (add-hook 'emacs-lisp-mode-hook 'highlight-sexp-mode))
+
+;;; ---------------------------------------------------------------------------
+;;; highlight quoted : シンボルハイライト(lisp用)
+;;; ---------------------------------------------------------------------------
+(use-package-with-report highlight-quoted
+  :init
+  (add-hook 'emacs-lisp-mode-hook #'highlight-quoted-mode)
+  (add-hook 'lisp-mode-hook #'highlight-quoted-mode)
+  '(set-face-attribute 'highlight-quoted-quote nil
+		      :inherit 'highlight-quoted-symbol))
+
+;;; ---------------------------------------------------------------------------
+;;; flymake : 文法チェッカ
+;;; ---------------------------------------------------------------------------
+;; (use-package flycheck
+;;   :config
+;;   (add-hook 'after-init-hook 'global-flycheck-mode))
+
+(use-package flymake-cursor)
+
+;;; ---------------------------------------------------------------------------
 ;;; provide
 ;;; ---------------------------------------------------------------------------
 (provide 'common-lang-conf)
+;;; common-lang-conf.el ends here

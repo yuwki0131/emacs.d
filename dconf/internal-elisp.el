@@ -1,16 +1,12 @@
-;;; ---------------------------------------------------------------------------
-;;; ---------------------------------------------------------------------------
-;;;
-;;; 自作el(package化しない) / internal-elisp.el
-;;;
-;;; ---------------------------------------------------------------------------
-;;; ---------------------------------------------------------------------------
+;;; package --- internal-elisp.el
+;;; Commentary:
+;;;  自作el(package化しない雑多な機能群)
+;;; Code:
 
 ;;; ---------------------------------------------------------------------------
 ;;; grep this & grep find here / grepを & grep find 現在のbuffer/pathで実行
 ;;; ---------------------------------------------------------------------------
 ;; key-bind : grep-this, grep-find-this
-
 (defun grep-this ()
   (interactive)
   (let ((word (read-from-minibuffer "grep this buffer : "))
@@ -29,7 +25,6 @@
 ;;; merge 2 lines / merge current line & next line
 ;;; ---------------------------------------------------------------------------
 ;; key-bind : merge2lines
-
 (defun merge2lines ()
   (interactive)
   (save-excursion
@@ -42,7 +37,6 @@
 ;;; kill the other buffers / 現在のbuffer以外のbufferをすべて閉じる
 ;;; ---------------------------------------------------------------------------
 ;; key-bind : kill-the-other-buffers
-
 (defun kill-the-other-buffers ()
   (interactive)
   (dolist (buffer (buffer-list))
@@ -54,12 +48,11 @@
 ;;; ---------------------------------------------------------------------------
 ;; key-bind : goto-next-TODO
 ;; TODO : 未実装(書きかけ) listup-TODO
-
 (defconst TODO-symbol "TODO")
 
 (defun goto-next-TODO ()
   (interactive)
-  (next-line)
+  (forward-line)
   (let ((result (search-forward TODO-symbol nil t)))
     (message result)
     (if (not result)
@@ -75,7 +68,6 @@
 ;;; insert date / 日付の挿入
 ;;; ---------------------------------------------------------------------------
 ;; key-bind : insert-date key
-
 (defun insert-date-normal ()
   (interactive)
   (insert (format-time-string "%Y/%m/%d %H:%M:%S")))
@@ -89,7 +81,6 @@
 ;;; ---------------------------------------------------------------------------
 ;; key-bind : scrolls keys
 ;; (M-p,M-nで)カーソル位置固定のまま、スクロール
-
 (defun scroll-up-in-place (n)
   (interactive "p")
   (previous-line n)
@@ -97,7 +88,7 @@
 
 (defun scroll-down-in-place (n)
   (interactive "p")
-  (next-line n)
+  (forward-line n)
   (scroll-up n))
 
 ;;; ---------------------------------------------------------------------------
@@ -107,7 +98,6 @@
 
 ;;; ---------------------------------------------------------------------------
 ;;; 括弧 挿入
-
 (defun insert-squares ()
   (interactive)
   (insert "[]")
@@ -130,7 +120,6 @@
 
 ;;; ---------------------------------------------------------------------------
 ;;; 括弧 削除
-
 ;; 対応する括弧までを削除(後方only)
 (defun delete-backward-corresp-paren ()
   (interactive)
@@ -226,7 +215,6 @@
 ;;; ---------------------------------------------------------------------------
 ;; key-bind : smart-buf-moves keys
 ;; *scratch*, *message* など ** 付きbufferを削除
-
 (defun astarisked? (buf-name)
   (= 42 (car (string-to-list buf-name))))
 
@@ -246,6 +234,7 @@
       (string= "*ielm*" buffer-name)
       (string= "*inferior-lisp*" buffer-name)
       (string= "*Python*" buffer-name)
+      (string= "*Python3*" buffer-name)
       (string= "*scratch*" buffer-name)
       (string= "*eshell*" buffer-name)))
 
@@ -292,6 +281,15 @@
   (insert "_"))
 
 ;;; ---------------------------------------------------------------------------
+;;; emoji-shufflin
+;;; ---------------------------------------------------------------------------
+;; TODO : ランダム絵文字
+
+(defun emoji-shufflin ()
+  (interactive)
+  "🍣")
+
+;;; ---------------------------------------------------------------------------
 ;;; make-buffer-small
 ;;; ---------------------------------------------------------------------------
 ;; bind-key : make-buffer-small
@@ -318,3 +316,4 @@
 ;;; provide
 ;;; ---------------------------------------------------------------------------
 (provide 'internal-elisp)
+;;; internal-elisp.el ends here

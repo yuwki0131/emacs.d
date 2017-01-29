@@ -1,30 +1,29 @@
-;;;; ---------------------------------------------------------------------------
-;;;; ---------------------------------------------------------------------------
-;;;;
-;;;; 言語設定 / language-conf.el
-;;;;
-;;;; ---------------------------------------------------------------------------
-;;;; ---------------------------------------------------------------------------
-;;;; language install & setup checklist (2016/11/03)
-;;;; - Scheme implementations or dialects (Gauche, Racket, Guile ... etc)
-;;;; - Common Lisp Implementations or dialects (SBCL, Allgero, Clsip, ... etc)
-;;;; - The other lisps (Clojure, Hy, LFE, ... etc)
-;;;; - on JVM (Scala, Groovy, Kotlin, Frege, Golo)
-;;;; - Functional Languages (Haskell, Gofer, OCaml, SML/nj, SML#, Erlang)
-;;;; - 2 (Elixir)
-;;;; - Prolog
-;;;; - Languages without emacs (Java, C#,  ... etc)
-;;;; - JS (JavaScript, TypeScript, CoffeeScript ... etc)
-;;;; - Maijor LLs (Python, Ruby, Perl, PHP, Lua, Awk,  ... etc)
-;;;; - C (gcc, clang, ... etc)
-;;;; - C-like (Go, Dart, )
-;;;; - OOP (Eiffel, Self)
-;;;; - DSLs (SQL, tex, XML, HTML, ... etc)
-;;;; - The other languages (Mathematica, Mel, Nim, Tcl/Tk, APL, Julia   ..)
-;;;; memo : プログラムのディレクトリは環境毎に異なるのでインストール時にチェック.
-;;;; TODO : コメント欄修正
-;;;; TODO : Coq
-;;;; TODO : unchecked要修正
+;;; package --- language-conf.el (specific settings for languages)
+;;; Commentary:
+;;;  言語設定 / language-conf.el
+;;; Code:
+;; ---------------------------------------------------------------------------
+;; language install & setup checklist (2016/11/03)
+;; - Scheme implementations or dialects (Gauche, Racket, Guile ... etc)
+;; - Common Lisp Implementations or dialects (SBCL, Allgero, Clsip, ... etc)
+;; - The other lisps (Clojure, Hy, LFE, ... etc)
+;; - on JVM (Scala, Groovy, Kotlin, Frege, Golo)
+;; - Functional Languages (Haskell, Gofer, OCaml, SML/nj, SML#, Erlang)
+;; - 2 (Elixir)
+;; - Prolog
+;; - Languages without emacs (Java, C#,  ... etc)
+;; - JS (JavaScript, TypeScript, CoffeeScript ... etc)
+;; - Major LLs (Python, Ruby, Perl, PHP, Lua, Awk,  ... etc)
+;; - C (gcc, clang, ... etc)
+;; - C-like (Go, Dart, )
+;; - OOP (Eiffel, Self)
+;; - DSLs (SQL, tex, XML, HTML, ... etc)
+;; - The other languages (Mathematica, Mel, Nim, Tcl/Tk, APL, Julia   ..)
+;; memo : プログラムのディレクトリは環境毎に異なるのでインストール時にチェック.
+;; TODO : コメント欄修正
+;; TODO : Coq
+;; TODO : unchecked要修正
+;;; Code:
 
 ;;; ---------------------------------------------------------------------------
 ;;; Gauche/Scheme (checked)
@@ -84,20 +83,19 @@
 ;;; ---------------------------------------------------------------------------
 (use-package inf-haskell)
 (use-package haskell-mode
+  :mode (("\\.hs$" . haskell-mode)
+	 ("\\.lhs$" . literate-haskell-mode))
   :config
-  (add-to-list 'auto-mode-alist '("\\.hs$" . haskell-mode))
-  (add-to-list 'auto-mode-alist '("\\.lhs$" . literate-haskell-mode))
   (setq haskell-program-name "ghci"))
 (use-package haskell-cabal
-  :config
-  (add-to-list 'auto-mode-alist '("\\.cabal\\'" . haskell-cabal-mode)))
+  :mode (("\\.cabal\\'" . haskell-cabal-mode)))
+(setq haskell-font-lock-symbols t)
 
 ;;; ---------------------------------------------------------------------------
 ;;; taureg-mode ocaml : OCaml (checked)
 ;;; ---------------------------------------------------------------------------
 (use-package taureg-mode
-  :config
-  (add-to-list 'auto-mode-alist '("\\.ml[iylp]?" . tuareg-mode)))
+  :mode (("\\.ml[iylp]?" . tuareg-mode)))
 (use-package taureg-mode-run-ocaml)
 (use-package ocamldebug)
 
@@ -121,7 +119,7 @@
 ;;; ---------------------------------------------------------------------------
 ;;; prolog-mode : Prolog (checked)
 ;;; ---------------------------------------------------------------------------
-(setq auto-mode-alist (append '(("\\.pl" . prolog-mode)) auto-mode-alist))
+(add-to-list 'auto-mode-alist '("\\.pl" . prolog-mode))
 (setq prolog-program-name "swipl")
 (setq prolog-consult-string "[user].\n")
 
@@ -187,6 +185,7 @@
     (setq indent-level 4)
     (setq python-indent 4)
     (setq tab-width 4)
+    (flycheck-mode 1)
     (setq imenu-create-index-function 'python-imenu-create-index)
     (flymake-mode t)))
 
@@ -194,3 +193,4 @@
 ;;; provide
 ;;; ---------------------------------------------------------------------------
 (provide 'language-conf)
+;;; language-conf.el ends here
