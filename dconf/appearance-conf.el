@@ -6,6 +6,12 @@
 ;;;; ---------------------------------------------------------------------------
 ;;;; ---------------------------------------------------------------------------
 
+;; memo
+;; Windows系の場合 (Windowsを手元に持ってないので知らない......要らないんでは)
+;; (when (eq system-type 'windows-nt) ...)
+;; Linux系の場合
+;; (when (eq system-type 'gnu/linux))
+
 ;;; ---------------------------------------------------------------------------
 ;;; フォント設定
 ;;; ---------------------------------------------------------------------------
@@ -14,20 +20,10 @@
 (defvar default-font-family-jp "Takaoゴシック")
 ;; "MeiryoKe_Gothic"
 
-;; Windows系の場合
-(when (eq system-type 'windows-nt)
-  (set-face-attribute
-   'default nil :family default-font-family :height 90)
-  (set-fontset-font
-   'nil 'japanese-jisx0208 (font-spec :family default-font-family-jp :height 90)))
-
-;; Linux系の場合
-(when (eq system-type 'gnu/linux)
-  (set-face-attribute
-   'default nil :family default-font-family :height 100)
-  (set-fontset-font
-   'nil 'japanese-jisx0208 (font-spec :family default-font-family-jp :height 90)))
-
+(set-face-attribute 'default nil :family default-font-family :height 100)
+(set-fontset-font
+ 'nil 'japanese-jisx0208 (font-spec :family default-font-family-jp :height 90))
+(setq-default line-spacing 2)
 ;;; ---------------------------------------------------------------------------
 ;;; 色設定(標準)
 ;;; ---------------------------------------------------------------------------
@@ -111,7 +107,7 @@
 
 ;; 対応する括弧に色をつける
 ;; (set-face-background 'show-paren-match-face "white")
-(set-face-foreground 'show-paren-match-face color/deeppink)
+'(set-face-foreground 'show-paren-match-face color/deeppink)
 
 ;; カーソルの色
 (set-cursor-color color/deeppink)
@@ -137,22 +133,24 @@
     :weight 'bold)
 
 ;; モードラインの色の設定(active)
-(set-face-attribute 'mode-line nil
+(ignore-errors
+  (set-face-attribute 'mode-line nil
     :foreground color/lightcyan :background color/inactive
     :inverse-video nil
     :weight 'bold
     :height 100
     :font default-font-family
-    :box '(:line-width 1 :color "black" :style nil))
+    :box '(:line-width 1 :color "black" :style nil)))
 
 ;; モードラインの色の設定(inactive)
-(set-face-attribute 'mode-line-inactive nil
-    :foreground color/lightcyan :background color/inactive
-    :inverse-video nil
-    :weight 'extra-light
-    :height 100
-    :font default-font-family
-    :box '(:line-width 1 :color "gray30" :style nil))
+(ignore-errors
+  (set-face-attribute 'mode-line-inactive nil
+		      :foreground color/lightcyan :background color/inactive
+		      :inverse-video nil
+		      :weight 'extra-light
+		      :height 100
+		      :font default-font-family
+		      :box '(:line-width 1 :color "gray30" :style nil)))
 
 ;;;---------------------------------------------------------------------------
 ;;; 色設定(標準以外)
@@ -175,9 +173,7 @@
 
 ;; 画面サイズ初期化
 (setq initial-frame-alist
-      '((top . 20) (left . 0)
-	(width . 128) (height . 75)
-	(alpha . (95 85))))
+      '((top . 20) (left . 0) (width . 128) (height . 75) (alpha . (95 85))))
 
 ;;;---------------------------------------------------------------------------
 ;;; provide

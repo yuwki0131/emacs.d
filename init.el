@@ -105,6 +105,31 @@
 	 (report-gsskey)))
 
 ;;; ---------------------------------------------------------------------------
+;;; generate readme
+;;; ---------------------------------------------------------------------------
+(defconst readme-file-md "~/.emacs.d/README.md")
+
+(defun spit (file-name text)
+  (ignore-errors
+	(if (file-exists-p file-name)
+		(delete-file file-name))
+	(find-file file-name)
+	(insert text)
+	(save-buffer)
+	(kill-buffer)
+    t))
+
+(defvar readme-text
+  (concat
+   ;; header
+   "# 自分用 ~/.emacs.d\n\n発展途上 & 未確認 (´・_・`)\n\n"
+   ;; explain keybinds
+   "\n## キーバインド\n"
+   "\nデフォルト以外のキーバインド設定\n"
+   keybinding-md))
+
+(spit readme-file-md readme-text)
+;;; ---------------------------------------------------------------------------
 ;;; temp (playground)
 ;;; ---------------------------------------------------------------------------
 

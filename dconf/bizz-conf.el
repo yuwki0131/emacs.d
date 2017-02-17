@@ -15,28 +15,48 @@
 ;; スクロールバー非表示
 (scroll-bar-mode -1)
 
+;; 画像ファイル表示
+(auto-image-file-mode t)
+
+;; 列数を表示
+(column-number-mode t)
+
+;; バッファ自動再読み込み
+(global-auto-revert-mode t)
+
+;; 行番号を表示(標準) => 使用しない
+;; (global-linum-mode t)
+
+;; scratchの初期のメッセージ消去
+(setq initial-scratch-message nil)
+
 ;; beep音消す
 (setq visible-bell t)
 (setq ring-bell-function 'ignore)
 
-;; backupfileつくらない
+;; backupfile(*.~) つくらない
 (setq make-backup-files nil)
+
+;; backupfile(*.#*) つくらない
 (setq auto-save-default nil)
 
 ;; 折り返しを表示
 (setq truncate-lines t)
 
-;; 行番号を表示(標準) => 使用しない
-;; (global-linum-mode t)
+;;  折り返しを表示(ウインドウ分割時)
+(setq truncate-partial-width-windows nil)
 
-;; 列数を表示
-(column-number-mode t)
+;; マークのリージョンに色を付ける
+(setq transient-mark-mode t)
+
+;; スタートメッセージを非表示
+(setq inhibit-startup-message t)
 
 ;; file名の補完で大文字小文字を区別しない
 (setq completion-ignore-case t)
 
-;; バッファ自動再読み込み
-(global-auto-revert-mode t)
+;; 最終行に1行挿入
+(setq require-final-newline t)
 
 ;; バッファの終端を表示(空行表示)
 (setq-default indicate-empty-lines t)
@@ -44,20 +64,17 @@
 ;; カーソルタイプ
 (setq default-cursor-type '(bar . 3))
 
-;; scratchの初期のメッセージ消去
-(setq initial-scratch-message nil)
-
 ;; from yes-or-no to y-or-n
 (fset 'yes-or-no-p 'y-or-n-p)
 
-;; 画像ファイル表示
-(auto-image-file-mode t)
-
-;; 最終行に1行挿入
-(setq require-final-newline t)
-
 ;; ファイル保存時に空白削除
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
+
+;; ファイル読込補完、大文字/小文字無視
+(setq read-file-name-completion-ignore-case t)
+
+;; すべてのプログラムモードに対してタブ幅設定
+(add-hook 'prog-mode-hook '(lambda () (setq tab-width 4)))
 
 ;; GC閾値 (what the fuck!)
 ;; (setq gc-cons-threshold (* 10 1024 1024))
@@ -65,12 +82,9 @@
 ;; GCが発生した場合にレポート
 ;; (setq garbage-collection-messages t)
 
-;; ctrl+g時にbackgrace 最近emacsが何かと重いので(^_^;)
-;; (setq debug-on-quit t)
-
-;;; ---------------------------------------------------------------------------
+;;; --------------------------------------------------------------------------------
 ;;; standard requires
-;;; ---------------------------------------------------------------------------
+;;; --------------------------------------------------------------------------------
 
 ;;; ---------------------------------------------------------------------------
 ;;; 別ディレクトリの同名バッファにディレクトリ名を付与する

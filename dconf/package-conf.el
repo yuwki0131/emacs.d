@@ -37,6 +37,10 @@
 (font-lock-add-keywords 'emacs-lisp-mode
   '(("\\(use-package-with-report\\)" . font-lock-keyword-face)))
 
+;;; --------------------------------------------------------------------------------
+;;; package-func : functions
+;;; --------------------------------------------------------------------------------
+
 ;;; ---------------------------------------------------------------------------
 ;;; package-func : magit : emacs git client
 ;;; ---------------------------------------------------------------------------
@@ -58,6 +62,8 @@
 (use-package-with-report auto-complete
   :config
   (ac-config-default)
+  (setq ac-auto-start 1)
+  (setq ac-candidate-max 40)
   (add-to-list 'ac-dictionary-directories "~/.emacs.d/ac-dict"))
 
 ;;; ---------------------------------------------------------------------------
@@ -114,6 +120,10 @@
 ;;; ---------------------------------------------------------------------------
 (use-package-with-report point-undo)
 
+;;; --------------------------------------------------------------------------------
+;;; package-edit : edit something
+;;; --------------------------------------------------------------------------------
+
 ;;; ---------------------------------------------------------------------------
 ;;; package-edit : redo+ : 普通のredo
 ;;; ---------------------------------------------------------------------------
@@ -129,6 +139,24 @@
 (use-package-with-report hungry-delete-mode
   :config
   (global-hungry-delete-mode t))
+
+;;; ---------------------------------------------------------------------------
+;;; package-edit : zop-to-char : M-zの可視化
+;;; ---------------------------------------------------------------------------
+(use-package-with-report zop-to-char)
+
+;;; ---------------------------------------------------------------------------
+;;; package-edit : drug-stuff : 単語単位で移動
+;;; ---------------------------------------------------------------------------
+;; TODO :
+(use-package-with-report drag-stuff
+  :config
+  (setq drag-stuff-modifier '(meta shift))
+  (drag-stuff-global-mode t))
+
+;;; --------------------------------------------------------------------------------
+;;; package-app : appearance something
+;;; --------------------------------------------------------------------------------
 
 ;;; ---------------------------------------------------------------------------
 ;;; package-app : bm : 現在行を永続的に記憶
@@ -154,6 +182,7 @@
 ;;; ---------------------------------------------------------------------------
 ;;; package-app : nlinum-mode : 軽量化された行番号表示
 ;;; ---------------------------------------------------------------------------
+;; 標準は重いので使用しない
 (use-package-with-report nlinum
   :config
   (global-nlinum-mode t)
@@ -162,6 +191,7 @@
 ;;; ---------------------------------------------------------------------------
 ;;; package-app : highlight line plus : カーソル行ハイライト(拡張)
 ;;; ---------------------------------------------------------------------------
+;; 標準は重いので使用しない
 (use-package-with-report hl-line+
   :config
   (toggle-hl-line-when-idle)
@@ -180,6 +210,7 @@
 ;;; ---------------------------------------------------------------------------
 (use-package-with-report highlight-indent-guides
   :config
+  (add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
   (set-face-background 'highlight-indent-guides-even-face "gray20"))
 
 ;;; ---------------------------------------------------------------------------
@@ -199,7 +230,19 @@
 ;;; ---------------------------------------------------------------------------
 ;;; package-app : rainbow delimiters : 括弧色つけ
 ;;; ---------------------------------------------------------------------------
-(use-package-with-report rainbow-delimiters)
+(use-package-with-report rainbow-delimiters
+  :config
+  (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
+  ;; deriving from
+  ;; https://yoo2080.wordpress.com/2013/12/21/small-rainbow-delimiters-tutorial
+  (require 'cl-lib)
+  (require 'color)
+  (let ((index 1))
+    (cl-loop
+     for index from 1 to rainbow-delimiters-max-face-count
+     do
+     (let ((face (intern (format "rainbow-delimiters-depth-%d-face" index))))
+       (cl-callf color-saturate-name (face-foreground face) 30)))))
 
 ;;; ---------------------------------------------------------------------------
 ;;; package-app : anzu : モードラインの左側に検索中の単語数を表示
@@ -212,6 +255,10 @@
 ;;; package-app : nurumacs : sublime風アウトライン表示
 ;;; ---------------------------------------------------------------------------
 (use-package-with-report nurumacs)
+
+;;; --------------------------------------------------------------------------------
+;;; package-search : search
+;;; --------------------------------------------------------------------------------
 
 ;;; ---------------------------------------------------------------------------
 ;;; package-search : visual regexp steroids : 正規表現の拡張
@@ -254,6 +301,10 @@
     (setq migemo-command "cmigemo")
     (setq migemo-dictionary "/usr/share/cmigemo/utf-8/migemo-dict")))
 
+;;; --------------------------------------------------------------------------------
+;;; package-config : configuration
+;;; --------------------------------------------------------------------------------
+
 ;;; ---------------------------------------------------------------------------
 ;;; package-config : mouse disable : マウス禁止
 ;;; ---------------------------------------------------------------------------
@@ -272,7 +323,7 @@
 ;;; package-config : 絵文字用フォントセット
 ;;; ---------------------------------------------------------------------------
 ;; source : http://qiita.com/tadsan/items/a67b28dd02bf819f3f4e
-(use-package-with-report emoji-fontset
+'(use-package-with-report emoji-fontset
   :config
   (emoji-fontset-enable "Symbola"))
 
@@ -289,8 +340,8 @@
   (keyfreq-mode 1)
   (keyfreq-autosave-mode 1))
 
-;;; ---------------------------------------------------------------------------
+;;; --------------------------------------------------------------------------------
 ;;; provide
-;;; ---------------------------------------------------------------------------
+;;; --------------------------------------------------------------------------------
 (provide 'package-conf)
 ;;; package-conf.el ends here
