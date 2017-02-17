@@ -34,7 +34,7 @@
 		 keybind-str (symbol-name sym)
 		 gssk-current-function-name-state)))
 
-(defmacro bind-gss-key (keybind-str sym)
+(defmacro gssk-bind (keybind-str sym)
   `(cond
     ((fboundp ,sym)
 	 (progn
@@ -96,111 +96,111 @@
 ;;; no prefix
 ;;; ---------------------------------------------------------------------------
 
-(bind-gss-key (kbd "C-S-k") 'backward-kill-line)
+(gssk-bind (kbd "C-S-k") 'backward-kill-line)
 
-(gssk-category-function "編集" "delete action")
-(bind-gss-key "C-h"    'delete-backward-char)
-(bind-gss-key "M-h"    'backward-kill-word)
+(gssk-category-function "編集" "Backspaceでの削除 (文字単位/単語単位)")
+(gssk-bind "C-h"    'delete-backward-char)
+(gssk-bind "M-h"    'backward-kill-word)
 
-(gssk-category-function "移動" "move by paragraph")
-(bind-gss-key "C-m"    'forward-paragraph)
-(bind-gss-key "M-m"    'backward-paragraph)
+(gssk-category-function "移動" "パラグラフ単位の移動")
+(gssk-bind "C-m"    'forward-paragraph)
+(gssk-bind "M-m"    'backward-paragraph)
 
-(gssk-category-function "移動" "next / previous buffer with skip *")
-(bind-gss-key "C-M-f"  'next-buffer-with-skip*)
-(bind-gss-key "C-M-p"  'previous-buffer-with-skip*)
+(gssk-category-function "移動" "バッファ移動 (アスタリスク付バッファはスキップ)")
+(gssk-bind "C-M-f"  'next-buffer-with-skip*)
+(gssk-bind "C-M-p"  'previous-buffer-with-skip*)
 
 (gssk-category-function "機能" "undo & redo")
-(bind-gss-key "C-q"    'undo)
-(bind-gss-key "M-q"    'redo)
+(gssk-bind "C-q"    'undo)
+(gssk-bind "M-q"    'redo)
 
-(gssk-category-function "移動" "カーソル位置固定のままスクロール")
-(bind-gss-key "M-p"    'scroll-up-in-place)
-(bind-gss-key "M-n"    'scroll-down-in-place)
+(gssk-category-function "移動" "スクロール(カーソル位置固定)")
+(gssk-bind "M-p"    'scroll-up-in-place)
+(gssk-bind "M-n"    'scroll-down-in-place)
 
-(gssk-category-function "移動" "goto-line１回で")
-(bind-gss-key "M-g"    'goto-line)
+(gssk-category-function "移動" "goto-line(１回)")
+(gssk-bind "M-g"    'goto-line)
 
 (gssk-category-function "移動" "ace jump mode")
-(bind-gss-key "M-a"    'ace-jump-mode)
+(gssk-bind "M-a"    'ace-jump-mode)
 
 (gssk-category-function "編集" "vr/isearch側の正規表現置換")
-(bind-gss-key "C-M-s"  'vr/isearch-forward)
-(bind-gss-key "C-M-r"  'vr/isearch-backward)
+(gssk-bind "C-M-s"  'vr/isearch-forward)
+(gssk-bind "C-M-r"  'vr/isearch-backward)
 
-(gssk-category-function "移動" "TODOコメント管理")
-(bind-gss-key "C-."    'goto-next-TODO)
+(gssk-category-function "移動" "TODOへ移動")
+(gssk-bind "C-."    'goto-next-TODO)
 
 (gssk-category-function "編集" "アンダースコア挿入")
-(bind-gss-key "C-:"    'insert-underscore)
+(gssk-bind "C-:"    'insert-underscore)
 
 (gssk-category-function "移動" "シンボル移動　(highlight-symbol-mode)")
-(bind-gss-key "C-?"    'highlight-symbol-next)
-(bind-gss-key "C-!"    'highlight-symbol-prev)
+(gssk-bind "C-?"    'highlight-symbol-next)
+(gssk-bind "C-!"    'highlight-symbol-prev)
 
 (gssk-category-function "編集" "括弧操作")
-(bind-gss-key "C-RET"  'kill-until-corresp-paren)
-(bind-gss-key "C-l"    'insert-parenthesis)
-(bind-gss-key "C-S-l"  'insert-angle-brackets)
-(bind-gss-key "M-l"    'insert-brackets)
-(bind-gss-key "M-S-l"  'insert-squares)
+(gssk-bind "C-RET"  'kill-until-corresp-paren)
+(gssk-bind "C-l"    'insert-parenthesis)
+(gssk-bind "C-S-l"  'insert-angle-brackets)
+(gssk-bind "M-l"    'insert-brackets)
+(gssk-bind "M-S-l"  'insert-squares)
 
 (gssk-category-function "機能" "一時的なコマンド束縛用(テスト用/試用)")
-(bind-gss-key "M-j"     'temp-command)
+(gssk-bind "M-j"     'temp-command)
 
 (gssk-category-function "編集" "snippet : スニペット挿入")
-(bind-gss-key "M-RET"  'yas-insert-snippet)
+(gssk-bind "M-RET"  'yas-insert-snippet)
 
 ;;; ---------------------------------------------------------------------------
 ;;; Z prefix (to work something)
 ;;; ---------------------------------------------------------------------------
 (gssk-category "機能")
 
-(gssk-explain-function "キーバインドの表示")
-(bind-gss-key "C-z C-k" 'describe-bindings)
+(gssk-explain-function "キーバインド表示")
+(gssk-bind "C-z C-k" 'describe-bindings)
+
+(gssk-explain-function "enable/disable toggle-truncate-line")
+(gssk-bind "C-z p"   'toggle-truncate-lines)
 
 (gssk-explain-function "手前の空白を削除 (delete until black key)")
-(bind-gss-key "C-z p"   'toggle-truncate-lines)
+(gssk-bind "C-z C-d" 'delete-until-black)
 
-(gssk-explain-function "手前の空白を削除 (delete until black key)")
-(bind-gss-key "C-z C-d" 'delete-until-black)
-
-(gssk-explain-function "replace string my shortcut")
-(bind-gss-key "C-z C-r" 'replace-string)
+(gssk-explain-function "replace-string")
+(gssk-bind "C-z C-r" 'replace-string)
 
 (gssk-explain-function "vr/isearch側の正規表現置換")
-(bind-gss-key "C-M-s"   'vr/isearch-forward)
-(bind-gss-key "C-M-r"   'vr/isearch-backward)
+(gssk-bind "C-M-s"   'vr/isearch-forward)
+(gssk-bind "C-M-r"   'vr/isearch-backward)
 
 (gssk-explain-function "change encoding")
-(bind-gss-key "C-z f"   'set-file-name-coding-system)
+(gssk-bind "C-z f"   'set-file-name-coding-system)
 
-(gssk-explain-function "grep this % grep find this")
-(bind-gss-key "C-z C-b" 'grep-this)
-(bind-gss-key "C-z C-f" 'grep-find-this)
+(gssk-explain-function "grep this & grep find this")
+(gssk-bind "C-z C-b" 'grep-this)
+(gssk-bind "C-z C-f" 'grep-find-this)
 
 (gssk-explain-function "swoop")
-(bind-gss-key "C-z C-s" 'swoop)
+(gssk-bind "C-z C-s" 'swoop)
 
-(gssk-explain-function "make buffer small")
-(bind-gss-key "C-z s"   'make-buffer-small)
+(gssk-explain-function "バッファのウィンドウサイズを縮小")
+(gssk-bind "C-z s"   'make-buffer-small)
 
 (gssk-explain-function "sublime風のoutline")
-(bind-gss-key "C-z C-o" 'nurumacs-map-toggle)
+(gssk-bind "C-z C-o" 'nurumacs-map-toggle)
 
 (gssk-explain-function "magit (Emacs Git)")
-(bind-gss-key "C-z m"   'magit-status)
+(gssk-bind "C-z m"   'magit-status)
 
-(gssk-explain-function "rgrep grep")
-(bind-gss-key "C-z r"   'rgrep)
+(gssk-explain-function "rgrep")
+(gssk-bind "C-z r"   'rgrep)
 
-(gssk-explain-function "google this")
-(bind-gss-key "C-z r"   'google-this)
+(gssk-explain-function "google-this(Googleで検索)")
+(gssk-bind "C-z r"   'google-this)
 
 (gssk-explain-function "bm-toggle")
-(bind-gss-key "C-z C-t" 'bm-toggle)
-(bind-gss-key "C-z t"   'bm-show)
-(bind-gss-key "C-z M-t" 'bm-show-all)
+(gssk-bind "C-z C-t" 'bm-toggle)
+(gssk-bind "C-z t"   'bm-show)
+(gssk-bind "C-z M-t" 'bm-show-all)
 
 ;;; ---------------------------------------------------------------------------
 ;;; A prefix (to edit somewhat)
@@ -230,67 +230,64 @@
 (gssk-explain-function "white space insertion")
 (white-plus-m)
 
-(gssk-explain-function "コメントアウト/コメントイン")
-(bind-gss-key "C-a C-a" 'comment-dwim)
+(gssk-explain-function "コメント アウト/イン")
+(gssk-bind "C-a C-a" 'comment-dwim)
 
 (gssk-explain-function "upcase/downcase-word")
-(bind-gss-key "C-a C-u" 'upcase-word)
-(bind-gss-key "C-a C-p" 'downcase-word)
+(gssk-bind "C-a C-u" 'upcase-word)
+(gssk-bind "C-a C-p" 'downcase-word)
 
 (gssk-explain-function "現在のバッファを消す")
-(bind-gss-key "C-a C-k" 'kill-this-buffer)
+(gssk-bind "C-a C-k" 'kill-this-buffer)
 
 (gssk-explain-function "現在時刻挿入")
-(bind-gss-key "C-a C-d" 'insert-date-normal)
-(bind-gss-key "C-a M-d" 'insert-date-markdown)
+(gssk-bind "C-a C-d" 'insert-date-normal)
+(gssk-bind "C-a M-d" 'insert-date-markdown)
 
-(gssk-explain-function "insert commment line")
-(bind-gss-key "C-a C-m" 'insert--s)
-
-(gssk-explain-function "multi-comment-out-in keys")
-(bind-gss-key "C-a C-a " 'comment-dwim)
+(gssk-explain-function "insert comment line")
+(gssk-bind "C-a C-m" 'insert--s)
 
 (gssk-explain-function "merge 2 lines")
-(bind-gss-key "C-a C-f" 'merge2lines)
+(gssk-bind "C-a C-f" 'merge2lines)
 
 ;;; ---------------------------------------------------------------------------
 ;;; E prefix (to move somewhere)
 ;;; ---------------------------------------------------------------------------
 (gssk-category "移動")
 
-(gssk-explain-function "goto-chg")
-(bind-gss-key "C-e C-l" 'goto-last-change)
+(gssk-explain-function "最後の変更箇所へ移動")
+(gssk-bind "C-e C-l" 'goto-last-change)
 
-(gssk-explain-function "point undo")
-(bind-gss-key "C-e C-j" 'point-undo)
-(bind-gss-key "C-e C-k" 'point-redo)
+(gssk-explain-function "最後のカーソル位置へ移動")
+(gssk-bind "C-e C-j" 'point-undo)
+(gssk-bind "C-e C-k" 'point-redo)
 
 (gssk-explain-function "正規表現検索")
-(bind-gss-key "C-e C-s" 'search-forward-regexp)
-(bind-gss-key "C-e C-r" 'search-backward-regexp)
+(gssk-bind "C-e C-s" 'search-forward-regexp)
+(gssk-bind "C-e C-r" 'search-backward-regexp)
 
 (gssk-explain-function "Visual Regexp")
-(bind-gss-key "C-e C-d" 'vr/query-replace)
+(gssk-bind "C-e C-d" 'vr/query-replace)
 
-(gssk-explain-function "デフォルトの行先頭後尾移動 Ctrl-e / Ctrl-a の再設定")
-(bind-gss-key "C-e C-a" 'move-beginning-of-line)
-(bind-gss-key "C-e C-e" 'move-end-of-line)
+(gssk-explain-function "行頭/行末へ移動(unbindの再設定)")
+(gssk-bind "C-e C-a" 'move-beginning-of-line)
+(gssk-bind "C-e C-e" 'move-end-of-line)
 
-(gssk-explain-function "quick shell")
-(bind-gss-key "C-e C-c" 'shell)
-(bind-gss-key "C-e C-v" 'move-to-scratch)
-(bind-gss-key "C-e C-w" 'move-to-repl)
+(gssk-explain-function "shell/replへ移動")
+(gssk-bind "C-e C-c" 'shell)
+(gssk-bind "C-e C-v" 'move-to-scratch)
+(gssk-bind "C-e C-w" 'move-to-repl)
 
-(gssk-explain-function "top center bottom間移動")
-(bind-gss-key "C-e C-l" 'recenter-top-bottom)
+(gssk-explain-function "top-center-bottom間移動")
+(gssk-bind "C-e C-l" 'recenter-top-bottom)
 
 (gssk-explain-function "バッファ移動 (アスタリスク付バッファはスキップ)")
-(bind-gss-key "C-e C-b" 'previous-buffer-with-skip*)
-(bind-gss-key "C-e C-f" 'next-buffer-with-skip*)
+(gssk-bind "C-e C-b" 'previous-buffer-with-skip*)
+(gssk-bind "C-e C-f" 'next-buffer-with-skip*)
 
-(gssk-explain-function "シンボル移動　(highlight-symbol-mode)")
-(bind-gss-key "C-e C-n" 'highlight-symbol-next)
-(bind-gss-key "C-e C-p" 'highlight-symbol-prev)
+(gssk-explain-function "シンボル単位移動　(highlight-symbol-mode)")
+(gssk-bind "C-e C-n" 'highlight-symbol-next)
+(gssk-bind "C-e C-p" 'highlight-symbol-prev)
 
 ;;; ---------------------------------------------------------------------------
 ;;; gssk : binding report
