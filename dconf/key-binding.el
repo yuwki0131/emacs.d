@@ -16,17 +16,14 @@
 (defvar gssk-current-function-name-state "")
 
 (defun gssk-category
-	"カテゴリの説明を設定"
   (text)
   (setq gssk-current-category-state text))
 
 (defun gssk-explain-function
-	"機能の説明を設定"
   (text)
   (setq gssk-current-function-name-state text))
 
 (defun gssk-category-function
-	"機能の説明を設定"
   (category-text function-text)
   (setq gssk-current-category-state category-text)
   (setq gssk-current-function-name-state function-text))
@@ -34,7 +31,6 @@
 (defvar gsskey-report-text nil)
 
 (defun gssk-add-keybind-report
-	"キーバインドの説明リストを追加"
  (keybind-str sym)
  (add-to-list
   'gssk-keybind-report
