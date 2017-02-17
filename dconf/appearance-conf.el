@@ -78,7 +78,7 @@
 ;; coloring program
 (set-face-fore-with-cbi 'font-lock-comment-face       color/comment    nil t)
 (set-face-fore-with-cbi 'font-lock-doc-face           color/deeppink   nil t)
-(set-face-fore-with-cbi 'font-lock-string-face        color/deeppink   t   nil)
+(set-face-fore-with-cbi 'font-lock-string-face        color/limegreen  nil nil)
 (set-face-fore-with-cbi 'font-lock-keyword-face       color/darkcyan   t   nil)
 (set-face-fore-with-cbi 'font-lock-builtin-face       color/darkcyan   nil nil)
 (set-face-fore-with-cbi 'font-lock-function-name-face color/limegreen  nil nil)
