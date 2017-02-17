@@ -68,7 +68,7 @@
 ;;; ---------------------------------------------------------------------------
 
 ;; 設定ファイルのディレクトリ
-(add-to-list 'load-path "~/.emacs.d/dconf")
+(add-to-list 'load-path "~/.emacs.d/config")
 
 ;; 外部パッケージの設定
 (use-package package-conf)
