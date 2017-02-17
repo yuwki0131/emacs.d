@@ -6,9 +6,9 @@
 ## キーバインド
 
 デフォルト以外のキーバインド設定
+
 |カテゴリ|キーバインド|function|機能名|
 | --------------- |:---------------| -------------------- |:-------|
-
 |prefix key 解除|C-e|unbind|prefix key 解除|
 |prefix key 解除|C-a|unbind|prefix key 解除|
 |prefix key 解除|C-z|unbind|prefix key 解除|

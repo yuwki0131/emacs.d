@@ -124,8 +124,8 @@
    ;; header
    "# 自分用 ~/.emacs.d\n\n発展途上 & 未確認 (´・_・`)\n\n"
    ;; explain keybinds
-   "\n## キーバインド\n"
-   "\nデフォルト以外のキーバインド設定\n"
+   "\n## キーバインド\n\n"
+   "デフォルト以外のキーバインド設定\n\n"
    keybinding-md))
 
 (spit readme-file-md readme-text)
