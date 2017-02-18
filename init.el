@@ -10,17 +10,19 @@
 
 (setq package-archives
       '(("gnu" . "http://elpa.gnu.org/packages/")
-	("org" . "http://orgmode.org/elpa/")
-	("melpa" . "http://melpa.milkbox.net/packages/")
-	("marmalade" . "http://marmalade-repo.org/packages/")))
+		("org" . "http://orgmode.org/elpa/")
+		("melpa" . "http://melpa.milkbox.net/packages/")))
+;; ("marmalade" . "http://marmalade-repo.org/packages/")
 
 (package-initialize)
 
 ;;; ---------------------------------------------------------------------------
 ;;; use package : emacs パッケージ管理
 ;;; ---------------------------------------------------------------------------
+;; usepackageが存在しない場合は、インストール
+(when (not (require 'use-package nil 'noerror))
+  (package-install 'use-package))
 ;; 以降use-packageでインストール
-(require 'use-package)
 
 ;;; ---------------------------------------------------------------------------
 ;;; 初回起動時設定(package-refresh-contents & package-install大量)

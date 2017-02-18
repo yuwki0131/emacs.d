@@ -308,9 +308,9 @@
 (defun generate-explanation-text ()
   (apply 'concat
 		 (mapcar '(lambda (x) (concat "|" (car x)
-									  "|" (cadr x)
-									  "|" (caddr x)
-									  "|" (cadddr x) "|\n"))
+									  "|" (car (cdr x))
+									  "|" (car (cdr (cdr x)))
+									  "|" (car (cdr (cdr (cdr x)))) "|\n"))
 				 (reverse gssk-keybind-report))))
 
 (defvar keybinding-md
