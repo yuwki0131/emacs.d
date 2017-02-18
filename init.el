@@ -125,6 +125,7 @@
   (concat
    ;; header
    "# 自分用 ~/.emacs.d\n\n発展途上 & 未確認 (´・_・`)\n\n"
+   "\n修正して使う\n\n"
    ;; explain keybinds
    "\n## キーバインド\n\n"
    "デフォルト以外のキーバインド設定\n\n"

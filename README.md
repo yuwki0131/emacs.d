@@ -3,6 +3,9 @@
 発展途上 & 未確認 (´・_・`)
 
 
+修正して使う
+
+
 ## キーバインド
 
 デフォルト以外のキーバインド設定
@@ -26,6 +29,8 @@
 |移動|M-n|scroll-down-in-place|スクロール(カーソル位置固定)|
 |移動|M-g|goto-line|goto-line(１回)|
 |移動|M-a|ace-jump-mode|ace jump mode|
+|編集|C-M-s|vr/isearch-forward|vr/isearch側の正規表現置換|
+|編集|C-M-r|vr/isearch-backward|vr/isearch側の正規表現置換|
 |移動|C-.|goto-next-TODO|TODOへ移動|
 |編集|C-:|insert-underscore|アンダースコア挿入|
 |移動|C-?|highlight-symbol-next|シンボル移動　(highlight-symbol-mode)|
@@ -39,6 +44,8 @@
 |機能|C-z C-k|describe-bindings|キーバインド表示|
 |機能|C-z p|toggle-truncate-lines|enable/disable toggle-truncate-line|
 |機能|C-z C-r|replace-string|replace-string|
+|機能|C-M-s|vr/isearch-forward|vr/isearch側の正規表現置換|
+|機能|C-M-r|vr/isearch-backward|vr/isearch側の正規表現置換|
 |機能|C-z f|set-file-name-coding-system|change encoding|
 |機能|C-z C-b|grep-this|grep this & grep find this|
 |機能|C-z C-f|grep-find-this|grep this & grep find this|
