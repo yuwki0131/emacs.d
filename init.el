@@ -47,7 +47,8 @@
 (defvar config-composition-md
   "~/.emacs.d/configディレクトリ以下
 
-|:-------------|------------------------------------------------------|
+|el file|設定|
+|:-------------|:------------------------------------------------------|
 | package-cnof | 外部パッケージ(elpaからパッケージ要取得)の設定項目 |
 | bizz-cnof | emacsデフォルト(elpaからパッケージの取得が不要)の設定項目 |
 | appearance-cnof | bizzに引続き、emacsデフォルトの外見設定 |
@@ -136,6 +137,7 @@ $ mv emacs.d ~/.emacs.d
 
 "
    ;; config composition
+   "\n## elispファイル構成\n\n"
    config-composition-md
    ;; explain keybinds
    "\n## キーバインド\n\n"
