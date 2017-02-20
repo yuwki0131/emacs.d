@@ -6,6 +6,12 @@
 修正して使う
 
 
+設定など.
+```
+$ git clone https://github.com/yuwki0131/emacs.d
+$ mv emacs.d ~/.emacs.d
+```
+
 ## キーバインド
 
 デフォルト以外のキーバインド設定
