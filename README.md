@@ -3,18 +3,13 @@
 発展途上 & 未確認 (´・_・`)
 
 
-修正して使う
-
-
-<<<<<<< HEAD
+修正して使う.
 設定など.
 ```
 $ git clone https://github.com/yuwki0131/emacs.d
 $ mv emacs.d ~/.emacs.d
 ```
 
-=======
->>>>>>> 0d79a41193db0c5b24371d3c0acfeb5351c3df24
 ## キーバインド
 
 デフォルト以外のキーバインド設定
