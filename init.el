@@ -44,20 +44,20 @@
 ;;; ---------------------------------------------------------------------------
 ;;; ---------------------------------------------------------------------------
 ;;; local elisp files(dconf下ファイル)の分割方針
+(defvar config-composition-md
+  "~/.emacs.d/configディレクトリ以下
 
-;;; - package : 外部パッケージ(elpaからパッケージ要取得)の設定項目
-;;; - bizz : emacsデフォルト(elpaからパッケージの取得が不要)の設定項目
-;;; - appearance : bizzに引続き、emacsデフォルトの外見設定
-;;; - common-lang : 言語(*1)共通設定 or 複数言語に共通する設定(要elpaの設定)
-;;; - language : 特定の言語(*1)設定、1言語限定の設定
+|:-------------|------------------------------------------------------|
+| package-cnof | 外部パッケージ(elpaからパッケージ要取得)の設定項目 |
+| bizz-cnof | emacsデフォルト(elpaからパッケージの取得が不要)の設定項目 |
+| appearance-cnof | bizzに引続き、emacsデフォルトの外見設定 |
+| common-lang-cnof | 言語共通設定 or 複数言語に共通する設定(要elpaの設定) |
+| language-cnof | 特定の言語設定、1言語ごとの設定 |
+| external-eslip | 外部から持ち込んだコードなど |
+| internal-eslip | 自作したコード |
+| key-binding | キーバインドは一括してここにまとめる |
 
-;;; - external-eslip : 外部からコピペしてきたコードなど
-;;; - internal-eslip : 自作したコード
-
-;;; - key-binding : キーバインドは一括してここにまとめる
-
-;;; *1 : ここで言語は、プログラミング言語、DSLなどの形式言語のみ
-;;;      自然言語については、追々考えていきたい
+")
 
 ;;; ---------------------------------------------------------------------------
 ;;; 問題点など
@@ -126,17 +126,20 @@
    ;; header
    "# 自分用 ~/.emacs.d\n\n発展途上 & 未確認 (´・_・`)\n\n"
    ;; read-me text
-   "
-修正して使う.
+   "修正して使う.
 設定など.
 ```
 $ git clone https://github.com/yuwki0131/emacs.d
 $ mv emacs.d ~/.emacs.d
 ```
+※use-package以外の依存パッケージは入っていないが、use-packageを入れれば動くはず。
+
 "
+   ;; config composition
+   config-composition-md
    ;; explain keybinds
    "\n## キーバインド\n\n"
-   "デフォルト以外のキーバインド設定\n\n"
+   "デフォルト以外のGlobalキーバインド設定\n\n"
    keybinding-md))
 
 (spit readme-file-md readme-text)

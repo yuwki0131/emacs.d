@@ -2,17 +2,30 @@
 
 発展途上 & 未確認 (´・_・`)
 
-
 修正して使う.
 設定など.
 ```
 $ git clone https://github.com/yuwki0131/emacs.d
 $ mv emacs.d ~/.emacs.d
 ```
+※use-package以外の依存パッケージは入っていないが、use-packageを入れれば動くはず。
+
+~/.emacs.d/configディレクトリ以下
+
+|:-------------|------------------------------------------------------|
+| package-cnof | 外部パッケージ(elpaからパッケージ要取得)の設定項目 |
+| bizz-cnof | emacsデフォルト(elpaからパッケージの取得が不要)の設定項目 |
+| appearance-cnof | bizzに引続き、emacsデフォルトの外見設定 |
+| common-lang-cnof | 言語共通設定 or 複数言語に共通する設定(要elpaの設定) |
+| language-cnof | 特定の言語設定、1言語ごとの設定 |
+| external-eslip | 外部から持ち込んだコードなど |
+| internal-eslip | 自作したコード |
+| key-binding | キーバインドは一括してここにまとめる |
+
 
 ## キーバインド
 
-デフォルト以外のキーバインド設定
+デフォルト以外のGlobalキーバインド設定
 
 |カテゴリ|キーバインド|function|機能名|
 | --------------- |:---------------| -------------------- |:-------|
