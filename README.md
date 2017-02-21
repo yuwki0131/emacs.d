@@ -10,7 +10,6 @@ $ mv emacs.d ~/.emacs.d
 ```
 ※use-package以外の依存パッケージは入っていないが、use-packageを入れれば動くはず。
 
-
 ## elispファイル構成
 
 ~/.emacs.d/configディレクトリ以下
@@ -61,9 +60,11 @@ $ mv emacs.d ~/.emacs.d
 |編集|C-S-l|insert-angle-brackets|括弧操作|
 |編集|M-l|insert-brackets|括弧操作|
 |編集|M-S-l|insert-squares|括弧操作|
+|機能|M-o|other-window|別バッファへ移動|
 |編集|M-RET|yas-insert-snippet|snippet : スニペット挿入|
 |機能|C-z C-k|describe-bindings|キーバインド表示|
 |機能|C-z p|toggle-truncate-lines|enable/disable toggle-truncate-line|
+|機能|C-z C-n|neotree-toggle|ディレクトリ階層を表示 (neo tree)|
 |機能|C-z C-r|replace-string|replace-string|
 |機能|C-M-s|vr/isearch-forward|vr/isearch側の正規表現置換|
 |機能|C-M-r|vr/isearch-backward|vr/isearch側の正規表現置換|
