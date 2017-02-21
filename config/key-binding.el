@@ -149,6 +149,9 @@
 (gssk-bind "M-l"    'insert-brackets)
 (gssk-bind "M-S-l"  'insert-squares)
 
+(gssk-category-function "機能" "別バッファへ移動")
+(gssk-bind "M-o"     'other-window)
+
 (gssk-category-function "機能" "一時的なコマンド束縛用(テスト用/試用)")
 (gssk-bind "M-j"     'temp-command)
 
@@ -168,6 +171,9 @@
 
 (gssk-explain-function "手前の空白を削除 (delete until black key)")
 (gssk-bind "C-z C-d" 'delete-until-black)
+
+(gssk-explain-function "ディレクトリ階層を表示 (neo tree)")
+(gssk-bind "C-z C-n"   'neotree-toggle)
 
 (gssk-explain-function "replace-string")
 (gssk-bind "C-z C-r" 'replace-string)

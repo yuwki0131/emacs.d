@@ -97,6 +97,17 @@
 (use-package-with-report tiny-menu)
 
 ;;; ---------------------------------------------------------------------------
+;;; package-func : neotree : ディレクトリ表示
+;;; ---------------------------------------------------------------------------
+(use-package-with-report neotree
+  :config
+  (setq neo-show-hidden-files t)
+  (setq neo-persist-show t)
+  (setq neo-keymap-style 'concise)
+  (setq neo-smart-open t)
+  (add-hook 'neotree-mode-hook '(lambda () (nlinum-mode -1))))
+
+;;; ---------------------------------------------------------------------------
 ;;; package-func : open junk file : ジャンクファイル生成
 ;;; ---------------------------------------------------------------------------
 (use-package-with-report open-junk-file
