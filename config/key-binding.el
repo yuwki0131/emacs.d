@@ -240,6 +240,13 @@
 (gssk-explain-function "white space insertion")
 (white-plus-m)
 
+(defun aq-seiden ()
+  (interactive)
+  (insert "阿Q正伝"))
+
+(gssk-explain-function "阿Q正伝を挿入")
+(gssk-bind "C-a C-q" 'aq-seiden)
+
 (gssk-explain-function "コメント アウト/イン")
 (gssk-bind "C-a C-a" 'comment-dwim)
 
@@ -259,6 +266,12 @@
 
 (gssk-explain-function "merge 2 lines")
 (gssk-bind "C-a C-f" 'merge2lines)
+
+(gssk-explain-function "矩形選択")
+(gssk-bind "C-a C-r" 'rectangle-mark-mode)
+
+(gssk-explain-function "後ろ向きな単語削除")
+(gssk-bind "C-a C-h" 'backward-kill-word)
 
 ;;; ---------------------------------------------------------------------------
 ;;; E prefix (to move somewhere)

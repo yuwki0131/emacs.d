@@ -80,6 +80,7 @@ $ mv emacs.d ~/.emacs.d
 |機能|C-z C-t|bm-toggle|bm-toggle|
 |機能|C-z t|bm-show|bm-toggle|
 |機能|C-z M-t|bm-show-all|bm-toggle|
+|編集|C-a C-q|aq-seiden|阿Q正伝を挿入|
 |編集|C-a C-a|comment-dwim|コメント アウト/イン|
 |編集|C-a C-u|upcase-word|upcase/downcase-word|
 |編集|C-a C-p|downcase-word|upcase/downcase-word|
@@ -88,6 +89,8 @@ $ mv emacs.d ~/.emacs.d
 |編集|C-a M-d|insert-date-markdown|現在時刻挿入|
 |編集|C-a C-m|insert--s|insert comment line|
 |編集|C-a C-f|merge2lines|merge 2 lines|
+|編集|C-a C-r|rectangle-mark-mode|矩形選択|
+|編集|C-a C-h|backward-kill-word|後ろ向きな単語削除|
 |移動|C-e C-l|goto-last-change|最後の変更箇所へ移動|
 |移動|C-e C-j|point-undo|最後のカーソル位置へ移動|
 |移動|C-e C-k|point-redo|最後のカーソル位置へ移動|
