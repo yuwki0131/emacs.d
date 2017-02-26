@@ -107,7 +107,7 @@ $ mv emacs.d ~/.emacs.d
    config-composition-md
    ;; explain keybinds
    "\n## キーバインド\n\n"
-   "デフォルト以外のGlobalキーバインド設定\n\n"
+   "デフォルト以外のglobal-set-key設定\n\n"
    keybinding-md))
 
 (spit readme-file-md readme-text)
