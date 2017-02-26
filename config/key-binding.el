@@ -129,11 +129,11 @@
 (gssk-category-function "編集" "挿入" "snippet : スニペット挿入")
 (gssk-bind "M-RET"  'yas-insert-snippet)
 
-(gssk-category-function "編集" "検索" "vr/isearch側の正規表現置換")
+(gssk-category-function "編集" "置換" "vr/isearch側の正規表現置換")
 (gssk-bind "C-M-s"  'vr/isearch-forward)
 (gssk-bind "C-M-r"  'vr/isearch-backward)
 
-(gssk-category-function "編集" "" "括弧操作")
+(gssk-category-function "編集" "括弧" "括弧操作")
 (gssk-bind "C-RET"  'kill-until-corresp-paren)
 (gssk-bind "C-l"    'insert-parenthesis)
 (gssk-bind "C-S-l"  'insert-angle-brackets)
@@ -144,11 +144,11 @@
 (gssk-bind "C-m"    'forward-paragraph)
 (gssk-bind "M-m"    'backward-paragraph)
 
-(gssk-category-function "移動" "バッファ内" "スクロール(カーソル位置固定)")
+(gssk-category-function "移動" "バッファ内" "1行スクロール(カーソル位置固定)")
 (gssk-bind "M-p"    'scroll-up-in-place)
 (gssk-bind "M-n"    'scroll-down-in-place)
 
-(gssk-category-function "移動" "バッファ内" "goto-line(１回)")
+(gssk-category-function "移動" "バッファ内" "指定行へ移動(1回でgoto-line)")
 (gssk-bind "M-g"    'goto-line)
 
 (gssk-category-function "移動" "バッファ内" "ace jump mode")
@@ -157,11 +157,11 @@
 (gssk-category-function "移動" "バッファ内" "TODOへ移動")
 (gssk-bind "C-."    'goto-next-TODO)
 
-(gssk-category-function "移動" "バッファ内" "シンボル移動　(highlight-symbol-mode)")
+(gssk-category-function "移動" "バッファ内" "シンボル単位移動")
 (gssk-bind "C-?"    'highlight-symbol-next)
 (gssk-bind "C-!"    'highlight-symbol-prev)
 
-(gssk-category-function "移動" "バッファ間" "バッファ移動 (アスタリスク付バッファはスキップ)")
+(gssk-category-function "移動" "バッファ間" "バッファ移動 (*付バッファはスキップ)")
 (gssk-bind "C-M-f"  'next-buffer-with-skip*)
 (gssk-bind "C-M-p"  'previous-buffer-with-skip*)
 
@@ -174,27 +174,20 @@
 (gssk-category "機能")
 (gssk-subcategory "")
 
-(gssk-explain-function "キーバインド表示")
-(gssk-bind "C-z C-k" 'describe-bindings)
-
 (gssk-explain-function "enable/disable toggle-truncate-line")
 (gssk-bind "C-z p"   'toggle-truncate-lines)
 
 (gssk-explain-function "現在のバッファ以外のバッファを削除")
 (gssk-bind "C-z C-k" 'kill-the-other-buffers)
 
-(gssk-explain-function "ディレクトリ階層を表示 (neo tree)")
-(gssk-bind "C-z C-n" 'neotree-toggle)
+(gssk-explain-function "エンコーディング変更")
+(gssk-bind "C-z f"   'set-file-name-coding-system)
 
-(gssk-explain-function "replace-string")
+(gssk-subcategory "置換")
+(gssk-explain-function "文字列置換(規則外)")
 (gssk-bind "C-z C-r" 'replace-string)
 
-(gssk-explain-function "vr/isearch側の正規表現置換")
-(gssk-bind "C-M-s"   'vr/isearch-forward)
-(gssk-bind "C-M-r"   'vr/isearch-backward)
-
-(gssk-explain-function "change encoding")
-(gssk-bind "C-z f"   'set-file-name-coding-system)
+(gssk-subcategory "検索")
 
 (gssk-explain-function "grep this & grep find this")
 (gssk-bind "C-z C-b" 'grep-this)
@@ -203,25 +196,33 @@
 (gssk-explain-function "swoop")
 (gssk-bind "C-z C-s" 'swoop)
 
-(gssk-explain-function "バッファのウィンドウサイズを縮小")
-(gssk-bind "C-z s"   'make-buffer-small)
-
-(gssk-explain-function "sublime風のoutline")
-(gssk-bind "C-z C-o" 'nurumacs-map-toggle)
-
-(gssk-explain-function "magit (Emacs Git)")
-(gssk-bind "C-z m"   'magit-status)
-
-(gssk-explain-function "rgrep")
+(gssk-explain-function "rgrep (ディレクトリ内Grep)")
 (gssk-bind "C-z r"   'rgrep)
 
 (gssk-explain-function "google-this(Googleで検索)")
 (gssk-bind "C-z r"   'google-this)
 
-(gssk-explain-function "bm-toggle")
+(gssk-subcategory "表示")
+
+(gssk-explain-function "バッファのウィンドウサイズを縮小")
+(gssk-bind "C-z s"   'make-buffer-small)
+
+(gssk-explain-function "ディレクトリ階層を表示 (neo tree)")
+(gssk-bind "C-z C-n" 'neotree-toggle)
+
+(gssk-explain-function "sublime風のoutline表示")
+(gssk-bind "C-z C-o" 'nurumacs-map-toggle)
+
+(gssk-explain-function "magit (Emacs Git)")
+(gssk-bind "C-z m"   'magit-status)
+
+(gssk-explain-function "現在行をマーク、ハイライト表示")
 (gssk-bind "C-z C-t" 'bm-toggle)
 (gssk-bind "C-z t"   'bm-show)
 (gssk-bind "C-z M-t" 'bm-show-all)
+
+(gssk-explain-function "キーバインド表示")
+(gssk-bind "C-z C-k" 'describe-bindings)
 
 ;;; ---------------------------------------------------------------------------
 ;;; A prefix (to edit somewhat)
@@ -256,7 +257,7 @@
   (interactive)
   (insert "阿Q正伝"))
 
-(defun extract-current-buffer-name ()
+(defun insert-current-file-name ()
   (interactive)
   (insert (buffer-file-name (current-buffer))))
 
@@ -292,8 +293,8 @@
 (gssk-bind "C-a C-d" 'insert-date-normal)
 (gssk-bind "C-a M-d" 'insert-date-markdown)
 
-(gssk-explain-function "現在のファイル名を挿入")
-(gssk-bind "C-a C-e" 'extract-current-buffer-name)
+(gssk-explain-function "現在のファイルパスを挿入")
+(gssk-bind "C-a C-e" 'insert-current-file-name)
 
 (gssk-explain-function "コメント用の線を挿入")
 (gssk-bind "C-a C-m" 'insert--s)
