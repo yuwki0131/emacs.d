@@ -30,8 +30,8 @@ $ mv emacs.d ~/.emacs.d
 
 デフォルト以外のglobal-set-key設定
 
-|category|subcategory|key|function|explanation|
-| --------------- |:---------------|:------------- | -------------------- |:-------|
+|分類1|分類2|キー|関数名|内容|
+| -------- |:----|:-------- | -------------------- |:-------|
 |prefix|解除|C-e|unbind|prefix key 解除|
 |prefix|解除|C-a|unbind|prefix key 解除|
 |prefix|解除|C-z|unbind|prefix key 解除|

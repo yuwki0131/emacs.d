@@ -360,11 +360,11 @@
 ;;; ---------------------------------------------------------------------------
 
 (defconst grm-keybind-header
-  "|category|subcategory|key|function|explanation|")
+  "|分類1|分類2|キー|関数名|内容|")
 
 (defconst grm-keybind-table-line
   (concat
-   "| --------------- |:---------------|:------------- "
+   "| -------- |:----|:-------- "
    "| -------------------- |:-------|"))
 
 (defun gssk-setting-md "")
