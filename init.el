@@ -62,11 +62,12 @@
 ;;; configuration report
 ;;; ---------------------------------------------------------------------------
 (insert
- (concat ";; 🍣\"hello world, emacs !!\"\n"
-	 ";; ('･_･`)\n\n"
-	 ";; load-config reports\n"
-	 (report-failed-packages)
-	 (report-gsskey)))
+ (concat
+  ";; 🍣\"hello world, emacs !!\"\n"
+  ";; ('･_･`)\n\n"
+  ";; load-config reports\n"
+  (report-failed-packages)
+  (report-gsskey)))
 
 ;;; ---------------------------------------------------------------------------
 ;;; generate readme
@@ -93,6 +94,8 @@
   (concat
    ;; header
    "# 自分用 ~/.emacs.d\n\n発展途上 & 未確認 (´・_・`)\n\n"
+   "以下イメージ\n\n"
+   "[画面](img/image.png)\n\n"
    ;; read-me text
    "修正して使う.
 設定など.
@@ -117,18 +120,3 @@ $ mv emacs.d ~/.emacs.d
 
 (provide 'init)
 ;;; init.el ends here
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(flymake-python-pyflakes-extra-arguments (quote ("--max-line-length=120" "--ignore=E128")))
- '(package-selected-packages
-   (quote
-    (path-headerline-mode beacon browse-kill-ring+ mozc-im zop-to-char volatile-highlights visual-regexp-steroids vimrc-mode use-package twittering-mode tiny-menu swoop smooth-scroll sml-mode smart-mode-line redo+ rainbow-delimiters racket-mode quickrun python-pep8 python-mode pylint pyflakes py-autopep8 point-undo open-junk-file nyan-mode nurumacs nlinum neotree migemo markdown-preview-mode magit lua-mode keyfreq jedi ipython initchart hy-mode hungry-delete hlinum hl-line+ hiwin highlight-symbol highlight-sexp highlight-quoted highlight-operators highlight-numbers highlight-indent-guides helm-swoop helm-ag guide-key goto-chg google-translate google-this geiser free-keys flymake-python-pyflakes flymake-cursor flymake-checkers flycheck-pyflakes flycheck-mypy flycheck-haskell flycheck-gdc-dub flycheck-gdc flycheck-clojure fancy-narrow exec-path-from-shell esup emoji-fontset emoji-display elpy e2wm drag-stuff disable-mouse dic-lookup-w3m dash-functional col-highlight clj-refactor bm auto-highlight-symbol auto-complete-clang-async auto-compile auto-async-byte-compile anzu ace-jump-mode ac-slime ac-python))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(col-highlight ((t (:inherit hl-line)))))

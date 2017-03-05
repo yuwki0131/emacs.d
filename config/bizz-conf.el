@@ -37,7 +37,7 @@
 ;; backupfile(*.~) つくらない
 (setq make-backup-files nil)
 
-;; backupfile(*.#*) つくらない
+;; backupfile(*.#) つくらない
 (setq auto-save-default nil)
 
 ;; 折り返しを表示

@@ -116,8 +116,8 @@
    (custom-set-faces '(col-highlight ((t (:inherit hl-line))))))
 
 ;; 選択範囲
-(set-face-foreground 'region "black")
-(set-face-background 'region "darkred")
+(set-face-foreground 'region color/fggray)
+(set-face-background 'region "black")
 
 ;; 行番号(line-num)の色の設定
 (set-face-attribute 'linum nil
