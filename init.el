@@ -95,7 +95,7 @@
    ;; header
    "# 自分用 ~/.emacs.d\n\n発展途上 & 未確認 (´・_・`)\n\n"
    "以下イメージ\n\n"
-   "[画面](img/image.png)\n\n"
+   "![画面](img/image.png)\n\n"
    ;; read-me text
    "修正して使う.
 設定など.

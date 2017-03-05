@@ -4,7 +4,7 @@
 
 以下イメージ
 
-[画面](img/image.png)
+![画面](img/image.png)
 
 修正して使う.
 設定など.
