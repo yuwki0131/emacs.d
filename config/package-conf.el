@@ -97,6 +97,11 @@
 (use-package-with-report tiny-menu)
 
 ;;; ---------------------------------------------------------------------------
+;;; package-func : browse kill ring : kill ring
+;;; ---------------------------------------------------------------------------
+(use-package-with-report browse-kill-ring)
+
+;;; ---------------------------------------------------------------------------
 ;;; package-func : neotree : ディレクトリ表示
 ;;; ---------------------------------------------------------------------------
 (use-package-with-report neotree
@@ -122,6 +127,14 @@
   (setq twittering-use-master-password t))
 
 ;;; ---------------------------------------------------------------------------
+;;; package-func : markdown preview mode : markdown preview
+;;; ---------------------------------------------------------------------------
+;; required apt-get install markdown
+(use-package-with-report markdown-preview-mode
+  :config
+  (setq markdown-command "/usr/bin/marked"))
+
+;;; ---------------------------------------------------------------------------
 ;;; package-move : goto chg : 最後に変更した箇所へカーソルを移動
 ;;; ---------------------------------------------------------------------------
 (use-package-with-report goto-chg)
@@ -130,6 +143,14 @@
 ;;; package-move : point-undo : カーソル位置を戻す
 ;;; ---------------------------------------------------------------------------
 (use-package-with-report point-undo)
+
+;;; ---------------------------------------------------------------------------
+;;; package-move : point-undo : カーソル位置を戻す
+;;; ---------------------------------------------------------------------------
+(use-package-with-report popwin-mode
+  :config
+  (add-hook 'prog-mode-hook 'popwin-mode)
+  (setq display-buffer-function 'popwin:display-buffer))
 
 ;;; --------------------------------------------------------------------------------
 ;;; package-edit : edit something
@@ -209,6 +230,15 @@
   (setq hl-line-idle-interval 3))
 
 ;;; ---------------------------------------------------------------------------
+;;; package-app : column highlight line plus : カーソル桁ハイライト
+;;; ---------------------------------------------------------------------------
+'(use-package-with-report col-highlight
+  :config
+  (toggle-highlight-column-when-idle 1)
+  (col-highlight-set-interval 3)
+  (column-highlight-mode nil))
+
+;;; ---------------------------------------------------------------------------
 ;;; package-app : highlight current-buffer : 現在のバッファをハイライト
 ;;; ---------------------------------------------------------------------------
 '(use-package-with-report hiwin
@@ -230,6 +260,11 @@
 (use-package-with-report volatile-highlights
   :config
   (volatile-highlights-mode t))
+
+;;; ---------------------------------------------------------------------------
+;;; package-app : beacon : buffer no idougo ハイライト
+;;; ---------------------------------------------------------------------------
+(use-package-with-report beacon)
 
 ;;; ---------------------------------------------------------------------------
 ;;; package-app : highlight symbol : カーソル位置のシンボルの自動ハイライト
@@ -261,6 +296,13 @@
 (use-package-with-report anzu
   :config
   (global-anzu-mode t))
+
+;;; ---------------------------------------------------------------------------
+;;; package-app : path header line mode : path header line mode
+;;; ---------------------------------------------------------------------------
+(use-package-with-report path-headerline-mode
+  :config
+  (path-headerline-mode +1))
 
 ;;; ---------------------------------------------------------------------------
 ;;; package-app : nurumacs : sublime風アウトライン表示

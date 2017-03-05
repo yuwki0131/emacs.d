@@ -1,16 +1,7 @@
-;;;; ---------------------------------------------------------------------------
-;;;; ---------------------------------------------------------------------------
-;;;;
-;;;; 外観 / appearance-conf.el
-;;;;
-;;;; ---------------------------------------------------------------------------
-;;;; ---------------------------------------------------------------------------
-
-;; memo
-;; Windows系の場合 (Windowsを手元に持ってないので知らない......要らないんでは)
-;; (when (eq system-type 'windows-nt) ...)
-;; Linux系の場合
-;; (when (eq system-type 'gnu/linux))
+;;; appearance-conf.el --- packages
+;;; Commentary:
+;;;  外観 / appearance-conf.el
+;;; Code:
 
 ;;; ---------------------------------------------------------------------------
 ;;; フォント設定
@@ -118,10 +109,11 @@
     (((class color) (background light)) (:background ,color/lightcyan))
     (t ())) "*Face used by hl-line.")
 (setq hl-line-face 'hlline-face)
-
 ;; (setq hl-line-face 'underline)
-;; 使用しない
-;; (global-hl-line-mode)
+
+;; カーソル桁ハイライト
+'(ignore-errors
+   (custom-set-faces '(col-highlight ((t (:inherit hl-line))))))
 
 ;; 選択範囲
 (set-face-foreground 'region "black")
@@ -145,12 +137,12 @@
 ;; モードラインの色の設定(inactive)
 (ignore-errors
   (set-face-attribute 'mode-line-inactive nil
-		      :foreground color/lightcyan :background color/inactive
-		      :inverse-video nil
-		      :weight 'extra-light
-		      :height 100
-		      :font default-font-family
-		      :box '(:line-width 1 :color "gray30" :style nil)))
+              :foreground color/lightcyan :background color/inactive
+              :inverse-video nil
+              :weight 'extra-light
+              :height 100
+              :font default-font-family
+              :box '(:line-width 1 :color "gray30" :style nil)))
 
 ;;;---------------------------------------------------------------------------
 ;;; 色設定(標準以外)
@@ -174,8 +166,8 @@
 ;; 画面サイズ初期化
 (setq initial-frame-alist
       '((top . 20) (left . 0) (width . 128) (height . 75)
-		(alpha . (95 85))
-		))
+        (alpha . (95 85))
+        ))
 
 ;;;---------------------------------------------------------------------------
 ;;; provide

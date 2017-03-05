@@ -129,6 +129,9 @@
 (gssk-category-function "編集" "挿入" "snippet : スニペット挿入")
 (gssk-bind "M-RET"  'yas-insert-snippet)
 
+(gssk-category-function "編集" "挿入" "browse kill ring")
+(gssk-bind "M-y"  'browse-kill-ring)
+
 (gssk-category-function "編集" "置換" "vr/isearch側の正規表現置換")
 (gssk-bind "C-M-s"  'vr/isearch-forward)
 (gssk-bind "C-M-r"  'vr/isearch-backward)
@@ -338,9 +341,12 @@
 
 (gssk-subcategory "検索")
 
-(gssk-explain-function "正規表現検索")
+(gssk-explain-function "正規表現検索 (インクリメンタル)")
 (gssk-bind "C-e C-s" 'search-forward-regexp)
 (gssk-bind "C-e C-r" 'search-backward-regexp)
+
+(gssk-explain-function "正規表現検索 (一覧表示)")
+(gssk-bind "C-e C-o" 'occur)
 
 (gssk-explain-function "Visual Regexp")
 (gssk-bind "C-e C-d" 'vr/query-replace)

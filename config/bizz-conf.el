@@ -76,11 +76,7 @@
 ;; すべてのプログラムモードに対してタブ幅設定
 (add-hook 'prog-mode-hook '(lambda () (setq tab-width 4)))
 
-;; GC閾値 (what the fuck!)
-;; (setq gc-cons-threshold (* 10 1024 1024))
-
-;; GCが発生した場合にレポート
-;; (setq garbage-collection-messages t)
+(setq-default indent-tabs-mode nil)
 
 ;;; --------------------------------------------------------------------------------
 ;;; standard requires

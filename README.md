@@ -8,7 +8,7 @@
 $ git clone https://github.com/yuwki0131/emacs.d
 $ mv emacs.d ~/.emacs.d
 ```
-※use-package以外の依存パッケージは入っていないが、use-packageを入れれば動くはず。
+※要use-package
 
 ## elispファイル構成
 
@@ -44,6 +44,7 @@ $ mv emacs.d ~/.emacs.d
 |編集|削除|M-h|backward-kill-word|Backspaceでの削除 (文字単位/単語単位)|
 |編集|挿入|C-:|insert-underscore|アンダースコア挿入|
 |編集|挿入|M-RET|yas-insert-snippet|snippet : スニペット挿入|
+|編集|挿入|M-y|browse-kill-ring|browse kill ring|
 |編集|置換|C-M-s|vr/isearch-forward|vr/isearch側の正規表現置換|
 |編集|置換|C-M-r|vr/isearch-backward|vr/isearch側の正規表現置換|
 |編集|括弧|C-RET|kill-until-corresp-paren|括弧操作|
@@ -60,8 +61,8 @@ $ mv emacs.d ~/.emacs.d
 |移動|バッファ内|C-.|goto-next-TODO|TODOへ移動|
 |移動|バッファ内|C-?|highlight-symbol-next|シンボル単位移動|
 |移動|バッファ内|C-!|highlight-symbol-prev|シンボル単位移動|
-|移動|バッファ間|C-M-f|next-buffer-with-skip*|バッファ移動 (アスタリスク付バッファはスキップ)|
-|移動|バッファ間|C-M-p|previous-buffer-with-skip*|バッファ移動 (アスタリスク付バッファはスキップ)|
+|移動|バッファ間|C-M-f|next-buffer-with-skip*|バッファ移動 (*付バッファはスキップ)|
+|移動|バッファ間|C-M-p|previous-buffer-with-skip*|バッファ移動 (*付バッファはスキップ)|
 |機能||C-z p|toggle-truncate-lines|enable/disable toggle-truncate-line|
 |機能||C-z C-k|kill-the-other-buffers|現在のバッファ以外のバッファを削除|
 |機能||C-z f|set-file-name-coding-system|エンコーディング変更|
@@ -102,8 +103,9 @@ $ mv emacs.d ~/.emacs.d
 |移動|バッファ間|C-e C-w|move-to-repl|shell/replへ移動|
 |移動|バッファ間|C-e C-b|previous-buffer-with-skip*|バッファ移動 (*付バッファはスキップ)|
 |移動|バッファ間|C-e C-f|next-buffer-with-skip*|バッファ移動 (*付バッファはスキップ)|
-|移動|検索|C-e C-s|search-forward-regexp|正規表現検索|
-|移動|検索|C-e C-r|search-backward-regexp|正規表現検索|
+|移動|検索|C-e C-s|search-forward-regexp|正規表現検索 (インクリメンタル)|
+|移動|検索|C-e C-r|search-backward-regexp|正規表現検索 (インクリメンタル)|
+|移動|検索|C-e C-o|occur|正規表現検索 (一覧表示)|
 |移動|検索|C-e C-d|vr/query-replace|Visual Regexp|
 |移動|検索|C-e C-n|highlight-symbol-next|シンボル単位移動|
 |移動|検索|C-e C-p|highlight-symbol-prev|シンボル単位移動|
