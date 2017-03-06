@@ -302,6 +302,14 @@
 (gssk-explain-function "コメント用の線を挿入")
 (gssk-bind "C-a C-m" 'insert--s)
 
+(gssk-subcategory "リファクタリング")
+
+(gssk-explain-function "mark-multiple")
+(gssk-bind "C-a C-c" 'mark-previous-like-this)
+(gssk-bind "C-a C-v" 'mark-more-like-this)
+(gssk-bind "C-a C-b" 'mark-all-like-this)
+(gssk-bind "C-a C-n" 'mark-next-like-this)
+
 (gssk-subcategory "その他")
 
 (gssk-explain-function "矩形選択")

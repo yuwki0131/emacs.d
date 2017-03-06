@@ -110,6 +110,7 @@
   (setq neo-persist-show t)
   (setq neo-keymap-style 'concise)
   (setq neo-smart-open t)
+  (setq neo-theme 'ascii)
   (add-hook 'neotree-mode-hook '(lambda () (nlinum-mode -1))))
 
 ;;; ---------------------------------------------------------------------------
@@ -185,6 +186,11 @@
   :config
   (setq drag-stuff-modifier '(meta shift))
   (drag-stuff-global-mode t))
+
+;;; ---------------------------------------------------------------------------
+;;; package-edit : multiple-cursors-mode : multiple-cursors-mode
+;;; ---------------------------------------------------------------------------
+(use-package-with-report multiple-cursors)
 
 ;;; --------------------------------------------------------------------------------
 ;;; package-app : appearance something

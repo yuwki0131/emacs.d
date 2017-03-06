@@ -95,6 +95,10 @@ $ mv emacs.d ~/.emacs.d
 |編集|挿入|C-a M-d|insert-date-markdown|現在時刻挿入|
 |編集|挿入|C-a C-e|insert-current-file-name|現在のファイルパスを挿入|
 |編集|挿入|C-a C-m|insert--s|コメント用の線を挿入|
+|編集|リファクタリング|C-a C-c|mark-previous-like-this|mark-multiple|
+|編集|リファクタリング|C-a C-v|mark-more-like-this|mark-multiple|
+|編集|リファクタリング|C-a C-b|mark-all-like-this|mark-multiple|
+|編集|リファクタリング|C-a C-n|mark-next-like-this|mark-multiple|
 |編集|その他|C-a C-r|rectangle-mark-mode|矩形選択|
 |移動|バッファ内|C-e C-l|goto-last-change|最後の変更箇所へ移動|
 |移動|バッファ内|C-e C-j|point-undo|最後のカーソル位置へ移動|
