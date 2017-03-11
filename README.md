@@ -51,12 +51,11 @@ $ mv emacs.d ~/.emacs.d
 |編集|挿入|M-y|browse-kill-ring|browse kill ring|
 |編集|置換|C-M-s|vr/isearch-forward|vr/isearch側の正規表現置換|
 |編集|置換|C-M-r|vr/isearch-backward|vr/isearch側の正規表現置換|
-|編集|括弧|C-RET|kill-until-corresp-paren|括弧操作|
+|編集|括弧|C-m|kill-until-corresp-paren|括弧操作|
 |編集|括弧|C-l|insert-parenthesis|括弧操作|
 |編集|括弧|C-S-l|insert-angle-brackets|括弧操作|
 |編集|括弧|M-l|insert-brackets|括弧操作|
 |編集|括弧|M-S-l|insert-squares|括弧操作|
-|移動|バッファ内|C-m|forward-paragraph|パラグラフ単位の移動|
 |移動|バッファ内|M-m|backward-paragraph|パラグラフ単位の移動|
 |移動|バッファ内|M-p|scroll-up-in-place|1行スクロール(カーソル位置固定)|
 |移動|バッファ内|M-n|scroll-down-in-place|1行スクロール(カーソル位置固定)|
@@ -90,7 +89,7 @@ $ mv emacs.d ~/.emacs.d
 |編集|削除|C-a C-k|kill-this-buffer|現在のバッファを削除|
 |編集|削除|C-a C-h|backward-kill-word|後ろ向きな単語削除|
 |編集|削除|C-a C-f|merge2lines|行のマージ(インデント用などの空白削除) (不要かも)|
-|編集|挿入|C-a C-q|aq-seiden|阿Q正伝を挿入|
+|編集|挿入|C-a C-q|insert-shoborn|(´・_・｀)を挿入|
 |編集|挿入|C-a C-d|insert-date-normal|現在時刻挿入|
 |編集|挿入|C-a M-d|insert-date-markdown|現在時刻挿入|
 |編集|挿入|C-a C-e|insert-current-file-name|現在のファイルパスを挿入|

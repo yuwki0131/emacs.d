@@ -218,6 +218,17 @@
   (nyan-start-animation))
 
 ;;; ---------------------------------------------------------------------------
+;;; package-app : echo bell : from beep to echo
+;;; ---------------------------------------------------------------------------
+;; original : https://www.youtube.com/watch?v=QH2-TGUlwu4
+(use-package-with-report echo-bell
+  :config
+  (setq echo-bell-string "(´・_・｀)")
+  (setq echo-bell-background "#4b3b4b")
+  (setq echo-bell-delay 0.4)
+  (echo-bell-mode 1))
+
+;;; ---------------------------------------------------------------------------
 ;;; package-app : nlinum-mode : 軽量化された行番号表示
 ;;; ---------------------------------------------------------------------------
 ;; 標準は重いので使用しない

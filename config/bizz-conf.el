@@ -32,7 +32,7 @@
 
 ;; beep音消す
 (setq visible-bell t)
-(setq ring-bell-function 'ignore)
+;; (setq ring-bell-function 'ignore)
 
 ;; backupfile(*.~) つくらない
 (setq make-backup-files nil)

@@ -137,14 +137,14 @@
 (gssk-bind "C-M-r"  'vr/isearch-backward)
 
 (gssk-category-function "編集" "括弧" "括弧操作")
-(gssk-bind "C-RET"  'kill-until-corresp-paren)
+(gssk-bind "C-m"    'kill-until-corresp-paren)
 (gssk-bind "C-l"    'insert-parenthesis)
 (gssk-bind "C-S-l"  'insert-angle-brackets)
 (gssk-bind "M-l"    'insert-brackets)
 (gssk-bind "M-S-l"  'insert-squares)
 
 (gssk-category-function "移動" "バッファ内" "パラグラフ単位の移動")
-(gssk-bind "C-m"    'forward-paragraph)
+;(gssk-bind "C-m"    'forward-paragraph)
 (gssk-bind "M-m"    'backward-paragraph)
 
 (gssk-category-function "移動" "バッファ内" "1行スクロール(カーソル位置固定)")
@@ -256,9 +256,9 @@
 (gssk-explain-function "white space insertion")
 (white-plus-m)
 
-(defun aq-seiden ()
+(defun insert-shoborn ()
   (interactive)
-  (insert "阿Q正伝"))
+  (insert "(´・_・｀)"))
 
 (defun insert-current-file-name ()
   (interactive)
@@ -289,8 +289,8 @@
 
 (gssk-subcategory "挿入")
 
-(gssk-explain-function "阿Q正伝を挿入")
-(gssk-bind "C-a C-q" 'aq-seiden)
+(gssk-explain-function "(´・_・｀)を挿入")
+(gssk-bind "C-a C-q" 'insert-shoborn)
 
 (gssk-explain-function "現在時刻挿入")
 (gssk-bind "C-a C-d" 'insert-date-normal)
@@ -302,7 +302,7 @@
 (gssk-explain-function "コメント用の線を挿入")
 (gssk-bind "C-a C-m" 'insert--s)
 
-(gssk-subcategory "リファクタリング")
+(gssk-subcategory "refactoring")
 
 (gssk-explain-function "mark-multiple")
 (gssk-bind "C-a C-c" 'mark-previous-like-this)
