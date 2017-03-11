@@ -258,7 +258,7 @@
 
 (defun insert-shoborn ()
   (interactive)
-  (insert "(´・_・｀)"))
+  (insert "(´・_・`)"))
 
 (defun insert-current-file-name ()
   (interactive)
@@ -289,7 +289,7 @@
 
 (gssk-subcategory "挿入")
 
-(gssk-explain-function "(´・_・｀)を挿入")
+(gssk-explain-function "(´・_・`)を挿入")
 (gssk-bind "C-a C-q" 'insert-shoborn)
 
 (gssk-explain-function "現在時刻挿入")

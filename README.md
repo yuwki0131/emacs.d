@@ -1,6 +1,6 @@
 # 自分用 ~/.emacs.d
 
-発展途上 & 未確認 (´・_・`)
+修正中 & 未確認 (´・_・`)
 
 以下イメージ
 
@@ -89,7 +89,7 @@ $ mv emacs.d ~/.emacs.d
 |編集|削除|C-a C-k|kill-this-buffer|現在のバッファを削除|
 |編集|削除|C-a C-h|backward-kill-word|後ろ向きな単語削除|
 |編集|削除|C-a C-f|merge2lines|行のマージ(インデント用などの空白削除) (不要かも)|
-|編集|挿入|C-a C-q|insert-shoborn|(´・_・｀)を挿入|
+|編集|挿入|C-a C-q|insert-shoborn|(´・_・`)を挿入|
 |編集|挿入|C-a C-d|insert-date-normal|現在時刻挿入|
 |編集|挿入|C-a M-d|insert-date-markdown|現在時刻挿入|
 |編集|挿入|C-a C-e|insert-current-file-name|現在のファイルパスを挿入|
