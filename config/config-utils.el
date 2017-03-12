@@ -133,7 +133,7 @@
 									  "|" (car (cdr (cdr (cdr (cdr x))))) "|\n"))
 				 (reverse gssk-keybind-report))))
 
-(defvar keybinding-md
+(defun keybinding-md ()
   (concat
    grm-keybind-header
    "\n"
@@ -194,7 +194,7 @@ $ mv emacs.d ~/.emacs.d
    ;; explain keybinds
    "\n## キーバインド\n\n"
    "デフォルト以外のglobal-set-key設定\n\n"
-   keybinding-md))
+   (keybinding-md)))
 
 ;;; --------------------------------------------------------------------------------
 ;;; provide
