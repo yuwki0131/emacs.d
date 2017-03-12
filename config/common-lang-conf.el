@@ -7,7 +7,7 @@
 ;;; yasnippet : スニペット
 ;;; ---------------------------------------------------------------------------
 ;; see : https://github.com/AndreaCrotti/yasnippet-snippets
-(use-package yasnippet
+(use-package-with-report yasnippet
   :config
   (setq yas-snippet-dirs
 	'("~/.emacs.d/mysnippets"
@@ -21,9 +21,9 @@
 ;; (define-key yas-minor-mode-map (kbd "C-x i v") 'yas-visit-snippet-file)
 
 ;;; ---------------------------------------------------------------------------
-;;; sync
+;;; origami : ford the inner of parenthesis
 ;;; ---------------------------------------------------------------------------
-(use-package sync)
+(use-package-with-report origami)
 
 ;;; ---------------------------------------------------------------------------
 ;;; highlight numbers : 数値のハイライト
@@ -65,7 +65,7 @@
 ;;   :config
 ;;   (add-hook 'after-init-hook 'global-flycheck-mode))
 
-(use-package flymake-cursor)
+(use-package-with-report flymake-cursor)
 
 ;;; ---------------------------------------------------------------------------
 ;;; provide

@@ -37,6 +37,7 @@
 
 ;; magenta系
 (defvar color/deeppink "deeppink")
+(defvar color/purpledark "#4B3B4B")
 
 ;; lime green系
 (defvar color/limegreen "#AFCA95")

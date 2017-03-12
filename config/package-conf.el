@@ -9,34 +9,6 @@
 ;;;  package report : 報告・計測
 ;;; Code:
 
-;;; ---------------------------------------------------------------------------
-;;; failed-packages report : use-packageに失敗したパッケージのレポート
-;;; ---------------------------------------------------------------------------
-(defvar failed-packages '())
-
-(defmacro use-package-with-report (&rest body)
-  `(when (not (use-package . ,(append body '(:config 't))))
-     (add-to-list 'failed-packages ,(symbol-name (car body)))))
-
-(defun interpose (ls obj)
-  (if (null ls)
-      nil
-    `(,(car ls) ,obj . ,(interpose (cdr ls) obj))))
-
-(defun add-semicolon (line)
-  (concat ";; " line))
-
-(defun report-failed-packages ()
-  (if (not failed-packages)
-      ";; all defined packages have been installed successfully"
-    (concat
-     ";; failed packages: \n"
-     (apply 'concat
-	    (interpose (mapcar #'add-semicolon failed-packages) "\n")))))
-
-(font-lock-add-keywords 'emacs-lisp-mode
-  '(("\\(use-package-with-report\\)" . font-lock-keyword-face)))
-
 ;;; --------------------------------------------------------------------------------
 ;;; package-func : functions
 ;;; --------------------------------------------------------------------------------
@@ -44,7 +16,7 @@
 ;;; ---------------------------------------------------------------------------
 ;;; package-func : magit : emacs git client
 ;;; ---------------------------------------------------------------------------
-(use-package magit
+(use-package-with-report magit
   :ensure t)
 
 ;;; ---------------------------------------------------------------------------
@@ -281,7 +253,9 @@
 ;;; ---------------------------------------------------------------------------
 ;;; package-app : beacon : buffer no idougo ハイライト
 ;;; ---------------------------------------------------------------------------
-(use-package-with-report beacon)
+(use-package-with-report beacon
+  :config
+  (beacon-mode 1))
 
 ;;; ---------------------------------------------------------------------------
 ;;; package-app : highlight symbol : カーソル位置のシンボルの自動ハイライト

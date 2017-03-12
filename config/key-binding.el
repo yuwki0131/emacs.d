@@ -55,12 +55,12 @@
     (t
      (setq gsskey-report-text
 	   (concat gsskey-report-text
-		   ";; - failed to bind  : " (symbol-name ,sym) "\n")))))
+		   ";;  - failed to bind: " (symbol-name ,sym) "\n")))))
 
 (defun report-gsskey ()
   (if (not gsskey-report-text)
       ";; all keybinds successfully defined"
-    (concat ";; gsskey error : \n" gsskey-report-text)))
+    (concat ";; gsskey error: \n" gsskey-report-text)))
 
 ;;; ---------------------------------------------------------------------------
 ;;; unset
@@ -167,6 +167,10 @@
 (gssk-category-function "移動" "バッファ間" "バッファ移動 (*付バッファはスキップ)")
 (gssk-bind "C-M-f"  'next-buffer-with-skip*)
 (gssk-bind "C-M-p"  'previous-buffer-with-skip*)
+
+(gssk-category-function "その他" "その他" "文字の拡大/縮小")
+(gssk-bind "C-+" 'text-scale-increase)
+(gssk-bind "C--" 'text-scale-decrease)
 
 (gssk-category-function "その他" "その他" "一時的なコマンド束縛用(テスト用/試用)")
 (gssk-bind "M-j"     'temp-command)
