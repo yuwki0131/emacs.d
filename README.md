@@ -66,7 +66,9 @@ $ mv emacs.d ~/.emacs.d
 |移動|バッファ内|C-!|highlight-symbol-prev|シンボル単位移動|
 |移動|バッファ間|C-M-f|next-buffer-with-skip*|バッファ移動 (*付バッファはスキップ)|
 |移動|バッファ間|C-M-p|previous-buffer-with-skip*|バッファ移動 (*付バッファはスキップ)|
-|その他|その他|C-+|text-scale-increase|文字の拡大/縮小|
+|その他|その他|C-S-+|text-scale-increase|文字の拡大/縮小|
+|その他|その他|C-S--|text-scale-decrease|文字の拡大/縮小|
+|その他|その他|C-+|increment-number|文字の拡大/縮小|
 |その他|その他|C--|text-scale-decrease|文字の拡大/縮小|
 |その他|その他|M-j|temp-command|一時的なコマンド束縛用(テスト用/試用)|
 |機能||C-z p|toggle-truncate-lines|enable/disable toggle-truncate-line|

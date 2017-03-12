@@ -95,7 +95,7 @@
          ("\\.lhs$" . literate-haskell-mode))
   :config
   (setq haskell-program-name "ghci"))
-(use-package-with-report haskell-cabal-mode
+(use-package-with-report haskell-cabal
   :mode (("\\.cabal\\'" . haskell-cabal-mode)))
 (setq haskell-font-lock-symbols t)
 

@@ -304,6 +304,30 @@
       (shrink-window (- (window-height) target-size)))))
 
 ;;; ---------------------------------------------------------------------------
+;;; increment/decrement cursor position integer
+;;; ---------------------------------------------------------------------------
+;; bind-key : white plus keys
+
+(defun increment-current-number (diff-value)
+  (let ((current-word (thing-at-point 'word))
+        (bounds-of-word (bounds-of-thing-at-point 'word)))
+    (if (and current-word
+             (string-match "\\`[0-9]+\\'" current-word)
+             (<= 0 (+ diff-value (string-to-number current-word))))
+        (save-excursion
+          (kill-region (car bounds-of-word) (cdr bounds-of-word))
+          (insert (number-to-string
+                   (+ diff-value (string-to-number current-word))))))))
+
+(defun increment-number ()
+  (interactive)
+  (increment-current-number 1))
+
+(defun decrement-number ()
+  (interactive)
+  (increment-current-number -1))
+
+;;; ---------------------------------------------------------------------------
 ;;; provide
 ;;; ---------------------------------------------------------------------------
 (provide 'internal-elisp)

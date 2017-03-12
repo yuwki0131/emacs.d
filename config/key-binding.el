@@ -169,7 +169,11 @@
 (gssk-bind "C-M-p"  'previous-buffer-with-skip*)
 
 (gssk-category-function "その他" "その他" "文字の拡大/縮小")
-(gssk-bind "C-+" 'text-scale-increase)
+(gssk-bind "C-S-+" 'text-scale-increase)
+(gssk-bind "C-S--" 'text-scale-decrease)
+
+(gssk-category-function "その他" "その他" "文字の拡大/縮小")
+(gssk-bind "C-+" 'increment-number)
 (gssk-bind "C--" 'text-scale-decrease)
 
 (gssk-category-function "その他" "その他" "一時的なコマンド束縛用(テスト用/試用)")
