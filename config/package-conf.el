@@ -212,7 +212,7 @@
 ;;; ---------------------------------------------------------------------------
 ;;; package-app : highlight line plus : カーソル行ハイライト(拡張)
 ;;; ---------------------------------------------------------------------------
-;; 標準は重いので使用しない
+;; 標準は重いので使用しない。以下を使用
 (use-package-with-report hl-line+
   :config
   (toggle-hl-line-when-idle)
@@ -230,10 +230,10 @@
 ;;; ---------------------------------------------------------------------------
 ;;; package-app : highlight current-buffer : 現在のバッファをハイライト
 ;;; ---------------------------------------------------------------------------
-'(use-package-with-report hiwin
+(use-package-with-report hiwin
    :config
   (hiwin-activate)
-  (set-face-background 'hiwin-face "gray10"))
+  (set-face-background 'hiwin-face "#202020"))
 
 ;;; ---------------------------------------------------------------------------
 ;;; package-app : highlight indent guides : インデント表示

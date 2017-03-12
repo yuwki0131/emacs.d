@@ -45,7 +45,7 @@
 ;; gray系
 (defvar color/active "#101010")
 (defvar color/inactive "#393939")
-(defvar color/bggray "#1F1F1F")
+(defvar color/bggray "#101010")
 (defvar color/fggray "#E0E0E0")
 (defvar color/comment "#999999")
 
@@ -167,8 +167,7 @@
 ;; 画面サイズ初期化
 (setq initial-frame-alist
       '((top . 20) (left . 0) (width . 128) (height . 75)
-        (alpha . (95 85))
-        ))
+        (alpha . (95 85))))
 
 ;;;---------------------------------------------------------------------------
 ;;; provide

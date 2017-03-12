@@ -1,66 +1,8 @@
 ;;; package --- key-binding.el
 ;;; Commentary:
 ;;;  キーバインド設定
+;;;  global-safe-set-key from config-utils
 ;;; Code:
-
-;;; ---------------------------------------------------------------------------
-;;; global-safe-set-key : 安全なglobalsetkeyとエラーレポート、キーバインドレポート
-;;; ---------------------------------------------------------------------------
-
-;; キーバインド情報用(標準以外)
-;; ((category binding-key emacs-function-name function-explaination))
-(defvar gssk-keybind-report '())
-
-(defvar gssk-current-category-state "")
-
-(defvar gssk-current-subcategory-state "")
-
-(defvar gssk-current-function-name-state "")
-
-(defun gssk-category
-  (text)
-  (setq gssk-current-category-state text))
-
-(defun gssk-subcategory
-  (text)
-  (setq gssk-current-subcategory-state text))
-
-(defun gssk-explain-function
-  (text)
-  (setq gssk-current-function-name-state text))
-
-(defun gssk-category-function
-  (category-text subcategory-text function-text)
-  (setq gssk-current-category-state category-text)
-  (setq gssk-current-subcategory-state subcategory-text)
-  (setq gssk-current-function-name-state function-text))
-
-(defvar gsskey-report-text nil)
-
-(defun gssk-add-keybind-report
- (keybind-str sym)
- (add-to-list
-  'gssk-keybind-report
-  (list gssk-current-category-state
-		gssk-current-subcategory-state
-		keybind-str (symbol-name sym)
-		gssk-current-function-name-state)))
-
-(defmacro gssk-bind (keybind-str sym)
-  `(cond
-    ((fboundp ,sym)
-	 (progn
-	   (gssk-add-keybind-report ,keybind-str ,sym)
-	   (global-set-key (kbd ,keybind-str) ,sym)))
-    (t
-     (setq gsskey-report-text
-	   (concat gsskey-report-text
-		   ";;  - failed to bind: " (symbol-name ,sym) "\n")))))
-
-(defun report-gsskey ()
-  (if (not gsskey-report-text)
-      ";; all keybindings defined successfully"
-    (concat ";; gsskey error: \n" gsskey-report-text)))
 
 ;;; ---------------------------------------------------------------------------
 ;;; unset
@@ -172,9 +114,9 @@
 (gssk-bind "C-S-+" 'text-scale-increase)
 (gssk-bind "C-S--" 'text-scale-decrease)
 
-(gssk-category-function "その他" "その他" "文字の拡大/縮小")
+(gssk-category-function "その他" "その他" "数値のインクリメント/デクリメント")
 (gssk-bind "C-+" 'increment-number)
-(gssk-bind "C--" 'text-scale-decrease)
+(gssk-bind "C--" 'decrement-number)
 
 (gssk-category-function "その他" "その他" "一時的なコマンド束縛用(テスト用/試用)")
 (gssk-bind "M-j"     'temp-command)
@@ -367,37 +309,6 @@
 (gssk-explain-function "シンボル単位移動")
 (gssk-bind "C-e C-n" 'highlight-symbol-next)
 (gssk-bind "C-e C-p" 'highlight-symbol-prev)
-
-;;; ---------------------------------------------------------------------------
-;;; gssk : binding report
-;;; ---------------------------------------------------------------------------
-
-(defconst grm-keybind-header
-  "|分類1|分類2|キー|関数名|内容|")
-
-(defconst grm-keybind-table-line
-  (concat
-   "| -------- |:----|:-------- "
-   "| -------------------- |:-------|"))
-
-(defun gssk-setting-md "")
-
-(defun generate-explanation-text ()
-  (apply 'concat
-		 (mapcar '(lambda (x) (concat "|" (car x)
-									  "|" (car (cdr x))
-									  "|" (car (cdr (cdr x)))
-									  "|" (car (cdr (cdr (cdr x))))
-									  "|" (car (cdr (cdr (cdr (cdr x))))) "|\n"))
-				 (reverse gssk-keybind-report))))
-
-(defvar keybinding-md
-  (concat
-   grm-keybind-header
-   "\n"
-   grm-keybind-table-line
-   "\n"
-   (generate-explanation-text)))
 
 ;;; ---------------------------------------------------------------------------
 ;;; provide
