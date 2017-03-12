@@ -91,8 +91,9 @@
 (set-face-fore-with-cbi 'minibuffer-prompt            color/deeppink   t   nil)
 
 ;; coloring ac
-(set-face-fore-with-bfcbi 'ac-selection-face  color/deeppink "white"   t   nil)
-(set-face-fore-with-bfcbi 'ac-candidate-face  "white" color/darkcyan   t   nil)
+(ignore-errors
+  (set-face-fore-with-bfcbi 'ac-selection-face  color/deeppink "white"   t   nil)
+  (set-face-fore-with-bfcbi 'ac-candidate-face  "white" color/darkcyan   t   nil))
 
 ;; coloring helm
 ;;(set-face-fore-with-bfcbi 'helm-selection  color/deeppink color/inactive t nil)
