@@ -68,6 +68,7 @@ $ mv emacs.d ~/.emacs.d
 |移動|バッファ間|C-M-p|previous-buffer-with-skip*|バッファ移動 (*付バッファはスキップ)|
 |その他|その他|C-+|text-scale-increase|文字の拡大/縮小|
 |その他|その他|C--|text-scale-decrease|文字の拡大/縮小|
+|その他|その他|M-j|temp-command|一時的なコマンド束縛用(テスト用/試用)|
 |機能||C-z p|toggle-truncate-lines|enable/disable toggle-truncate-line|
 |機能||C-z C-k|kill-the-other-buffers|現在のバッファ以外のバッファを削除|
 |機能||C-z f|set-file-name-coding-system|エンコーディング変更|
@@ -76,7 +77,7 @@ $ mv emacs.d ~/.emacs.d
 |機能|検索|C-z C-f|grep-find-this|grep this & grep find this|
 |機能|検索|C-z C-s|swoop|swoop|
 |機能|検索|C-z r|rgrep|rgrep (ディレクトリ内Grep)|
-|機能|検索|C-z r|google-this|google-this(Googleで検索)|
+|機能|検索|C-z g|google-this|google-this(Googleで検索)|
 |機能|表示|C-z s|make-buffer-small|バッファのウィンドウサイズを縮小|
 |機能|表示|C-z C-n|neotree-toggle|ディレクトリ階層を表示 (neo tree)|
 |機能|表示|C-z C-o|nurumacs-map-toggle|sublime風のoutline表示|

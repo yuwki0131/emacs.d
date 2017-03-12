@@ -92,10 +92,10 @@
 (use-package-with-report inf-haskell)
 (use-package-with-report haskell-mode
   :mode (("\\.hs$" . haskell-mode)
-	 ("\\.lhs$" . literate-haskell-mode))
+         ("\\.lhs$" . literate-haskell-mode))
   :config
   (setq haskell-program-name "ghci"))
-(use-package-with-report haskell-cabal
+(use-package-with-report haskell-cabal-mode
   :mode (("\\.cabal\\'" . haskell-cabal-mode)))
 (setq haskell-font-lock-symbols t)
 

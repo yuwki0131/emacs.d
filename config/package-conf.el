@@ -120,7 +120,7 @@
 ;;; ---------------------------------------------------------------------------
 ;;; package-move : point-undo : カーソル位置を戻す
 ;;; ---------------------------------------------------------------------------
-(use-package-with-report popwin-mode
+(use-package-with-report popwin
   :config
   (add-hook 'prog-mode-hook 'popwin-mode)
   (setq display-buffer-function 'popwin:display-buffer))
@@ -141,9 +141,9 @@
 ;;; ---------------------------------------------------------------------------
 ;;; package-edit : hungry-delete-mode : 空白の貪欲な削除
 ;;; ---------------------------------------------------------------------------
-(use-package-with-report hungry-delete-mode
+(use-package-with-report hungry-delete
   :config
-  (global-hungry-delete-mode t))
+  (global-hungry-delete-mode))
 
 ;;; ---------------------------------------------------------------------------
 ;;; package-edit : zop-to-char : M-zの可視化

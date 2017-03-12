@@ -59,7 +59,7 @@
 
 (defun report-gsskey ()
   (if (not gsskey-report-text)
-      ";; all keybinds successfully defined"
+      ";; all keybindings defined successfully"
     (concat ";; gsskey error: \n" gsskey-report-text)))
 
 ;;; ---------------------------------------------------------------------------
@@ -108,6 +108,9 @@
 ;;; ---------------------------------------------------------------------------
 ;;; no prefix
 ;;; ---------------------------------------------------------------------------
+(defun temp-command ()
+  (interactive)
+  (message "this shortcut is for debug or some."))
 
 (gssk-category-function "機能" "" "undo & redo")
 (gssk-bind "C-q"    'undo)
@@ -119,9 +122,6 @@
 (gssk-category-function "編集" "削除" "Backspaceでの削除 (文字単位/単語単位)")
 (gssk-bind "C-h"    'delete-backward-char)
 (gssk-bind "M-h"    'backward-kill-word)
-
-(gssk-category-function "編集" "削除" "後方の行削除")
-(gssk-bind "C-S-k" 'backward-kill-line)
 
 (gssk-category-function "編集" "挿入" "アンダースコア挿入")
 (gssk-bind "C-:"    'insert-underscore)
@@ -207,7 +207,7 @@
 (gssk-bind "C-z r"   'rgrep)
 
 (gssk-explain-function "google-this(Googleで検索)")
-(gssk-bind "C-z r"   'google-this)
+(gssk-bind "C-z g"   'google-this)
 
 (gssk-subcategory "表示")
 
@@ -281,9 +281,6 @@
 
 (gssk-explain-function "現在のバッファを削除")
 (gssk-bind "C-a C-k" 'kill-this-buffer)
-
-(gssk-explain-function "手前の空白を削除")
-(gssk-bind "C-a C-b" 'delete-until-black)
 
 (gssk-explain-function "後ろ向きな単語削除")
 (gssk-bind "C-a C-h" 'backward-kill-word)
