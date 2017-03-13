@@ -101,6 +101,7 @@ $ mv emacs.d ~/.emacs.d
 |編集|refactoring|C-a C-v|mark-more-like-this|mark-multiple|
 |編集|refactoring|C-a C-b|mark-all-like-this|mark-multiple|
 |編集|refactoring|C-a C-n|mark-next-like-this|mark-multiple|
+|編集|refactoring|C-a i|iedit-mode|iedit-mode|
 |編集|その他|C-a C-r|rectangle-mark-mode|矩形選択|
 |移動|バッファ内|C-e C-l|goto-last-change|最後の変更箇所へ移動|
 |移動|バッファ内|C-e C-j|point-undo|最後のカーソル位置へ移動|

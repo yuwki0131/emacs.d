@@ -122,9 +122,10 @@
 (set-face-background 'region "black")
 
 ;; 行番号(line-num)の色の設定
-(set-face-attribute 'linum nil
-    :foreground "white" :background color/inactive
-    :weight 'bold)
+(ignore-errors
+  (set-face-attribute 'linum nil
+                      :foreground "white" :background color/inactive
+                      :weight 'bold))
 
 ;; モードラインの色の設定(active)
 (ignore-errors

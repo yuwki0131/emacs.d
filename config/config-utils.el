@@ -9,9 +9,10 @@
 ;;;  - generate readme
 ;;; Code:
 
-;;; --------------------------------------------------------------------------------
+
+;;; ---------------------------------------------------------------------------
 ;;; spit text to the file
-;;; --------------------------------------------------------------------------------
+;;; ---------------------------------------------------------------------------
 (defun spit (file-name text)
   (ignore-errors
 	(if (file-exists-p file-name)
@@ -47,6 +48,11 @@
      ";; use-package-with-report error: \n"
      (apply 'concat
 	    (interpose (mapcar #'to-report-message failed-packages) "\n")))))
+
+(defun generate-package-install-scinario ()
+  (if failed-packages
+      (spit "~/.emacs.d/install-scinario"
+            (apply #'concat (interpose failed-packages "\n")))))
 
 (font-lock-add-keywords 'emacs-lisp-mode
   '(("\\(use-package-with-report\\)" . font-lock-keyword-face)))

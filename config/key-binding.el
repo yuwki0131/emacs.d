@@ -257,6 +257,9 @@
 (gssk-bind "C-a C-b" 'mark-all-like-this)
 (gssk-bind "C-a C-n" 'mark-next-like-this)
 
+(gssk-explain-function "iedit-mode")
+(gssk-bind "C-a i" 'iedit-mode)
+
 (gssk-subcategory "その他")
 
 (gssk-explain-function "矩形選択")

@@ -1,28 +1,26 @@
 ;;; package --- language-conf.el (specific settings for languages)
 ;;; Commentary:
 ;;;  言語設定 / language-conf.el
-;;; Code:
-;; ---------------------------------------------------------------------------
-;; language install & setup checklist (2016/11/03)
-;; - Scheme implementations or dialects (Gauche, Racket, Guile ... etc)
-;; - Common Lisp Implementations or dialects (SBCL, Allgero, Clsip, ... etc)
-;; - The other lisps (Clojure, Hy, LFE, ... etc)
-;; - on JVM (Scala, Groovy, Kotlin, Frege, Golo)
-;; - Functional Languages (Haskell, Gofer, OCaml, SML/nj, SML#, Erlang)
-;; - 2 (Elixir)
-;; - Prolog
-;; - Languages without emacs (Java, C#,  ... etc)
-;; - JS (JavaScript, TypeScript, CoffeeScript ... etc)
-;; - Major LLs (Python, Ruby, Perl, PHP, Lua, Awk,  ... etc)
-;; - C (gcc, clang, ... etc)
-;; - C-like (Go, Dart, )
-;; - OOP (Eiffel, Self)
-;; - DSLs (SQL, tex, XML, HTML, ... etc)
-;; - The other languages (Mathematica, Mel, Nim, Tcl/Tk, APL, Julia   ..)
-;; memo : プログラムのディレクトリは環境毎に異なるのでインストール時にチェック.
-;; TODO : コメント欄修正
-;; TODO : Coq
-;; TODO : unchecked要修正
+;;;  Lisp
+;;;  - Gauche/Scheme
+;;;  - Racket/Scheme
+;;;  - Guile/Scheme
+;;;  - SBCL/CommonLisp
+;;;  - Clojure
+;;;  - Hylang
+;;;  Functional Programming Languages
+;;;  - Haskell
+;;;  - OCaml
+;;;  - SML
+;;;  - Erlang
+;;;  Lightweight Languages
+;;;  - Lua
+;;;  - Python
+;;;  Procedual Programming Languages
+;;;  - C
+;;;  Other Languages
+;;;  - Prolog
+;;;  - Vimrc
 ;;; Code:
 
 ;;; --------------------------------------------------------------------------------
@@ -125,17 +123,6 @@
 (use-package-with-report erlang-start) ;; TODO : ここもまだ
 
 ;;; --------------------------------------------------------------------------------
-;;; config : Declarative programming language without functinal programming la....
-;;; --------------------------------------------------------------------------------
-
-;;; ---------------------------------------------------------------------------
-;;; prolog-mode : Prolog (checked)
-;;; ---------------------------------------------------------------------------
-(add-to-list 'auto-mode-alist '("\\.pl" . prolog-mode))
-(setq prolog-program-name "swipl")
-(setq prolog-consult-string "[user].\n")
-
-;;; --------------------------------------------------------------------------------
 ;;; config : LL
 ;;; --------------------------------------------------------------------------------
 
@@ -201,9 +188,16 @@
 
 (add-hook 'python-mode-hook 'my-python-mode)
 
-;;; ---------------------------------------------------------------------------------
-;;; config : etc
-;;; ---------------------------------------------------------------------------------
+;;; --------------------------------------------------------------------------------
+;;; config : Other Languages
+;;; --------------------------------------------------------------------------------
+
+;;; ---------------------------------------------------------------------------
+;;; prolog-mode : Prolog (checked)
+;;; ---------------------------------------------------------------------------
+(add-to-list 'auto-mode-alist '("\\.pl" . prolog-mode))
+(setq prolog-program-name "swipl")
+(setq prolog-consult-string "[user].\n")
 
 ;;; ---------------------------------------------------------------------------
 ;;; vimrc-mode : vimrc編集用 (checked)
