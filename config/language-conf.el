@@ -17,7 +17,7 @@
 ;;;  - Lua
 ;;;  - Python
 ;;;  Procedual Programming Languages
-;;;  - C
+;;;  - nothing
 ;;;  Other Languages
 ;;;  - Prolog
 ;;;  - Vimrc

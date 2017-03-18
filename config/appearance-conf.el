@@ -9,12 +9,14 @@
 
 (defvar default-font-family "Ubuntu Mono")
 (defvar default-font-family-jp "Takaoゴシック")
-;; "MeiryoKe_Gothic"
 
 (set-face-attribute 'default nil :family default-font-family :height 100)
+
 (set-fontset-font
  'nil 'japanese-jisx0208 (font-spec :family default-font-family-jp :height 90))
+
 (setq-default line-spacing 2)
+
 ;;; ---------------------------------------------------------------------------
 ;;; 色設定(標準)
 ;;; ---------------------------------------------------------------------------
@@ -114,7 +116,7 @@
 ;; (setq hl-line-face 'underline)
 
 ;; カーソル桁ハイライト
-'(ignore-errors
+(ignore-errors
    (custom-set-faces '(col-highlight ((t (:inherit hl-line))))))
 
 ;; 選択範囲
@@ -146,10 +148,6 @@
               :height 100
               :font default-font-family
               :box '(:line-width 1 :color "gray30" :style nil)))
-
-;;;---------------------------------------------------------------------------
-;;; 色設定(標準以外)
-;;;---------------------------------------------------------------------------
 
 ;;;---------------------------------------------------------------------------
 ;;; ウィンドウ幅などの設定

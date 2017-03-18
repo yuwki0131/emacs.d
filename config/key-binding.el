@@ -10,16 +10,6 @@
 (gssk-category "prefix")
 (gssk-subcategory "解除")
 (gssk-explain-function "prefix key 解除")
-;; prefix key (control)
-;; q w E r t y U _ o p
-;;  A s d f g h j k l
-;;   Z X C v b n m _ .
-;; upper cases : control-prefix
-;; lower cases : not control-prefix
-;; underscore  : not binding
-
-;; 標準のprefix
-;; \C-x
 
 ;; 移動系 prefix
 (gssk-add-keybind-report "C-e" 'unbind)
@@ -32,14 +22,6 @@
 ;; 機能系 prefix
 (gssk-add-keybind-report "C-z" 'unbind)
 (global-unset-key "\C-z")
-
-;; prefix key (meta)
-;; q w e r t y u i o p
-;;  a S d f G h j k l
-;;   z x c v b n m _ .
-;; upper cases : meta-prefix
-;; lower cases : not meta-prefix
-;; underscore  : not binding
 
 (gssk-add-keybind-report "M-m" 'unbind)
 (global-unset-key "\M-m")

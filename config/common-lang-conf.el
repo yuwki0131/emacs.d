@@ -1,6 +1,6 @@
 ;;; package --- common-lang-conf.el (common settings for languages)
 ;;; Commentary:
-;;;  言語共通の設定
+;;;  複数言語共通の設定
 ;;; Code:
 
 ;;; ---------------------------------------------------------------------------
