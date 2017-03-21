@@ -31,7 +31,7 @@
 (setq initial-scratch-message nil)
 
 ;; beep音消す
-(setq visible-bell t)
+;; (setq visible-bell t)
 ;; (setq ring-bell-function 'ignore)
 
 ;; backupfile(*.~) つくらない
@@ -63,6 +63,12 @@
 
 ;; カーソルタイプ
 (setq default-cursor-type '(bar . 3))
+
+;; 再帰的ミニバッファ
+(setq enable-recursive-minibuffers t)
+
+;; 再帰的ミニバッファの深さを表示
+(minibuffer-depth-indicate-mode 1)
 
 ;; from yes-or-no to y-or-n
 (fset 'yes-or-no-p 'y-or-n-p)

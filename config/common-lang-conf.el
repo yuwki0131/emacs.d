@@ -56,7 +56,7 @@
   (add-hook 'emacs-lisp-mode-hook #'highlight-quoted-mode)
   (add-hook 'lisp-mode-hook #'highlight-quoted-mode)
   '(set-face-attribute 'highlight-quoted-quote nil
-		      :inherit 'highlight-quoted-symbol))
+                       :inherit 'highlight-quoted-symbol))
 
 ;;; ---------------------------------------------------------------------------
 ;;; flymake : 文法チェッカ

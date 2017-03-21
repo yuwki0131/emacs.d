@@ -39,17 +39,17 @@
 
 ;; magenta系
 (defvar color/deeppink "deeppink")
-(defvar color/purpledark "#4B3B4B")
+(defvar color/purpledark "#9B8B9B")
 
 ;; lime green系
-(defvar color/limegreen "#AFCA95")
+(defvar color/limegreen "#8FAA75")
 
 ;; gray系
 (defvar color/active "#101010")
 (defvar color/inactive "#393939")
-(defvar color/bggray "#101010")
-(defvar color/fggray "#E0E0E0")
-(defvar color/comment "#999999")
+(defvar color/bggray "#EFEFEF")
+(defvar color/fggray "#101010")
+(defvar color/comment "#777777")
 
 ;; 背景/前景の設定
 (set-background-color color/bggray)
@@ -121,7 +121,7 @@
 
 ;; 選択範囲
 (set-face-foreground 'region color/fggray)
-(set-face-background 'region "black")
+(set-face-background 'region "gray10")
 
 ;; 行番号(line-num)の色の設定
 (ignore-errors

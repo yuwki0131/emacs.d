@@ -139,6 +139,16 @@
   (setq undo-strong-limit 90000))
 
 ;;; ---------------------------------------------------------------------------
+;;; package-edit : edit grepped text : grep済みのテキスト編集、反映
+;;; ---------------------------------------------------------------------------
+(use-package-with-report wgrep
+  :config
+  ;; "e"でwgrepモード有効
+  (setf wgrep-enable-key "e")
+  ;; wgrep終了時にバッファを保存
+  (setq wgrep-auto-save-buffer t))
+
+;;; ---------------------------------------------------------------------------
 ;;; package-edit : hungry-delete-mode : 空白の貪欲な削除
 ;;; ---------------------------------------------------------------------------
 (use-package-with-report hungry-delete
@@ -146,14 +156,9 @@
   (global-hungry-delete-mode))
 
 ;;; ---------------------------------------------------------------------------
-;;; package-edit : zop-to-char : M-zの可視化
-;;; ---------------------------------------------------------------------------
-(use-package-with-report zop-to-char)
-
-;;; ---------------------------------------------------------------------------
 ;;; package-edit : drug-stuff : 単語単位で移動
 ;;; ---------------------------------------------------------------------------
-;; TODO :
+;; TODO : 多分なんか不足してる
 (use-package-with-report drag-stuff
   :config
   (setq drag-stuff-modifier '(meta shift))
@@ -236,9 +241,9 @@
 ;;; package-app : highlight current-buffer : 現在のバッファをハイライト
 ;;; ---------------------------------------------------------------------------
 (use-package-with-report hiwin
-   :config
+:config
   (hiwin-activate)
-  (set-face-background 'hiwin-face "#202020"))
+  (set-face-background 'hiwin-face "#D0D0D0"))
 
 ;;; ---------------------------------------------------------------------------
 ;;; package-app : highlight indent guides : インデント表示
@@ -246,7 +251,7 @@
 (use-package-with-report highlight-indent-guides
   :config
   (add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
-  (set-face-background 'highlight-indent-guides-even-face "gray20"))
+  (set-face-background 'highlight-indent-guides-even-face "gray80"))
 
 ;;; ---------------------------------------------------------------------------
 ;;; package-app : volatile highlights : 修正箇所のハイライト
@@ -256,7 +261,7 @@
   (volatile-highlights-mode t))
 
 ;;; ---------------------------------------------------------------------------
-;;; package-app : beacon : buffer no idougo ハイライト
+;;; package-app : beacon : bufferを移動時にハイライト
 ;;; ---------------------------------------------------------------------------
 (use-package-with-report beacon
   :config
@@ -325,6 +330,11 @@
   (helm-mode 1))
 
 ;;; ---------------------------------------------------------------------------
+;;; package-search : zop-to-char : M-zの可視化
+;;; ---------------------------------------------------------------------------
+(use-package-with-report zop-to-char)
+
+;;; ---------------------------------------------------------------------------
 ;;; package-search : swoop : トークンレベル移動(検索系)
 ;;; ---------------------------------------------------------------------------
 (use-package-with-report swoop)
@@ -333,6 +343,13 @@
 ;;; package-search : ace jump mode : 任意の場所に3ストロークで移動
 ;;; ---------------------------------------------------------------------------
 (use-package-with-report ace-jump-mode)
+
+;;; ---------------------------------------------------------------------------
+;;; package-search : subword mode : Camel notationのシンボル移動時の単位を変更
+;;; ---------------------------------------------------------------------------
+;;; (before) |ITransientAssociative| -> (after) |I|Transient|Associative|
+(use-package-with-report subword
+  :config (global-subword-mode +1))
 
 ;;; ---------------------------------------------------------------------------
 ;;; package-search : migemo : isearchをローマ字のままで日本語も検索可能に
