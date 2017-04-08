@@ -40,9 +40,10 @@
 ;; magenta系
 (defvar color/deeppink "deeppink")
 (defvar color/purpledark "#9B8B9B")
+(defvar color/lightpink "lightpink")
 
 ;; lime green系
-(defvar color/limegreen "#8FAA75")
+(defvar color/limegreen "#32cd32")
 
 ;; gray系
 (defvar color/active "#101010")
@@ -72,11 +73,11 @@
 ;; coloring program
 (set-face-fore-with-cbi 'font-lock-comment-face       color/comment    nil t)
 (set-face-fore-with-cbi 'font-lock-doc-face           color/deeppink   nil t)
-(set-face-fore-with-cbi 'font-lock-string-face        color/limegreen  nil nil)
+(set-face-fore-with-cbi 'font-lock-string-face        color/limegreen  t   nil)
 (set-face-fore-with-cbi 'font-lock-keyword-face       color/darkcyan   t   nil)
 (set-face-fore-with-cbi 'font-lock-builtin-face       color/darkcyan   nil nil)
-(set-face-fore-with-cbi 'font-lock-function-name-face color/limegreen  nil nil)
-(set-face-fore-with-cbi 'font-lock-variable-name-face color/limegreen  nil nil)
+(set-face-fore-with-cbi 'font-lock-function-name-face color/limegreen  t   nil)
+(set-face-fore-with-cbi 'font-lock-variable-name-face color/limegreen  t   nil)
 (set-face-fore-with-cbi 'font-lock-type-face          color/darkcyan   t   nil)
 (set-face-fore-with-cbi 'font-lock-constant-face      color/deeppink   t   nil)
 (set-face-fore-with-cbi 'font-lock-warning-face       color/deeppink   nil t)
@@ -148,6 +149,9 @@
               :height 100
               :font default-font-family
               :box '(:line-width 1 :color "gray30" :style nil)))
+
+(ignore-errors
+  (custom-set-variables '(hl-sexp-background-color color/lightpink)))
 
 ;;;---------------------------------------------------------------------------
 ;;; ウィンドウ幅などの設定

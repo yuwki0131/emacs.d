@@ -82,7 +82,7 @@
 (gssk-bind "M-a"    'ace-jump-mode)
 
 (gssk-category-function "移動" "バッファ内" "TODOへ移動")
-(gssk-bind "C-."    'goto-next-TODO)
+(gssk-bind "C-."    'goto-next-locus)
 
 (gssk-category-function "移動" "バッファ内" "シンボル単位移動")
 (gssk-bind "C-?"    'highlight-symbol-next)
@@ -114,6 +114,9 @@
 
 (gssk-explain-function "現在のバッファ以外のバッファを削除")
 (gssk-bind "C-z C-k" 'kill-the-other-buffers)
+
+(gssk-explain-function "現在のバッファ内で指定した拡張子の全ファイルを表示")
+(gssk-bind "C-z a" 'open-all-files)
 
 (gssk-explain-function "エンコーディング変更")
 (gssk-bind "C-z f"   'set-file-name-coding-system)

@@ -211,6 +211,27 @@
       (most-narrow-match-lexical-insert-parenthesis ?\( ?\))))))
 
 ;;; ---------------------------------------------------------------------------
+;;; open all files in current buffer
+;;; ---------------------------------------------------------------------------
+;; key-bind :
+
+(defun filter-with-extension (file-names extension-regexp)
+  (cond
+   ((null file-names) '())
+   ((string-match extension-regexp (car file-names))
+    (cons (car file-names) (filter-with-extension (cdr file-names) extension-regexp)))
+   (t
+    (filter-with-extension (cdr file-names) extension-regexp))))
+
+(defun open-all-files ()
+  (interactive)
+  (let* ((extension (read-from-minibuffer "extension : *."))
+         (extension-regexp (concat "\\." extension "\\'"))
+         (files (directory-files default-directory))
+         (target-files (filter-with-extension files extension-regexp)))
+    (mapcar 'find-file target-files)))
+
+;;; ---------------------------------------------------------------------------
 ;;; smart buffer move
 ;;; ---------------------------------------------------------------------------
 ;; key-bind : smart-buf-moves keys

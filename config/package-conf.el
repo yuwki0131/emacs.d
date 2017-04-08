@@ -240,7 +240,7 @@
 ;;; ---------------------------------------------------------------------------
 ;;; package-app : highlight current-buffer : 現在のバッファをハイライト
 ;;; ---------------------------------------------------------------------------
-(use-package-with-report hiwin
+'(use-package-with-report hiwin
 :config
   (hiwin-activate)
   (set-face-background 'hiwin-face "#D0D0D0"))
@@ -248,7 +248,7 @@
 ;;; ---------------------------------------------------------------------------
 ;;; package-app : highlight indent guides : インデント表示
 ;;; ---------------------------------------------------------------------------
-(use-package-with-report highlight-indent-guides
+'(use-package-with-report highlight-indent-guides
   :config
   (add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
   (set-face-background 'highlight-indent-guides-even-face "gray80"))
