@@ -30,7 +30,7 @@
 ;; scratchの初期のメッセージ消去
 (setq initial-scratch-message nil)
 
-;; beep音消す
+;; beep音消す => ミニバッファへ反映
 ;; (setq visible-bell t)
 ;; (setq ring-bell-function 'ignore)
 

@@ -349,6 +349,15 @@
   (increment-current-number -1))
 
 ;;; ---------------------------------------------------------------------------
+;;; execute current shell script: xxx.sh
+;;; ---------------------------------------------------------------------------
+;; bind-key : execute-current-shell-script
+
+(defun execute-current-shell-script ()
+  (interactive)
+  (message (shell-command-to-string "./xxx.sh")))
+
+;;; ---------------------------------------------------------------------------
 ;;; provide
 ;;; ---------------------------------------------------------------------------
 (provide 'internal-elisp)

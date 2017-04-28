@@ -162,6 +162,10 @@
 (gssk-explain-function "キーバインド表示")
 (gssk-bind "C-z C-k" 'describe-bindings)
 
+(gssk-subcategory "実行")
+(gssk-explain-function "現在のディレクトリのxxx.sh実行")
+(gssk-bind "C-z e" 'execute-current-shell-script)
+
 ;;; ---------------------------------------------------------------------------
 ;;; A prefix (to edit somewhat)
 ;;; ---------------------------------------------------------------------------
