@@ -10,11 +10,23 @@
 (defvar default-font-family "Ubuntu Mono")
 (defvar default-font-family-jp "Takaoゴシック")
 
-(set-face-attribute 'default nil :family default-font-family :height 100)
+;; デフォルトフォント設定
+(set-face-attribute
+ 'default nil :family default-font-family :height 100)
 
+;; 日本語のフォントセット : あいうえお ... 日本語
 (set-fontset-font
  'nil 'japanese-jisx0208 (font-spec :family default-font-family-jp :height 90))
 
+;; ギリシャ文字のフォントセット : αβγκλ ... ΛΩ
+(set-fontset-font
+ 'nil '(#x0370 . #x03FF) (font-spec :family default-font-family :height 100))
+
+;; キリル文字のフォントセット : Эта статья ... Русский
+(set-fontset-font
+ 'nil '(#x0400 . #x04FF) (font-spec :family default-font-family :height 100))
+
+;; 行間
 (setq-default line-spacing 2)
 
 ;;; ---------------------------------------------------------------------------
@@ -66,12 +78,11 @@
   (set-face-italic-p   attr-symbol italic-param))
 
 ;; 各構文要素の色(foreground, background)/タイプ(normal/italic/bold)の設定
-(defun set-face-fore-with-bfcbi
-    (attr-symbol color-name-fg color-name-bg bold-param italic-param)
-  (set-face-foreground attr-symbol color-name-fg)
-  (set-face-background attr-symbol color-name-bg)
-  (set-face-bold-p     attr-symbol bold-param)
-  (set-face-italic-p   attr-symbol italic-param))
+(defun set-face-fore-with-bfcbi (attr-symbol color-fg color-bg bold italic)
+  (set-face-foreground attr-symbol color-fg)
+  (set-face-background attr-symbol color-bg)
+  (set-face-bold-p     attr-symbol bold)
+  (set-face-italic-p   attr-symbol italic))
 
 ;; coloring program
 (set-face-fore-with-cbi 'font-lock-comment-face       color/comment    nil t)
@@ -101,13 +112,6 @@
   (set-face-fore-with-bfcbi 'ac-selection-face  color/deeppink "white"   t   nil)
   (set-face-fore-with-bfcbi 'ac-candidate-face  "white" color/darkcyan   t   nil))
 
-;; coloring helm
-;;(set-face-fore-with-bfcbi 'helm-selection  color/deeppink color/inactive t nil)
-
-;; 対応する括弧に色をつける
-;; (set-face-background 'show-paren-match-face "white")
-'(set-face-foreground 'show-paren-match-face color/deeppink)
-
 ;; カーソルの色
 (set-cursor-color color/deeppink)
 
@@ -116,16 +120,16 @@
   `((((class color) (background dark))  (:background ,color/inactive))
     (((class color) (background light)) (:background ,color/lightcyan))
     (t ())) "*Face used by hl-line.")
+
 (setq hl-line-face 'hlline-face)
-;; (setq hl-line-face 'underline)
 
 ;; カーソル桁ハイライト
 (ignore-errors
-   (custom-set-faces '(col-highlight ((t (:inherit hl-line))))))
+  (custom-set-faces '(col-highlight ((t (:inherit hl-line))))))
 
 ;; 選択範囲
-(set-face-foreground 'region color/fggray)
-(set-face-background 'region "gray10")
+(set-face-foreground 'region "gray80")
+(set-face-background 'region "gray20")
 
 ;; 行番号(line-num)の色の設定
 (ignore-errors
@@ -173,8 +177,7 @@
 
 ;; 画面サイズ初期化
 (setq initial-frame-alist
-      '((top . 20) (left . 0) (width . 128) (height . 75)
-        (alpha . (95 85))))
+      '((top . 20) (left . 0) (width . 128) (height . 75)  (alpha . (95 85))))
 
 ;;;---------------------------------------------------------------------------
 ;;; provide

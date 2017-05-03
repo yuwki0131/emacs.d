@@ -82,7 +82,7 @@
 (gssk-bind "M-a"    'ace-jump-mode)
 
 (gssk-category-function "移動" "バッファ内" "次のTODOへ移動")
-(gssk-bind "C-."    'goto-next-TODO)
+(gssk-bind "C-,"    'goto-next-TODO)
 
 (gssk-category-function "移動" "バッファ内" "次のエラー(警告)へ移動")
 (gssk-bind "C-."    'goto-next-locus)
@@ -138,7 +138,7 @@
 (gssk-bind "C-z C-s" 'swoop)
 
 (gssk-explain-function "rgrep (ディレクトリ内Grep)")
-(gssk-bind "C-z r"   'rgrep)
+(gssk-bind "C-z r"   'rgrerp)
 
 (gssk-explain-function "google-this(Googleで検索)")
 (gssk-bind "C-z g"   'google-this)

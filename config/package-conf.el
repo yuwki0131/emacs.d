@@ -152,13 +152,13 @@
 ;;; package-edit : hungry-delete-mode : 空白の貪欲な削除
 ;;; ---------------------------------------------------------------------------
 (use-package-with-report hungry-delete
+  :disabled t
   :config
   (global-hungry-delete-mode))
 
 ;;; ---------------------------------------------------------------------------
 ;;; package-edit : drug-stuff : 単語単位で移動
 ;;; ---------------------------------------------------------------------------
-;; TODO : 多分なんか不足してる
 (use-package-with-report drag-stuff
   :config
   (setq drag-stuff-modifier '(meta shift))
@@ -206,7 +206,7 @@
 (use-package-with-report echo-bell
   :config
   (setq echo-bell-string "(´・_・｀)")
-  (setq echo-bell-background "#4b3b4b")
+  (setq echo-bell-background "lightpink")
   (setq echo-bell-delay 0.4)
   (echo-bell-mode 1))
 
