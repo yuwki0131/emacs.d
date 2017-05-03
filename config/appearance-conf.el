@@ -140,22 +140,22 @@
 ;; モードラインの色の設定(active)
 (ignore-errors
   (set-face-attribute 'mode-line nil
-    :foreground color/lightcyan :background color/inactive
-    :inverse-video nil
-    :weight 'bold
-    :height 100
-    :font default-font-family
-    :box '(:line-width 1 :color "black" :style nil)))
+   :foreground color/lightcyan :background color/inactive
+   :inverse-video nil
+   :weight 'bold
+   :height 100
+   :font default-font-family
+   :box '(:line-width 1 :color "black" :style nil)))
 
 ;; モードラインの色の設定(inactive)
 (ignore-errors
   (set-face-attribute 'mode-line-inactive nil
-              :foreground color/lightcyan :background color/inactive
-              :inverse-video nil
-              :weight 'extra-light
-              :height 100
-              :font default-font-family
-              :box '(:line-width 1 :color "gray30" :style nil)))
+   :foreground color/lightcyan :background color/inactive
+   :inverse-video nil
+   :weight 'extra-light
+   :height 100
+   :font default-font-family
+   :box '(:line-width 1 :color "gray30" :style nil)))
 
 (ignore-errors
   (custom-set-variables '(hl-sexp-background-color color/lightpink)))

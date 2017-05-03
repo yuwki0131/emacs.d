@@ -231,7 +231,8 @@
 ;;; ---------------------------------------------------------------------------
 ;;; package-app : column highlight line plus : カーソル桁ハイライト
 ;;; ---------------------------------------------------------------------------
-'(use-package-with-report col-highlight
+(use-package-with-report col-highlight
+  :disabled t
   :config
   (toggle-highlight-column-when-idle 1)
   (col-highlight-set-interval 3)
@@ -240,15 +241,17 @@
 ;;; ---------------------------------------------------------------------------
 ;;; package-app : highlight current-buffer : 現在のバッファをハイライト
 ;;; ---------------------------------------------------------------------------
-'(use-package-with-report hiwin
-:config
+(use-package-with-report hiwin
+  :disabled t
+  :config
   (hiwin-activate)
   (set-face-background 'hiwin-face "#D0D0D0"))
 
 ;;; ---------------------------------------------------------------------------
 ;;; package-app : highlight indent guides : インデント表示
 ;;; ---------------------------------------------------------------------------
-'(use-package-with-report highlight-indent-guides
+(use-package-with-report highlight-indent-guides
+  :disabled t
   :config
   (add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
   (set-face-background 'highlight-indent-guides-even-face "gray80"))

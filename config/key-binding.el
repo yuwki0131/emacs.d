@@ -138,7 +138,7 @@
 (gssk-bind "C-z C-s" 'swoop)
 
 (gssk-explain-function "rgrep (ディレクトリ内Grep)")
-(gssk-bind "C-z r"   'rgrerp)
+(gssk-bind "C-z r"   'rgrep)
 
 (gssk-explain-function "google-this(Googleで検索)")
 (gssk-bind "C-z g"   'google-this)

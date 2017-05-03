@@ -44,7 +44,7 @@
   (if (not failed-packages)
       ";; all defined packages have been installed successfully"
     (concat
-     ";; use-package-with-report error: \n"
+     ";; use-package-with-report error or not used packages : \n"
      (apply 'concat
 	    (interpose (mapcar #'to-report-message failed-packages) "\n")))))
 
