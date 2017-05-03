@@ -81,6 +81,9 @@
 (gssk-category-function "移動" "バッファ内" "ace jump mode")
 (gssk-bind "M-a"    'ace-jump-mode)
 
+(gssk-category-function "移動" "バッファ内" "次のTODOへ移動")
+(gssk-bind "C-."    'goto-next-TODO)
+
 (gssk-category-function "移動" "バッファ内" "次のエラー(警告)へ移動")
 (gssk-bind "C-."    'goto-next-locus)
 
