@@ -44,7 +44,7 @@
   (if (not failed-packages)
       ";; all defined packages have been installed successfully"
     (concat
-     ";; use-package-with-report error or not used packages : \n"
+     ";; use-package-with-report error or not used packages: \n"
      (apply 'concat
 	    (interpose (mapcar #'to-report-message failed-packages) "\n")))))
 
@@ -147,12 +147,25 @@
    (generate-explanation-text)))
 
 ;;; ---------------------------------------------------------------------------
+;;; fourtune message
+;;; ---------------------------------------------------------------------------
+(defun fortune-message ()
+  (let ((message (ignore-errors
+                   (shell-command-to-string "fortune | rev | cowsay -f ghostbusters" ))))
+    (if (not message)
+        ""
+        (apply 'concat
+               (mapcar '(lambda (line) (concat "" line "\n"))
+                       (split-string message "\n"))))))
+
+;;; ---------------------------------------------------------------------------
 ;;; configuration report
 ;;; ---------------------------------------------------------------------------
 (defun report-configuration ()
   (insert
    (concat
-    ";; 🍣 ＜ \"hello world, emacs !!\"\n"
+    (fortune-message)
+    ";; hello world, emacs !!\n"
     ";; ('･_･`) ↓\n"
     ";; reports in loading init.el\n"
     (report-failed-packages)
@@ -164,13 +177,14 @@
 (defvar config-composition-md
   "~/.emacs.d/configディレクトリ以下
 
-|el file|設定|
+|*.el file|設定|
 |:-------------|:------------------------------------------------------|
-| package-cnof | 外部パッケージ(elpaからパッケージ要取得)の設定項目 |
-| bizz-cnof | emacsデフォルト(elpaからパッケージの取得が不要)の設定項目 |
-| appearance-cnof | bizzに引続き、emacsデフォルトの外見設定 |
-| common-lang-cnof | 言語共通設定 or 複数言語に共通する設定(要elpaの設定) |
-| language-cnof | 特定の言語設定、1言語ごとの設定 |
+| config-util | configファイル用のユーティリティ |
+| package-conf | 外部パッケージ(elpaからパッケージ要取得)の設定項目 |
+| bizz-conf | emacsデフォルト(elpaからパッケージの取得が不要)の設定項目 |
+| appearance-conf | bizzに引続き、emacsデフォルトの外見設定 |
+| common-lang-conf | 言語共通設定 or 複数言語に共通する設定(要elpaの設定) |
+| language-conf | 特定の言語設定、1言語ごとの設定 |
 | external-eslip | 外部から持ち込んだコードなど |
 | internal-eslip | 自作したコード |
 | key-binding | キーバインドは一括してここにまとめる |")
@@ -190,7 +204,17 @@
 $ git clone https://github.com/yuwki0131/emacs.d
 $ mv emacs.d ~/.emacs.d
 ```
-※要use-package
+### 要use-package
+
+```
+M-x package-install use-package
+```
+
+### 要fortune, cowsayコマンド
+
+```
+$ sudo apt-get install fortune cowsay
+```
 "
    ;; config composition
    "\n## elispファイル構成\n\n"

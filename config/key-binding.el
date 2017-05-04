@@ -9,7 +9,7 @@
 ;;; ---------------------------------------------------------------------------
 (gssk-category "prefix")
 (gssk-subcategory "解除")
-(gssk-explain-function "prefix key 解除")
+(gssk-explain-function "prefix keyに使用")
 
 ;; 移動系 prefix
 (gssk-add-keybind-report "C-e" 'unbind)
@@ -22,6 +22,8 @@
 ;; 機能系 prefix
 (gssk-add-keybind-report "C-z" 'unbind)
 (global-unset-key "\C-z")
+
+(gssk-explain-function "別用途のため解除")
 
 (gssk-add-keybind-report "M-m" 'unbind)
 (global-unset-key "\M-m")

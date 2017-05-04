@@ -12,19 +12,30 @@
 $ git clone https://github.com/yuwki0131/emacs.d
 $ mv emacs.d ~/.emacs.d
 ```
-※要use-package
+### 要use-package
+
+```
+M-x package-install use-package
+```
+
+### 要fortune, cowsayコマンド
+
+```
+$ sudo apt-get install fortune cowsay
+```
 
 ## elispファイル構成
 
 ~/.emacs.d/configディレクトリ以下
 
-|el file|設定|
+|*.el file|設定|
 |:-------------|:------------------------------------------------------|
-| package-cnof | 外部パッケージ(elpaからパッケージ要取得)の設定項目 |
-| bizz-cnof | emacsデフォルト(elpaからパッケージの取得が不要)の設定項目 |
-| appearance-cnof | bizzに引続き、emacsデフォルトの外見設定 |
-| common-lang-cnof | 言語共通設定 or 複数言語に共通する設定(要elpaの設定) |
-| language-cnof | 特定の言語設定、1言語ごとの設定 |
+| config-util | configファイル用のユーティリティ |
+| package-conf | 外部パッケージ(elpaからパッケージ要取得)の設定項目 |
+| bizz-conf | emacsデフォルト(elpaからパッケージの取得が不要)の設定項目 |
+| appearance-conf | bizzに引続き、emacsデフォルトの外見設定 |
+| common-lang-conf | 言語共通設定 or 複数言語に共通する設定(要elpaの設定) |
+| language-conf | 特定の言語設定、1言語ごとの設定 |
 | external-eslip | 外部から持ち込んだコードなど |
 | internal-eslip | 自作したコード |
 | key-binding | キーバインドは一括してここにまとめる |
@@ -34,11 +45,11 @@ $ mv emacs.d ~/.emacs.d
 
 |分類1|分類2|キー|関数名|内容|
 | -------- |:----|:-------- | -------------------- |:-------|
-|prefix|解除|C-e|unbind|prefix key 解除|
-|prefix|解除|C-a|unbind|prefix key 解除|
-|prefix|解除|C-z|unbind|prefix key 解除|
-|prefix|解除|M-m|unbind|prefix key 解除|
-|prefix|解除|M-j|unbind|prefix key 解除|
+|prefix|解除|C-e|unbind|prefix keyに使用|
+|prefix|解除|C-a|unbind|prefix keyに使用|
+|prefix|解除|C-z|unbind|prefix keyに使用|
+|prefix|解除|M-m|unbind|別用途のため解除|
+|prefix|解除|M-j|unbind|別用途のため解除|
 |機能||C-q|undo|undo & redo|
 |機能||M-q|redo|undo & redo|
 |機能|バッファ間|M-o|other-window|別フレームへ移動|
@@ -78,6 +89,7 @@ $ mv emacs.d ~/.emacs.d
 |機能|検索|C-z C-b|grep-this|grep this & grep find this|
 |機能|検索|C-z C-f|grep-find-this|grep this & grep find this|
 |機能|検索|C-z C-s|swoop|swoop|
+|機能|検索|C-z r|rgrep|rgrep (ディレクトリ内Grep)|
 |機能|検索|C-z g|google-this|google-this(Googleで検索)|
 |機能|表示|C-z s|make-buffer-small|バッファのウィンドウサイズを縮小|
 |機能|表示|C-z C-n|neotree-toggle|ディレクトリ階層を表示 (neo tree)|
