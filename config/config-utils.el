@@ -22,6 +22,14 @@
 	(kill-buffer)
     t))
 
+(defun slurp (file-name)
+  (ignore-errors
+	(if (not (file-exists-p file-name))
+		(concat "file-not-found in slurp: " file-name)
+      (with-temp-buffer
+        (insert-file-contents file-name)
+        (buffer-string)))))
+
 ;;; ---------------------------------------------------------------------------
 ;;; interpose
 ;;; ---------------------------------------------------------------------------
@@ -189,53 +197,13 @@
 ;;; ---------------------------------------------------------------------------
 ;;; generate readme
 ;;; ---------------------------------------------------------------------------
-(defvar config-composition-md
-  "~/.emacs.d/configディレクトリ以下
-
-|*.el file|設定|
-|:-------------|:------------------------------------------------------|
-| config-util | configファイル用のユーティリティ |
-| package-conf | 外部パッケージ(elpaからパッケージ要取得)の設定項目 |
-| bizz-conf | emacsデフォルト(elpaからパッケージの取得が不要)の設定項目 |
-| appearance-conf | bizzに引続き、emacsデフォルトの外見設定 |
-| common-lang-conf | 言語共通設定 or 複数言語に共通する設定(要elpaの設定) |
-| language-conf | 特定の言語設定、1言語ごとの設定 |
-| external-eslip | 外部から持ち込んだコードなど |
-| internal-eslip | 自作したコード |
-| key-binding | キーバインドは一括してここにまとめる |")
-
 (defconst readme-file-md "~/.emacs.d/README.md")
 
 (defun generate-readme-text ()
   (concat
-   ;; header
-   "# 自分用 ~/.emacs.d\n\n修正中 & 未確認 (´・_・`)\n\n"
-   "以下イメージ\n\n"
-   "![画面](img/image.png)\n\n"
-   ;; read-me text
-   "修正して使う.
-設定など.
-```
-$ git clone https://github.com/yuwki0131/emacs.d
-$ mv emacs.d ~/.emacs.d
-```
-### 要use-package
-
-```
-M-x package-install use-package
-```
-
-### 要fortune, cowsayコマンド
-
-```
-$ sudo apt-get install fortune cowsay
-```
-"
-   ;; config composition
-   "\n## elispファイル構成\n\n"
-   config-composition-md
+   (slurp "~/.emacs.d/datafiles/readme-template.rm")
    ;; explain keybinds
-   "\n\n## キーバインド\n\n"
+   "\n## キーバインド\n\n"
    "デフォルト以外のglobal-set-key設定\n\n"
    (keybinding-md)))
 
