@@ -23,6 +23,35 @@
     t))
 
 ;;; ---------------------------------------------------------------------------
+;;; interpose
+;;; ---------------------------------------------------------------------------
+(defun interpose (xs obj)
+  (let ((size (length xs))
+        (count 0)
+        (ys (reverse xs))
+        (zs '()))
+    (while (not (null ys))
+      (setq zs (cons obj (cons (car ys) zs)))
+      (setq ys (cdr ys)))
+    (cdr zs)))
+
+;;; ---------------------------------------------------------------------------
+;;; concat & interpose newline
+;;; ---------------------------------------------------------------------------
+(defun concat-interpose-newline (text-ls)
+  (apply #'concat (interpose text-ls "\n")))
+
+;;; ---------------------------------------------------------------------------
+;;; interpose comment out
+;;; ---------------------------------------------------------------------------
+(defun add-comment-out (text)
+  (concat ";;; " text))
+
+(defun comment-out-message (text)
+  (concat-interpose-newline
+   (mapcar #'add-comment-out (split-string text "\n"))))
+
+;;; ---------------------------------------------------------------------------
 ;;; failed-packages report : use-packageに失敗したパッケージのレポート
 ;;; ---------------------------------------------------------------------------
 ;; パッケージのLoading 状況をレポートする。 *scratch*バッファに結果出力
@@ -32,26 +61,21 @@
   `(when (not (use-package . ,(append body '(:config 't))))
      (add-to-list 'failed-packages ,(symbol-name (car body)))))
 
-(defun interpose (ls obj)
-  (if (null ls)
-      nil
-    `(,(car ls) ,obj . ,(interpose (cdr ls) obj))))
-
 (defun to-report-message (line)
-  (concat ";;  - failed to load: " line))
+  (concat "  - failed to load: " line))
 
 (defun report-failed-packages ()
   (if (not failed-packages)
-      ";; all defined packages have been installed successfully"
+      "all defined packages have been installed successfully"
     (concat
-     ";; use-package-with-report error or not used packages: \n"
-     (apply 'concat
-	    (interpose (mapcar #'to-report-message failed-packages) "\n")))))
+     "use-package-with-report error or not used packages: \n"
+     (concat-interpose-newline
+      (mapcar #'to-report-message failed-packages)))))
 
 (defun generate-package-install-scinario ()
   (if failed-packages
       (spit "~/.emacs.d/install-scinario"
-            (apply #'concat (interpose failed-packages "\n")))))
+            (concat-interpose-newline failed-packages))))
 
 (font-lock-add-keywords 'emacs-lisp-mode
   '(("\\(use-package-with-report\\)" . font-lock-keyword-face)))
@@ -108,17 +132,18 @@
     (t
      (setq gsskey-report-text
 	   (concat gsskey-report-text
-		   ";;  - failed to bind: " (symbol-name ,sym) "\n")))))
+               "  - failed to bind: "
+               (symbol-name ,sym)
+               "\n")))))
 
 (defun report-gsskey ()
   (if (not gsskey-report-text)
-      ";; all keybindings defined successfully"
-    (concat ";; gsskey error: \n" gsskey-report-text)))
+      "all keybindings defined successfully"
+    (concat " gsskey error: \n" gsskey-report-text)))
 
 ;;; ---------------------------------------------------------------------------
 ;;; gssk : binding report
 ;;; ---------------------------------------------------------------------------
-
 (defconst grm-keybind-header
   "|分類1|分類2|キー|関数名|内容|")
 
@@ -139,24 +164,10 @@
 				 (reverse gssk-keybind-report))))
 
 (defun keybinding-md ()
-  (concat
-   grm-keybind-header
-   "\n"
-   grm-keybind-table-line
-   "\n"
-   (generate-explanation-text)))
-
-;;; ---------------------------------------------------------------------------
-;;; fourtune message
-;;; ---------------------------------------------------------------------------
-(defun fortune-message ()
-  (let ((message (ignore-errors
-                   (shell-command-to-string "fortune | rev | cowsay -f ghostbusters" ))))
-    (if (not message)
-        ""
-        (apply 'concat
-               (mapcar '(lambda (line) (concat "" line "\n"))
-                       (split-string message "\n"))))))
+  (concat-interpose-newline
+   (list grm-keybind-header
+         grm-keybind-table-line
+         (generate-explanation-text))))
 
 ;;; ---------------------------------------------------------------------------
 ;;; configuration report
@@ -164,12 +175,16 @@
 (defun report-configuration ()
   (insert
    (concat
-    (fortune-message)
-    ";; hello world, emacs !!\n"
-    ";; ('･_･`) ↓\n"
-    ";; reports in loading init.el\n"
-    (report-failed-packages)
-    (report-gsskey))))
+    ;; fortune message
+    (ignore-errors
+      (shell-command-to-string "fortune | rev | cowsay -f ghostbusters" ))
+    (comment-out-message
+     (concat-interpose-newline
+      (list
+       (concat-interpose-newline
+        '("hello world, emacs !!" "('･_･`) ↓" "reports in loading init.el"))
+       (report-failed-packages)
+       (report-gsskey)))))))
 
 ;;; ---------------------------------------------------------------------------
 ;;; generate readme
@@ -220,7 +235,7 @@ $ sudo apt-get install fortune cowsay
    "\n## elispファイル構成\n\n"
    config-composition-md
    ;; explain keybinds
-   "\n## キーバインド\n\n"
+   "\n\n## キーバインド\n\n"
    "デフォルト以外のglobal-set-key設定\n\n"
    (keybinding-md)))
 

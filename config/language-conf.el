@@ -182,7 +182,7 @@
     (setq indent-level 4)
     (setq python-indent 4)
     (setq tab-width 4)
-    (flycheck-mode 1)
+    (flycheck-mode t)
     (setq imenu-create-index-function 'python-imenu-create-index)
     (flymake-mode t)))
 

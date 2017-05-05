@@ -39,6 +39,7 @@ $ sudo apt-get install fortune cowsay
 | external-eslip | 外部から持ち込んだコードなど |
 | internal-eslip | 自作したコード |
 | key-binding | キーバインドは一括してここにまとめる |
+
 ## キーバインド
 
 デフォルト以外のglobal-set-key設定
