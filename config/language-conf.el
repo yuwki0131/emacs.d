@@ -36,10 +36,11 @@
 ;;; racket-mode : Racket/Scheme (checked)
 ;;; ---------------------------------------------------------------------------
 (use-package-with-report racket-mode
+  :mode (("\\.rkt$" . racket-mode))
   :config
-  (add-hook 'racket-mode-hook
-  '(lambda ()
-     (define-key racket-mode-map (kbd "C-c r") 'racket-run))))
+  (defun my-racket-mode ()
+    (define-key racket-mode-map (kbd "C-c r") 'racket-run))
+  (add-hook 'racket-mode-hook 'my-racket-mode))
 
 ;;; ---------------------------------------------------------------------------
 ;;; geiser-mode : Guile/Scheme (checked)
@@ -73,7 +74,7 @@
     (clj-refactor-mode 1)
     (yas-minor-mode 1) ; for adding require/use/import
     (cljr-add-keybindings-with-prefix "C-c C-m"))
-  (add-hook 'clojure-mode-hook #'my-clojure-mode-hook))
+  (add-hook 'clojure-mode-hook 'my-clojure-mode-hook))
 
 ;;; ---------------------------------------------------------------------------
 ;;; hy-mode : Hylang (checked)
@@ -94,11 +95,11 @@
   :config
   (setq haskell-program-name "ghci"))
 (use-package-with-report haskell-cabal
-  :mode (("\\.cabal\\'" . haskell-cabal-mode)))
+  :mode (("\\.cabal$" . haskell-cabal-mode)))
 (setq haskell-font-lock-symbols t)
 
 ;;; ---------------------------------------------------------------------------
-;;; taureg-mode ocaml : OCaml (checked)
+;;; taureg-mode ocaml : OCaml (unchecked)
 ;;; ---------------------------------------------------------------------------
 (use-package-with-report taureg-mode
   :mode (("\\.ml[iylp]?" . tuareg-mode)))
@@ -120,7 +121,8 @@
 (add-to-list 'load-path "/usr/lib/erlang/lib/tools-2.8.3/emacs")
 (setq erlang-root-dir "/usr/local/otp")
 (setq exec-path (cons "/usr/local/otp" exec-path))
-(use-package-with-report erlang-start) ;; TODO : ここもまだ
+(use-package-with-report erlang-start) ;; TODO: ここもまだ
+(use-package-with-report erlang-flymake)
 
 ;;; --------------------------------------------------------------------------------
 ;;; config : LL
@@ -132,9 +134,10 @@
 ;; luaのinstall pathを指定
 (add-to-list 'load-path "/path/to/directory/where/lua-mode-el/resides")
 (use-package-with-report lua-mode
-  :config
-  (add-to-list 'auto-mode-alist '("\\.lua$" . lua-mode))
-  (add-to-list 'interpreter-mode-alist '("lua" . lua-mode)))
+  :mode
+  (("\\.lua$" . lua-mode))
+  :interpreter
+  (("lua" . lua-mode)))
 
 ;;; ---------------------------------------------------------------------------
 ;;; jedi, epc, elpy, flycheck : Python (unchecked)
@@ -142,6 +145,9 @@
 (use-package-with-report python-environment)
 
 (use-package-with-report jedi
+  :bind (("\C-cd" . jedi:goto-definition)
+         ("\C-cp" . jedi:goto-definition-pop-marker)
+         ("\C-cr" . helm-jedi-related-names))
   :config
   (add-hook 'python-mode-hook 'jedi:setup)
   (setq jedi:complete-on-dot t))
@@ -184,6 +190,10 @@
     (setq tab-width 4)
     (flycheck-mode t)
     (setq imenu-create-index-function 'python-imenu-create-index)
+    ;; 元々のauto-complete補完候補を消す
+    (setq ac-sources (delete 'ac-source-words-in-same-mode-buffers ac-sources))
+    (add-to-list 'ac-sources 'ac-source-filename)
+    (add-to-list 'ac-sources 'ac-source-jedi-direct)
     (flymake-mode t)))
 
 (add-hook 'python-mode-hook 'my-python-mode)

@@ -389,14 +389,6 @@
   (exec-path-from-shell-initialize))
 
 ;;; ---------------------------------------------------------------------------
-;;; package-config : 絵文字用フォントセット
-;;; ---------------------------------------------------------------------------
-;; source : http://qiita.com/tadsan/items/a67b28dd02bf819f3f4e
-'(use-package-with-report emoji-fontset
-  :config
-  (emoji-fontset-enable "Symbola"))
-
-;;; ---------------------------------------------------------------------------
 ;;; package-report : esup : emacs起動時間の計測
 ;;; ---------------------------------------------------------------------------
 (use-package-with-report esup)

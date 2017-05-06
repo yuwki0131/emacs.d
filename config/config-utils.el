@@ -66,8 +66,10 @@
 (defvar failed-packages '())
 
 (defmacro use-package-with-report (&rest body)
-  `(when (not (use-package . ,(append body '(:config 't))))
-     (add-to-list 'failed-packages ,(symbol-name (car body)))))
+  `(progn
+     (use-package . ,body)
+     (when (not (package-installed-p (quote ,(car body))))
+       (add-to-list 'failed-packages ,(symbol-name (car body))))))
 
 (defun to-report-message (line)
   (concat "  - failed to load: " line))

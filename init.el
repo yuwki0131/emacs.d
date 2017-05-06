@@ -20,7 +20,8 @@
 ;;; ---------------------------------------------------------------------------
 ;; usepackageが存在しない場合は、インストール
 (when (not (require 'use-package nil 'noerror))
-  (package-install 'use-package))
+  (package-install 'use-package)
+  (setq use-package-verbose t))
 ;; 以降use-packageでインストール
 
 ;;; ---------------------------------------------------------------------------
