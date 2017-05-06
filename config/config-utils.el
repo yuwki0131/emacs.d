@@ -1,4 +1,4 @@
-;;; package --- emacs config-utils.el
+;;; package --- Emacs config-utils.el
 ;;; Commentary:
 ;;;  config-utils.el
 ;;;  - spit (export files)
@@ -6,7 +6,7 @@
 ;;;  - global-safe-set-key
 ;;;  - gssk-report
 ;;;  - configuration report
-;;;  - generate readme
+;;;  - generate README.md
 ;;; Code:
 
 ;;; ---------------------------------------------------------------------------
@@ -80,9 +80,9 @@
      (concat-interpose-newline
       (mapcar #'to-report-message failed-packages)))))
 
-(defun generate-package-install-scinario ()
+(defun generate-package-install-scenario ()
   (if failed-packages
-      (spit "~/.emacs.d/install-scinario"
+      (spit "~/.emacs.d/install-scenario"
             (concat-interpose-newline failed-packages))))
 
 (font-lock-add-keywords 'emacs-lisp-mode
@@ -93,7 +93,6 @@
 ;;; ---------------------------------------------------------------------------
 
 ;; キーバインド情報用(標準以外)
-;; ((category binding-key emacs-function-name function-explaination))
 (defvar gssk-keybind-report '())
 
 (defvar gssk-current-category-state "")
@@ -146,7 +145,7 @@
 
 (defun report-gsskey ()
   (if (not gsskey-report-text)
-      "all keybindings defined successfully"
+      "all key-bindings defined successfully"
     (concat " gsskey error: \n" gsskey-report-text)))
 
 ;;; ---------------------------------------------------------------------------
@@ -171,7 +170,7 @@
 									  "|" (car (cdr (cdr (cdr (cdr x))))) "|\n"))
 				 (reverse gssk-keybind-report))))
 
-(defun keybinding-md ()
+(defun key-binding-md ()
   (concat-interpose-newline
    (list grm-keybind-header
          grm-keybind-table-line
@@ -202,10 +201,10 @@
 (defun generate-readme-text ()
   (concat
    (slurp "~/.emacs.d/datafiles/readme-template.rm")
-   ;; explain keybinds
+   ;; explain key binds
    "\n## キーバインド\n\n"
    "デフォルト以外のglobal-set-key設定\n\n"
-   (keybinding-md)))
+   (key-binding-md)))
 
 ;;; --------------------------------------------------------------------------------
 ;;; provide
