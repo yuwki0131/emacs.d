@@ -1,4 +1,4 @@
-;;; package --- bizz-conf.el
+;;; package --- builtin-conf.el
 ;;; Commentary:
 ;;;  デフォルト機能の諸設定 / bizz-conf.el
 ;;; Code:
@@ -94,5 +94,5 @@
 ;;; ---------------------------------------------------------------------------
 ;;; provide
 ;;; ---------------------------------------------------------------------------
-(provide 'bizz-conf)
+(provide 'builtin-conf)
 ;;; bizz-conf.el ends here

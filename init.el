@@ -37,7 +37,7 @@
 (use-package package-conf)
 
 ;; 雑多な設定
-(use-package bizz-conf)
+(use-package builtin-conf)
 
 ;; エディタの外観/サイズ調整
 (use-package appearance-conf)
@@ -66,8 +66,8 @@
 ;;; generate readme
 (spit readme-file-md (generate-readme-text))
 
-;;; failed packages scinario
-(generate-package-install-scinario)
+;;; failed packages scenario
+(generate-package-install-scenario)
 
 ;;; ---------------------------------------------------------------------------
 ;;; temp (playground)
