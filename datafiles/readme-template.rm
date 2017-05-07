@@ -1,12 +1,14 @@
 # 自分用 ~/.emacs.d
 
-修正中 & 未確認 (´・_・`)
+* 修正中 & 未確認 (´・_・`)
+
+* 修正して使うこと.
 
 以下イメージ
 ![画面](img/image.png)
 
 
-##~/.emacs.d/configディレクトリ以下
+## ~/.emacs.d/configディレクトリ以下
 
 ### elispファイル構成
 
@@ -22,14 +24,13 @@
 | internal-eslip | 自作したコード |
 | key-binding | キーバインドは一括してここにまとめる |
 
-修正して使う.
-
 ## 設定など.
 
 ```
 $ git clone https://github.com/yuwki0131/emacs.d
 $ mv emacs.d ~/.emacs.d
 ```
+
 ### 要use-package
 
 ```
@@ -44,7 +45,7 @@ $ sudo apt-get install fortune cowsay
 
 ## elpaからpackage-install
 
-初期化するとエラーレポートが出ると思うので、ilem等で以下を実行。
+初期化するとエラーレポートが出るので、ilem等で以下を実行。
 不足しているelpaの最新版パッケージがインストールされる。
 
 ```
