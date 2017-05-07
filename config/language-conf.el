@@ -88,23 +88,28 @@
 ;;; ---------------------------------------------------------------------------
 ;;; haskell-mode : Haskell (checked)
 ;;; ---------------------------------------------------------------------------
-(use-package-with-report inf-haskell)
 (use-package-with-report haskell-mode
   :mode (("\\.hs$" . haskell-mode)
          ("\\.lhs$" . literate-haskell-mode))
   :config
   (setq haskell-program-name "ghci"))
-(use-package-with-report haskell-cabal
-  :mode (("\\.cabal$" . haskell-cabal-mode)))
-(setq haskell-font-lock-symbols t)
+
+(ignore-require-with-report
+ "failed tot load inf-haskell, haskell-cabal"
+ (use-package inf-haskell)
+ (use-package haskell-cabal
+   :mode (("\\.cabal$" . haskell-cabal-mode)))
+ (setq haskell-font-lock-symbols t))
 
 ;;; ---------------------------------------------------------------------------
 ;;; taureg-mode ocaml : OCaml (unchecked)
 ;;; ---------------------------------------------------------------------------
-(use-package-with-report taureg-mode
-  :mode (("\\.ml[iylp]?" . tuareg-mode)))
-(use-package-with-report taureg-mode-run-ocaml)
-(use-package-with-report ocamldebug)
+(ignore-require-with-report
+ "failed to load taureg-mode & others ... (OCaml)"
+ (use-package taureg-mode
+   :mode (("\\.ml[iylp]?" . tuareg-mode)))
+ (use-package taureg-mode-run-ocaml)
+ (use-package ocamldebug))
 
 ;;; ---------------------------------------------------------------------------
 ;;; sml-mode : SML (checked)
@@ -118,11 +123,13 @@
 ;;; erlang-mode : Erlang (unchecked)
 ;;; ---------------------------------------------------------------------------
 ;; erlangのinstall pathを指定 (設定場所が微妙)
-(add-to-list 'load-path "/usr/lib/erlang/lib/tools-2.8.3/emacs")
-(setq erlang-root-dir "/usr/local/otp")
-(setq exec-path (cons "/usr/local/otp" exec-path))
-(use-package-with-report erlang-start) ;; TODO: ここもまだ
-(use-package-with-report erlang-flymake)
+(ignore-require-with-report
+ "failed tot load taureg-start & others ... (Erlang)"
+ (add-to-list 'load-path "/usr/lib/erlang/lib/tools-2.8.3/emacs")
+ (setq erlang-root-dir "/usr/local/otp")
+ (setq exec-path (cons "/usr/local/otp" exec-path))
+ (use-package erlang-start)
+ (use-package erlang-flymake))
 
 ;;; --------------------------------------------------------------------------------
 ;;; config : LL

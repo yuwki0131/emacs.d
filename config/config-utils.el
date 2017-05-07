@@ -65,27 +65,41 @@
 ;; パッケージのLoading 状況をレポートする。 *scratch*バッファに結果出力
 (defvar failed-packages '())
 
+(defvar other-configuration-reports '())
+
 (defmacro use-package-with-report (&rest body)
   `(progn
      (use-package . ,body)
      (when (not (package-installed-p (quote ,(car body))))
        (add-to-list 'failed-packages ,(symbol-name (car body))))))
 
+(defmacro ignore-require-with-report (comment-if-failed &rest body)
+  `(progn
+     (if (not (ignore-errors . ,(append body '(t))))
+         (setq other-configuration-reports
+               (cons ,comment-if-failed other-configuration-reports)))))
+
 (defun to-report-message (line)
   (concat "  - failed to load: " line))
 
 (defun report-failed-packages ()
-  (if (not failed-packages)
+  (if (and (not failed-packages) (not other-configuration-reports))
       "all defined packages have been installed successfully"
     (concat
      "use-package-with-report error or not used packages: \n"
      (concat-interpose-newline
-      (mapcar #'to-report-message failed-packages)))))
+      (mapcar #'to-report-message failed-packages))
+     (if failed-packages "\n" "")
+     (concat-interpose-newline other-configuration-reports))))
+
+(defun to-package-install-sexp (text)
+  (concat "(package-install '" text ")"))
 
 (defun generate-package-install-scenario ()
   (if failed-packages
-      (spit "~/.emacs.d/install-scenario"
-            (concat-interpose-newline failed-packages))))
+      (let* ((failed-ls (mapcar #'to-package-install-sexp failed-packages))
+             (scenario (concat-interpose-newline failed-ls)))
+        (spit "~/.emacs.d/install-scenario.el" scenario))))
 
 (font-lock-add-keywords 'emacs-lisp-mode
   '(("\\(use-package-with-report\\)" . font-lock-keyword-face)))

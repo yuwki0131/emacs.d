@@ -34,7 +34,7 @@
 ;; utils (※use-package-with-report系より先頭に持ってくること)
 (use-package config-utils)
 
-;; 外部パッケージの設定
+;; 外部パッケージの設定(要package-install)
 (use-package package-conf)
 
 ;; 雑多な設定
@@ -61,10 +61,10 @@
 ;;; ---------------------------------------------------------------------------
 ;;; reports
 ;;; ---------------------------------------------------------------------------
-;;; configuration report
+;;; 設定レポート
 (report-configuration)
 
-;;; generate readme
+;;; README.md生成
 (spit readme-file-md (generate-readme-text))
 
 ;;; failed packages scenario
