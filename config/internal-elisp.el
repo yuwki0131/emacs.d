@@ -152,8 +152,7 @@
     (if (not (= counter -1))
 	(progn
 	  (forward-char -1)
-	  (delete-char 1)
-	  ))))
+	  (delete-char 1)))))
 
 (defun delete-parenthesis ()
   (interactive)
@@ -327,7 +326,7 @@
 ;;; ---------------------------------------------------------------------------
 ;;; increment/decrement cursor position integer
 ;;; ---------------------------------------------------------------------------
-;; bind-key : white plus keys
+;; bind-key : increment-number, decrement-number
 
 (defun increment-current-number (diff-value)
   (let ((current-word (thing-at-point 'word))

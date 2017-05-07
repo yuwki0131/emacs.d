@@ -53,8 +53,7 @@
 ;;; ---------------------------------------------------------------------------
 (use-package-with-report highlight-quoted
   :init
-  (add-hook 'emacs-lisp-mode-hook #'highlight-quoted-mode)
-  (add-hook 'lisp-mode-hook #'highlight-quoted-mode)
+  (add-hook 'lisp-mode-hook 'highlight-quoted-mode)
   '(set-face-attribute 'highlight-quoted-quote nil
                        :inherit 'highlight-quoted-symbol))
 
