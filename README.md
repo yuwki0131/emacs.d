@@ -24,7 +24,7 @@
 
 修正して使う.
 
-##設定など.
+## 設定など.
 
 ```
 $ git clone https://github.com/yuwki0131/emacs.d
@@ -40,6 +40,15 @@ M-x package-install use-package
 
 ```
 $ sudo apt-get install fortune cowsay
+```
+
+## elpaからpackage-install
+
+初期化するとエラーレポートが出ると思うので、ilem等で以下を実行。
+不足しているelpaの最新版パッケージがインストールされる。
+
+```
+(load "~/.emacs.d/install-scenario.el")
 ```
 
 ## キーバインド
