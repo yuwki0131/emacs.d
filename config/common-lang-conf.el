@@ -60,9 +60,7 @@
 ;;; ---------------------------------------------------------------------------
 ;;; flymake : 文法チェッカ
 ;;; ---------------------------------------------------------------------------
-;; (use-package flycheck
-;;   :config
-;;   (add-hook 'after-init-hook 'global-flycheck-mode))
+(use-package-with-report flycheck)
 
 (use-package-with-report flymake-cursor)
 

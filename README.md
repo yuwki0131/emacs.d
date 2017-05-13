@@ -96,7 +96,6 @@ $ sudo apt-get install fortune cowsay
 |その他|その他|M-j|temp-command|一時的なコマンド束縛用(テスト用/試用)|
 |機能||C-z p|toggle-truncate-lines|enable/disable toggle-truncate-line|
 |機能||C-z C-k|kill-the-other-buffers|現在のバッファ以外のバッファを削除|
-|機能||C-z a|open-all-files|現在のバッファ内で指定した拡張子の全ファイルを表示|
 |機能||C-z f|set-file-name-coding-system|エンコーディング変更|
 |機能|置換|C-z C-r|replace-string|文字列置換(規則外)|
 |機能|検索|C-z C-b|grep-this|grep this & grep find this|
@@ -104,6 +103,7 @@ $ sudo apt-get install fortune cowsay
 |機能|検索|C-z C-s|swoop|swoop|
 |機能|検索|C-z r|rgrep|rgrep (ディレクトリ内Grep)|
 |機能|検索|C-z g|google-this|google-this(Googleで検索)|
+|機能|検索|C-z C-a|goto-address-at-point|現在のURLリンクを開く(goto-address-mode)|
 |機能|表示|C-z s|make-buffer-small|バッファのウィンドウサイズを縮小|
 |機能|表示|C-z C-n|neotree-toggle|ディレクトリ階層を表示 (neo tree)|
 |機能|表示|C-z C-o|nurumacs-map-toggle|sublime風のoutline表示|

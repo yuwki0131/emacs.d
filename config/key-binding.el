@@ -120,9 +120,6 @@
 (gssk-explain-function "現在のバッファ以外のバッファを削除")
 (gssk-bind "C-z C-k" 'kill-the-other-buffers)
 
-(gssk-explain-function "現在のバッファ内で指定した拡張子の全ファイルを表示")
-(gssk-bind "C-z a" 'open-all-files)
-
 (gssk-explain-function "エンコーディング変更")
 (gssk-bind "C-z f"   'set-file-name-coding-system)
 
@@ -144,6 +141,9 @@
 
 (gssk-explain-function "google-this(Googleで検索)")
 (gssk-bind "C-z g"   'google-this)
+
+(gssk-explain-function "現在のURLリンクを開く(goto-address-mode)")
+(gssk-bind "C-z C-a"   'goto-address-at-point)
 
 (gssk-subcategory "表示")
 
@@ -197,8 +197,9 @@
   (interactive)
   (insert inserting-comment-line))
 
-(gssk-explain-function "white space insertion")
 (white-plus-m)
+
+(gssk-explain-function "white space insertion")
 
 (defun insert-shoborn ()
   (interactive)

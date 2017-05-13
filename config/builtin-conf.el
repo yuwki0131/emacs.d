@@ -85,6 +85,10 @@
 ;; インデントタブ
 (setq-default indent-tabs-mode nil)
 
+;; goto-address-mode
+(add-hook 'prog-mode-hook 'goto-address-prog-mode)
+(add-hook 'text-mode-hook 'goto-address-mode)
+
 ;;; ---------------------------------------------------------------------------
 ;;; 別ディレクトリの同名バッファにディレクトリ名を付与する
 ;;; ---------------------------------------------------------------------------
