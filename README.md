@@ -4,6 +4,8 @@
 
 * 修正して使うこと.
 
+* READMEですがメモです。
+
 ## スクリーンショット
 
 <img src="img/img_init.png" width="320" hspace="10"><img src="img/img_use.png" width="320" hspace="10">
@@ -112,6 +114,8 @@ $ sudo apt-get install fortune cowsay
 |機能|表示|C-z t|bm-show|現在行をマーク、ハイライト表示|
 |機能|表示|C-z M-t|bm-show-all|現在行をマーク、ハイライト表示|
 |機能|表示|C-z C-k|describe-bindings|キーバインド表示|
+|機能|辞書|C-z C-d|search-dictionary-e2j-current-word|現在の単語の意味を表示(要辞書設定)|
+|機能|辞書|C-z d|search-dictionary-e2j|英和辞典(要辞書設定)|
 |機能|実行|C-z e|execute-current-shell-script|現在のディレクトリのxxx.sh実行|
 |編集||C-a C-a|comment-dwim|comment out/in|
 |編集||C-a C-u|upcase-word|upcase/downcase word|
@@ -136,6 +140,7 @@ $ sudo apt-get install fortune cowsay
 |移動|バッファ内|C-e C-a|move-beginning-of-line|行頭/行末へ移動(unbindの再設定)|
 |移動|バッファ内|C-e C-e|move-end-of-line|行頭/行末へ移動(unbindの再設定)|
 |移動|バッファ内|C-e C-l|recenter-top-bottom|top-center-bottom間移動|
+|移動|バッファ内|C-e C-l|imenu|imenu(関数定義に移動)|
 |移動|バッファ間|C-e C-c|shell|shell/replへ移動|
 |移動|バッファ間|C-e C-v|move-to-scratch|shell/replへ移動|
 |移動|バッファ間|C-e C-w|move-to-repl|shell/replへ移動|

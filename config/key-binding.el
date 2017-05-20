@@ -167,6 +167,12 @@
 (gssk-explain-function "キーバインド表示")
 (gssk-bind "C-z C-k" 'describe-bindings)
 
+(gssk-subcategory "辞書")
+(gssk-explain-function "現在の単語の意味を表示(要辞書設定)")
+(gssk-bind "C-z C-d" 'search-dictionary-e2j-current-word)
+(gssk-explain-function "英和辞典(要辞書設定)")
+(gssk-bind "C-z d" 'search-dictionary-e2j)
+
 (gssk-subcategory "実行")
 (gssk-explain-function "現在のディレクトリのxxx.sh実行")
 (gssk-bind "C-z e" 'execute-current-shell-script)
@@ -280,6 +286,9 @@
 
 (gssk-explain-function "top-center-bottom間移動")
 (gssk-bind "C-e C-l" 'recenter-top-bottom)
+
+(gssk-explain-function "imenu(関数定義に移動)")
+(gssk-bind "C-e C-l" 'imenu)
 
 (gssk-subcategory "バッファ間")
 

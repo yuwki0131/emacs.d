@@ -9,8 +9,8 @@
 ;; ツールバー非表示
 (tool-bar-mode -1)
 
-;; メニューバー非表示
-(menu-bar-mode -1)
+;; メニューバー表示(Linux Mint/Cinnamonだと綺麗な表示)
+(menu-bar-mode 1)
 
 ;; スクロールバー非表示
 (scroll-bar-mode -1)
@@ -85,7 +85,7 @@
 ;; インデントタブ
 (setq-default indent-tabs-mode nil)
 
-;; goto-address-mode
+;; URL強調表示、URLをブラウザで表示
 (add-hook 'prog-mode-hook 'goto-address-prog-mode)
 (add-hook 'text-mode-hook 'goto-address-mode)
 

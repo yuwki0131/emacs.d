@@ -357,6 +357,42 @@
   (message (shell-command-to-string "./xxx.sh")))
 
 ;;; ---------------------------------------------------------------------------
+;;; dictionary
+;;; ---------------------------------------------------------------------------
+
+(defvar dictionary-path "~/.emacs.d/datafiles/gene.utf8.txt")
+
+(defun set-up-dictionary ()
+  (let* ((gene-file-data (slurp dictionary-path))
+         (lines (split-string gene-file-data "\n"))
+         (dictionary-hash (make-hash-table :test #'equal)))
+    (while lines
+      (puthash (car lines) (cadr lines) dictionary-hash)
+      (setq lines (cddr lines)))
+    dictionary-hash))
+
+(defvar dictionary-e2j-hash
+  (ignore-errors
+    (set-up-dictionary)))
+
+(defun search-dictionary-e2j ()
+  (interactive)
+  (let* ((word (read-from-minibuffer "e2j : "))
+         (result (gethash word dictionary-e2j-hash)))
+    (message
+     (if (not result)
+         (concat "not found : " word)
+       (concat word " : " result)))))
+
+(defun search-dictionary-e2j-current-word ()
+  (interactive)
+  (let ((result (gethash (thing-at-point 'word) dictionary-e2j-hash)))
+    (message
+     (if (not result)
+         (concat "not found : " (thing-at-point 'word))
+       result))))
+
+;;; ---------------------------------------------------------------------------
 ;;; provide
 ;;; ---------------------------------------------------------------------------
 (provide 'internal-elisp)
