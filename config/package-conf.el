@@ -307,10 +307,20 @@
   (path-headerline-mode +1))
 
 ;;; ---------------------------------------------------------------------------
-;;; package-app : nurumacs : sublime風アウトライン表示
+;;; package-app : sublimity : sublime風アウトライン表示
 ;;; ---------------------------------------------------------------------------
-(use-package-with-report nurumacs
-  :disabled t)
+(use-package-with-report sublimity
+  :config
+  (require 'sublimity-scroll)
+  (require 'sublimity-map)
+  (require 'sublimity-attractive)
+  ;(sublimity-mode 1)
+  (sublimity-attractive-hide-bars)
+  (sublimity-attractive-hide-vertical-border)
+  (sublimity-attractive-hide-fringes)
+  (sublimity-attractive-hide-modelines)
+  (setq sublimity-scroll-weight 10
+      sublimity-scroll-drift-length 5))
 
 ;;; --------------------------------------------------------------------------------
 ;;; package-search : search
