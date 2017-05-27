@@ -312,13 +312,11 @@
 (use-package-with-report sublimity
   :config
   (require 'sublimity-scroll)
-  (require 'sublimity-map)
-  (require 'sublimity-attractive)
-  ;(sublimity-mode 1)
-  (sublimity-attractive-hide-bars)
-  (sublimity-attractive-hide-vertical-border)
-  (sublimity-attractive-hide-fringes)
-  (sublimity-attractive-hide-modelines)
+  ;; これも基本的に不要
+  ;; (require 'sublimity-map)
+  ;; 表示領域が狭くなるため基本的に不要
+  ;; (require 'sublimity-attractive)
+  (add-hook 'prog-mode-hook '(lambda () (sublimity-mode 1)))
   (setq sublimity-scroll-weight 10
       sublimity-scroll-drift-length 5))
 

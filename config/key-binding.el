@@ -153,9 +153,6 @@
 (gssk-explain-function "ディレクトリ階層を表示 (neo tree)")
 (gssk-bind "C-z C-n" 'neotree-toggle)
 
-(gssk-explain-function "sublime風のoutline表示")
-(gssk-bind "C-z C-o" 'nurumacs-map-toggle)
-
 (gssk-explain-function "magit (Emacs Git)")
 (gssk-bind "C-z m"   'magit-status)
 
@@ -251,12 +248,6 @@
 (gssk-bind "C-a C-m" 'insert--s)
 
 (gssk-subcategory "refactoring")
-
-(gssk-explain-function "mark-multiple")
-(gssk-bind "C-a C-c" 'mark-previous-like-this)
-(gssk-bind "C-a C-v" 'mark-more-like-this)
-(gssk-bind "C-a C-b" 'mark-all-like-this)
-(gssk-bind "C-a C-n" 'mark-next-like-this)
 
 (gssk-explain-function "iedit-mode")
 (gssk-bind "C-a i" 'iedit-mode)
