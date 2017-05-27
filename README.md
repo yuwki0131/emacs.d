@@ -106,6 +106,7 @@ $ sudo apt-get install fortune cowsay
 |機能|検索|C-z r|rgrep|rgrep (ディレクトリ内Grep)|
 |機能|検索|C-z g|google-this|google-this(Googleで検索)|
 |機能|検索|C-z C-a|goto-address-at-point|現在のURLリンクを開く(goto-address-mode)|
+|機能|検索|C-z i|imenu-list-smart-toggle|imenu-list(関数定義一覧表示)|
 |機能|表示|C-z s|make-buffer-small|バッファのウィンドウサイズを縮小|
 |機能|表示|C-z C-n|neotree-toggle|ディレクトリ階層を表示 (neo tree)|
 |機能|表示|C-z m|magit-status|magit (Emacs Git)|

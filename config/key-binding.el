@@ -145,6 +145,9 @@
 (gssk-explain-function "現在のURLリンクを開く(goto-address-mode)")
 (gssk-bind "C-z C-a"   'goto-address-at-point)
 
+(gssk-explain-function "imenu-list(関数定義一覧表示)")
+(gssk-bind "C-z i"   'imenu-list-smart-toggle)
+
 (gssk-subcategory "表示")
 
 (gssk-explain-function "バッファのウィンドウサイズを縮小")
