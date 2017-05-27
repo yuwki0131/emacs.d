@@ -41,15 +41,6 @@
   (add-hook 'lua-mode-hook 'highlight-operators-mode))
 
 ;;; ---------------------------------------------------------------------------
-;;; highlight sexp : Lispの同一カッコ内ハイライト
-;;; ---------------------------------------------------------------------------
-(use-package-with-report highlight-sexp
-  :disabled t
-  :config
-  (add-hook 'lisp-mode-hook 'highlight-sexp-mode)
-  (add-hook 'emacs-lisp-mode-hook 'highlight-sexp-mode))
-
-;;; ---------------------------------------------------------------------------
 ;;; highlight quoted : シンボルハイライト(lisp用)
 ;;; ---------------------------------------------------------------------------
 (use-package-with-report highlight-quoted
