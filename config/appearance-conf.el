@@ -101,11 +101,12 @@
 ;; (set-face-fore-with-cbi 'highlight-operators-face     color/limegreen  nil nil)
 
 ;; coloring property
-(set-face-fore-with-cbi 'info-header-xref             color/darkcyan   nil t)
-(set-face-fore-with-cbi 'info-xref                    color/darkcyan   nil t)
-(set-face-fore-with-cbi 'link                         color/deeppink   nil t)
-(set-face-fore-with-cbi 'escape-glyph                 color/darkcyan   nil nil)
-(set-face-fore-with-cbi 'minibuffer-prompt            color/deeppink   t   nil)
+(ignore-errors
+  (set-face-fore-with-cbi 'info-header-xref             color/darkcyan   nil t)
+  (set-face-fore-with-cbi 'info-xref                    color/darkcyan   nil t)
+  (set-face-fore-with-cbi 'link                         color/deeppink   nil t)
+  (set-face-fore-with-cbi 'escape-glyph                 color/darkcyan   nil nil)
+  (set-face-fore-with-cbi 'minibuffer-prompt            color/deeppink   t   nil))
 
 ;; coloring ac
 (ignore-errors

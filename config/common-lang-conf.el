@@ -44,6 +44,7 @@
 ;;; highlight sexp : Lispの同一カッコ内ハイライト
 ;;; ---------------------------------------------------------------------------
 (use-package-with-report highlight-sexp
+  :disabled t
   :config
   (add-hook 'lisp-mode-hook 'highlight-sexp-mode)
   (add-hook 'emacs-lisp-mode-hook 'highlight-sexp-mode))

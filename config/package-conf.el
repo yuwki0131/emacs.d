@@ -44,7 +44,6 @@
   :config
   (google-this-mode t)
   (setq google-this-location-suffix "co.jp")
-  (global-auto-highlight-symbol-mode t)
   (defun google-this-url ()
     "URL for google searches."
     (concat google-this-base-url google-this-location-suffix
@@ -310,7 +309,8 @@
 ;;; ---------------------------------------------------------------------------
 ;;; package-app : nurumacs : sublime風アウトライン表示
 ;;; ---------------------------------------------------------------------------
-(use-package-with-report nurumacs)
+(use-package-with-report nurumacs
+  :disabled t)
 
 ;;; --------------------------------------------------------------------------------
 ;;; package-search : search

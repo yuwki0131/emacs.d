@@ -108,7 +108,6 @@ $ sudo apt-get install fortune cowsay
 |機能|検索|C-z C-a|goto-address-at-point|現在のURLリンクを開く(goto-address-mode)|
 |機能|表示|C-z s|make-buffer-small|バッファのウィンドウサイズを縮小|
 |機能|表示|C-z C-n|neotree-toggle|ディレクトリ階層を表示 (neo tree)|
-|機能|表示|C-z C-o|nurumacs-map-toggle|sublime風のoutline表示|
 |機能|表示|C-z m|magit-status|magit (Emacs Git)|
 |機能|表示|C-z C-t|bm-toggle|現在行をマーク、ハイライト表示|
 |機能|表示|C-z t|bm-show|現在行をマーク、ハイライト表示|
@@ -128,10 +127,6 @@ $ sudo apt-get install fortune cowsay
 |編集|挿入|C-a M-d|insert-date-markdown|現在時刻挿入|
 |編集|挿入|C-a C-e|insert-current-file-name|現在のファイルパスを挿入|
 |編集|挿入|C-a C-m|insert--s|コメント用の線を挿入|
-|編集|refactoring|C-a C-c|mark-previous-like-this|mark-multiple|
-|編集|refactoring|C-a C-v|mark-more-like-this|mark-multiple|
-|編集|refactoring|C-a C-b|mark-all-like-this|mark-multiple|
-|編集|refactoring|C-a C-n|mark-next-like-this|mark-multiple|
 |編集|refactoring|C-a i|iedit-mode|iedit-mode|
 |編集|その他|C-a C-r|rectangle-mark-mode|矩形選択|
 |移動|バッファ内|C-e C-l|goto-last-change|最後の変更箇所へ移動|

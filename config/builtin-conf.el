@@ -89,6 +89,9 @@
 (add-hook 'prog-mode-hook 'goto-address-prog-mode)
 (add-hook 'text-mode-hook 'goto-address-mode)
 
+;; ‘isearch-word’ is an obsolete variable (as of 25.1)対策
+(setq search-default-regexp-mode nil)
+
 ;;; ---------------------------------------------------------------------------
 ;;; 別ディレクトリの同名バッファにディレクトリ名を付与する
 ;;; ---------------------------------------------------------------------------
