@@ -174,7 +174,6 @@
   (require 'tramp-cmds)
   (add-hook 'python-mode-hook 'flymake-python-pyflakes-load)
   (setq flymake-python-pyflakes-executable "/usr/bin/pyflakes")
-  (flymake-python-pyflakes-load)
   (setq flymake-gui-warnings-enabled t)
   (custom-set-variables
    '(flymake-python-pyflakes-extra-arguments
