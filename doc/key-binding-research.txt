@@ -1,19 +1,5 @@
 標準キーバインド調査(残り)
 
-Key translations:
-key             binding
----             -------
-
-`yas-minor-mode' Minor Mode Bindings:
-key             binding
----             -------
-TAB		yas-expand
-<tab>		yas-expand
-
-C-c &		Prefix Command
-C-c & C-n	yas-new-snippet
-C-c & C-s	yas-insert-snippet
-C-c & C-v	yas-visit-snippet-file
 
 `fancy-narrow-mode' Minor Mode Bindings:
 key             binding
@@ -27,40 +13,9 @@ C-x n p		fancy-narrow-to-page
 C-x n s		org-fancy-narrow-to-subtree
 C-x n w		fancy-widen
 
-`auto-highlight-symbol-mode' Minor Mode Bindings:
-key             binding
----             -------
-<M-S-left>	ahs-backward-definition
-<M-S-right>	ahs-forward-definition
-<M-left>	ahs-backward
-<M-right>	ahs-forward
-
-C-x C-a		ahs-edit-mode
-C-x C-'		ahs-change-range
-
-M--		ahs-back-to-start
-
 key             binding
 ---             -------
 C-c		Prefix Command
-
-C-c /		Prefix Command
-
-C-c / SPC	google-this-region
-C-c / a		google-this-ray
-C-c / c		google-this-translate-query-or-region
-C-c / e		google-this-error
-C-c / f		google-this-forecast
-C-c / g		google-this-lucky-search
-C-c / i		google-this-lucky-and-insert-url
-C-c / l		google-this-line
-C-c / m		google-maps
-C-c / n		google-this-noconfirm
-C-c / r		google-this-cpp-reference
-C-c / s		google-this-symbol
-C-c / t		google-this
-C-c / w		google-this-word
-C-c / <return>	google-this-search
 
 Major Mode Bindings:
 key             binding
@@ -77,21 +32,14 @@ C-]		abort-recursive-edit
 C--		negative-argument
 C-0 .. C-9	digit-argument
 
-C-x C-@		pop-global-mark                 :: 気になる
+C-x C-@		pop-global-mark
 C-x C-d		list-directory
 C-x C-e		eval-last-sexp
 C-x TAB		indent-rigidly
 C-x C-j		dired-jump
 C-x C-l		downcase-region
-C-x RET		Prefix Command
 C-x C-n		set-goal-column
-C-x C-o		delete-blank-lines
-C-x C-p		mark-page
-C-x C-q		read-only-mode
-C-x C-r		find-file-read-only
-C-x C-s		save-buffer
-C-x C-t		transpose-lines
-C-x C-u		upcase-region
+
 C-x C-v		find-alternate-file
 C-x C-x		exchange-point-and-mark
 C-x C-z		suspend-frame
@@ -118,17 +66,11 @@ C-x ^		enlarge-window
 C-x `		next-error
 C-x a		Prefix Command
 C-x b		switch-to-buffer
-C-x c		helm-command-prefix
 C-x d		dired
 C-x f		set-fill-column
-C-x h		mark-whole-buffer
-C-x i		insert-file                  :: insert file content
-C-x l		count-lines-page
 C-x m		compose-mail
-C-x n		Prefix Command               :: prefix
 C-x q		kbd-macro-query
 C-x s		save-some-buffers
-C-x u		undo
 C-x v		vc-prefix-map
 C-x z		repeat
 C-x {		shrink-window-horizontally
@@ -160,9 +102,7 @@ C-M-t		transpose-sexps
 C-M-u		backward-up-list
 C-M-v		scroll-other-window
 C-M-w		append-next-kill
-ESC ESC		Prefix Command
 C-M-\		indent-region
-M-SPC		just-one-space
 
 M-%		query-replace
 M-&		async-shell-command
@@ -303,27 +243,6 @@ C-x a p		expand-jump-to-previous-slot
 C-x c C-c	Prefix Command
 C-x c C-x	Prefix Command
 C-x c ESC	Prefix Command
-C-x c /		helm-find
-C-x c 8		helm-ucs
-C-x c @		helm-list-elisp-packages
-C-x c F		helm-select-xfont
-C-x c I		helm-imenu-in-all-buffers
-C-x c a		helm-apropos
-C-x c b		helm-resume
-C-x c c		helm-colors
-C-x c e		helm-etags-select
-C-x c f		helm-multi-files
-C-x c h		Prefix Command
-C-x c i		helm-semantic-or-imenu
-C-x c l		helm-locate
-C-x c m		helm-man-woman
-C-x c p		helm-list-emacs-process
-C-x c r		helm-regexp
-C-x c s		helm-surfraw
-C-x c t		helm-top
-C-x c C-,	helm-calcul-expression
-C-x c C-:	helm-eval-expression-with-eldoc
-C-x c <tab>	helm-lisp-completion-at-point
 
 C-x r C-@	point-to-register
 C-x r ESC	Prefix Command
@@ -386,43 +305,10 @@ M-o M-S		center-paragraph
 M-o M-o		font-lock-fontify-block
 M-o M-s		center-line
 
-M-g M-g		goto-line
-M-g M-n		next-error
-M-g M-p		previous-error
-
 C-x a i g	inverse-add-global-abbrev
 C-x a i l	inverse-add-mode-abbrev
 
-C-x c h g	helm-info-gnus
-C-x c h h	helm-documentation
-C-x c h i	helm-info-at-point
-C-x c h r	helm-info-emacs
-
-C-x c C-c C-x	helm-run-external-command
-C-x c C-c SPC	helm-all-mark-rings
-C-x c C-c f	helm-recentf
-C-x c C-c g	helm-google-suggest
-
-C-x c M-g	Prefix Command
-C-x c M-s	Prefix Command
-C-x c M-x	helm-M-x
-C-x c M-y	helm-show-kill-ring
-
-C-x c M-s o	helm-occur
-
-C-x c M-g a	helm-do-grep-ag
-C-x c M-g i	helm-gid
-
-C-x c C-x C-b	helm-buffers-list
-C-x c C-x C-f	helm-find-files
-C-x c C-x r	Prefix Command
-
 C-x r M-w	copy-rectangle-as-kill
-
-C-x c C-x r b	helm-filtered-bookmarks
-C-x c C-x r i	helm-register
-
-C-x @		Prefix Command
 
 C-x @ S		event-apply-shift-modifier
 C-x @ a		event-apply-alt-modifier
