@@ -1,0 +1,11 @@
+magit使い方メモ(未整理)
+
+open magit : (C-zm)magit-status
+
+select staged files : s(downner cases)
+
+invoke commit command : c(commit staged files)
+note commit comment : c
+commit : C-cC-c
+
+push -u origin master : P u
