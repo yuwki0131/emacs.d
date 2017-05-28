@@ -256,6 +256,7 @@
       (string= "*Python*" buffer-name)
       (string= "*Python3*" buffer-name)
       (string= "*scratch*" buffer-name)
+      (string= "*grep*" buffer-name)
       (string= "*eshell*" buffer-name)))
 
 (defun move-to-repl ()
