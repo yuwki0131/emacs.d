@@ -103,6 +103,7 @@ $ sudo apt-get install fortune cowsay
 |機能|検索|C-z C-b|grep-this|grep this & grep find this|
 |機能|検索|C-z C-f|grep-find-this|grep this & grep find this|
 |機能|検索|C-z C-s|swoop|swoop|
+|機能|検索|C-z C-c|codic|codic|
 |機能|検索|C-z r|rgrep|rgrep (ディレクトリ内Grep)|
 |機能|検索|C-z g|google-this|google-this(Googleで検索)|
 |機能|検索|C-z C-a|goto-address-at-point|現在のURLリンクを開く(goto-address-mode)|
@@ -123,6 +124,7 @@ $ sudo apt-get install fortune cowsay
 |編集|削除|C-a C-k|kill-this-buffer|現在のバッファを削除|
 |編集|削除|C-a C-h|backward-kill-word|後ろ向きな単語削除|
 |編集|削除|C-a C-f|merge2lines|行のマージ(インデント用などの空白削除) (不要かも)|
+|編集|削除|C-a C-i|just-one-space|周囲の空白を削除し、単一の空白にする|
 |編集|挿入|C-a C-q|insert-shoborn|(´・_・`)を挿入|
 |編集|挿入|C-a C-d|insert-date-normal|現在時刻挿入|
 |編集|挿入|C-a M-d|insert-date-markdown|現在時刻挿入|
