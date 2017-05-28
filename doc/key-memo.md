@@ -23,6 +23,7 @@
 | C-x C-r | find-file-read-only | read-onlyモードでバッファを開く |
 | C-x C-t | transpose-lines | 行入れ替え |
 | C-x C-u | upcase-region | 選択範囲の英字を大文字にする |
+| C-x SPC | rectangle-mark-mode | 矩形選択 |
 | C-x h | mark-whole-buffer | ファイル内容を全選択する。<br/>私は今までM-\< C-SPC M-\>で同じことをやってたけど。。。|
 | C-x i	| insert-file | 別ファイルの内容をカーソル位置にインサートする。<br/>ちょっと便利にはなるがそれほどでもない気がする。 |
 | C-x l	| count-lines-page | ファイルの行数と、カーソルの現在位置を教えてくれる。<br/>しかし、行番号表示してれば多分不要。|

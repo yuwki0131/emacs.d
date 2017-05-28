@@ -42,9 +42,8 @@ C-x C-n		set-goal-column
 
 C-x C-v		find-alternate-file
 C-x C-x		exchange-point-and-mark
-C-x C-z		suspend-frame
-C-x ESC		Prefix Command
-C-x SPC		rectangle-mark-mode
+C-x C-z		suspend-frame ← 破壊したはずでは......
+
 C-x #		server-edit
 C-x $		set-selective-display
 C-x '		expand-abbrev
