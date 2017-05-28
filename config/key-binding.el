@@ -235,6 +235,9 @@
 (gssk-explain-function "行のマージ(インデント用などの空白削除) (不要かも)")
 (gssk-bind "C-a C-f" 'merge2lines)
 
+(gssk-explain-function "周囲の空白を削除し、単一の空白にする")
+(gssk-bind "C-a C-i" 'just-one-space)
+
 (gssk-subcategory "挿入")
 
 (gssk-explain-function "(´・_・`)を挿入")
