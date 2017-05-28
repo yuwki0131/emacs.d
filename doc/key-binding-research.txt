@@ -76,9 +76,6 @@ C-@		set-mark-command
 C-]		abort-recursive-edit
 C--		negative-argument
 C-0 .. C-9	digit-argument
-C-:		insert-underscore
-C-!		highlight-symbol-prev
-C-?		highlight-symbol-next
 
 C-x C-@		pop-global-mark                 :: 気になる
 C-x C-d		list-directory
@@ -96,7 +93,6 @@ C-x C-s		save-buffer
 C-x C-t		transpose-lines
 C-x C-u		upcase-region
 C-x C-v		find-alternate-file
-C-x C-w		write-file
 C-x C-x		exchange-point-and-mark
 C-x C-z		suspend-frame
 C-x ESC		Prefix Command
@@ -108,10 +104,6 @@ C-x *		calc-dispatch
 C-x +		balance-windows
 C-x -		shrink-window-if-larger-than-buffer
 C-x .		set-fill-prefix
-C-x 0		delete-window                 :: well known
-C-x 1		delete-other-windows          :: well known
-C-x 2		split-window-below            :: well known
-C-x 3		split-window-right            :: well known
 C-x 4		ctl-x-4-prefix
 C-x 5		ctl-x-5-prefix
 C-x 6		2C-command
@@ -128,14 +120,13 @@ C-x a		Prefix Command
 C-x b		switch-to-buffer
 C-x c		helm-command-prefix
 C-x d		dired
-C-x f		set-fill-column              :: xxx-withdrawal
+C-x f		set-fill-column
 C-x h		mark-whole-buffer
 C-x i		insert-file                  :: insert file content
-C-x l		count-lines-page             :: xxx-withdrawal
-C-x m		compose-mail                 :: xxx-withdrawal
+C-x l		count-lines-page
+C-x m		compose-mail
 C-x n		Prefix Command               :: prefix
-C-x o		other-window                 :: well known
-C-x q		kbd-macro-query              :: xxx-withdrawal
+C-x q		kbd-macro-query
 C-x s		save-some-buffers
 C-x u		undo
 C-x v		vc-prefix-map
@@ -172,7 +163,6 @@ C-M-w		append-next-kill
 ESC ESC		Prefix Command
 C-M-\		indent-region
 M-SPC		just-one-space
-M-!		shell-command                :: shell command
 
 M-%		query-replace
 M-&		async-shell-command
@@ -185,33 +175,27 @@ M-.		find-tag
 M-/		dabbrev-expand
 M-:		eval-expression
 M-;		comment-dwim
-M-<		beginning-of-buffer          :: well known
 M-=		count-words-region
-M->		end-of-buffer                :: well known
 M-@		mark-word
 M-\		delete-horizontal-space
 M-^		delete-indentation
-M-`		tmm-menubar                  :: xxx-withdrawal
-M-a		ace-jump-mode                :: learned
+M-`		tmm-menubar
+M-a		ace-jump-mode
 M-c		capitalize-word              :: capitalize word
 M-e		forward-sentence
-M-f		forward-word                 :: well known
 M-i		tab-to-tab-stop		     :: tab stop
 M-m		backward-paragraph
 M-o		facemenu-keymap
 M-r		move-to-window-line-top-bottom
 M-s		Prefix Command               :: prefix
 M-u		upcase-word
-M-x		execute-extended-command     :: well known
-M-y		yank-pop                     :: well known
-M-z		zap-to-char                  :: delete until target char (forward)
+M-y		yank-pop
 M-{		backward-paragraph           :: move paragraph (backward)
 M-}		forward-paragraph            :: move paragraph (forward)
 M-|		shell-command-on-region
 M-~		not-modified
-M-DEL		backward-kill-word           :: xxx-withdrawal
+M-DEL		backward-kill-word
 C-M-S-v		scroll-other-window-down     :: scroll other window down (for 2 windows)
-M-S-l		insert-squares               :: zzz-normal(my command)
 C-M-SPC		mark-sexp
 C-M-%		query-replace-regexp
 C-M--		negative-argument
