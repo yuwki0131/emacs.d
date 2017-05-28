@@ -251,13 +251,12 @@
   (set-face-background 'hiwin-face "#D0D0D0"))
 
 ;;; ---------------------------------------------------------------------------
-;;; package-app : highlight indent guides : インデント表示
+;;; package-app : highlight indententation-mode : インデント表示
 ;;; ---------------------------------------------------------------------------
-(use-package-with-report highlight-indent-guides
-  :disabled t
+(use-package-with-report highlight-indentation
   :config
-  (add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
-  (set-face-background 'highlight-indent-guides-even-face "gray80"))
+  (set-face-background 'highlight-indentation-face "#ffffff")
+  (add-hook 'prog-mode-hook 'highlight-indentation-mode))
 
 ;;; ---------------------------------------------------------------------------
 ;;; package-app : volatile highlights : 修正箇所のハイライト
@@ -281,7 +280,14 @@
   (add-hook 'prog-mode-hook 'highlight-symbol-mode))
 
 ;;; ---------------------------------------------------------------------------
-;;; package-app : rainbow delimiters : 括弧色つけ
+;;; package-app : highlight block : 現在のブロックをハイライト
+;;; ---------------------------------------------------------------------------
+(use-package-with-report highlight-blocks
+  :config
+  (add-hook 'prog-mode-hook '(lambda () (highlight-blocks-mode 1))))
+
+;;; ---------------------------------------------------------------------------
+;;; package-app : rainbow delimiters : 対応括弧ハイライト
 ;;; ---------------------------------------------------------------------------
 (use-package-with-report rainbow-delimiters
   :config
