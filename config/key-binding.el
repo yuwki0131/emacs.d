@@ -136,6 +136,9 @@
 (gssk-explain-function "swoop")
 (gssk-bind "C-z C-s" 'swoop)
 
+(gssk-explain-function "codic")
+(gssk-bind "C-z C-c" 'codic)
+
 (gssk-explain-function "rgrep (ディレクトリ内Grep)")
 (gssk-bind "C-z r"   'rgrep)
 
