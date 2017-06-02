@@ -104,6 +104,8 @@ $ sudo apt-get install fortune cowsay
 |機能|検索|C-z C-f|grep-find-this|grep this & grep find this|
 |機能|検索|C-z C-s|swoop|swoop|
 |機能|検索|C-z C-c|codic|codic|
+|機能|検索|C-z w|define-word|define-word(英英辞典)|
+|機能|検索|C-z C-w|define-word-at-point|define-word(英英辞典)|
 |機能|検索|C-z r|rgrep|rgrep (ディレクトリ内Grep)|
 |機能|検索|C-z g|google-this|google-this(Googleで検索)|
 |機能|検索|C-z C-a|goto-address-at-point|現在のURLリンクを開く(goto-address-mode)|

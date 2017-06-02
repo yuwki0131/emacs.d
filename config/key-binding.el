@@ -139,6 +139,10 @@
 (gssk-explain-function "codic")
 (gssk-bind "C-z C-c" 'codic)
 
+(gssk-explain-function "define-word(英英辞典)")
+(gssk-bind "C-z w" 'define-word)
+(gssk-bind "C-z C-w" 'define-word-at-point)
+
 (gssk-explain-function "rgrep (ディレクトリ内Grep)")
 (gssk-bind "C-z r"   'rgrep)
 
