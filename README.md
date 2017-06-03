@@ -75,11 +75,10 @@ $ sudo apt-get install fortune cowsay
 |編集|挿入|M-y|browse-kill-ring|browse kill ring|
 |編集|置換|C-M-s|vr/isearch-forward|vr/isearch側の正規表現置換|
 |編集|置換|C-M-r|vr/isearch-backward|vr/isearch側の正規表現置換|
-|編集|括弧|C-m|kill-until-corresp-paren|括弧操作|
-|編集|括弧|C-l|insert-parenthesis|括弧操作|
-|編集|括弧|C-S-l|insert-angle-brackets|括弧操作|
-|編集|括弧|M-l|insert-brackets|括弧操作|
-|編集|括弧|M-S-l|insert-squares|括弧操作|
+|編集|括弧|C-l|insert-parenthesis|括弧挿入|
+|編集|括弧|C-S-l|insert-angle-brackets|括弧挿入|
+|編集|括弧|M-l|insert-brackets|括弧挿入|
+|編集|括弧|M-S-l|insert-squares|括弧挿入|
 |移動|バッファ内|M-m|backward-paragraph|パラグラフ単位の移動|
 |移動|バッファ内|M-p|scroll-up-in-place|1行スクロール(カーソル位置固定)|
 |移動|バッファ内|M-n|scroll-down-in-place|1行スクロール(カーソル位置固定)|
@@ -123,6 +122,7 @@ $ sudo apt-get install fortune cowsay
 |編集||C-a C-a|comment-dwim|comment out/in|
 |編集||C-a C-u|upcase-word|upcase/downcase word|
 |編集||C-a C-p|downcase-word|upcase/downcase word|
+|編集|削除|C-a C-c|kill-until-corresp-paren|括弧削除|
 |編集|削除|C-a C-k|kill-this-buffer|現在のバッファを削除|
 |編集|削除|C-a C-h|backward-kill-word|後ろ向きな単語削除|
 |編集|削除|C-a C-f|merge2lines|行のマージ(インデント用などの空白削除) (不要かも)|

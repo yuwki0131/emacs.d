@@ -62,8 +62,7 @@
 (gssk-bind "C-M-s"  'vr/isearch-forward)
 (gssk-bind "C-M-r"  'vr/isearch-backward)
 
-(gssk-category-function "編集" "括弧" "括弧操作")
-(gssk-bind "C-m"    'kill-until-corresp-paren)
+(gssk-category-function "編集" "括弧" "括弧挿入")
 (gssk-bind "C-l"    'insert-parenthesis)
 (gssk-bind "C-S-l"  'insert-angle-brackets)
 (gssk-bind "M-l"    'insert-brackets)
@@ -232,6 +231,9 @@
 (gssk-bind "C-a C-p" 'downcase-word)
 
 (gssk-subcategory "削除")
+
+(gssk-explain-function "括弧削除")
+(gssk-bind "C-a C-c" 'kill-until-corresp-paren)
 
 (gssk-explain-function "現在のバッファを削除")
 (gssk-bind "C-a C-k" 'kill-this-buffer)
