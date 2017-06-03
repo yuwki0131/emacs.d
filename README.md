@@ -79,6 +79,7 @@ $ sudo apt-get install fortune cowsay
 |編集|括弧|C-S-l|insert-angle-brackets|括弧挿入|
 |編集|括弧|M-l|insert-brackets|括弧挿入|
 |編集|括弧|M-S-l|insert-squares|括弧挿入|
+|編集|改行|C-m|smart-newline|スマートな改行|
 |移動|バッファ内|M-m|backward-paragraph|パラグラフ単位の移動|
 |移動|バッファ内|M-p|scroll-up-in-place|1行スクロール(カーソル位置固定)|
 |移動|バッファ内|M-n|scroll-down-in-place|1行スクロール(カーソル位置固定)|

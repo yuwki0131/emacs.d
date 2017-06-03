@@ -68,6 +68,9 @@
 (gssk-bind "M-l"    'insert-brackets)
 (gssk-bind "M-S-l"  'insert-squares)
 
+(gssk-category-function "編集" "改行" "スマートな改行")
+(gssk-bind "C-m"    'smart-newline)
+
 (gssk-category-function "移動" "バッファ内" "パラグラフ単位の移動")
 ;(gssk-bind "C-m"    'forward-paragraph)
 (gssk-bind "M-m"    'backward-paragraph)
