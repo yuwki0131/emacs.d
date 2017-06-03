@@ -151,7 +151,7 @@
 (gssk-explain-function "google-this(Googleで検索)")
 (gssk-bind "C-z g"   'google-this)
 
-(gssk-explain-function "現在のURLリンクを開く(goto-address-mode)")
+(gssk-explain-function "現在のURLリンクを開く<br/>(goto-address-mode)")
 (gssk-bind "C-z C-a"   'goto-address-at-point)
 
 (gssk-explain-function "imenu-list(関数定義一覧表示)")
@@ -244,7 +244,7 @@
 (gssk-explain-function "後ろ向きな単語削除")
 (gssk-bind "C-a C-h" 'backward-kill-word)
 
-(gssk-explain-function "行のマージ(インデント用などの空白削除) (不要かも)")
+(gssk-explain-function "行のマージ(インデント用などの空白削除) <br/> (不要かも)")
 (gssk-bind "C-a C-f" 'merge2lines)
 
 (gssk-explain-function "周囲の空白を削除し、単一の空白にする")
