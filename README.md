@@ -6,6 +6,8 @@
 
 * READMEですがメモです。
 
+* Linux Mint用
+
 ## スクリーンショット
 
 <img src="img/img_init.png" width="320" hspace="10"><img src="img/img_use.png" width="320" hspace="10">
@@ -34,6 +36,8 @@ $ mv emacs.d ~/.emacs.d
 ```
 
 ### 要use-package
+
+* 自動で入れられない(?)ため
 
 ```
 M-x package-install use-package
