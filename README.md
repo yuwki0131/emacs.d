@@ -4,7 +4,7 @@
 
 * 修正して使うこと.
 
-* READMEですがメモです。
+* READMEですがメモです.
 
 * Linux Mint用
 
@@ -51,7 +51,7 @@ $ sudo apt-get install fortune cowsay
 
 ## elpaからpackage-install
 
-初期化するとエラーレポートが出るので、ilem等で以下を実行。
+初期化するとエラーレポートが出るので、ielm等で以下を実行。
 不足しているelpaの最新版パッケージがインストールされる。
 
 ```
