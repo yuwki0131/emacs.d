@@ -268,6 +268,17 @@
   (set-face-background 'hiwin-face "#D0D0D0"))
 
 ;;; ---------------------------------------------------------------------------
+;;; package-app : hl-todo-mode : TODOをハイライト
+;;; ---------------------------------------------------------------------------
+(use-package-with-report hl-todo
+  :init
+  (setq hl-todo-keyword-faces '(("TODO" . "#cc9393")))
+  :config
+  ;;; global-hl-todo-modeで有効にするメジャーモード(derived-mode)
+  (setq hl-todo-activate-in-modes '(prog-mode))
+  (global-hl-todo-mode 1))
+
+;;; ---------------------------------------------------------------------------
 ;;; package-app : highlight indententation-mode : インデント表示
 ;;; ---------------------------------------------------------------------------
 (use-package-with-report highlight-indentation

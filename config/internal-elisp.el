@@ -212,7 +212,6 @@
 ;;; ---------------------------------------------------------------------------
 ;;; open all files in current buffer
 ;;; ---------------------------------------------------------------------------
-;; key-bind :
 
 (defun filter-with-extension (file-names extension-regexp)
   (cond
