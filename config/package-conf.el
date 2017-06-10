@@ -144,7 +144,7 @@
 (use-package-with-report point-undo)
 
 ;;; ---------------------------------------------------------------------------
-;;; package-move : point-undo : カーソル位置を戻す
+;;; package-move : popwin : ヘルプ/補完バッファをポップアップで表示
 ;;; ---------------------------------------------------------------------------
 (use-package-with-report popwin
   :config
