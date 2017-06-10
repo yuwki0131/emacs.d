@@ -176,6 +176,9 @@
 (gssk-explain-function "キーバインド表示")
 (gssk-bind "C-z C-k" 'describe-bindings)
 
+(gssk-explain-function "コメント表示/非表示")
+(gssk-bind "C-z c"   'hide/show-comments-toggle)
+
 (gssk-subcategory "辞書")
 (gssk-explain-function "現在の単語の意味を表示(要辞書設定)")
 (gssk-bind "C-z C-d" 'search-dictionary-e2j-current-word)

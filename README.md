@@ -121,6 +121,7 @@ $ sudo apt-get install fortune cowsay
 |機能|表示|C-z t|bm-show|現在行をマーク、ハイライト表示|
 |機能|表示|C-z M-t|bm-show-all|現在行をマーク、ハイライト表示|
 |機能|表示|C-z C-k|describe-bindings|キーバインド表示|
+|機能|表示|C-z c|hide/show-comments-toggle|コメント表示/非表示|
 |機能|辞書|C-z C-d|search-dictionary-e2j-current-word|現在の単語の意味を表示(要辞書設定)|
 |機能|辞書|C-z d|search-dictionary-e2j|英和辞典(要辞書設定)|
 |機能|実行|C-z e|execute-current-shell-script|現在のディレクトリのxxx.sh実行|
