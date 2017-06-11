@@ -8,6 +8,7 @@
 ;;; ---------------------------------------------------------------------------
 ;; see : https://github.com/AndreaCrotti/yasnippet-snippets
 (use-package-with-report yasnippet
+  :diminish yas-minor-mode
   :config
   (setq yas-snippet-dirs
 	'("~/.emacs.d/mysnippets"

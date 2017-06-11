@@ -348,6 +348,7 @@
 ;;; package-app : anzu : モードラインの左側に検索中の単語数を表示
 ;;; ---------------------------------------------------------------------------
 (use-package-with-report anzu
+  :diminish anzu-mode
   :config
   (global-anzu-mode t))
 
@@ -387,6 +388,7 @@
 ;;; package-search : helm : helm
 ;;; ---------------------------------------------------------------------------
 (use-package-with-report helm
+   :diminish helm-mode
    :config
   (require 'helm-config)
   (helm-mode 1))
@@ -437,6 +439,7 @@
 ;;; package-config : mouse disable : マウス禁止
 ;;; ---------------------------------------------------------------------------
 (use-package-with-report disable-mouse
+  :diminish disable-mouse-mode
   :config
   (global-disable-mouse-mode))
 
