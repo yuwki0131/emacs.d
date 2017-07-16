@@ -9,6 +9,7 @@
 ;;;  - Clojure
 ;;;  - Hylang
 ;;;  Functional Programming Languages
+;;;  - Scala
 ;;;  - Haskell
 ;;;  - OCaml
 ;;;  - SML
@@ -84,6 +85,16 @@
 ;;; --------------------------------------------------------------------------------
 ;;; config : Functional programming languages
 ;;; --------------------------------------------------------------------------------
+
+;;; ---------------------------------------------------------------------------
+;;; scala-mode : Scala (unchecked)
+;;; ---------------------------------------------------------------------------
+(use-package-with-report scala-mode)
+
+(use-package-with-report ensime
+  :config
+  (setq ensime-completion-style 'auto-complete)
+  (add-hook 'scala-mode-hook 'ensime-scala-mode-hook))
 
 ;;; ---------------------------------------------------------------------------
 ;;; haskell-mode : Haskell (checked)
