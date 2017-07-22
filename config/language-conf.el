@@ -22,6 +22,7 @@
 ;;;  Other Languages
 ;;;  - Prolog
 ;;;  - Vimrc
+;;;  - Web
 ;;; Code:
 
 ;;; --------------------------------------------------------------------------------
@@ -230,6 +231,18 @@
 ;;; vimrc-mode : vimrc編集用 (checked)
 ;;; ---------------------------------------------------------------------------
 (use-package-with-report vimrc-mode)
+
+;;; ---------------------------------------------------------------------------
+;;; web-mode : web編集用
+;;; ---------------------------------------------------------------------------
+(use-package-with-report web-mode
+  :mode
+  (("\\.jsp$" . web-mode))
+  (("\\.html$" . web-mode))
+  :config
+  (setq web-mode-markup-indent-offset 2)
+  (setq web-mode-css-indent-offset 2)
+  (setq web-mode-code-indent-offset 2))
 
 ;;; ---------------------------------------------------------------------------------
 ;;; provide
