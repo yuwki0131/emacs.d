@@ -19,6 +19,14 @@
 (use-package-with-report magit)
 
 ;;; ---------------------------------------------------------------------------
+;;; package-func : magit : emacs git client
+;;; ---------------------------------------------------------------------------
+(use-package-with-report server
+  :config
+  (unless (server-running-p)
+    (server-start)))
+
+;;; ---------------------------------------------------------------------------
 ;;; package-func : auto compile : elファイル自動コンパイル
 ;;; ---------------------------------------------------------------------------
 (use-package-with-report auto-compile
