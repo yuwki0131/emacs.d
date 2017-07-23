@@ -19,7 +19,7 @@
 (use-package-with-report magit)
 
 ;;; ---------------------------------------------------------------------------
-;;; package-func : magit : emacs git client
+;;; package-func : server : emacs server/clientx
 ;;; ---------------------------------------------------------------------------
 (use-package-with-report server
   :config
