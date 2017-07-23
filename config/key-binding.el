@@ -255,8 +255,11 @@
 
 (gssk-subcategory "挿入")
 
+(gssk-explain-function "旧(C-q) 引用付き挿入(置換等に使用)")
+(gssk-bind "C-a C-q" 'quoted-insert)
+
 (gssk-explain-function "(´・_・`)を挿入")
-(gssk-bind "C-a C-q" 'insert-shoborn)
+(gssk-bind "C-a C-s" 'insert-shoborn)
 
 (gssk-explain-function "現在時刻挿入")
 (gssk-bind "C-a C-d" 'insert-date-normal)
