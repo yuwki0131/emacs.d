@@ -64,8 +64,9 @@
 ;;; 設定レポート
 (report-configuration)
 
-;;; README.md生成
-(spit readme-file-md (generate-readme-text))
+;;; README.md生成 (標準ではOFF)
+(when nil
+  (spit readme-file-md (generate-readme-text)))
 
 ;;; failed packages scenario
 (generate-package-install-scenario)
