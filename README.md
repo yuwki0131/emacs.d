@@ -133,7 +133,8 @@ $ sudo apt-get install fortune cowsay
 |編集|削除|C-a C-h|backward-kill-word|後ろ向きな単語削除|
 |編集|削除|C-a C-f|merge2lines|行のマージ(インデント用などの空白削除) <br/> (不要かも)|
 |編集|削除|C-a C-i|just-one-space|周囲の空白を削除し、単一の空白にする|
-|編集|挿入|C-a C-q|insert-shoborn|(´・_・`)を挿入|
+|編集|挿入|C-a C-q|quoted-insert|旧(C-q) 引用付き挿入(置換等に使用)|
+|編集|挿入|C-a C-s|insert-shoborn|(´・_・`)を挿入|
 |編集|挿入|C-a C-d|insert-date-normal|現在時刻挿入|
 |編集|挿入|C-a M-d|insert-date-markdown|現在時刻挿入|
 |編集|挿入|C-a C-e|insert-current-file-name|現在のファイルパスを挿入|
