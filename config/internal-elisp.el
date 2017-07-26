@@ -393,6 +393,18 @@
        result))))
 
 ;;; ---------------------------------------------------------------------------
+;;; zero sec notes
+;;; ---------------------------------------------------------------------------
+(defvar zsnotes-default-directory
+  "~/Dropbox/docs/zsnotes")
+
+(defun zsnotes-open-today-note ()
+  (interactive)
+  (let* ((today (format-time-string "%Y-%m-%d" (current-time)))
+         (file-name (concat zsnotes-default-directory "/zs-notes-" today ".txt")))
+    (find-file file-name)))
+
+;;; ---------------------------------------------------------------------------
 ;;; provide
 ;;; ---------------------------------------------------------------------------
 (provide 'internal-elisp)

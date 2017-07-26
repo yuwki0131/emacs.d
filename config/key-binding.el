@@ -125,6 +125,9 @@
 (gssk-explain-function "エンコーディング変更")
 (gssk-bind "C-z f"   'set-file-name-coding-system)
 
+(gssk-explain-function "インスタント・メモファイルを開く")
+(gssk-bind "C-z C-z" 'zsnotes-open-today-note)
+
 (gssk-subcategory "置換")
 (gssk-explain-function "文字列置換(規則外)")
 (gssk-bind "C-z C-r" 'replace-string)
