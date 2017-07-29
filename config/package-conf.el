@@ -19,6 +19,13 @@
 (use-package-with-report magit)
 
 ;;; ---------------------------------------------------------------------------
+;;; package-func : magit : emacs git client
+;;; ---------------------------------------------------------------------------
+(use-package-with-report exec-path-from-shell
+  :config
+  (exec-path-from-shell-initialize))
+
+;;; ---------------------------------------------------------------------------
 ;;; package-func : server : emacs client/server
 ;;; ---------------------------------------------------------------------------
 (use-package-with-report server
