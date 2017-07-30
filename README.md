@@ -43,10 +43,10 @@ $ mv emacs.d ~/.emacs.d
 M-x package-install use-package
 ```
 
-### 要fortune, cowsayコマンド
+### 要fortune, cowsay, w3mコマンド
 
 ```
-$ sudo apt-get install fortune cowsay
+$ sudo apt-get install fortune cowsay w3m
 ```
 
 ## elpaからpackage-install
