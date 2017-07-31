@@ -129,7 +129,7 @@
 (gssk-bind "C-z C-z" 'zsnotes-open-today-note)
 
 (gssk-explain-function "ジャンクファイル作成")
-(gssk-bind "C-z C-j" 'zsnotes-open-today-note)
+(gssk-bind "C-z C-j" 'open-junk-file)
 
 (gssk-subcategory "置換")
 (gssk-explain-function "文字列置換(規則外)")
