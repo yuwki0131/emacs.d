@@ -104,6 +104,7 @@ $ sudo apt-get install fortune cowsay w3m
 |機能||C-z C-k|kill-the-other-buffers|現在のバッファ以外のバッファを削除|
 |機能||C-z f|set-file-name-coding-system|エンコーディング変更|
 |機能||C-z C-z|zsnotes-open-today-note|インスタント・メモファイルを開く|
+|機能||C-z C-j|zsnotes-open-today-note|ジャンクファイル作成|
 |機能|置換|C-z C-r|replace-string|文字列置換(規則外)|
 |機能|検索|C-z C-b|grep-this|grep this & grep find this|
 |機能|検索|C-z C-f|grep-find-this|grep this & grep find this|
