@@ -195,6 +195,14 @@
 (gssk-explain-function "現在のディレクトリのxxx.sh実行")
 (gssk-bind "C-z e" 'execute-current-shell-script)
 
+(gssk-subcategory "ブログ")
+(gssk-explain-function "新しいブログポストを作成")
+(gssk-bind "C-z b n" 'quickblog-create-new-post)
+(gssk-explain-function "既存のCryogen下のブログポスト一覧を表示")
+(gssk-bind "C-z b o" 'quickblog-open-default-file)
+(gssk-explain-function "Cryogenをローカルで実行")
+(gssk-bind "C-z b r" 'quickblog-run-local-server)
+
 ;;; ---------------------------------------------------------------------------
 ;;; A prefix (to edit somewhat)
 ;;; ---------------------------------------------------------------------------

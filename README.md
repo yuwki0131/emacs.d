@@ -104,7 +104,7 @@ $ sudo apt-get install fortune cowsay w3m
 |機能||C-z C-k|kill-the-other-buffers|現在のバッファ以外のバッファを削除|
 |機能||C-z f|set-file-name-coding-system|エンコーディング変更|
 |機能||C-z C-z|zsnotes-open-today-note|インスタント・メモファイルを開く|
-|機能||C-z C-j|zsnotes-open-today-note|ジャンクファイル作成|
+|機能||C-z C-j|open-junk-file|ジャンクファイル作成|
 |機能|置換|C-z C-r|replace-string|文字列置換(規則外)|
 |機能|検索|C-z C-b|grep-this|grep this & grep find this|
 |機能|検索|C-z C-f|grep-find-this|grep this & grep find this|
@@ -127,6 +127,9 @@ $ sudo apt-get install fortune cowsay w3m
 |機能|辞書|C-z C-d|search-dictionary-e2j-current-word|現在の単語の意味を表示(要辞書設定)|
 |機能|辞書|C-z d|search-dictionary-e2j|英和辞典(要辞書設定)|
 |機能|実行|C-z e|execute-current-shell-script|現在のディレクトリのxxx.sh実行|
+|機能|ブログ|C-z b n|quickblog-create-new-post|新しいブログポストを作成|
+|機能|ブログ|C-z b o|quickblog-open-default-file|既存のCryogen下のブログポスト一覧を表示|
+|機能|ブログ|C-z b r|quickblog-run-local-server|Cryogenをローカルで実行|
 |編集||C-a C-a|comment-dwim|comment out/in|
 |編集||C-a C-u|upcase-word|upcase/downcase word|
 |編集||C-a C-p|downcase-word|upcase/downcase word|
