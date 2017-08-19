@@ -131,6 +131,9 @@
 (gssk-explain-function "ジャンクファイル作成")
 (gssk-bind "C-z C-j" 'open-junk-file)
 
+(gssk-explain-function "shell-popを表示/非表示")
+(gssk-bind "C-z C-p" 'shell-pop)
+
 (gssk-subcategory "置換")
 (gssk-explain-function "文字列置換(規則外)")
 (gssk-bind "C-z C-r" 'replace-string)

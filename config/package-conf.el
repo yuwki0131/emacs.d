@@ -175,6 +175,13 @@
   (add-hook 'prog-mode-hook 'popwin-mode)
   (setq display-buffer-function 'popwin:display-buffer))
 
+;;; ---------------------------------------------------------------------------
+;;; package-move : shell-pop : popup(lightweight) shell
+;;; ---------------------------------------------------------------------------
+(use-package-with-report shell-pop
+  :config
+  (setq shell-pop-shell-type '("shell" "*shell*" (lambda () (shell)))))
+
 ;;; --------------------------------------------------------------------------------
 ;;; package-edit : edit something
 ;;; --------------------------------------------------------------------------------
