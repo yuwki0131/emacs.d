@@ -9,6 +9,7 @@
 ;;; ---------------------------------------------------------------------------
 (gssk-category "prefix")
 (gssk-subcategory "解除")
+
 (gssk-explain-function "prefix keyに使用")
 
 ;; 移動系 prefix
@@ -42,21 +43,18 @@
 (gssk-bind "C-q"    'undo)
 (gssk-bind "M-q"    'redo)
 
-(gssk-category-function "機能" "バッファ間" "別フレームへ移動")
-(gssk-bind "M-o"     'other-window)
-
-(gssk-category-function "編集" "削除" "Backspaceでの削除 (文字単位/単語単位)")
+(gssk-category-function "編集" "削除" "Backspaceで削除 (文字単位/単語単位)")
 (gssk-bind "C-h"    'delete-backward-char)
 (gssk-bind "M-h"    'backward-kill-word)
 
 (gssk-category-function "編集" "挿入" "アンダースコア挿入")
 (gssk-bind "C-:"    'insert-underscore)
 
-(gssk-category-function "編集" "挿入" "snippet : スニペット挿入")
+(gssk-category-function "編集" "挿入" "snippet: yaスニペット挿入")
 (gssk-bind "M-RET"  'yas-insert-snippet)
 
-(gssk-category-function "編集" "挿入" "browse kill ring")
-(gssk-bind "M-y"  'browse-kill-ring)
+(gssk-category-function "編集" "挿入" "kill-ringを表示")
+(gssk-bind "M-y"    'browse-kill-ring)
 
 (gssk-category-function "編集" "置換" "vr/isearch側の正規表現置換")
 (gssk-bind "C-M-s"  'vr/isearch-forward)
@@ -72,7 +70,7 @@
 (gssk-bind "C-m"    'smart-newline)
 
 (gssk-category-function "移動" "バッファ内" "パラグラフ単位の移動")
-;(gssk-bind "C-m"    'forward-paragraph)
+;; (gssk-bind "C-m"    'forward-paragraph)
 (gssk-bind "M-m"    'backward-paragraph)
 
 (gssk-category-function "移動" "バッファ内" "1行スクロール(カーソル位置固定)")
@@ -95,6 +93,9 @@
 (gssk-bind "C-?"    'highlight-symbol-next)
 (gssk-bind "C-!"    'highlight-symbol-prev)
 
+(gssk-category-function "移動" "バッファ間" "別フレームへ移動")
+(gssk-bind "M-o"     'other-window)
+
 (gssk-category-function "移動" "バッファ間" "バッファ移動 (*付バッファはスキップ)")
 (gssk-bind "C-M-f"  'next-buffer-with-skip*)
 (gssk-bind "C-M-p"  'previous-buffer-with-skip*)
@@ -104,11 +105,11 @@
 (gssk-bind "C-S--" 'text-scale-decrease)
 
 (gssk-category-function "その他" "その他" "数値のインクリメント/デクリメント")
-(gssk-bind "C-+" 'increment-number)
-(gssk-bind "C--" 'decrement-number)
+(gssk-bind "C-+"   'increment-number)
+(gssk-bind "C--"   'decrement-number)
 
 (gssk-category-function "その他" "その他" "一時的なコマンド束縛用(テスト用/試用)")
-(gssk-bind "M-j"     'temp-command)
+(gssk-bind "M-j"   'temp-command)
 
 ;;; ---------------------------------------------------------------------------
 ;;; Z prefix (to work something)
@@ -119,49 +120,52 @@
 (gssk-explain-function "enable/disable toggle-truncate-line")
 (gssk-bind "C-z p"   'toggle-truncate-lines)
 
-(gssk-explain-function "現在のバッファ以外のバッファを削除")
+(gssk-explain-function "現在のバッファ以外のバッファを閉じる")
 (gssk-bind "C-z C-k" 'kill-the-other-buffers)
 
-(gssk-explain-function "エンコーディング変更")
+(gssk-explain-function "エンコーディングを変更")
 (gssk-bind "C-z f"   'set-file-name-coding-system)
 
 (gssk-explain-function "インスタント・メモファイルを開く")
 (gssk-bind "C-z C-z" 'zsnotes-open-today-note)
 
-(gssk-explain-function "ジャンクファイル作成")
+(gssk-explain-function "ジャンクファイルを作成、開く")
 (gssk-bind "C-z C-j" 'open-junk-file)
 
 (gssk-explain-function "shell-popを表示/非表示")
 (gssk-bind "C-z C-p" 'shell-pop)
 
 (gssk-subcategory "置換")
-(gssk-explain-function "文字列置換(規則外)")
+
+(gssk-explain-function "文字列置換")
 (gssk-bind "C-z C-r" 'replace-string)
 
 (gssk-subcategory "検索")
 
-(gssk-explain-function "grep this & grep find this")
+(gssk-explain-function "grep this: バッファ内Grep")
 (gssk-bind "C-z C-b" 'grep-this)
+
+(gssk-explain-function "grep find this: ディレクトリ配下Grep")
 (gssk-bind "C-z C-f" 'grep-find-this)
 
-(gssk-explain-function "swoop")
+(gssk-explain-function "swoop: バッファ内を動的検索/移動")
 (gssk-bind "C-z C-s" 'swoop)
 
-(gssk-explain-function "codic")
+(gssk-explain-function "codic: コーディング用辞書")
 (gssk-bind "C-z C-c" 'codic)
 
-(gssk-explain-function "define-word(英英辞典)")
-(gssk-bind "C-z w" 'define-word)
+(gssk-explain-function "define-word: 英英辞典")
+(gssk-bind "C-z w"   'define-word)
 (gssk-bind "C-z C-w" 'define-word-at-point)
 
-(gssk-explain-function "rgrep (ディレクトリ内Grep)")
+(gssk-explain-function "rgrep: ディレクトリ内Grep")
 (gssk-bind "C-z r"   'rgrep)
 
 (gssk-explain-function "google-this(Googleで検索)")
 (gssk-bind "C-z g"   'google-this)
 
 (gssk-explain-function "現在のURLリンクを開く<br/>(goto-address-mode)")
-(gssk-bind "C-z C-a"   'goto-address-at-point)
+(gssk-bind "C-z C-a" 'goto-address-at-point)
 
 (gssk-explain-function "imenu-list(関数定義一覧表示)")
 (gssk-bind "C-z i"   'imenu-list-smart-toggle)
@@ -189,19 +193,22 @@
 (gssk-bind "C-z c"   'hide/show-comments-toggle)
 
 (gssk-subcategory "辞書")
+
 (gssk-explain-function "現在の単語の意味を表示(要辞書設定)")
 (gssk-bind "C-z C-d" 'search-dictionary-e2j-current-word)
 (gssk-explain-function "英和辞典(要辞書設定)")
-(gssk-bind "C-z d" 'search-dictionary-e2j)
+(gssk-bind "C-z d"   'search-dictionary-e2j)
 
 (gssk-subcategory "実行")
+
 (gssk-explain-function "現在のディレクトリのxxx.sh実行")
 (gssk-bind "C-z e" 'execute-current-shell-script)
 
 (gssk-subcategory "ブログ")
+
 (gssk-explain-function "新しいブログポストを作成")
 (gssk-bind "C-z b n" 'quickblog-create-new-post)
-(gssk-explain-function "既存のCryogen下のブログポスト一覧を表示")
+(gssk-explain-function "既存のブログポスト一覧を表示")
 (gssk-bind "C-z b o" 'quickblog-open-default-file)
 (gssk-explain-function "Cryogenをローカルで実行")
 (gssk-bind "C-z b r" 'quickblog-run-local-server)
@@ -272,7 +279,7 @@
 
 (gssk-subcategory "挿入")
 
-(gssk-explain-function "旧(C-q) 引用付き挿入(置換等に使用)")
+(gssk-explain-function "旧(C-q) 引用付き挿入(置換等で使用)")
 (gssk-bind "C-a C-q" 'quoted-insert)
 
 (gssk-explain-function "(´・_・`)を挿入")
@@ -290,7 +297,7 @@
 
 (gssk-subcategory "refactoring")
 
-(gssk-explain-function "iedit-mode")
+(gssk-explain-function "iedit-mode: 同一のシンボルを同時置換")
 (gssk-bind "C-a i" 'iedit-mode)
 
 (gssk-subcategory "その他")
@@ -305,47 +312,44 @@
 
 (gssk-subcategory "バッファ内")
 
-(gssk-explain-function "最後の変更箇所へ移動")
+(gssk-explain-function "最後の変更箇所へ")
 (gssk-bind "C-e C-l" 'goto-last-change)
 
-(gssk-explain-function "最後のカーソル位置へ移動")
+(gssk-explain-function "直前のカーソル位置へ(移動/移動の取消)")
 (gssk-bind "C-e C-j" 'point-undo)
 (gssk-bind "C-e C-k" 'point-redo)
 
-(gssk-explain-function "行頭/行末へ移動(unbindの再設定)")
+(gssk-explain-function "行頭/行末へ(unbindの再設定)")
 (gssk-bind "C-e C-a" 'move-beginning-of-line)
 (gssk-bind "C-e C-e" 'move-end-of-line)
 
-(gssk-explain-function "top-center-bottom間移動")
+(gssk-explain-function "top-center-bottom間")
 (gssk-bind "C-e C-l" 'recenter-top-bottom)
 
-(gssk-explain-function "imenu(関数定義に移動)")
+(gssk-explain-function "imenu: 関数定義へ")
 (gssk-bind "C-e C-l" 'imenu)
 
 (gssk-subcategory "バッファ間")
 
-(gssk-explain-function "shell/replへ移動")
+(gssk-explain-function "shell/replへ")
 (gssk-bind "C-e C-c" 'shell)
 (gssk-bind "C-e C-v" 'move-to-scratch)
 (gssk-bind "C-e C-w" 'move-to-repl)
 
-(gssk-explain-function "バッファ移動 (*付バッファはスキップ)")
+(gssk-explain-function "次/前のバッファへ (*付バッファはスキップ)")
 (gssk-bind "C-e C-b" 'previous-buffer-with-skip*)
 (gssk-bind "C-e C-f" 'next-buffer-with-skip*)
 
 (gssk-subcategory "検索")
 
-(gssk-explain-function "正規表現検索 (インクリメンタル)")
+(gssk-explain-function "正規表現検索 (通常)")
 (gssk-bind "C-e C-s" 'search-forward-regexp)
 (gssk-bind "C-e C-r" 'search-backward-regexp)
 
 (gssk-explain-function "正規表現検索 (一覧表示)")
 (gssk-bind "C-e C-o" 'occur)
 
-(gssk-explain-function "Visual Regexp")
-(gssk-bind "C-e C-d" 'vr/query-replace)
-
-(gssk-explain-function "シンボル単位移動")
+(gssk-explain-function "次/前のシンボルの位置へ")
 (gssk-bind "C-e C-n" 'highlight-symbol-next)
 (gssk-bind "C-e C-p" 'highlight-symbol-prev)
 
