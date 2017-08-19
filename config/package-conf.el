@@ -65,6 +65,13 @@
 	    "/search?q=%s&hl=ja&num=100&as_qdr=y5&lr=lang_ja")))
 
 ;;; ---------------------------------------------------------------------------
+;;; package-func : google translate : google翻訳
+;;; ---------------------------------------------------------------------------
+(use-package-with-report google-translate
+  ;;TODO: Fix config
+)
+
+;;; ---------------------------------------------------------------------------
 ;;; package-func : w3m : w3m in emacs
 ;;; ---------------------------------------------------------------------------
 (use-package-with-report w3m
@@ -348,6 +355,7 @@
 ;;; package-app : highlight block : 現在のブロックをハイライト
 ;;; ---------------------------------------------------------------------------
 (use-package-with-report highlight-blocks
+  :disabled
   :config
   (add-hook 'prog-mode-hook '(lambda () (highlight-blocks-mode 1))))
 
