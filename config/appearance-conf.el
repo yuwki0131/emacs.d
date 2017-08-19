@@ -174,11 +174,11 @@
 (setq display-time-day-and-date -1)
 
 ;; 行番号フォーマット
-(setq linum-format " %4d")
+;; (setq linum-format " %4d")
 
 ;; 画面サイズ初期化
 (setq initial-frame-alist
-      '((top . 20) (left . 0) (width . 128) (height . 75)  (alpha . (97 85))))
+      '((top . 20) (left . 0) (width . 128) (height . 75)  (alpha . (95 85))))
 
 ;;;---------------------------------------------------------------------------
 ;;; provide
