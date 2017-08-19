@@ -10,7 +10,7 @@
 ;;;  - Hylang
 ;;;  Functional Programming Languages
 ;;;  - Scala
-;;;  - Haskell
+;;;  - GHC/Haskell
 ;;;  - OCaml
 ;;;  - SML
 ;;;  - Erlang
