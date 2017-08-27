@@ -74,8 +74,7 @@
 ;;; ---------------------------------------------------------------------------
 ;;; custom set vaiables抑止
 ;;; ---------------------------------------------------------------------------
-(setq custom-file "~/.emacs.d/package-selected-packages.el")
-(load custom-file)
+(setq custom-file (locate-user-emacs-file "custom.el"))
 
 ;;; ---------------------------------------------------------------------------
 ;;; temp (playground)
