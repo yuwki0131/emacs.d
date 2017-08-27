@@ -198,9 +198,6 @@
 (defun report-configuration ()
   (insert
    (concat
-    ;; fortune message
-    (ignore-errors
-      (shell-command-to-string "fortune | rev | cowsay -f ghostbusters" ))
     (comment-out-message
      (concat-interpose-newline
       (list
