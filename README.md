@@ -128,6 +128,8 @@ $ sudo apt-get install fortune cowsay w3m
 |機能|辞書|C-z C-d|search-dictionary-e2j-current-word|現在の単語の意味を表示(要辞書設定)|
 |機能|辞書|C-z d|search-dictionary-e2j|英和辞典(要辞書設定)|
 |機能|実行|C-z e|execute-current-shell-script|現在のディレクトリのxxx.sh実行|
+|機能|日記|C-z l n|daily-notes-open-today-note|今日の日記を作成|
+|機能|日記|C-z l o|daily-notes-open-default-file|既存の日記一覧を表示|
 |機能|ブログ|C-z b n|quickblog-create-new-post|新しいブログポストを作成|
 |機能|ブログ|C-z b o|quickblog-open-default-file|既存のブログポスト一覧を表示|
 |機能|ブログ|C-z b r|quickblog-run-local-server|Cryogenをローカルで実行|

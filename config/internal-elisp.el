@@ -405,6 +405,24 @@
     (find-file file-name)))
 
 ;;; ---------------------------------------------------------------------------
+;;; daily notes
+;;; ---------------------------------------------------------------------------
+(defvar daily-notes-default-directory
+  "~/Dropbox/docs/daily")
+
+(defun daily-notes-open-default-file ()
+  (interactive)
+  (find-file daily-notes-default-directory))
+
+(defun daily-notes-open-today-note ()
+  (interactive)
+  (let* ((today (format-time-string "%Y-%m-%d" (current-time)))
+         (file-name (concat zsnotes-default-directory "/daily-" today ".txt"))
+         (prefix (concat "daily: " today "\n\n")))
+    (find-file file-name)
+    (insert prefix)))
+
+;;; ---------------------------------------------------------------------------
 ;;; quickblog on Cryogen
 ;;; ---------------------------------------------------------------------------
 (defvar quickblog-project-root

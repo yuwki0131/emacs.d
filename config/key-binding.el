@@ -204,6 +204,13 @@
 (gssk-explain-function "現在のディレクトリのxxx.sh実行")
 (gssk-bind "C-z e" 'execute-current-shell-script)
 
+(gssk-subcategory "日記")
+
+(gssk-explain-function "今日の日記を作成")
+(gssk-bind "C-z l n" 'daily-notes-open-today-note)
+(gssk-explain-function "既存の日記一覧を表示")
+(gssk-bind "C-z l o" 'daily-notes-open-default-file)
+
 (gssk-subcategory "ブログ")
 
 (gssk-explain-function "新しいブログポストを作成")
