@@ -17,6 +17,8 @@
 ;;;  Lightweight Languages
 ;;;  - Lua
 ;;;  - Python
+;;;  AltJavascripts
+;;;  - Type Script
 ;;;  Procedual Programming Languages
 ;;;  - nothing
 ;;;  Other Languages
@@ -215,6 +217,17 @@
     (flymake-mode t)))
 
 (add-hook 'python-mode-hook 'my-python-mode)
+
+;;; --------------------------------------------------------------------------------
+;;; config : AltJavascripts
+;;; --------------------------------------------------------------------------------
+
+;;; ---------------------------------------------------------------------------
+;;; prolog-mode : Type Script (unchecked)
+;;; ---------------------------------------------------------------------------
+(use-package-with-report typescript-mode
+  :mode
+  (("\\.ts$" . typescript-mode)))
 
 ;;; --------------------------------------------------------------------------------
 ;;; config : Other Languages
