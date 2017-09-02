@@ -80,7 +80,7 @@
 (setq read-file-name-completion-ignore-case t)
 
 ;; すべてのプログラムモードに対してタブ幅設定
-(add-hook 'prog-mode-hook '(lambda () (setq tab-width 4)))
+(add-hook 'prog-mode-hook '(lambda () (setq tab-width 2)))
 
 ;; インデントタブ
 (setq-default indent-tabs-mode nil)
