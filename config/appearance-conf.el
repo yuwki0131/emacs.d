@@ -27,7 +27,7 @@
 (defvar color/darkred "darkred")
 
 ;; magenta系
-(defvar color/deeppink "deeppink")
+(defvar color/deeppink "#E5266A")
 (defvar color/purpledark "#9B8B9B")
 (defvar color/lightpink "lightpink")
 
@@ -37,7 +37,7 @@
 ;; gray系
 (defvar color/active "#101010")
 (defvar color/inactive "#393939")
-(defvar color/bggray "#F0F0F0")
+(defvar color/bggray "#FFFFFF")
 (defvar color/fggray "#101010")
 (defvar color/comment "#777777")
 
@@ -108,27 +108,28 @@
 
 ;; 行番号(line-num)の色の設定
 (ignore-errors
-  (set-face-attribute 'linum nil
-                      :foreground "white" :background color/inactive
-                      :weight 'bold))
+  (set-face-attribute
+   'linum nil
+   :foreground "white" :background color/inactive
+   :weight 'bold))
 
-;; モードラインの色の設定(active)
+;; モードラインの設定(active)
 (ignore-errors
   (set-face-attribute 'mode-line nil
    :foreground color/lightcyan :background color/inactive
    :inverse-video nil
    :weight 'bold
-   :height 100
+   :height 110
    :font default-font-family
    :box '(:line-width 1 :color "black" :style nil)))
 
-;; モードラインの色の設定(inactive)
+;; モードラインの設定(inactive)
 (ignore-errors
   (set-face-attribute 'mode-line-inactive nil
    :foreground color/lightcyan :background color/inactive
    :inverse-video nil
    :weight 'extra-light
-   :height 100
+   :height 110
    :font default-font-family
    :box '(:line-width 1 :color "gray30" :style nil)))
 
