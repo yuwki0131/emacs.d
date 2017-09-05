@@ -10,7 +10,7 @@
 
 ## スクリーンショット
 
-<img src="img/img_init.png" width="320" hspace="10"><img src="img/img_use.png" width="320" hspace="10">
+<img src="img/img_use1.png" width="320" hspace="10"><img src="img/img_use2.png" width="320" hspace="10">
 
 ## ~/.emacs.d/configディレクトリ以下構成
 
