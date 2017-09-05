@@ -31,6 +31,9 @@
 (defvar color/purpledark "#9B8B9B")
 (defvar color/lightpink "lightpink")
 
+;; orange系
+(defvar color/orange "#FF4C00")
+
 ;; lime green系
 (defvar color/limegreen "#32cd32")
 
@@ -64,8 +67,8 @@
 (set-face-fore-with-cbi 'font-lock-string-face        color/limegreen  t   nil)
 (set-face-fore-with-cbi 'font-lock-keyword-face       color/darkcyan   t   nil)
 (set-face-fore-with-cbi 'font-lock-builtin-face       color/darkcyan   nil nil)
-(set-face-fore-with-cbi 'font-lock-function-name-face color/limegreen  t   nil)
-(set-face-fore-with-cbi 'font-lock-variable-name-face color/limegreen  t   nil)
+(set-face-fore-with-cbi 'font-lock-function-name-face color/orange     t   nil)
+(set-face-fore-with-cbi 'font-lock-variable-name-face color/orange     t   nil)
 (set-face-fore-with-cbi 'font-lock-type-face          color/darkcyan   t   nil)
 (set-face-fore-with-cbi 'font-lock-constant-face      color/deeppink   t   nil)
 (set-face-fore-with-cbi 'font-lock-warning-face       color/deeppink   nil t)
