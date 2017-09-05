@@ -40,6 +40,9 @@
 ;; 雑多な設定
 (use-package builtin-conf)
 
+;; フォント設定
+(use-package font-conf)
+
 ;; エディタの外観/サイズ調整
 (use-package appearance-conf)
 
@@ -65,7 +68,7 @@
 (report-configuration)
 
 ;;; README.md生成 (標準ではOFF)
-(when nil
+(when t
   (spit readme-file-md (generate-readme-text)))
 
 ;;; failed packages scenario
