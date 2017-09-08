@@ -332,7 +332,7 @@
 ;;; ---------------------------------------------------------------------------
 (use-package-with-report highlight-indentation
   :config
-  (set-face-background 'highlight-indentation-face "#ffffff")
+  (set-face-background 'highlight-indentation-face "#e0e0e0")
   (add-hook 'prog-mode-hook 'highlight-indentation-mode))
 
 ;;; ---------------------------------------------------------------------------
