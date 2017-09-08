@@ -8,3 +8,4 @@
 | ielm | elispのREPL (\*scratch\*バッファよりも使いやすい)|
 | sort-line | 行単位のソート |
 | magit-status | magitを使用(C-zmでバインドしているがいつも忘れる)|
+| info-lookup-symobl | 編集中のプログラミング言語に基づき、symbolのinfoドキュメントを表示(あれば) |
