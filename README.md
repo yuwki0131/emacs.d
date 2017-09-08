@@ -21,7 +21,8 @@
 | config-utils | configファイル用のユーティリティ |
 | package-conf | 外部パッケージの設定項目(要外部package) |
 | builtin-conf | emacsデフォルト(外部package不要)の設定項目 |
-| appearance-conf | bizzに引続き、emacsデフォルトの外見設定 |
+| font-conf | フォント設定 |
+| appearance-conf | builtinに引続き、emacsデフォルトの外見設定 |
 | common-lang-conf | 言語共通設定 or 複数言語に共通する設定(要外部package) |
 | language-conf | 各言語ごとの設定 |
 | external-eslip | 外部から持ち込んだコード等 |
