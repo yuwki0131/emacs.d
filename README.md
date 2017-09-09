@@ -21,7 +21,7 @@
 | A | appearance-conf     | - | emacsデフォルトの外見設定 |
 | B | builtin-conf        | - | emacsデフォルトの設定項目 |
 | C | common-lang-conf    | o | 言語共通設定 or 複数言語に共通する設定 |
-| E | edit-package-conf   | - | 編集パッケージの設定項目 |
+| E | edit-package-conf   | o | 編集パッケージの設定項目 |
 | F | font-conf           | - | フォント設定 |
 | K | key-binding         | - | Globalなキーバインドはここに一括 |
 | L | language-conf       | o | 各言語設定 |
@@ -33,7 +33,7 @@
 | U | util-elisp          | - | configファイル用のユーティリティ |
 
 * 順不同
-* 残り(D, E, G, H, I, J, N, Q, R, V, W, X, Y, Z)
+* 残り(D, G, H, I, J, N, Q, R, V, W, X, Y, Z)
 
 ## 設定
 
