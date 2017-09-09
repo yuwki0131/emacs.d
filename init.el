@@ -46,6 +46,9 @@
 ;; エディタの外観/サイズ調整
 (use-package appearance-conf)
 
+;; モードライン設定
+(use-package modeline-conf)
+
 ;; 言語共通設定(要package-install)
 (use-package common-lang-conf)
 
