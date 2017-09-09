@@ -22,7 +22,7 @@
 (when (not (require 'use-package nil 'noerror))
   (package-install 'use-package)
   (setq use-package-verbose t))
-;; 以降use-packageでインストール
+;; 以降、use-packageでrequire
 
 ;;; ---------------------------------------------------------------------------
 ;;; local elisp files
@@ -33,6 +33,7 @@
 
 ;; utils (※use-package-with-report系より先頭に持ってくること)
 (use-package util-elisp)
+;; 以降、config下では、use-package-with-reportでrequire
 
 ;; 外部パッケージの設定(要package-install)
 (use-package package-conf)
