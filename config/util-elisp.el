@@ -1,6 +1,6 @@
-;;; package --- Emacs config-utils.el
+;;; package --- Emacs util-elip.el
 ;;; Commentary:
-;;;  config-utils.el
+;;;  util-elisp.el
 ;;;  - spit (export files)
 ;;;  - use-package-with-report
 ;;;  - global-safe-set-key
@@ -220,5 +220,5 @@
 ;;; --------------------------------------------------------------------------------
 ;;; provide
 ;;; --------------------------------------------------------------------------------
-(provide 'config-utils)
-;;; config-utils.el ends here
+(provide 'util-elip)
+;;; util-elip.el ends here

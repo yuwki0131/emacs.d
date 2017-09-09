@@ -32,7 +32,7 @@
 (add-to-list 'load-path "~/.emacs.d/config")
 
 ;; utils (※use-package-with-report系より先頭に持ってくること)
-(use-package config-utils)
+(use-package util-elisp)
 
 ;; 外部パッケージの設定(要package-install)
 (use-package package-conf)
