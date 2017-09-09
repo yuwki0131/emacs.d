@@ -1,4 +1,4 @@
-;;; package --- external-elisp.el
+;;; package --- outsider-elisp.el
 ;;; Commentary:
 ;;;  外部elisp(package化されてないもの)
 ;;; Code:
@@ -25,4 +25,4 @@
 ;;; ---------------------------------------------------------------------------
 ;;; provide
 ;;; ---------------------------------------------------------------------------
-(provide 'external-elisp)
+(provide 'outsider-elisp)

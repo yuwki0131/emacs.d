@@ -57,7 +57,7 @@
 (use-package language-conf)
 
 ;; 外部のpackage化されてない追加機能(package-install不要)
-(use-package external-elisp)
+(use-package outsider-elisp)
 
 ;; 雑多な追加機能(package-install不要)
 (use-package tips-elisp)
