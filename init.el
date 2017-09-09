@@ -59,8 +59,8 @@
 ;; 外部のpackage化されてない追加機能(package-install不要)
 (use-package external-elisp)
 
-;; 自作の追加機能(package-install不要)
-(use-package internal-elisp)
+;; 雑多な追加機能(package-install不要)
+(use-package tips-elisp)
 
 ;; キーバインド設定(package-install不要)
 (use-package key-binding)
