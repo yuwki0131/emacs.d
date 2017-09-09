@@ -2,9 +2,7 @@
 ;;; Commentary:
 ;;;  Emacsインストールパッケージ(package-install要) / package-conf.el
 ;;;  package func : 機能
-;;;  package edit : 編集
 ;;;  package app : 外観
-;;;  package search : 検索
 ;;;  package config : 設定
 ;;;  package report : 報告・計測
 ;;; Code:
@@ -183,62 +181,6 @@
   (setq shell-pop-shell-type '("shell" "*shell*" (lambda () (shell)))))
 
 ;;; --------------------------------------------------------------------------------
-;;; package-edit : edit something
-;;; --------------------------------------------------------------------------------
-
-;;; ---------------------------------------------------------------------------
-;;; package-edit : redo+ : 普通のredo
-;;; ---------------------------------------------------------------------------
-(use-package-with-report redo+
-  :config
-  (setq undo-no-redo t)
-  (setq undo-limit 60000)
-  (setq undo-strong-limit 90000))
-
-;;; ---------------------------------------------------------------------------
-;;; package-edit : smart newline : 改行
-;;; ---------------------------------------------------------------------------
-(use-package-with-report smart-newline
-  :config
-  (smart-newline-mode 1))
-
-;;; ---------------------------------------------------------------------------
-;;; package-edit : edit grepped text : grep済みのテキスト編集、反映
-;;; ---------------------------------------------------------------------------
-(use-package-with-report wgrep
-  :config
-  ;; "e"でwgrepモード有効
-  (setf wgrep-enable-key "e")
-  ;; wgrep終了時にバッファを保存
-  (setq wgrep-auto-save-buffer t))
-
-;;; ---------------------------------------------------------------------------
-;;; package-edit : hungry-delete-mode : 空白の貪欲な削除
-;;; ---------------------------------------------------------------------------
-(use-package-with-report hungry-delete
-  :disabled t
-  :config
-  (global-hungry-delete-mode))
-
-;;; ---------------------------------------------------------------------------
-;;; package-edit : drug-stuff : 単語単位で移動
-;;; ---------------------------------------------------------------------------
-(use-package-with-report drag-stuff
-  :config
-  (setq drag-stuff-modifier '(meta shift))
-  (drag-stuff-global-mode t))
-
-;;; ---------------------------------------------------------------------------
-;;; package-edit : multiple-cursors-mode : multiple-cursors-mode
-;;; ---------------------------------------------------------------------------
-(use-package-with-report multiple-cursors)
-
-;;; ---------------------------------------------------------------------------
-;;; package-edit : iedit-mode
-;;; ---------------------------------------------------------------------------
-(use-package-with-report iedit)
-
-;;; --------------------------------------------------------------------------------
 ;;; package-app : appearance something
 ;;; --------------------------------------------------------------------------------
 
@@ -412,63 +354,6 @@
   :config
   (golden-ratio-mode 1))
 
-;;; --------------------------------------------------------------------------------
-;;; package-search : search
-;;; --------------------------------------------------------------------------------
-
-;;; ---------------------------------------------------------------------------
-;;; package-search : visual regexp steroids : 正規表現の拡張
-;;; ---------------------------------------------------------------------------
-(use-package-with-report visual-regexp-steroids
-  :config
-  (setq vr/engine 'java))
-
-;;; ---------------------------------------------------------------------------
-;;; package-search : helm : helm
-;;; ---------------------------------------------------------------------------
-(use-package-with-report helm
-   :diminish helm-mode
-   :config
-  (require 'helm-config)
-  (helm-mode 1))
-
-;;; ---------------------------------------------------------------------------
-;;; package-search : zop-to-char : M-zの可視化
-;;; ---------------------------------------------------------------------------
-(use-package-with-report zop-to-char)
-
-;;; ---------------------------------------------------------------------------
-;;; package-search : swoop : トークンレベル移動(検索系)
-;;; ---------------------------------------------------------------------------
-(use-package-with-report swoop)
-
-;;; ---------------------------------------------------------------------------
-;;; package-search : ace jump mode : 任意の場所に3ストロークで移動
-;;; ---------------------------------------------------------------------------
-(use-package-with-report ace-jump-mode)
-
-;;; ---------------------------------------------------------------------------
-;;; package-search : subword mode : Camel notationのシンボル移動時の単位を変更
-;;; ---------------------------------------------------------------------------
-;;; (before) |ITransientAssociative| -> (after) |I|Transient|Associative|
-(use-package-with-report subword
-  :config (global-subword-mode +1))
-
-;;; ---------------------------------------------------------------------------
-;;; package-search : migemo : isearchをローマ字のままで日本語も検索可能に
-;;; ---------------------------------------------------------------------------
-;; required : sudo apt-get install cmigemo
-(use-package-with-report migemo
-  :config
-  (when (executable-find "cmigemo")
-    (setq migemo-options '("-q" "--emacs"))
-    (setq migemo-user-dictionary nil)
-    (setq migemo-regex-dictionary nil)
-    (setq migemo-coding-system 'utf-8-unix)
-    (load-library "migemo")
-    (migemo-init)
-    (setq migemo-command "cmigemo")
-    (setq migemo-dictionary "/usr/share/cmigemo/utf-8/migemo-dict")))
 
 ;;; --------------------------------------------------------------------------------
 ;;; package-config : configuration

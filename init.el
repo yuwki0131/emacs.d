@@ -38,6 +38,9 @@
 ;; 外部パッケージの設定(要package-install)
 (use-package package-conf)
 
+;; 編集系パッケージの設定(要package-install)
+(use-package edit-package-conf)
+
 ;; 検索系パッケージの設定(要package-install)
 (use-package search-package-conf)
 
