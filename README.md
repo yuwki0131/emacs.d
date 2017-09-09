@@ -20,18 +20,18 @@
 |:---:|:--------------|:-:|:------------------------------------------------------------|
 | A | appearance-conf | - | emacsデフォルトの外見設定 |
 | B | builtin-conf    | - | emacsデフォルトの設定項目 |
-| C | common-lang-conf| o | 言語共通設定 or 複数言語に共通する設定(要外部package) |
-| E | external-eslip  | - | 外部から持ち込んだコード |
+| C | common-lang-conf| o | 言語共通設定 or 複数言語に共通する設定 |
 | F | font-conf       | - | フォント設定 |
 | K | key-binding     | - | Globalなキーバインドはここに一括 |
 | L | language-conf   | o | 各言語設定 |
 | M | modeline-conf   | - | モードライン設定 |
-| P | package-conf    | o | 外部パッケージの設定項目(要外部package) |
+| O | outsider-eslip  | - | 外部から持ち込んだコード |
+| P | package-conf    | o | 外部パッケージの設定項目 |
 | T | tips-eslip      | - | 雑多な追加機能のコード |
 | U | util-elisp      | - | configファイル用のユーティリティ |
 
 * 順不同
-* 残り(D, G, H, J, N, O, Q, R, S, T, V, W, X, Y, Z)
+* 残り(D, E, G, H, I, J, N, Q, R, S, V, W, X, Y, Z)
 
 ## 設定
 
