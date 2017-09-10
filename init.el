@@ -41,6 +41,9 @@
 ;; 編集系パッケージの設定(要package-install)
 (use-package edit-package-conf)
 
+;; 表示系パッケージの設定(要package-install)
+(use-package display-package-conf)
+
 ;; 検索系パッケージの設定(要package-install)
 (use-package search-package-conf)
 
