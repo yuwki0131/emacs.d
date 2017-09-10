@@ -21,8 +21,8 @@
 | A | appearance-conf     | - | emacsデフォルトの外見設定 |
 | B | builtin-conf        | - | emacsデフォルトの設定項目 |
 | C | common-lang-conf    | o | 言語共通設定 or 複数言語に共通する設定 |
-| E | edit-package-conf   | o | 編集パッケージの設定項目 |
 | D | display-package-conf| o | 表示系パッケージの設定項目 |
+| E | edit-package-conf   | o | 編集パッケージの設定項目 |
 | F | font-conf           | - | フォント設定 |
 | K | key-binding         | - | Globalなキーバインドはここに一括 |
 | L | language-conf       | o | 各言語設定 |
