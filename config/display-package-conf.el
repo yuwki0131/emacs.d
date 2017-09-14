@@ -150,6 +150,7 @@
 ;;; prompt-text : ミニバッファの左側にカレントディレクトリを表示
 ;;; ---------------------------------------------------------------------------
 (use-package-with-report prompt-text
+  :disabled t
   :config
   (prompt-text-mode 1))
 
