@@ -82,8 +82,12 @@
 ;; すべてのプログラムモードに対してタブ幅設定
 (add-hook 'prog-mode-hook '(lambda () (setq tab-width 2)))
 
-;; インデントタブ
+;; インデントでタブを挿入しない
 (setq-default indent-tabs-mode nil)
+
+;; ダイアログボックス非表示
+(defalias 'message-box 'message)
+(setq use-dialog-box nil)
 
 ;; URL強調表示、URLをブラウザで表示
 (add-hook 'prog-mode-hook 'goto-address-prog-mode)
@@ -91,6 +95,9 @@
 
 ;; ‘isearch-word’ is an obsolete variable (as of 25.1)対策
 (setq search-default-regexp-mode nil)
+
+;;; 画像ファイル表示
+(auto-image-file-mode t)
 
 ;;; ---------------------------------------------------------------------------
 ;;; デフォルトエンコーディング
