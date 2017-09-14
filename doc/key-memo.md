@@ -10,6 +10,7 @@
 | C-_ | undo | undo(別のキーにバインドしているため、あまりつかってない) |
 | C-/ | undo | undo(別のキーにバインドしているため、あまりつかってない) |
 | C-\ | toggle-input-method | emacsでのinput-method切り替え。<br/>OS側のinput-methodを使っているため、これも普段は使わない。|
+| C-u C-SPC | ? | 直前の編集箇所に戻る |
 | C-x C-b | list-buffers | バッファの一覧表示 |
 | C-x C-left | previous-buffer | 好みの問題 |
 | C-x C-right | next-buffer | 好みの問題 |

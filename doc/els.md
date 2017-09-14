@@ -56,7 +56,7 @@
 |dos-vars||
 |dos-w32||
 |double||
-|dynamic-setting||
+p|dynamic-setting||
 |ebuff-menu||
 |echistory||
 |edmacro||

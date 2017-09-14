@@ -5,6 +5,7 @@
 | M-x command | 説明 |
 |:------------------------|:------------------------------------------------------|
 | delete-matching-lines | 特定の文字列を含む行を削除 |
+| abort-recursive-edit | 再帰的ミニバッファで中断(C-]) |
 | ielm | elispのREPL (\*scratch\*バッファよりも使いやすい)|
 | sort-line | 行単位のソート |
 | magit-status | magitを使用(C-zmでバインドしているがいつも忘れる)|
