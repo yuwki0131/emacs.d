@@ -41,6 +41,15 @@
       (propertize (nth i tanakh-chain-list))))
 
 ;;; ---------------------------------------------------------------------------
+;;; line-num characters counter (while selecting region)
+;;; ---------------------------------------------------------------------------
+(defvar mode-line-counter-lines-and-chars
+  '(:eval (when mark-active
+            (format "(%d lines %d c)"
+                    (count-lines (region-beginning) (region-end))
+                    (- (region-end) (region-beginning))))))
+
+;;; ---------------------------------------------------------------------------
 ;;; customized mode-line
 ;;; ---------------------------------------------------------------------------
 (defvar mode-line-format-customized
@@ -52,15 +61,17 @@
         ;; * カレントバッファの修正通知 (fly-noticeがあるのでoff)
         ;; mode-line-modified
         ;; * 修正/readonly通知
-        "  "  fly-notice "  "
+        " "  fly-notice " "
         ;; mode-line-auto-compile
         ;; mode-line-remote
         ;; (:eval (mode-line-frame-control))
         ;; * バッファ名
         mode-line-buffer-identification
-        "  "
+        " "
         mode-line-position
-        "  "
+        " "
+        mode-line-counter-lines-and-chars
+        " "
         '(:eval (insert-tanakh-chain))
         ;; * VC + modes
         ;; '(:eval (vc-mode vc-mode))
