@@ -124,7 +124,8 @@ $ sudo apt-get install fortune cowsay w3m
 |機能|検索|C-z r|rgrep|rgrep: ディレクトリ内Grep|
 |機能|検索|C-z g|google-this|google-this(Googleで検索)|
 |機能|検索|C-z C-a|goto-address-at-point|現在のURLリンクを開く<br/>(goto-address-mode)|
-|機能|検索|C-z i|imenu-list-smart-toggle|imenu-list(関数定義一覧表示)|
+|機能|検索|C-z i l|imenu-list-smart-toggle|imenu-list(関数定義一覧表示)|
+|機能|検索|C-z i b|ibuffer|ibuffer(バッファ一覧表示)|
 |機能|表示|C-z s|make-buffer-small|バッファのウィンドウサイズを縮小|
 |機能|表示|C-z C-n|neotree-toggle|ディレクトリ階層を表示 (neo tree)|
 |機能|表示|C-z m|magit-status|magit (Emacs Git)|
@@ -169,8 +170,9 @@ $ sudo apt-get install fortune cowsay w3m
 |移動|バッファ間|C-e C-w|move-to-repl|shell/replへ|
 |移動|バッファ間|C-e C-b|previous-buffer-with-skip*|次/前のバッファへ (*付バッファはスキップ)|
 |移動|バッファ間|C-e C-f|next-buffer-with-skip*|次/前のバッファへ (*付バッファはスキップ)|
-|移動|検索|C-e C-s|search-forward-regexp|正規表現検索 (通常)|
-|移動|検索|C-e C-r|search-backward-regexp|正規表現検索 (通常)|
+|移動|検索|C-e s|search-forward-regexp|正規表現検索 (通常)|
+|移動|検索|C-e r|search-backward-regexp|正規表現検索 (通常)|
 |移動|検索|C-e C-o|occur|正規表現検索 (一覧表示)|
+|移動|検索|C-e C-r|replace-regexp|正規表現置換 (Emacs標準)|
 |移動|検索|C-e C-n|highlight-symbol-next|次/前のシンボルの位置へ|
 |移動|検索|C-e C-p|highlight-symbol-prev|次/前のシンボルの位置へ|

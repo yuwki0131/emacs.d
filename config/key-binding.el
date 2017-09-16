@@ -168,7 +168,10 @@
 (gssk-bind "C-z C-a" 'goto-address-at-point)
 
 (gssk-explain-function "imenu-list(関数定義一覧表示)")
-(gssk-bind "C-z i"   'imenu-list-smart-toggle)
+(gssk-bind "C-z i l"   'imenu-list-smart-toggle)
+
+(gssk-explain-function "ibuffer(バッファ一覧表示)")
+(gssk-bind "C-z i b"   'ibuffer)
 
 (gssk-subcategory "表示")
 
@@ -350,11 +353,14 @@
 (gssk-subcategory "検索")
 
 (gssk-explain-function "正規表現検索 (通常)")
-(gssk-bind "C-e C-s" 'search-forward-regexp)
-(gssk-bind "C-e C-r" 'search-backward-regexp)
+(gssk-bind "C-e s" 'search-forward-regexp)
+(gssk-bind "C-e r" 'search-backward-regexp)
 
 (gssk-explain-function "正規表現検索 (一覧表示)")
 (gssk-bind "C-e C-o" 'occur)
+
+(gssk-explain-function "正規表現置換 (Emacs標準)")
+(gssk-bind "C-e C-r" 'replace-regexp)
 
 (gssk-explain-function "次/前のシンボルの位置へ")
 (gssk-bind "C-e C-n" 'highlight-symbol-next)
