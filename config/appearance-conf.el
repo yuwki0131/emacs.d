@@ -148,8 +148,8 @@
 ;; タイトルバー
 (setq frame-title-format "Emacs: %b")
 
-;; モードライン(時間非表示)
-(setq display-time-day-and-date -1)
+;; モードライン(時間非表示) => もう不要
+;; (setq display-time-day-and-date -1)
 
 ;; 行番号フォーマット
 ;; (setq linum-format " %4d")
@@ -157,7 +157,14 @@
 ;; 画面サイズ初期化
 (setq initial-frame-alist
       '((top . 20) (left . 0) (width . 128) (height . 75)
-        (alpha . (100 100))))
+        (alpha . (100 100))
+        ;(minibuffer . nil)
+        ))
+
+'(setq minibuffer-frame-alist
+      '((top . 1) (left . 1) (height . 2)
+        ;; You'll need to adjust the following number.
+        (width . 127)))
 
 ;;;---------------------------------------------------------------------------
 ;;; provide

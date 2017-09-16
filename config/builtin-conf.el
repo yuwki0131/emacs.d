@@ -47,7 +47,7 @@
 (setq truncate-partial-width-windows nil)
 
 ;; マークのリージョンに色を付ける
-(setq transient-mark-mode t)
+;; (setq transient-mark-mode t)
 
 ;; スタートメッセージを非表示
 (setq inhibit-startup-message t)
