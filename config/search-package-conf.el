@@ -27,7 +27,9 @@
 ;;; ---------------------------------------------------------------------------
 ;;; swoop : トークンレベル移動(検索系)
 ;;; ---------------------------------------------------------------------------
-(use-package-with-report swoop)
+(use-package-with-report swoop
+  :config
+  (setq swoop-minibuffer-input-dilay 0.4))
 
 ;;; ---------------------------------------------------------------------------
 ;;; ace jump mode : 任意の場所に3ストロークで移動
@@ -39,7 +41,8 @@
 ;;; ---------------------------------------------------------------------------
 ;;; (before) |ITransientAssociative| -> (after) |I|Transient|Associative|
 (use-package-with-report subword
-  :config (global-subword-mode +1))
+  :config
+ (global-subword-mode +1))
 
 ;;; ---------------------------------------------------------------------------
 ;;; migemo : isearchをローマ字のままで日本語も検索可能に
