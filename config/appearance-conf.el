@@ -1,6 +1,7 @@
 ;;; appearance-conf.el --- packages
 ;;; Commentary:
 ;;;  外観 / appearance-conf.el
+;;;  色を調べるときは、M-x list-faces-display
 ;;; Code:
 
 ;;; ---------------------------------------------------------------------------
@@ -87,8 +88,39 @@
 
 ;; coloring ac
 (ignore-errors
-  (set-face-fore-with-bfcbi 'ac-selection-face  color/deeppink "white"   t   nil)
-  (set-face-fore-with-bfcbi 'ac-candidate-face  "white" color/darkcyan   t   nil))
+  (set-face-fore-with-bfcbi 'ac-completion-face           color/deeppink  "gray"         nil t)
+  (set-face-fore-with-bfcbi 'ac-slime-menu-face           color/deeppink  "gray"         nil t)
+  ;; candidates
+  (set-face-fore-with-bfcbi 'ac-candidate-face            color/lightcyan color/inactive t nil)
+  (set-face-fore-with-bfcbi 'ac-candidate-mouse-face      color/lightcyan color/inactive t nil)
+  (set-face-fore-with-bfcbi 'ac-yasnippet-candidate-face  color/lightcyan color/inactive t nil)
+  (set-face-fore-with-bfcbi 'ac-gtags-candidate-face      color/lightcyan color/inactive t nil)
+  ;; selections
+  (set-face-fore-with-bfcbi 'ac-selection-face            color/deeppink color/inactive nil t)
+  (set-face-fore-with-bfcbi 'ac-gtags-selection-face      color/deeppink color/inactive nil t)
+  (set-face-fore-with-bfcbi 'ac-selection-face            color/deeppink color/inactive nil t)
+  (set-face-fore-with-bfcbi 'ac-slime-selection-face      color/deeppink color/inactive nil t)
+  (set-face-fore-with-bfcbi 'ac-yasnippet-selection-face  color/deeppink color/inactive nil t))
+
+;; coloring bm
+(ignore-errors
+  (set-face-fore-with-bfcbi 'bm-face                      color/lightcyan color/deeppink nil t)
+  (set-face-fore-with-bfcbi 'bm-fringe-face               color/lightcyan color/deeppink nil t)
+  (set-face-fore-with-bfcbi 'bm-fringe-persistent-face    "white"         color/orange   nil t)
+  (set-face-fore-with-bfcbi 'bm-persistent-face           "white"         color/orange   nil t))
+
+;; coloring swoop
+(ignore-errors
+  (set-face-fore-with-bfcbi 'isearch                      "white"         color/darkcyan nil t)
+  (set-face-fore-with-bfcbi 'isearch-fail                 "white"         color/darkred  nil t))
+
+;; coloring swoop
+(ignore-errors
+  (set-face-fore-with-bfcbi 'swoop-face-header-format-line color/lightcyan color/inactive nil t)
+  (set-face-fore-with-bfcbi 'swoop-face-line-buffer-name   "white"         color/darkcyan nil t)
+  (set-face-fore-with-bfcbi 'swoop-face-line-number        "white"         color/inactive nil t)
+  (set-face-fore-with-bfcbi 'swoop-face-target-line        "white"         color/deeppink nil t)
+  (set-face-fore-with-bfcbi 'swoop-face-target-words       "white"         color/darkcyan nil t))
 
 ;; カーソルの色
 (set-cursor-color color/deeppink)
@@ -96,7 +128,7 @@
 ;; カーソル行ハイライト
 (defface hlline-face
   `((((class color) (background dark))  (:background ,color/inactive))
-    (((class color) (background light)) (:background ,color/lightcyan))
+    (((class color) (background light)) (:background "light gray"))
     (t ())) "*Face used by hl-line.")
 
 (setq hl-line-face 'hlline-face)
