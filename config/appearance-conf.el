@@ -100,7 +100,11 @@
   (set-face-fore-with-bfcbi 'ac-gtags-selection-face      color/deeppink color/inactive nil t)
   (set-face-fore-with-bfcbi 'ac-selection-face            color/deeppink color/inactive nil t)
   (set-face-fore-with-bfcbi 'ac-slime-selection-face      color/deeppink color/inactive nil t)
-  (set-face-fore-with-bfcbi 'ac-yasnippet-selection-face  color/deeppink color/inactive nil t))
+  (set-face-fore-with-bfcbi 'ac-yasnippet-selection-face  color/deeppink color/inactive nil t)
+  ;; popup
+  (set-face-fore-with-bfcbi 'popup-tip-face               color/lightcyan color/darkcyan nil t)
+  (set-face-fore-with-bfcbi 'pulse-highlight-face         color/lightcyan color/darkcyan nil t)
+  (set-face-fore-with-bfcbi 'pulse-highlight-start-face   color/darkcyan  color/darkcyan nil t))
 
 ;; coloring bm
 (ignore-errors
@@ -109,7 +113,7 @@
   (set-face-fore-with-bfcbi 'bm-fringe-persistent-face    "white"         color/orange   nil t)
   (set-face-fore-with-bfcbi 'bm-persistent-face           "white"         color/orange   nil t))
 
-;; coloring swoop
+;; coloring isearch
 (ignore-errors
   (set-face-fore-with-bfcbi 'isearch                      "white"         color/darkcyan nil t)
   (set-face-fore-with-bfcbi 'isearch-fail                 "white"         color/darkred  nil t))
@@ -121,6 +125,17 @@
   (set-face-fore-with-bfcbi 'swoop-face-line-number        "white"         color/inactive nil t)
   (set-face-fore-with-bfcbi 'swoop-face-target-line        "white"         color/deeppink nil t)
   (set-face-fore-with-bfcbi 'swoop-face-target-words       "white"         color/darkcyan nil t))
+
+;; coloring paren
+(ignore-errors
+  (set-face-fore-with-bfcbi 'show-paren-match              "white"         color/darkcyan nil t)
+  (set-face-fore-with-bfcbi 'show-paren-mismatch           "white"         color/deeppink nil t))
+
+;; color after inserted
+(ignore-errors
+  (set-face-fore-with-bfcbi 'secondary-selection           "deeppink"         color/inactive nil t))
+
+
 
 ;; カーソルの色
 (set-cursor-color color/deeppink)
