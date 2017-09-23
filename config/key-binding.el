@@ -1,6 +1,6 @@
 ;;; package --- key-binding.el
 ;;; Commentary:
-;;;  キーバインド設定
+;;;  キーバインド設定(helm以外)
 ;;;  global-safe-set-key from config-utils
 ;;; Code:
 
@@ -184,11 +184,6 @@
 (gssk-explain-function "magit (Emacs Git)")
 (gssk-bind "C-z m"   'magit-status)
 
-(gssk-explain-function "現在行をマーク、ハイライト表示")
-(gssk-bind "C-z C-t" 'bm-toggle)
-(gssk-bind "C-z t"   'bm-show)
-(gssk-bind "C-z M-t" 'bm-show-all)
-
 (gssk-explain-function "キーバインド表示")
 (gssk-bind "C-z C-k" 'describe-bindings)
 
@@ -365,6 +360,14 @@
 (gssk-explain-function "次/前のシンボルの位置へ")
 (gssk-bind "C-e C-n" 'highlight-symbol-next)
 (gssk-bind "C-e C-p" 'highlight-symbol-prev)
+
+(gssk-subcategory "Bookmark")
+(gssk-explain-function "現在行をブックマーク、ハイライト表示")
+(gssk-bind "C-e C-t" 'bm-toggle)
+(gssk-bind "C-e C-i" 'bm-next)
+(gssk-bind "C-e C-u" 'bm-previous)
+(gssk-bind "C-e t"   'bm-show)
+(gssk-bind "C-e M-t" 'bm-show-all)
 
 ;;; ---------------------------------------------------------------------------
 ;;; provide

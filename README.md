@@ -22,6 +22,7 @@
 | B | builtin-conf        | - | emacsデフォルトの設定項目 |
 | C | common-lang-conf    | o | 言語共通設定 or 複数言語に共通する設定 |
 | D | display-package-conf| o | 表示系パッケージの設定項目 |
+| E | edit-binding        | - | Helmの設定項目 |
 | E | edit-package-conf   | o | 編集系パッケージの設定項目 |
 | F | font-conf           | - | フォント設定 |
 | K | key-binding         | - | Globalなキーバインドはここに一括 |
@@ -129,9 +130,6 @@ $ sudo apt-get install fortune cowsay w3m
 |機能|表示|C-z s|make-buffer-small|バッファのウィンドウサイズを縮小|
 |機能|表示|C-z C-n|neotree-toggle|ディレクトリ階層を表示 (neo tree)|
 |機能|表示|C-z m|magit-status|magit (Emacs Git)|
-|機能|表示|C-z C-t|bm-toggle|現在行をマーク、ハイライト表示|
-|機能|表示|C-z t|bm-show|現在行をマーク、ハイライト表示|
-|機能|表示|C-z M-t|bm-show-all|現在行をマーク、ハイライト表示|
 |機能|表示|C-z C-k|describe-bindings|キーバインド表示|
 |機能|表示|C-z c|hide/show-comments-toggle|コメント表示/非表示|
 |機能|辞書|C-z C-d|search-dictionary-e2j-current-word|現在の単語の意味を表示(要辞書設定)|
@@ -176,3 +174,6 @@ $ sudo apt-get install fortune cowsay w3m
 |移動|検索|C-e C-r|replace-regexp|正規表現置換 (Emacs標準)|
 |移動|検索|C-e C-n|highlight-symbol-next|次/前のシンボルの位置へ|
 |移動|検索|C-e C-p|highlight-symbol-prev|次/前のシンボルの位置へ|
+|移動|検索|C-e C-t|bm-toggle|現在行をブックマーク、ハイライト表示|
+|移動|検索|C-e t|bm-show|現在行をブックマーク、ハイライト表示|
+|移動|検索|C-e M-t|bm-show-all|現在行をブックマーク、ハイライト表示|
