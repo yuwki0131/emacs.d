@@ -135,8 +135,6 @@
 (ignore-errors
   (set-face-fore-with-bfcbi 'secondary-selection           "deeppink"         color/inactive nil t))
 
-
-
 ;; カーソルの色
 (set-cursor-color color/deeppink)
 
