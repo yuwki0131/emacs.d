@@ -22,7 +22,6 @@
 | B | builtin-conf        | - | emacsデフォルトの設定項目 |
 | C | common-lang-conf    | o | 言語共通設定 or 複数言語に共通する設定 |
 | D | display-package-conf| o | 表示系パッケージの設定項目 |
-| E | edit-binding        | - | Helmの設定項目 |
 | E | edit-package-conf   | o | 編集系パッケージの設定項目 |
 | F | font-conf           | - | フォント設定 |
 | K | key-binding         | - | Globalなキーバインドはここに一括 |
@@ -174,6 +173,8 @@ $ sudo apt-get install fortune cowsay w3m
 |移動|検索|C-e C-r|replace-regexp|正規表現置換 (Emacs標準)|
 |移動|検索|C-e C-n|highlight-symbol-next|次/前のシンボルの位置へ|
 |移動|検索|C-e C-p|highlight-symbol-prev|次/前のシンボルの位置へ|
-|移動|検索|C-e C-t|bm-toggle|現在行をブックマーク、ハイライト表示|
-|移動|検索|C-e t|bm-show|現在行をブックマーク、ハイライト表示|
-|移動|検索|C-e M-t|bm-show-all|現在行をブックマーク、ハイライト表示|
+|移動|Bookmark|C-e C-t|bm-toggle|現在行をブックマーク、ハイライト表示|
+|移動|Bookmark|C-e C-i|bm-next|現在行をブックマーク、ハイライト表示|
+|移動|Bookmark|C-e C-u|bm-previous|現在行をブックマーク、ハイライト表示|
+|移動|Bookmark|C-e t|bm-show|現在行をブックマーク、ハイライト表示|
+|移動|Bookmark|C-e M-t|bm-show-all|現在行をブックマーク、ハイライト表示|
