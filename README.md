@@ -51,12 +51,6 @@ $ mv emacs.d ~/.emacs.d
 M-x package-install use-package
 ```
 
-### 要fortune, cowsay, w3mコマンド
-
-```
-$ sudo apt-get install fortune cowsay w3m
-```
-
 ## elpaからpackage-install
 
 初期化するとエラーレポートが出るので、ielm等で以下を実行。
