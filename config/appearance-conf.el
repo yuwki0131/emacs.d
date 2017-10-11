@@ -20,30 +20,30 @@
 ;;; 色設定
 ;;; ---------------------------------------------------------------------------
 ;; cyan系
-(defvar color/darkcyan "#0997B6")
-(defvar color/lightcyan "lightcyan")
+(defvar color/darkcyan   "#0997B6")
+(defvar color/lightcyan  "lightcyan")
 
 ;; red系
-(defvar color/red "red")
-(defvar color/darkred "darkred")
+(defvar color/red        "red")
+(defvar color/darkred    "darkred")
 
 ;; magenta系
-(defvar color/deeppink "#E5266A")
+(defvar color/deeppink   "#E5266A")
 (defvar color/purpledark "#9B8B9B")
-(defvar color/lightpink "lightpink")
+(defvar color/lightpink  "lightpink")
 
 ;; orange系
-(defvar color/orange "#FF4C00")
+(defvar color/orange     "#FF4C00")
 
 ;; lime green系
-(defvar color/limegreen "#32cd32")
+(defvar color/limegreen  "#32cd32")
 
 ;; gray系
-(defvar color/active "#101010")
-(defvar color/inactive "#393939")
-(defvar color/bggray "#FFFFFF")
-(defvar color/fggray "#101010")
-(defvar color/comment "#777777")
+(defvar color/active     "#101010")
+(defvar color/inactive   "#393939")
+(defvar color/bggray     "#FFFFFF") ;; foreground gary
+(defvar color/fggray     "#101010") ;; background gary
+(defvar color/comment    "#777777")
 
 ;; 背景/前景の設定
 (set-background-color color/bggray)
@@ -63,28 +63,24 @@
   (set-face-italic-p   attr-symbol italic))
 
 ;; coloring program
-(set-face-fore-with-cbi 'font-lock-comment-face       color/comment    nil t)
-(set-face-fore-with-cbi 'font-lock-doc-face           color/deeppink   nil t)
-(set-face-fore-with-cbi 'font-lock-string-face        color/limegreen  t   nil)
-(set-face-fore-with-cbi 'font-lock-keyword-face       color/darkcyan   t   nil)
-(set-face-fore-with-cbi 'font-lock-builtin-face       color/darkcyan   nil nil)
-(set-face-fore-with-cbi 'font-lock-function-name-face color/orange     t   nil)
-(set-face-fore-with-cbi 'font-lock-variable-name-face color/orange     t   nil)
-(set-face-fore-with-cbi 'font-lock-type-face          color/darkcyan   t   nil)
-(set-face-fore-with-cbi 'font-lock-constant-face      color/deeppink   t   nil)
-(set-face-fore-with-cbi 'font-lock-warning-face       color/deeppink   nil t)
-
-;; coloring program (extension)
-;; (set-face-fore-with-cbi 'highlight-numbers-number     color/deeppink   nil nil)
-;; (set-face-fore-with-cbi 'highlight-operators-face     color/limegreen  nil nil)
+(set-face-fore-with-cbi 'font-lock-comment-face       color/comment   nil t)
+(set-face-fore-with-cbi 'font-lock-doc-face           color/deeppink  nil t)
+(set-face-fore-with-cbi 'font-lock-string-face        color/limegreen t   nil)
+(set-face-fore-with-cbi 'font-lock-keyword-face       color/darkcyan  t   nil)
+(set-face-fore-with-cbi 'font-lock-builtin-face       color/darkcyan  nil nil)
+(set-face-fore-with-cbi 'font-lock-function-name-face color/orange    t   nil)
+(set-face-fore-with-cbi 'font-lock-variable-name-face color/orange    t   nil)
+(set-face-fore-with-cbi 'font-lock-type-face          color/darkcyan  t   nil)
+(set-face-fore-with-cbi 'font-lock-constant-face      color/deeppink  t   nil)
+(set-face-fore-with-cbi 'font-lock-warning-face       color/deeppink  nil t)
 
 ;; coloring property
 (ignore-errors
-  (set-face-fore-with-cbi 'info-header-xref             color/darkcyan   nil t)
-  (set-face-fore-with-cbi 'info-xref                    color/darkcyan   nil t)
-  (set-face-fore-with-cbi 'link                         color/deeppink   nil t)
-  (set-face-fore-with-cbi 'escape-glyph                 color/darkcyan   nil nil)
-  (set-face-fore-with-cbi 'minibuffer-prompt            color/deeppink   t   nil))
+  (set-face-fore-with-cbi 'info-header-xref  color/darkcyan nil t)
+  (set-face-fore-with-cbi 'info-xref         color/darkcyan nil t)
+  (set-face-fore-with-cbi 'link              color/deeppink nil t)
+  (set-face-fore-with-cbi 'escape-glyph      color/darkcyan nil nil)
+  (set-face-fore-with-cbi 'minibuffer-prompt color/deeppink t   nil))
 
 ;; coloring ac
 (ignore-errors
@@ -133,7 +129,7 @@
 
 ;; color after inserted
 (ignore-errors
-  (set-face-fore-with-bfcbi 'secondary-selection           "deeppink"         color/inactive nil t))
+  (set-face-fore-with-bfcbi 'secondary-selection           "deeppink"      color/inactive nil t))
 
 ;; カーソルの色
 (set-cursor-color color/deeppink)
@@ -158,13 +154,15 @@
 (ignore-errors
   (set-face-attribute
    'linum nil
-   :foreground "white" :background color/inactive
+   :foreground "white"
+   :background color/inactive
    :weight 'bold))
 
 ;; モードラインの設定(active)
 (ignore-errors
   (set-face-attribute 'mode-line nil
-   :foreground color/lightcyan :background color/inactive
+   :foreground color/lightcyan
+   :background color/inactive
    :inverse-video nil
    :weight 'extra-light
    :height 110
@@ -174,7 +172,8 @@
 ;; モードラインの設定(inactive)
 (ignore-errors
   (set-face-attribute 'mode-line-inactive nil
-   :foreground color/lightcyan :background color/inactive
+   :foreground color/lightcyan
+   :background color/inactive
    :inverse-video nil
    :weight 'extra-light
    :height 110
@@ -191,7 +190,7 @@
 (setq default-cursor-type '(bar . 2))
 
 ;; タイトルバー
-(setq frame-title-format "Emacs: %b")
+(setq frame-title-format "emacs: %b")
 
 ;; モードライン(時間非表示) => もう不要
 ;; (setq display-time-day-and-date -1)

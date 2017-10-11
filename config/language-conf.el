@@ -189,20 +189,20 @@
   (setq flymake-python-pyflakes-executable "/usr/bin/pyflakes")
   (setq flymake-gui-warnings-enabled t)
   (custom-set-variables
-   '(flymake-python-pyflakes-extra-arguments
-     (quote ("--max-line-length=120" "--ignore=E128"))))
+   '(flymake-python-pyflakes-extra-arguments '("--max-line-length=120" "--ignore=E128")))
   (defun flymake-pyflakes-init ()
     (when (not (subsetp (list (current-buffer)) (tramp-list-remote-buffers)))
       (let* ((temp-file (flymake-init-create-temp-buffer-copy
-			 'flymake-create-temp-inplace))
-	     (local-file (file-relative-name
-			  temp-file
-			  (file-name-directory buffer-file-name))))
+                         'flymake-create-temp-inplace))
+             (local-file (file-relative-name
+                          temp-file
+                          (file-name-directory buffer-file-name))))
         (list "pyflakes" (list local-file)))))
   (add-to-list 'flymake-allowed-file-name-masks '("\\.py\\'" flymake-pyflakes-init)))
 
 (defun my-python-mode ()
   (progn
+    (require 'python)
     (setq indent-tabs-mode nil)
     (setq indent-level 4)
     (setq python-indent 4)
