@@ -13,3 +13,6 @@ custom.el
 junk
 recentf
 url
+.markdown-preview.html
+.python-environments
+.no-package-refresh-contents
