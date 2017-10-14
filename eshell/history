@@ -1,0 +1,9 @@
+git add README.md 
+git commit -m "fix README.md"
+git push -u origin master
+exit
+mkdir open-my-doc
+git init
+ls
+cd open-my-doc/
+ls
