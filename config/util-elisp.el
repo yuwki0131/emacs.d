@@ -60,6 +60,21 @@
    (mapcar #'add-comment-out (split-string text "\n"))))
 
 ;;; ---------------------------------------------------------------------------
+;;; wget-construct-package : wgetで*.elをロード、configを記述
+;;; ---------------------------------------------------------------------------
+(defmacro wconst-pakcage (name url-string &rest body)
+  (let* ((file-name (car (last (split-string url-string "/"))))
+         (file-path (concat "~/.emacs.d/wrepo/" file-name))
+         (exist-that? (file-exists-p file-path)))
+    (when (not exist-that?)
+      (shell-command-from-string
+       (concat "cd ~/.emacs.d/wrepo/ & wget " url-string))))
+  `(progn
+     (require ,name)
+     .
+     ,body))
+
+;;; ---------------------------------------------------------------------------
 ;;; failed-packages report : use-packageに失敗したパッケージのレポート
 ;;; ---------------------------------------------------------------------------
 ;; パッケージのLoading 状況をレポートする。 *scratch*バッファに結果出力

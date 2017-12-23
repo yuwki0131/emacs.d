@@ -13,6 +13,7 @@ custom.el
 junk
 recentf
 url
+wrepo
 .markdown-preview.html
 .python-environments
 .no-package-refresh-contents
