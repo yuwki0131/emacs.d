@@ -251,7 +251,7 @@
 
 (defun insert-shoborn ()
   (interactive)
-  (insert "(´・_・`)"))
+  (insert "(´･_･`)"))
 
 (defun insert-current-file-name ()
   (interactive)
