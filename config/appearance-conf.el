@@ -10,10 +10,10 @@
 ;; M-x list-faces-display で編集対象の色を表示
 ;; 括弧の対応関係を色で示す
 (show-paren-mode t)
-(setq show-paren-style 'mixed)
+(defvar show-paren-style 'mixed)
 
 ;; 選択範囲に色をつける
-(setq transient-mark-mode t)
+(transient-mark-mode 1)
 (setq font-lock-maximum-decoration t)
 
 ;;; ---------------------------------------------------------------------------
@@ -52,15 +52,15 @@
 ;; 各構文要素の色/タイプ(normal/italic/bold)の設定
 (defun set-face-fore-with-cbi (attr-symbol color-name bold-param italic-param)
   (set-face-foreground attr-symbol color-name)
-  (set-face-bold-p     attr-symbol bold-param)
-  (set-face-italic-p   attr-symbol italic-param))
+  (set-face-bold       attr-symbol bold-param)
+  (set-face-italic     attr-symbol italic-param))
 
 ;; 各構文要素の色(foreground, background)/タイプ(normal/italic/bold)の設定
 (defun set-face-fore-with-bfcbi (attr-symbol color-fg color-bg bold italic)
   (set-face-foreground attr-symbol color-fg)
   (set-face-background attr-symbol color-bg)
-  (set-face-bold-p     attr-symbol bold)
-  (set-face-italic-p   attr-symbol italic))
+  (set-face-bold       attr-symbol bold)
+  (set-face-italic     attr-symbol italic))
 
 ;; coloring program
 (set-face-fore-with-cbi 'font-lock-comment-face       color/comment   nil t)
@@ -187,7 +187,7 @@
 ;;; ウィンドウ幅などの設定
 ;;;---------------------------------------------------------------------------
 ;; カーソルタイプ
-(setq default-cursor-type '(bar . 2))
+(setq-default cursor-type '(bar . 2))
 
 ;; タイトルバー
 (setq frame-title-format "emacs: %b")

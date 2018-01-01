@@ -144,7 +144,7 @@
 ;;; ---------------------------------------------------------------------------
 ;;; package-func : markdown preview mode : markdown preview
 ;;; ---------------------------------------------------------------------------
-;; required apt-get install markdown
+;; required sudo apt install node-marked
 (use-package-with-report markdown-preview-mode
   :config
   (setq markdown-command "/usr/bin/marked"))
@@ -187,8 +187,7 @@
 ;;; ---------------------------------------------------------------------------
 (use-package-with-report popwin
   :config
-  (add-hook 'prog-mode-hook 'popwin-mode)
-  (setq display-buffer-function 'popwin:display-buffer))
+  (popwin-mode 1))
 
 ;;; ---------------------------------------------------------------------------
 ;;; package-move : shell-pop : popup(lightweight) shell

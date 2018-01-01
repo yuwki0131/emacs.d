@@ -61,9 +61,6 @@
 ;; バッファの終端を表示(空行表示)
 (setq-default indicate-empty-lines t)
 
-;; カーソルタイプ
-(setq default-cursor-type '(bar . 3))
-
 ;; 再帰的ミニバッファ
 (setq enable-recursive-minibuffers t)
 
@@ -94,7 +91,7 @@
 (add-hook 'text-mode-hook 'goto-address-mode)
 
 ;; ‘isearch-word’ is an obsolete variable (as of 25.1)対策
-(setq search-default-regexp-mode nil)
+(defvar search-default-regexp-mode nil)
 
 ;;; 画像ファイル表示
 (auto-image-file-mode t)
