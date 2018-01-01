@@ -5,6 +5,9 @@
 ;;;  package config : 設定
 ;;;  package report : 報告・計測
 ;;; Code:
+(require 'package)
+(require 'use-package)
+(require 'util-elisp)
 
 ;;; --------------------------------------------------------------------------------
 ;;; package-func : functions
@@ -18,6 +21,9 @@
 ;;; ---------------------------------------------------------------------------
 ;;; package-func : server : emacs client/server
 ;;; ---------------------------------------------------------------------------
+;;; memo:
+;;;   emacsclinet/ecで起動する。(* ecは自分のbashrcの設定から)
+;;;   C-x #で終了をターミナル側に通知する。
 (use-package-with-report server
   :config
   (unless (server-running-p)
@@ -26,7 +32,10 @@
 ;;; ---------------------------------------------------------------------------
 ;;; package-func : auto compile : elファイル自動コンパイル
 ;;; ---------------------------------------------------------------------------
+;;; memo:
+;;;   現在不要なので一旦、使用を保留
 (use-package-with-report auto-compile
+  :disabled t
   :config
   (setq load-prefer-newer t)
   (auto-compile-on-load-mode)
@@ -41,6 +50,13 @@
   (setq ac-auto-start 1)
   (setq ac-candidate-max 40)
   (add-to-list 'ac-dictionary-directories "~/.emacs.d/ac-dict"))
+
+;;; ---------------------------------------------------------------------------
+;;; package-func : git complete : git-grep自動補完
+;;; ---------------------------------------------------------------------------
+(wconst-pakcage 'git-complete
+  "https://raw.githubusercontent.com/zk-phi/git-complete/master/git-complete.el"
+  nil)
 
 ;;; ---------------------------------------------------------------------------
 ;;; package-func : google this : ググる
@@ -71,7 +87,9 @@
 ;;; ---------------------------------------------------------------------------
 ;;; package-func : auto async byte compile : emacsのバイトコンパイルの自動化
 ;;; ---------------------------------------------------------------------------
-(use-package-with-report auto-async-byte-compile)
+(use-package-with-report auto-async-byte-compile
+  :config
+  (add-hook 'emacs-lisp-mode-hook 'enable-auto-async-byte-compile-mode))
 
 ;;; ---------------------------------------------------------------------------
 ;;; package-func : tiny menu : tiny menu

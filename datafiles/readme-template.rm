@@ -1,10 +1,10 @@
 # 自分用 ~/.emacs.d
 
-* 修正中 & 未確認 (´・_・`)
+* 修正中 & 未確認 (´･_･`)
 
-* 修正して使うこと.
+* 修正して使うこと。
 
-* READMEですがメモです.
+* READMEですがメモです。
 
 * Linux Mint用
 
@@ -58,4 +58,12 @@ M-x package-install use-package
 
 ```
 (load "~/.emacs.d/install-scenario.el")
+```
+
+## byte-compile *.el files
+
+`config/*.el`下のファイルを更新。
+
+```
+M-x refresh-byte-compile
 ```

@@ -3,6 +3,7 @@
 ;;;  キーバインド設定(helm以外)
 ;;;  global-safe-set-key from config-utils
 ;;; Code:
+(require 'util-elisp)
 
 ;;; ---------------------------------------------------------------------------
 ;;; unset

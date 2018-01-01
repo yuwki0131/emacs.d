@@ -3,6 +3,9 @@
 ;;;  Emacsインストールパッケージ(package-install要) / edit-package-conf.el
 ;;;  package edit : 編集
 ;;; Code:
+(require 'package)
+(require 'use-package)
+(require 'util-elisp)
 
 ;;; ---------------------------------------------------------------------------
 ;;; redo+ : 普通のredo
