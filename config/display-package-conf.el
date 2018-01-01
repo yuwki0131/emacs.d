@@ -3,6 +3,9 @@
 ;;;  Emacsインストールパッケージ(package-install要) / display-package-conf.el
 ;;;  package display : 表示
 ;;; Code:
+(require 'package)
+(require 'use-package)
+(require 'util-elisp)
 
 ;;; ---------------------------------------------------------------------------
 ;;; bm : 現在行を永続的に記憶

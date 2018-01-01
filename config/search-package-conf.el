@@ -2,6 +2,9 @@
 ;;;  Emacsインストールパッケージ(package-install要) / search-package-conf.el
 ;;;  package search : 検索
 ;;; Code:
+(require 'package)
+(require 'use-package)
+(require 'util-elisp)
 
 ;;; ---------------------------------------------------------------------------
 ;;; visual regexp steroids : 正規表現の拡張

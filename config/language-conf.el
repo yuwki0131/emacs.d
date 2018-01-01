@@ -25,6 +25,9 @@
 ;;;  - Vimrc
 ;;;  - Web
 ;;; Code:
+(require 'package)
+(require 'use-package)
+(require 'util-elisp)
 
 ;;; --------------------------------------------------------------------------------
 ;;; config : Lisp dialects

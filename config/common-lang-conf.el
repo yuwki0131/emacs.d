@@ -2,6 +2,9 @@
 ;;; Commentary:
 ;;;  複数言語共通の設定
 ;;; Code:
+(require 'package)
+(require 'use-package)
+(require 'util-elisp)
 
 ;;; ---------------------------------------------------------------------------
 ;;; yasnippet : スニペット

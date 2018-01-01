@@ -5,6 +5,9 @@
 ;;;  package config : 設定
 ;;;  package report : 報告・計測
 ;;; Code:
+(require 'package)
+(require 'use-package)
+(require 'util-elisp)
 
 ;;; --------------------------------------------------------------------------------
 ;;; package-func : functions
@@ -84,7 +87,9 @@
 ;;; ---------------------------------------------------------------------------
 ;;; package-func : auto async byte compile : emacsのバイトコンパイルの自動化
 ;;; ---------------------------------------------------------------------------
-(use-package-with-report auto-async-byte-compile)
+(use-package-with-report auto-async-byte-compile
+  :config
+  (add-hook 'emacs-lisp-mode-hook 'enable-auto-async-byte-compile-mode))
 
 ;;; ---------------------------------------------------------------------------
 ;;; package-func : tiny menu : tiny menu

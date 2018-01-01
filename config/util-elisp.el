@@ -82,11 +82,11 @@
 
 (defvar other-configuration-reports '())
 
-(defmacro use-package-with-report (&rest body)
+(defmacro use-package-with-report (package-name &rest body)
   `(progn
-     (use-package . ,body)
-     (when (not (package-installed-p (quote ,(car body))))
-       (add-to-list 'failed-packages ,(symbol-name (car body))))))
+     (use-package ,package-name . ,body)
+     (when (not (package-installed-p (quote ,package-name)))
+       (add-to-list 'failed-packages ,(symbol-name package-name)))))
 
 (defmacro ignore-require-with-report (comment-if-failed &rest body)
   `(progn
@@ -188,11 +188,11 @@
 (defconst grm-keybind-table-line
   "| -------- |:----|:-------- | -------------------- |:-------|")
 
-(defun gssk-setting-md "")
+(defvar gssk-setting-md "")
 
 (defun generate-explanation-text ()
   (apply 'concat
-		 (mapcar '(lambda (x) (concat "|" (car x)
+		 (mapcar #'(lambda (x) (concat "|" (car x)
 									  "|" (car (cdr x))
 									  "|" (car (cdr (cdr x)))
 									  "|" (car (cdr (cdr (cdr x))))
