@@ -18,6 +18,9 @@
 ;;; ---------------------------------------------------------------------------
 ;;; package-func : server : emacs client/server
 ;;; ---------------------------------------------------------------------------
+;;; memo:
+;;;   emacsclinet/ecで起動する。(* ecは自分のbashrcの設定から)
+;;;   C-x #で終了をターミナル側に通知する。
 (use-package-with-report server
   :config
   (unless (server-running-p)
@@ -26,7 +29,10 @@
 ;;; ---------------------------------------------------------------------------
 ;;; package-func : auto compile : elファイル自動コンパイル
 ;;; ---------------------------------------------------------------------------
+;;; memo:
+;;;   現在不要なので一旦、使用を保留
 (use-package-with-report auto-compile
+  :disabled t
   :config
   (setq load-prefer-newer t)
   (auto-compile-on-load-mode)
@@ -48,6 +54,7 @@
 (wconst-pakcage 'git-complete
   "https://raw.githubusercontent.com/zk-phi/git-complete/master/git-complete.el"
   nil)
+
 ;;; ---------------------------------------------------------------------------
 ;;; package-func : google this : ググる
 ;;; ---------------------------------------------------------------------------
