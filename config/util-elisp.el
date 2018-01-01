@@ -67,7 +67,7 @@
          (file-path (concat "~/.emacs.d/wrepo/" file-name))
          (exist-that? (file-exists-p file-path)))
     (when (not exist-that?)
-      (shell-command-from-string
+      (shell-command-to-string
        (concat "cd ~/.emacs.d/wrepo/ & wget " url-string))))
   `(progn
      (require ,name)

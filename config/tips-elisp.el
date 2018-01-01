@@ -2,6 +2,7 @@
 ;;; Commentary:
 ;;;  雑多な追加機能(package化しないコード)
 ;;; Code:
+(require 'util-elisp)
 
 ;;; ---------------------------------------------------------------------------
 ;;; grep this & grep find here / grepを & grep find 現在のbuffer/pathで実行
@@ -56,7 +57,7 @@
   (let ((result (search-forward TODO-symbol nil t)))
     (message result)
     (if (not result)
-      (progn (beginning-of-buffer)
+      (progn (goto-char (point-min))
 	     (search-forward TODO-symbol nil t)))))
 
 ;;; ---------------------------------------------------------------------------
@@ -83,7 +84,7 @@
 ;; (M-p,M-nで)カーソル位置固定のまま、スクロール
 (defun scroll-up-in-place (n)
   (interactive "p")
-  (previous-line n)
+  (forward-line (- n))
   (scroll-down n))
 
 (defun scroll-down-in-place (n)
@@ -163,26 +164,6 @@
      ((= ?\{ (following-char)) (match-delete-parenthesis ?\{ ?\}))
      ((= ?\[ (following-char)) (match-delete-parenthesis ?\[ ?\])))))
 
-(defun most-wide-match-lexical-insert-parenthesis (beginp endp)
-  (insert "(")
-  (let (((counter 1))
-    (while (> counter 0)
-      (cond
-       ((= beginp (following-char)) (setq counter (+ counter 1)))
-       ((= endp   (following-char)) (setq counter (- counter 1)))
-       ((= -2 (following-char)) (setq counter -2)))
-      (forward-char 1))
-    (progn
-      (forward-char -1)
-      (insert ")")))))
-
-(defun most-wide-lexical-insert-parenthesis ()
- (interactive)
- (save-excursion
-   (cond
-    ((= ?\( (following-char))
-     (most-wide-match-lexical-insert-parenthesis ?\( ?\))))))
-
 (defun most-narrow-match-lexical-insert-parenthesis (beginp endp)
   (insert "(")
   (let ((counter 0) (found-most-narrow-parenthesis nil))
@@ -198,7 +179,7 @@
 	(setq counter (- counter 1)))
        ((= -2 (following-char))
 	(setq counter -2))))
-    (prognp
+    (progn
       (forward-char -1)
       (insert ")"))))
 
