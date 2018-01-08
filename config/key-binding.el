@@ -335,6 +335,9 @@
 (gssk-explain-function "imenu: 関数定義へ")
 (gssk-bind "C-e C-l" 'imenu)
 
+(gssk-explain-function "swiper: バッファ内を動的検索/移動")
+(gssk-bind "C-e C-s" 'swiper)
+
 (gssk-subcategory "バッファ間")
 
 (gssk-explain-function "shell/replへ")

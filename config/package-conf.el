@@ -97,7 +97,7 @@
 (use-package-with-report tiny-menu)
 
 ;;; ---------------------------------------------------------------------------
-;;; package-func : imenu list : 関数定義を横に表示
+;;; package-func : imenu list : 関数(クラス)定義一覧を横に表示
 ;;; ---------------------------------------------------------------------------
 (use-package-with-report imenu-list)
 
@@ -111,8 +111,8 @@
 ;;; ---------------------------------------------------------------------------
 (use-package-with-report neotree
   :config
+  (defvar neo-persist-show t)
   (setq neo-show-hidden-files t)
-  (setq neo-persist-show t)
   (setq neo-keymap-style 'concise)
   (setq neo-smart-open t)
   (setq neo-theme 'ascii)
