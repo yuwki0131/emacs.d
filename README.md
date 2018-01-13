@@ -164,6 +164,7 @@ M-x refresh-byte-compile
 |移動|バッファ内|C-e C-e|move-end-of-line|行頭/行末へ(unbindの再設定)|
 |移動|バッファ内|C-e C-l|recenter-top-bottom|top-center-bottom間|
 |移動|バッファ内|C-e C-l|imenu|imenu: 関数定義へ|
+|移動|バッファ内|C-e C-s|swiper|swiper: バッファ内を動的検索/移動|
 |移動|バッファ間|C-e C-c|shell|shell/replへ|
 |移動|バッファ間|C-e C-v|move-to-scratch|shell/replへ|
 |移動|バッファ間|C-e C-w|move-to-repl|shell/replへ|
