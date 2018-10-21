@@ -365,6 +365,9 @@
 (gssk-bind "C-e C-n" 'highlight-symbol-next)
 (gssk-bind "C-e C-p" 'highlight-symbol-prev)
 
+(gssk-explain-function "最近開いたファイルを開く")
+(gssk-bind "C-e o" 'recentf-open-files)
+
 (gssk-subcategory "Bookmark")
 (gssk-explain-function "現在行をブックマーク、ハイライト表示")
 (gssk-bind "C-e C-t" 'bm-toggle)

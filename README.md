@@ -176,6 +176,7 @@ M-x refresh-byte-compile
 |移動|検索|C-e C-r|replace-regexp|正規表現置換 (Emacs標準)|
 |移動|検索|C-e C-n|highlight-symbol-next|次/前のシンボルの位置へ|
 |移動|検索|C-e C-p|highlight-symbol-prev|次/前のシンボルの位置へ|
+|移動|検索|C-e o|recentf-open-files|最近開いたファイルを開く|
 |移動|Bookmark|C-e C-t|bm-toggle|現在行をブックマーク、ハイライト表示|
 |移動|Bookmark|C-e C-i|bm-next|現在行をブックマーク、ハイライト表示|
 |移動|Bookmark|C-e C-u|bm-previous|現在行をブックマーク、ハイライト表示|
