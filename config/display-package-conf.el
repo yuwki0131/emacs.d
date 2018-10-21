@@ -15,7 +15,10 @@
 ;;; ---------------------------------------------------------------------------
 ;;; fancy-narrow : 現在の領域をnarrowingする
 ;;; ---------------------------------------------------------------------------
+;;; memo:
+;;;   使わないかつ警告が出るので一旦、disable
 (use-package-with-report fancy-narrow
+  :disabled t
   :config
   (fancy-narrow-mode 1))
 
@@ -34,7 +37,7 @@
 ;; original : https://www.youtube.com/watch?v=QH2-TGUlwu4
 (use-package-with-report echo-bell
   :config
-  (setq echo-bell-string "(´・_・｀)")
+  (setq echo-bell-string "(´･_･｀)")
   (setq echo-bell-background "lightpink")
   (setq echo-bell-delay 0.4)
   (echo-bell-mode 1))
@@ -81,6 +84,7 @@
 ;;; ---------------------------------------------------------------------------
 (use-package-with-report hl-todo
   :init
+  (eval-when-compile (require 'hl-todo))
   (setq hl-todo-keyword-faces '(("TODO" . "#cc9393")))
   :config
   ;;; global-hl-todo-modeで有効にするメジャーモード(derived-mode)
@@ -174,14 +178,15 @@
   ;; (require 'sublimity-map)
   ;; 表示領域が狭くなるため基本的に不要
   ;; (require 'sublimity-attractive)
-  (add-hook 'prog-mode-hook '(lambda () (sublimity-mode 1)))
-  (setq sublimity-scroll-weight 10
-      sublimity-scroll-drift-length 5))
+  (add-hook 'prog-mode-hook '(lambda () (sublimity-mode 1))))
 
 ;;; ---------------------------------------------------------------------------
 ;;; golden-ratio : 黄金比で表示
 ;;; ---------------------------------------------------------------------------
+;;; memo:
+;;;   使わなくなったので
 (use-package-with-report golden-ratio
+  :disabled t
   :config
   (golden-ratio-mode 1))
 

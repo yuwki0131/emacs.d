@@ -251,7 +251,7 @@
 
 (defun insert-shoborn ()
   (interactive)
-  (insert "(´・_・`)"))
+  (insert "(´･_･`)"))
 
 (defun insert-current-file-name ()
   (interactive)
@@ -335,6 +335,9 @@
 (gssk-explain-function "imenu: 関数定義へ")
 (gssk-bind "C-e C-l" 'imenu)
 
+(gssk-explain-function "swiper: バッファ内を動的検索/移動")
+(gssk-bind "C-e C-s" 'swiper)
+
 (gssk-subcategory "バッファ間")
 
 (gssk-explain-function "shell/replへ")
@@ -361,6 +364,9 @@
 (gssk-explain-function "次/前のシンボルの位置へ")
 (gssk-bind "C-e C-n" 'highlight-symbol-next)
 (gssk-bind "C-e C-p" 'highlight-symbol-prev)
+
+(gssk-explain-function "最近開いたファイルを開く")
+(gssk-bind "C-e o" 'recentf-open-files)
 
 (gssk-subcategory "Bookmark")
 (gssk-explain-function "現在行をブックマーク、ハイライト表示")

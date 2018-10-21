@@ -36,7 +36,7 @@
 ;;; ---------------------------------------------------------------------------
 ;;; Gauche/Scheme (checked)
 ;;; ---------------------------------------------------------------------------
-(setq scheme-program-name "/usr/bin/gosh")
+(defvar scheme-program-name "/usr/bin/gosh")
 
 ;;; ---------------------------------------------------------------------------
 ;;; racket-mode : Racket/Scheme (checked)
@@ -53,12 +53,12 @@
 ;;; ---------------------------------------------------------------------------
 (use-package-with-report geiser
   :config
-  (setq geiser-active-implementations '(guile)))
+  (defvar geiser-active-implementations '(guile)))
 
 ;;; ---------------------------------------------------------------------------
 ;;; Common Lisp (SBCL/SLIME)の設定 (checked)
 ;;; ---------------------------------------------------------------------------
-(setq inferior-lisp-program "/usr/bin/sbcl")
+(defvar inferior-lisp-program "/usr/bin/sbcl")
 
 (use-package-with-report slime
   :config
@@ -108,7 +108,7 @@
   :mode (("\\.hs$" . haskell-mode)
          ("\\.lhs$" . literate-haskell-mode))
   :config
-  (setq haskell-program-name "ghci"))
+  (defvar haskell-program-name "ghci"))
 
 (ignore-require-with-report
  "failed tot load inf-haskell, haskell-cabal"

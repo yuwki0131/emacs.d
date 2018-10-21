@@ -61,9 +61,6 @@
 ;; バッファの終端を表示(空行表示)
 (setq-default indicate-empty-lines t)
 
-;; カーソルタイプ
-(setq default-cursor-type '(bar . 3))
-
 ;; 再帰的ミニバッファ
 (setq enable-recursive-minibuffers t)
 
@@ -94,7 +91,7 @@
 (add-hook 'text-mode-hook 'goto-address-mode)
 
 ;; ‘isearch-word’ is an obsolete variable (as of 25.1)対策
-(setq search-default-regexp-mode nil)
+(defvar search-default-regexp-mode nil)
 
 ;;; 画像ファイル表示
 (auto-image-file-mode t)
@@ -111,6 +108,15 @@
 ;;; ---------------------------------------------------------------------------
 (require 'uniquify)
 (setq uniquify-buffer-name-style 'post-forward-angle-brackets)
+
+;;; ---------------------------------------------------------------------------
+;;; 最近開いたファイルを再度開く
+;;; ---------------------------------------------------------------------------
+(setq recentf-max-saved-items 2000) ;; 2000ファイルまで履歴保存する
+(setq recentf-auto-cleanup 'never)  ;; 存在しないファイルは消さない
+(setq recentf-exclude '("/recentf")) ;; resentfで無視するファイル
+(setq recentf-auto-save-timer (run-with-idle-timer 30 t 'recentf-save-list))
+(recentf-mode 1)
 
 ;;; ---------------------------------------------------------------------------
 ;;; provide

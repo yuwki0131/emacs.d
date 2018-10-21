@@ -16,7 +16,7 @@
   (setq yas-snippet-dirs
 	'("~/.emacs.d/mysnippets"
 	  "~/.emacs.d/yasnippets"))
-  (yas-global-mode t))
+  (yas-global-mode 1))
 
 ;; memo :
 ;; 新規スニペット作成バッファを用意する
@@ -43,15 +43,6 @@
   :config
   (add-hook 'python-mode-hook 'highlight-operators-mode)
   (add-hook 'lua-mode-hook 'highlight-operators-mode))
-
-;;; ---------------------------------------------------------------------------
-;;; highlight quoted : シンボルハイライト(lisp用)
-;;; ---------------------------------------------------------------------------
-(use-package-with-report highlight-quoted
-  :init
-  (add-hook 'lisp-mode-hook 'highlight-quoted-mode)
-  '(set-face-attribute 'highlight-quoted-quote nil
-                       :inherit 'highlight-quoted-symbol))
 
 ;;; ---------------------------------------------------------------------------
 ;;; flymake : 文法チェッカ
