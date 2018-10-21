@@ -110,6 +110,15 @@
 (setq uniquify-buffer-name-style 'post-forward-angle-brackets)
 
 ;;; ---------------------------------------------------------------------------
+;;; 最近開いたファイルを再度開く
+;;; ---------------------------------------------------------------------------
+(setq recentf-max-saved-items 2000) ;; 2000ファイルまで履歴保存する
+(setq recentf-auto-cleanup 'never)  ;; 存在しないファイルは消さない
+(setq recentf-exclude '("/recentf")) ;; resentfで無視するファイル
+(setq recentf-auto-save-timer (run-with-idle-timer 30 t 'recentf-save-list))
+(recentf-mode 1)
+
+;;; ---------------------------------------------------------------------------
 ;;; provide
 ;;; ---------------------------------------------------------------------------
 (provide 'builtin-conf)
