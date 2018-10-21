@@ -218,13 +218,20 @@
 (defun astarisked? (buf-name)
   (= 42 (car (string-to-list buf-name))))
 
-(defun move-to-scratch ()
-  (interactive)
+(defun move-to-where (here)
   (let ((current-buffer-name (buffer-name)))
     (next-buffer)
-    (while (and (not (string= "*scratch*" (buffer-name)))
+    (while (and (not (string= here (buffer-name)))
                 (not (string= current-buffer-name (buffer-name))))
       (next-buffer))))
+
+(defun move-to-scratch ()
+  (interactive)
+  (move-to-where "*scratch*"))
+
+(defun move-to-grep ()
+  (interactive)
+  (move-to-where "*grep*"))
 
 (defun match-repl-pattern? (buffer-name)
   (or (string= "*haskell*" buffer-name)
