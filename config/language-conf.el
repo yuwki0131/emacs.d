@@ -74,7 +74,7 @@
 ;;; clojure-mode : Clojure (unchecked)
 ;;; ---------------------------------------------------------------------------
 (use-package-with-report clojure-mode)
-(use-package-with-report clj-refactor
+'(use-package-with-report clj-refactor
   :config
   (defun my-clojure-mode-hook ()
     (clj-refactor-mode 1)

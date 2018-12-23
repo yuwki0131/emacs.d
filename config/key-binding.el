@@ -362,6 +362,10 @@
 (gssk-explain-function "正規表現置換 (Emacs標準)")
 (gssk-bind "C-e C-r" 'replace-regexp)
 
+(gssk-explain-function "関数の定義位置に移動(dumb-jump)")
+(gssk-bind "C-e j" 'dumb-jump-go)
+(gssk-bind "C-e p" 'dumb-jump-back)
+
 (gssk-explain-function "次/前のシンボルの位置へ")
 (gssk-bind "C-e C-n" 'highlight-symbol-next)
 (gssk-bind "C-e C-p" 'highlight-symbol-prev)
