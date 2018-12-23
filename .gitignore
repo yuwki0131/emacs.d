@@ -6,6 +6,7 @@ yasnippets
 TAGS
 dicts
 install-scenario.el
+install-scenario.elc
 mysnippets
 tramp
 ac-comphist.dat
@@ -14,6 +15,8 @@ junk
 recentf
 url
 wrepo
+network-security.data
+session.*
 .markdown-preview.html
 .python-environments
 .no-package-refresh-contents
