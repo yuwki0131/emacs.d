@@ -10,7 +10,7 @@
 (tool-bar-mode -1)
 
 ;; メニューバー表示(Linux Mint/Cinnamonだと綺麗な表示)
-(menu-bar-mode 1)
+(menu-bar-mode -1)
 
 ;; スクロールバー非表示
 (scroll-bar-mode -1)
@@ -95,6 +95,9 @@
 
 ;;; 画像ファイル表示
 (auto-image-file-mode t)
+
+;; find-file時に、elcファイルを無視
+(setq counsel-find-file-ignore-regexp "\\.elc\\'")
 
 ;;; ---------------------------------------------------------------------------
 ;;; デフォルトエンコーディング

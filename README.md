@@ -165,15 +165,17 @@ M-x refresh-byte-compile
 |移動|バッファ内|C-e C-l|recenter-top-bottom|top-center-bottom間|
 |移動|バッファ内|C-e C-l|imenu|imenu: 関数定義へ|
 |移動|バッファ内|C-e C-s|swiper|swiper: バッファ内を動的検索/移動|
-|移動|バッファ間|C-e C-c|shell|shell/replへ|
-|移動|バッファ間|C-e C-v|move-to-scratch|shell/replへ|
-|移動|バッファ間|C-e C-w|move-to-repl|shell/replへ|
+|移動|バッファ間|C-e C-c|shell|shell/repl/grepxへ|
+|移動|バッファ間|C-e C-v|move-to-scratch|shell/repl/grepxへ|
+|移動|バッファ間|C-e g|move-to-grep|shell/repl/grepxへ|
 |移動|バッファ間|C-e C-b|previous-buffer-with-skip*|次/前のバッファへ (*付バッファはスキップ)|
 |移動|バッファ間|C-e C-f|next-buffer-with-skip*|次/前のバッファへ (*付バッファはスキップ)|
 |移動|検索|C-e s|search-forward-regexp|正規表現検索 (通常)|
 |移動|検索|C-e r|search-backward-regexp|正規表現検索 (通常)|
 |移動|検索|C-e C-o|occur|正規表現検索 (一覧表示)|
 |移動|検索|C-e C-r|replace-regexp|正規表現置換 (Emacs標準)|
+|移動|検索|C-e j|dumb-jump-go|関数の定義位置に移動(dumb-jump)|
+|移動|検索|C-e p|dumb-jump-back|関数の定義位置に移動(dumb-jump)|
 |移動|検索|C-e C-n|highlight-symbol-next|次/前のシンボルの位置へ|
 |移動|検索|C-e C-p|highlight-symbol-prev|次/前のシンボルの位置へ|
 |移動|検索|C-e o|recentf-open-files|最近開いたファイルを開く|

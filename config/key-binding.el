@@ -288,7 +288,7 @@
 (gssk-explain-function "旧(C-q) 引用付き挿入(置換等で使用)")
 (gssk-bind "C-a C-q" 'quoted-insert)
 
-(gssk-explain-function "(´・_・`)を挿入")
+(gssk-explain-function "(´･_･`)を挿入")
 (gssk-bind "C-a C-s" 'insert-shoborn)
 
 (gssk-explain-function "現在時刻挿入")
@@ -340,9 +340,10 @@
 
 (gssk-subcategory "バッファ間")
 
-(gssk-explain-function "shell/replへ")
+(gssk-explain-function "shell/repl/grepxへ")
 (gssk-bind "C-e C-c" 'shell)
 (gssk-bind "C-e C-v" 'move-to-scratch)
+(gssk-bind "C-e g" 'move-to-grep)
 (gssk-bind "C-e C-w" 'move-to-repl)
 
 (gssk-explain-function "次/前のバッファへ (*付バッファはスキップ)")
@@ -360,6 +361,10 @@
 
 (gssk-explain-function "正規表現置換 (Emacs標準)")
 (gssk-bind "C-e C-r" 'replace-regexp)
+
+(gssk-explain-function "関数の定義位置に移動(dumb-jump)")
+(gssk-bind "C-e j" 'dumb-jump-go)
+(gssk-bind "C-e p" 'dumb-jump-back)
 
 (gssk-explain-function "次/前のシンボルの位置へ")
 (gssk-bind "C-e C-n" 'highlight-symbol-next)

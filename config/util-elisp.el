@@ -14,18 +14,18 @@
 ;;; ---------------------------------------------------------------------------
 (defun spit (file-name text)
   (ignore-errors
-	(if (file-exists-p file-name)
-		(delete-file file-name))
-	(find-file file-name)
-	(insert text)
-	(save-buffer)
-	(kill-buffer)
+	  (if (file-exists-p file-name)
+		    (delete-file file-name))
+	  (find-file file-name)
+	  (insert text)
+	  (save-buffer)
+	  (kill-buffer)
     t))
 
 (defun slurp (file-name)
   (ignore-errors
-	(if (not (file-exists-p file-name))
-		(concat "file-not-found in slurp: " file-name)
+	  (if (not (file-exists-p file-name))
+		    (concat "file-not-found in slurp: " file-name)
       (with-temp-buffer
         (insert-file-contents file-name)
         (buffer-string)))))
@@ -117,7 +117,7 @@
         (spit "~/.emacs.d/install-scenario.el" scenario))))
 
 (font-lock-add-keywords 'emacs-lisp-mode
-  '(("\\(use-package-with-report\\)" . font-lock-keyword-face)))
+                        '(("\\(use-package-with-report\\)" . font-lock-keyword-face)))
 
 ;;; ---------------------------------------------------------------------------
 ;;; global-safe-set-key : 安全なglobalsetkeyとエラーレポート、キーバインドレポート
@@ -153,26 +153,26 @@
 (defvar gsskey-report-text nil)
 
 (defun gssk-add-keybind-report
- (keybind-str sym)
- (add-to-list
-  'gssk-keybind-report
-  (list gssk-current-category-state
-		gssk-current-subcategory-state
-		keybind-str (symbol-name sym)
-		gssk-current-function-name-state)))
+    (keybind-str sym)
+  (add-to-list
+   'gssk-keybind-report
+   (list gssk-current-category-state
+		     gssk-current-subcategory-state
+		     keybind-str (symbol-name sym)
+		     gssk-current-function-name-state)))
 
 (defmacro gssk-bind (keybind-str sym)
   `(cond
     ((fboundp ,sym)
-	 (progn
-	   (gssk-add-keybind-report ,keybind-str ,sym)
-	   (global-set-key (kbd ,keybind-str) ,sym)))
+	   (progn
+	     (gssk-add-keybind-report ,keybind-str ,sym)
+	     (global-set-key (kbd ,keybind-str) ,sym)))
     (t
      (setq gsskey-report-text
-	   (concat gsskey-report-text
-               "  - failed to bind: "
-               (symbol-name ,sym)
-               "\n")))))
+	         (concat gsskey-report-text
+                   "  - failed to bind: "
+                   (symbol-name ,sym)
+                   "\n")))))
 
 (defun report-gsskey ()
   (if (not gsskey-report-text)
@@ -192,12 +192,12 @@
 
 (defun generate-explanation-text ()
   (apply 'concat
-		 (mapcar #'(lambda (x) (concat "|" (car x)
-									  "|" (car (cdr x))
-									  "|" (car (cdr (cdr x)))
-									  "|" (car (cdr (cdr (cdr x))))
-									  "|" (car (cdr (cdr (cdr (cdr x))))) "|\n"))
-				 (reverse gssk-keybind-report))))
+		     (mapcar #'(lambda (x) (concat "|" (car x)
+									                     "|" (car (cdr x))
+									                     "|" (car (cdr (cdr x)))
+									                     "|" (car (cdr (cdr (cdr x))))
+									                     "|" (car (cdr (cdr (cdr (cdr x))))) "|\n"))
+				         (reverse gssk-keybind-report))))
 
 (defun key-binding-md ()
   (concat-interpose-newline
