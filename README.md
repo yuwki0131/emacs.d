@@ -168,7 +168,6 @@ M-x refresh-byte-compile
 |移動|バッファ間|C-e C-c|shell|shell/repl/grepxへ|
 |移動|バッファ間|C-e C-v|move-to-scratch|shell/repl/grepxへ|
 |移動|バッファ間|C-e g|move-to-grep|shell/repl/grepxへ|
-|移動|バッファ間|C-e C-w|move-to-repl|shell/repl/grepxへ|
 |移動|バッファ間|C-e C-b|previous-buffer-with-skip*|次/前のバッファへ (*付バッファはスキップ)|
 |移動|バッファ間|C-e C-f|next-buffer-with-skip*|次/前のバッファへ (*付バッファはスキップ)|
 |移動|検索|C-e s|search-forward-regexp|正規表現検索 (通常)|
