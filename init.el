@@ -34,6 +34,7 @@
 
 ;; 外部設定ファイルのディレクトリ
 (add-to-list 'load-path "~/.emacs.d/wrepo")
+(add-to-list 'load-path "~/.emacs.d/gitrepo")
 
 ;; utils (※use-package-with-report系より先頭に持ってくること)
 (use-package util-elisp)

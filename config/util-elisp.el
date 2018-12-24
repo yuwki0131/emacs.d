@@ -69,10 +69,25 @@
     (when (not exist-that?)
       (shell-command-to-string
        (concat "cd ~/.emacs.d/wrepo/ & wget " url-string))))
-  `(progn
-     (require ,name)
-     .
-     ,body))
+  `(progn (require ,name) . ,body))
+
+;;; ---------------------------------------------------------------------------
+;;; wget-construct-package : wgetで*.elをロード、configを記述
+;;; ---------------------------------------------------------------------------
+(defmacro git-package (name-repo-save-path body)
+  (let* ((name (car name-repo-save-path))
+         (git-repository (car (cdr name-repo-save-path)))
+         (save-path (car (cdr (cdr name-repo-save-path))))
+         (file-path (concat "~/.emacs.d/gitrepo/" save-path "/"))
+         (exist-that? (file-directory-p file-path)))
+    (print "git-packages")
+    `(progn
+       (when (not ,exist-that?)
+         (shell-command-to-string
+          (concat "cd ~/.emacs.d/gitrepo/ & git clone " ,git-repository)))
+       (add-to-list 'load-path ,file-path)
+       (require (quote ,name))
+       ,body)))
 
 ;;; ---------------------------------------------------------------------------
 ;;; failed-packages report : use-packageに失敗したパッケージのレポート
