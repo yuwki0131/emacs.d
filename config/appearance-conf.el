@@ -158,6 +158,28 @@
    :background color/inactive
    :weight 'bold))
 
+;; ヘッダーラインの設定(active)
+(ignore-errors
+  (set-face-attribute 'header-line nil
+   :foreground color/lightcyan
+   :background color/inactive
+   :weight 'bold
+   :height 100
+   :font default-font-family
+   :box '(:line-width 4 :color color/inactive :style nil)
+   :overline "orange"))
+
+;; ヘッダーラインの設定(inactive)
+(ignore-errors
+  (set-face-attribute 'header-line-inactive nil
+   :foreground color/lightcyan
+   :background color/inactive
+   :inverse-video nil
+   :weight 'extra-light
+   :height 100
+   :font default-font-family
+   :box '(:line-width 1 :color "gray30" :style nil)))
+
 ;; モードラインの設定(active)
 (ignore-errors
   (set-face-attribute 'mode-line nil
