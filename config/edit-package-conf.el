@@ -10,11 +10,13 @@
 ;;; ---------------------------------------------------------------------------
 ;;; redo+ : 普通のredo
 ;;; ---------------------------------------------------------------------------
-(use-package-with-report redo+
-  :config
-  (setq undo-no-redo t)
-  (setq undo-limit 60000)
-  (setq undo-strong-limit 90000))
+
+(git-package
+ (redo+ "https://github.com/emacsmirror/redo-plus.git" "redo-plus")
+ (progn
+   (setq undo-no-redo t)
+   (setq undo-limit 60000)
+   (setq undo-strong-limit 90000)))
 
 ;;; ---------------------------------------------------------------------------
 ;;; smart newline : 改行

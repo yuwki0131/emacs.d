@@ -14,12 +14,14 @@ custom.el
 junk
 recentf
 url
-wrepo
 network-security.data
 session.*
 .markdown-preview.html
 .python-environments
 .no-package-refresh-contents
-config/*.elc
 *.elc
 eshell
+wrepo/*
+!.gitkeep
+gitrepo/*
+!.gitkeep

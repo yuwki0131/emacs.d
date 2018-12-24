@@ -67,12 +67,27 @@
          (file-path (concat "~/.emacs.d/wrepo/" file-name))
          (exist-that? (file-exists-p file-path)))
     (when (not exist-that?)
-      (shell-command-to-string
-       (concat "cd ~/.emacs.d/wrepo/ & wget " url-string))))
-  `(progn
-     (require ,name)
-     .
-     ,body))
+      (cd "~/.emacs.d/wrepo/")
+      (shell-command-to-string (concat "wget " url-string))))
+  `(progn (require ,name) . ,body))
+
+;;; ---------------------------------------------------------------------------
+;;; wget-construct-package : wgetで*.elをロード、configを記述
+;;; ---------------------------------------------------------------------------
+(defmacro git-package (name-repo-save-path body)
+  (let* ((name (car name-repo-save-path))
+         (git-repository (car (cdr name-repo-save-path)))
+         (save-path (car (cdr (cdr name-repo-save-path))))
+         (file-path (concat "~/.emacs.d/gitrepo/" save-path "/"))
+         (exist-that? (file-directory-p file-path)))
+    (print "git-packages")
+    `(progn
+       (when (not ,exist-that?)
+         (cd "~/.emacs.d/gitrepo/")
+         (shell-command (concat "git clone " ,git-repository)))
+       (add-to-list 'load-path ,file-path)
+       (require (quote ,name))
+       ,body)))
 
 ;;; ---------------------------------------------------------------------------
 ;;; failed-packages report : use-packageに失敗したパッケージのレポート
@@ -101,6 +116,7 @@
   (if (and (not failed-packages) (not other-configuration-reports))
       "all defined packages have been installed successfully"
     (concat
+     "use M-x: install-complements \n"
      "use-package-with-report error or not used packages: \n"
      (concat-interpose-newline
       (mapcar #'to-report-message failed-packages))
@@ -108,7 +124,7 @@
      (concat-interpose-newline other-configuration-reports))))
 
 (defun to-package-install-sexp (text)
-  (concat "(package-install '" text ")"))
+  (concat "(ignore-errors (package-install '" text "))"))
 
 (defun generate-package-install-scenario ()
   (if failed-packages
@@ -116,8 +132,13 @@
              (scenario (concat-interpose-newline failed-ls)))
         (spit "~/.emacs.d/install-scenario.el" scenario))))
 
-(font-lock-add-keywords 'emacs-lisp-mode
-                        '(("\\(use-package-with-report\\)" . font-lock-keyword-face)))
+(font-lock-add-keywords
+ 'emacs-lisp-mode
+ '(("\\(use-package-with-report\\)" . font-lock-keyword-face)))
+
+(defun install-complements ()
+  (interactive)
+  (load "~/.emacs.d/install-scenario.el"))
 
 ;;; ---------------------------------------------------------------------------
 ;;; global-safe-set-key : 安全なglobalsetkeyとエラーレポート、キーバインドレポート

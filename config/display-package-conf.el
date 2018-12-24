@@ -32,18 +32,7 @@
   (nyan-start-animation))
 
 ;;; ---------------------------------------------------------------------------
-;;; echo bell : from beep to echo
-;;; ---------------------------------------------------------------------------
-;; original : https://www.youtube.com/watch?v=QH2-TGUlwu4
-(use-package-with-report echo-bell
-  :config
-  (setq echo-bell-string "(´･_･｀)")
-  (setq echo-bell-background "lightpink")
-  (setq echo-bell-delay 0.4)
-  (echo-bell-mode 1))
-
-;;; ---------------------------------------------------------------------------
-;;; nlinum-mode : 軽量化された行番号表示
+;;; nlinum-hl-mode : 軽量化された行番号表示
 ;;; ---------------------------------------------------------------------------
 ;; 標準は重いので使用しない
 (use-package-with-report nlinum
@@ -55,10 +44,11 @@
 ;;; highlight line plus : カーソル行ハイライト(拡張)
 ;;; ---------------------------------------------------------------------------
 ;; 標準は重いので使用しない。以下を使用
-(use-package-with-report hl-line+
-  :config
-  (toggle-hl-line-when-idle)
-  (setq hl-line-idle-interval 3))
+(git-package
+ (hl-line+ "https://github.com/emacsmirror/hl-line-plus.git" "hl-line-plus")
+ (progn
+   (toggle-hl-line-when-idle)
+   (setq hl-line-idle-interval 3)))
 
 ;;; ---------------------------------------------------------------------------
 ;;; column highlight line plus : カーソル桁ハイライト

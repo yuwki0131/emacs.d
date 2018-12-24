@@ -12,6 +12,7 @@
       '(("melpa" . "https://melpa.org/packages/")
         ("melpa-stable" . "https://stable.melpa.org/packages/")
         ("marmalade" . "http://marmalade-repo.org/packages/")
+        ("elpa-gnu" . "http://elpa.gnu.org/packages/")
         ("org" . "http://orgmode.org/elpa/")))
 
 (package-initialize)
@@ -34,6 +35,7 @@
 
 ;; 外部設定ファイルのディレクトリ
 (add-to-list 'load-path "~/.emacs.d/wrepo")
+(add-to-list 'load-path "~/.emacs.d/gitrepo")
 
 ;; utils (※use-package-with-report系より先頭に持ってくること)
 (use-package util-elisp)

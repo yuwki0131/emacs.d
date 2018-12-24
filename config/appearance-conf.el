@@ -50,86 +50,86 @@
 (set-foreground-color color/fggray)
 
 ;; 各構文要素の色/タイプ(normal/italic/bold)の設定
-(defun set-face-fore-with-cbi (attr-symbol color-name bold-param italic-param)
+(defun set-face-app1 (attr-symbol color-name bold-param italic-param)
   (set-face-foreground attr-symbol color-name)
   (set-face-bold       attr-symbol bold-param)
   (set-face-italic     attr-symbol italic-param))
 
 ;; 各構文要素の色(foreground, background)/タイプ(normal/italic/bold)の設定
-(defun set-face-fore-with-bfcbi (attr-symbol color-fg color-bg bold italic)
+(defun set-face-app2 (attr-symbol color-fg color-bg bold italic)
   (set-face-foreground attr-symbol color-fg)
   (set-face-background attr-symbol color-bg)
   (set-face-bold       attr-symbol bold)
   (set-face-italic     attr-symbol italic))
 
 ;; coloring program
-(set-face-fore-with-cbi 'font-lock-comment-face       color/comment   nil t)
-(set-face-fore-with-cbi 'font-lock-doc-face           color/deeppink  nil t)
-(set-face-fore-with-cbi 'font-lock-string-face        color/limegreen t   nil)
-(set-face-fore-with-cbi 'font-lock-keyword-face       color/darkcyan  t   nil)
-(set-face-fore-with-cbi 'font-lock-builtin-face       color/darkcyan  nil nil)
-(set-face-fore-with-cbi 'font-lock-function-name-face color/orange    t   nil)
-(set-face-fore-with-cbi 'font-lock-variable-name-face color/orange    t   nil)
-(set-face-fore-with-cbi 'font-lock-type-face          color/darkcyan  t   nil)
-(set-face-fore-with-cbi 'font-lock-constant-face      color/deeppink  t   nil)
-(set-face-fore-with-cbi 'font-lock-warning-face       color/deeppink  nil t)
+(set-face-app1 'font-lock-comment-face       color/comment   nil t)
+(set-face-app1 'font-lock-doc-face           color/deeppink  nil t)
+(set-face-app1 'font-lock-string-face        color/limegreen t   nil)
+(set-face-app1 'font-lock-keyword-face       color/darkcyan  t   nil)
+(set-face-app1 'font-lock-builtin-face       color/darkcyan  nil nil)
+(set-face-app1 'font-lock-function-name-face color/orange    t   nil)
+(set-face-app1 'font-lock-variable-name-face color/orange    t   nil)
+(set-face-app1 'font-lock-type-face          color/darkcyan  t   nil)
+(set-face-app1 'font-lock-constant-face      color/deeppink  t   nil)
+(set-face-app1 'font-lock-warning-face       color/deeppink  nil t)
 
 ;; coloring property
 (ignore-errors
-  (set-face-fore-with-cbi 'info-header-xref  color/darkcyan nil t)
-  (set-face-fore-with-cbi 'info-xref         color/darkcyan nil t)
-  (set-face-fore-with-cbi 'link              color/deeppink nil t)
-  (set-face-fore-with-cbi 'escape-glyph      color/darkcyan nil nil)
-  (set-face-fore-with-cbi 'minibuffer-prompt color/deeppink t   nil))
+  (set-face-app1 'info-header-xref  color/darkcyan nil t)
+  (set-face-app1 'info-xref         color/darkcyan nil t)
+  (set-face-app1 'link              color/deeppink nil t)
+  (set-face-app1 'escape-glyph      color/darkcyan nil nil)
+  (set-face-app1 'minibuffer-prompt color/deeppink t   nil))
 
 ;; coloring ac
 (ignore-errors
-  (set-face-fore-with-bfcbi 'ac-completion-face           color/deeppink  "gray"         nil t)
-  (set-face-fore-with-bfcbi 'ac-slime-menu-face           color/deeppink  "gray"         nil t)
+  (set-face-app2 'ac-completion-face           color/deeppink  "gray"         nil t)
+  (set-face-app2 'ac-slime-menu-face           color/deeppink  "gray"         nil t)
   ;; candidates
-  (set-face-fore-with-bfcbi 'ac-candidate-face            color/lightcyan color/inactive t nil)
-  (set-face-fore-with-bfcbi 'ac-candidate-mouse-face      color/lightcyan color/inactive t nil)
-  (set-face-fore-with-bfcbi 'ac-yasnippet-candidate-face  color/lightcyan color/inactive t nil)
-  (set-face-fore-with-bfcbi 'ac-gtags-candidate-face      color/lightcyan color/inactive t nil)
+  (set-face-app2 'ac-candidate-face            color/lightcyan color/inactive t nil)
+  (set-face-app2 'ac-candidate-mouse-face      color/lightcyan color/inactive t nil)
+  (set-face-app2 'ac-yasnippet-candidate-face  color/lightcyan color/inactive t nil)
+  (set-face-app2 'ac-gtags-candidate-face      color/lightcyan color/inactive t nil)
   ;; selections
-  (set-face-fore-with-bfcbi 'ac-selection-face            color/deeppink color/inactive nil t)
-  (set-face-fore-with-bfcbi 'ac-gtags-selection-face      color/deeppink color/inactive nil t)
-  (set-face-fore-with-bfcbi 'ac-selection-face            color/deeppink color/inactive nil t)
-  (set-face-fore-with-bfcbi 'ac-slime-selection-face      color/deeppink color/inactive nil t)
-  (set-face-fore-with-bfcbi 'ac-yasnippet-selection-face  color/deeppink color/inactive nil t)
+  (set-face-app2 'ac-selection-face            color/deeppink color/inactive nil t)
+  (set-face-app2 'ac-gtags-selection-face      color/deeppink color/inactive nil t)
+  (set-face-app2 'ac-selection-face            color/deeppink color/inactive nil t)
+  (set-face-app2 'ac-slime-selection-face      color/deeppink color/inactive nil t)
+  (set-face-app2 'ac-yasnippet-selection-face  color/deeppink color/inactive nil t)
   ;; popup
-  (set-face-fore-with-bfcbi 'popup-tip-face               color/lightcyan color/darkcyan nil t)
-  (set-face-fore-with-bfcbi 'pulse-highlight-face         color/lightcyan color/darkcyan nil t)
-  (set-face-fore-with-bfcbi 'pulse-highlight-start-face   color/darkcyan  color/darkcyan nil t))
+  (set-face-app2 'popup-tip-face               color/lightcyan color/darkcyan nil t)
+  (set-face-app2 'pulse-highlight-face         color/lightcyan color/darkcyan nil t)
+  (set-face-app2 'pulse-highlight-start-face   color/darkcyan  color/darkcyan nil t))
 
 ;; coloring bm
 (ignore-errors
-  (set-face-fore-with-bfcbi 'bm-face                      color/lightcyan color/deeppink nil t)
-  (set-face-fore-with-bfcbi 'bm-fringe-face               color/lightcyan color/deeppink nil t)
-  (set-face-fore-with-bfcbi 'bm-fringe-persistent-face    "white"         color/orange   nil t)
-  (set-face-fore-with-bfcbi 'bm-persistent-face           "white"         color/orange   nil t))
+  (set-face-app2 'bm-face                      color/lightcyan color/deeppink nil t)
+  (set-face-app2 'bm-fringe-face               color/lightcyan color/deeppink nil t)
+  (set-face-app2 'bm-fringe-persistent-face    "white"         color/orange   nil t)
+  (set-face-app2 'bm-persistent-face           "white"         color/orange   nil t))
 
 ;; coloring isearch
 (ignore-errors
-  (set-face-fore-with-bfcbi 'isearch                      "white"         color/darkcyan nil t)
-  (set-face-fore-with-bfcbi 'isearch-fail                 "white"         color/darkred  nil t))
+  (set-face-app2 'isearch                      "white"         color/darkcyan nil t)
+  (set-face-app2 'isearch-fail                 "white"         color/darkred  nil t))
 
 ;; coloring swoop
 (ignore-errors
-  (set-face-fore-with-bfcbi 'swoop-face-header-format-line color/lightcyan color/inactive nil t)
-  (set-face-fore-with-bfcbi 'swoop-face-line-buffer-name   "white"         color/darkcyan nil t)
-  (set-face-fore-with-bfcbi 'swoop-face-line-number        "white"         color/inactive nil t)
-  (set-face-fore-with-bfcbi 'swoop-face-target-line        "white"         color/deeppink nil t)
-  (set-face-fore-with-bfcbi 'swoop-face-target-words       "white"         color/darkcyan nil t))
+  (set-face-app2 'swoop-face-header-format-line color/lightcyan color/inactive nil t)
+  (set-face-app2 'swoop-face-line-buffer-name   "white"         color/darkcyan nil t)
+  (set-face-app2 'swoop-face-line-number        "white"         color/inactive nil t)
+  (set-face-app2 'swoop-face-target-line        "white"         color/deeppink nil t)
+  (set-face-app2 'swoop-face-target-words       "white"         color/darkcyan nil t))
 
 ;; coloring paren
 (ignore-errors
-  (set-face-fore-with-bfcbi 'show-paren-match              "white"         color/darkcyan nil t)
-  (set-face-fore-with-bfcbi 'show-paren-mismatch           "white"         color/deeppink nil t))
+  (set-face-app2 'show-paren-match              "white"         color/darkcyan nil t)
+  (set-face-app2 'show-paren-mismatch           "white"         color/deeppink nil t))
 
 ;; color after inserted
 (ignore-errors
-  (set-face-fore-with-bfcbi 'secondary-selection           "deeppink"      color/inactive nil t))
+  (set-face-app2 'secondary-selection           "deeppink"      color/inactive nil t))
 
 ;; カーソルの色
 (set-cursor-color color/deeppink)
@@ -137,7 +137,7 @@
 ;; カーソル行ハイライト
 (defface hlline-face
   `((((class color) (background dark))  (:background ,color/inactive))
-    (((class color) (background light)) (:background "light gray"))
+    (((class color) (background light)) (:background "light pink"))
     (t ())) "*Face used by hl-line.")
 
 (setq hl-line-face 'hlline-face)
@@ -157,6 +157,28 @@
    :foreground "white"
    :background color/inactive
    :weight 'bold))
+
+;; ヘッダーラインの設定(active)
+(ignore-errors
+  (set-face-attribute 'header-line nil
+   :foreground color/lightcyan
+   :background color/inactive
+   :weight 'bold
+   :height 100
+   :font default-font-family
+   :box '(:line-width 4 :color color/inactive :style nil)
+   :overline "orange"))
+
+;; ヘッダーラインの設定(inactive)
+(ignore-errors
+  (set-face-attribute 'header-line-inactive nil
+   :foreground color/lightcyan
+   :background color/inactive
+   :inverse-video nil
+   :weight 'extra-light
+   :height 100
+   :font default-font-family
+   :box '(:line-width 1 :color "gray30" :style nil)))
 
 ;; モードラインの設定(active)
 (ignore-errors

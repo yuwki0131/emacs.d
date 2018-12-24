@@ -53,11 +53,11 @@ M-x package-install use-package
 
 ## elpaからpackage-install
 
-初期化するとエラーレポートが出るので、ielm等で以下を実行。
+初期化するとエラーレポートが出るので、以下のコマンドを実行。
 不足しているelpaの最新版パッケージがインストールされる。
 
 ```
-(load "~/.emacs.d/install-scenario.el")
+M-x install-complements
 ```
 
 ## byte-compile *.el files
@@ -132,7 +132,6 @@ M-x refresh-byte-compile
 |機能|表示|C-z C-n|neotree-toggle|ディレクトリ階層を表示 (neo tree)|
 |機能|表示|C-z m|magit-status|magit (Emacs Git)|
 |機能|表示|C-z C-k|describe-bindings|キーバインド表示|
-|機能|表示|C-z c|hide/show-comments-toggle|コメント表示/非表示|
 |機能|辞書|C-z C-d|search-dictionary-e2j-current-word|現在の単語の意味を表示(要辞書設定)|
 |機能|辞書|C-z d|search-dictionary-e2j|英和辞典(要辞書設定)|
 |機能|実行|C-z e|execute-current-shell-script|現在のディレクトリのxxx.sh実行|
@@ -150,7 +149,7 @@ M-x refresh-byte-compile
 |編集|削除|C-a C-f|merge2lines|行のマージ(インデント用などの空白削除) <br/> (不要かも)|
 |編集|削除|C-a C-i|just-one-space|周囲の空白を削除し、単一の空白にする|
 |編集|挿入|C-a C-q|quoted-insert|旧(C-q) 引用付き挿入(置換等で使用)|
-|編集|挿入|C-a C-s|insert-shoborn|(´・_・`)を挿入|
+|編集|挿入|C-a C-s|insert-shoborn|(´･_･`)を挿入|
 |編集|挿入|C-a C-d|insert-date-normal|現在時刻挿入|
 |編集|挿入|C-a M-d|insert-date-markdown|現在時刻挿入|
 |編集|挿入|C-a C-e|insert-current-file-name|現在のファイルパスを挿入|
@@ -158,8 +157,6 @@ M-x refresh-byte-compile
 |編集|refactoring|C-a i|iedit-mode|iedit-mode: 同一のシンボルを同時置換|
 |編集|その他|C-a C-r|rectangle-mark-mode|矩形選択|
 |移動|バッファ内|C-e C-l|goto-last-change|最後の変更箇所へ|
-|移動|バッファ内|C-e C-j|point-undo|直前のカーソル位置へ(移動/移動の取消)|
-|移動|バッファ内|C-e C-k|point-redo|直前のカーソル位置へ(移動/移動の取消)|
 |移動|バッファ内|C-e C-a|move-beginning-of-line|行頭/行末へ(unbindの再設定)|
 |移動|バッファ内|C-e C-e|move-end-of-line|行頭/行末へ(unbindの再設定)|
 |移動|バッファ内|C-e C-l|recenter-top-bottom|top-center-bottom間|
@@ -168,14 +165,15 @@ M-x refresh-byte-compile
 |移動|バッファ間|C-e C-c|shell|shell/repl/grepxへ|
 |移動|バッファ間|C-e C-v|move-to-scratch|shell/repl/grepxへ|
 |移動|バッファ間|C-e g|move-to-grep|shell/repl/grepxへ|
+|移動|バッファ間|C-e C-w|move-to-repl|shell/repl/grepxへ|
 |移動|バッファ間|C-e C-b|previous-buffer-with-skip*|次/前のバッファへ (*付バッファはスキップ)|
 |移動|バッファ間|C-e C-f|next-buffer-with-skip*|次/前のバッファへ (*付バッファはスキップ)|
 |移動|検索|C-e s|search-forward-regexp|正規表現検索 (通常)|
 |移動|検索|C-e r|search-backward-regexp|正規表現検索 (通常)|
 |移動|検索|C-e C-o|occur|正規表現検索 (一覧表示)|
 |移動|検索|C-e C-r|replace-regexp|正規表現置換 (Emacs標準)|
-|移動|検索|C-e j|dumb-jump-go|関数の定義位置に移動(dumb-jump)|
-|移動|検索|C-e p|dumb-jump-back|関数の定義位置に移動(dumb-jump)|
+|移動|検索|C-e C-j|dumb-jump-go|関数の定義位置に移動(dumb-jump)|
+|移動|検索|C-e C-k|dumb-jump-back|関数の定義位置に移動(dumb-jump)|
 |移動|検索|C-e C-n|highlight-symbol-next|次/前のシンボルの位置へ|
 |移動|検索|C-e C-p|highlight-symbol-prev|次/前のシンボルの位置へ|
 |移動|検索|C-e o|recentf-open-files|最近開いたファイルを開く|

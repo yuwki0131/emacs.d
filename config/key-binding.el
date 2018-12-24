@@ -188,9 +188,6 @@
 (gssk-explain-function "キーバインド表示")
 (gssk-bind "C-z C-k" 'describe-bindings)
 
-(gssk-explain-function "コメント表示/非表示")
-(gssk-bind "C-z c"   'hide/show-comments-toggle)
-
 (gssk-subcategory "辞書")
 
 (gssk-explain-function "現在の単語の意味を表示(要辞書設定)")
@@ -321,10 +318,6 @@
 (gssk-explain-function "最後の変更箇所へ")
 (gssk-bind "C-e C-l" 'goto-last-change)
 
-(gssk-explain-function "直前のカーソル位置へ(移動/移動の取消)")
-(gssk-bind "C-e C-j" 'point-undo)
-(gssk-bind "C-e C-k" 'point-redo)
-
 (gssk-explain-function "行頭/行末へ(unbindの再設定)")
 (gssk-bind "C-e C-a" 'move-beginning-of-line)
 (gssk-bind "C-e C-e" 'move-end-of-line)
@@ -363,8 +356,8 @@
 (gssk-bind "C-e C-r" 'replace-regexp)
 
 (gssk-explain-function "関数の定義位置に移動(dumb-jump)")
-(gssk-bind "C-e j" 'dumb-jump-go)
-(gssk-bind "C-e p" 'dumb-jump-back)
+(gssk-bind "C-e C-j" 'dumb-jump-go)
+(gssk-bind "C-e C-k" 'dumb-jump-back)
 
 (gssk-explain-function "次/前のシンボルの位置へ")
 (gssk-bind "C-e C-n" 'highlight-symbol-next)

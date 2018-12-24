@@ -54,9 +54,9 @@
 ;;; ---------------------------------------------------------------------------
 ;;; package-func : git complete : git-grep自動補完
 ;;; ---------------------------------------------------------------------------
-(wconst-pakcage 'git-complete
-  "https://raw.githubusercontent.com/zk-phi/git-complete/master/git-complete.el"
-  nil)
+;; (wconst-pakcage 'git-complete
+;;   "https://raw.githubusercontent.com/zk-phi/git-complete/master/git-complete.el"
+;;   nil)
 
 ;;; ---------------------------------------------------------------------------
 ;;; package-func : google this : ググる
@@ -176,11 +176,6 @@
 ;;; package-move : goto chg : 最後に変更した箇所へカーソルを移動
 ;;; ---------------------------------------------------------------------------
 (use-package-with-report goto-chg)
-
-;;; ---------------------------------------------------------------------------
-;;; package-move : point-undo : カーソル位置を戻す
-;;; ---------------------------------------------------------------------------
-(use-package-with-report point-undo)
 
 ;;; ---------------------------------------------------------------------------
 ;;; package-move : popwin : ヘルプ/補完バッファをポップアップで表示
