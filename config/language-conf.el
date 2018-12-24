@@ -123,9 +123,7 @@
 (ignore-require-with-report
  "failed to load taureg-mode & others ... (OCaml)"
  (use-package taureg-mode
-   :mode (("\\.ml[iylp]?" . tuareg-mode)))
- (use-package taureg-mode-run-ocaml)
- (use-package ocamldebug))
+   :mode (("\\.ml[iylp]?" . tuareg-mode))))
 
 ;;; ---------------------------------------------------------------------------
 ;;; sml-mode : SML (checked)
