@@ -19,7 +19,6 @@ session.*
 .markdown-preview.html
 .python-environments
 .no-package-refresh-contents
-config/*.elc
 *.elc
 eshell
 wrepo/*
