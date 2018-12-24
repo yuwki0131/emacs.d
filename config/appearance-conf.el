@@ -137,7 +137,7 @@
 ;; カーソル行ハイライト
 (defface hlline-face
   `((((class color) (background dark))  (:background ,color/inactive))
-    (((class color) (background light)) (:background "light gray"))
+    (((class color) (background light)) (:background "light pink"))
     (t ())) "*Face used by hl-line.")
 
 (setq hl-line-face 'hlline-face)
