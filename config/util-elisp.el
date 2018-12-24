@@ -101,6 +101,7 @@
   (if (and (not failed-packages) (not other-configuration-reports))
       "all defined packages have been installed successfully"
     (concat
+     "use M-x: install-complements \n"
      "use-package-with-report error or not used packages: \n"
      (concat-interpose-newline
       (mapcar #'to-report-message failed-packages))
