@@ -80,7 +80,6 @@ M-x refresh-byte-compile
 |prefix|解除|M-m|unbind|別用途のため解除|
 |prefix|解除|M-j|unbind|別用途のため解除|
 |機能||C-q|undo|undo & redo|
-|機能||M-q|redo|undo & redo|
 |編集|削除|C-h|delete-backward-char|Backspaceで削除 (文字単位/単語単位)|
 |編集|削除|M-h|backward-kill-word|Backspaceで削除 (文字単位/単語単位)|
 |編集|挿入|C-:|insert-underscore|アンダースコア挿入|
@@ -150,7 +149,7 @@ M-x refresh-byte-compile
 |編集|削除|C-a C-f|merge2lines|行のマージ(インデント用などの空白削除) <br/> (不要かも)|
 |編集|削除|C-a C-i|just-one-space|周囲の空白を削除し、単一の空白にする|
 |編集|挿入|C-a C-q|quoted-insert|旧(C-q) 引用付き挿入(置換等で使用)|
-|編集|挿入|C-a C-s|insert-shoborn|(´・_・`)を挿入|
+|編集|挿入|C-a C-s|insert-shoborn|(´･_･`)を挿入|
 |編集|挿入|C-a C-d|insert-date-normal|現在時刻挿入|
 |編集|挿入|C-a M-d|insert-date-markdown|現在時刻挿入|
 |編集|挿入|C-a C-e|insert-current-file-name|現在のファイルパスを挿入|
@@ -158,8 +157,6 @@ M-x refresh-byte-compile
 |編集|refactoring|C-a i|iedit-mode|iedit-mode: 同一のシンボルを同時置換|
 |編集|その他|C-a C-r|rectangle-mark-mode|矩形選択|
 |移動|バッファ内|C-e C-l|goto-last-change|最後の変更箇所へ|
-|移動|バッファ内|C-e C-j|point-undo|直前のカーソル位置へ(移動/移動の取消)|
-|移動|バッファ内|C-e C-k|point-redo|直前のカーソル位置へ(移動/移動の取消)|
 |移動|バッファ内|C-e C-a|move-beginning-of-line|行頭/行末へ(unbindの再設定)|
 |移動|バッファ内|C-e C-e|move-end-of-line|行頭/行末へ(unbindの再設定)|
 |移動|バッファ内|C-e C-l|recenter-top-bottom|top-center-bottom間|
@@ -168,6 +165,7 @@ M-x refresh-byte-compile
 |移動|バッファ間|C-e C-c|shell|shell/repl/grepxへ|
 |移動|バッファ間|C-e C-v|move-to-scratch|shell/repl/grepxへ|
 |移動|バッファ間|C-e g|move-to-grep|shell/repl/grepxへ|
+|移動|バッファ間|C-e C-w|move-to-repl|shell/repl/grepxへ|
 |移動|バッファ間|C-e C-b|previous-buffer-with-skip*|次/前のバッファへ (*付バッファはスキップ)|
 |移動|バッファ間|C-e C-f|next-buffer-with-skip*|次/前のバッファへ (*付バッファはスキップ)|
 |移動|検索|C-e s|search-forward-regexp|正規表現検索 (通常)|
