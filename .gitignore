@@ -22,3 +22,7 @@ session.*
 config/*.elc
 *.elc
 eshell
+wrepo/*
+!.gitkeep
+gitrepo/*
+!.gitkeep
