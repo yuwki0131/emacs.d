@@ -53,11 +53,11 @@ M-x package-install use-package
 
 ## elpaからpackage-install
 
-初期化するとエラーレポートが出るので、ielm等で以下を実行。
+初期化するとエラーレポートが出るので、以下のコマンドを実行。
 不足しているelpaの最新版パッケージがインストールされる。
 
 ```
-(load "~/.emacs.d/install-scenario.el")
+M-x install-complements
 ```
 
 ## byte-compile *.el files
@@ -80,6 +80,7 @@ M-x refresh-byte-compile
 |prefix|解除|M-m|unbind|別用途のため解除|
 |prefix|解除|M-j|unbind|別用途のため解除|
 |機能||C-q|undo|undo & redo|
+|機能||M-q|redo|undo & redo|
 |編集|削除|C-h|delete-backward-char|Backspaceで削除 (文字単位/単語単位)|
 |編集|削除|M-h|backward-kill-word|Backspaceで削除 (文字単位/単語単位)|
 |編集|挿入|C-:|insert-underscore|アンダースコア挿入|
@@ -131,7 +132,6 @@ M-x refresh-byte-compile
 |機能|表示|C-z C-n|neotree-toggle|ディレクトリ階層を表示 (neo tree)|
 |機能|表示|C-z m|magit-status|magit (Emacs Git)|
 |機能|表示|C-z C-k|describe-bindings|キーバインド表示|
-|機能|表示|C-z c|hide/show-comments-toggle|コメント表示/非表示|
 |機能|辞書|C-z C-d|search-dictionary-e2j-current-word|現在の単語の意味を表示(要辞書設定)|
 |機能|辞書|C-z d|search-dictionary-e2j|英和辞典(要辞書設定)|
 |機能|実行|C-z e|execute-current-shell-script|現在のディレクトリのxxx.sh実行|
