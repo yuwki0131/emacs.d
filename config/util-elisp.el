@@ -116,8 +116,13 @@
              (scenario (concat-interpose-newline failed-ls)))
         (spit "~/.emacs.d/install-scenario.el" scenario))))
 
-(font-lock-add-keywords 'emacs-lisp-mode
-                        '(("\\(use-package-with-report\\)" . font-lock-keyword-face)))
+(font-lock-add-keywords
+ 'emacs-lisp-mode
+ '(("\\(use-package-with-report\\)" . font-lock-keyword-face)))
+
+(defun install-complements ()
+  (interactive)
+  (load "~/.emacs.d/install-scenario.el"))
 
 ;;; ---------------------------------------------------------------------------
 ;;; global-safe-set-key : 安全なglobalsetkeyとエラーレポート、キーバインドレポート
