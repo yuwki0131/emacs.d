@@ -109,7 +109,7 @@
      (concat-interpose-newline other-configuration-reports))))
 
 (defun to-package-install-sexp (text)
-  (concat "(package-install '" text ")"))
+  (concat "(ignore-errors (package-install '" text "))"))
 
 (defun generate-package-install-scenario ()
   (if failed-packages
