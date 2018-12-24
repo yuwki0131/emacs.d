@@ -7,6 +7,33 @@
 (require 'util-elisp)
 
 ;;; ---------------------------------------------------------------------------
+;;; ivy: 補完
+;;; ---------------------------------------------------------------------------
+(use-package-with-report ivy
+  :config
+  ;; ivy設定
+  (ivy-mode 1)
+  (setq ivy-use-virtual-buffers t)
+  (setq enable-recursive-minibuffers t)
+  (setq ivy-height 30)
+  (setq ivy-extra-directories nil)
+  (setq ivy-re-builders-alist
+        '((t . ivy--regex-plus))))
+
+;;; ---------------------------------------------------------------------------
+;;; counsel: 補完
+;;; ---------------------------------------------------------------------------
+;; (use-package-with-report counsel
+;;   :config
+;;   ;; counsel設定
+;;   (when counsel-M-x
+;;     (global-set-key (kbd "M-x") 'counsel-M-x))
+;;   (when counsel-find-file
+;;     (global-set-key (kbd "C-x C-f") 'counsel-find-file))
+;;   (defvar counsel-find-file-ignore-regexp
+;;     (regexp-opt '("./" "../"))))
+
+;;; ---------------------------------------------------------------------------
 ;;; visual regexp steroids : 正規表現の拡張
 ;;; ---------------------------------------------------------------------------
 (use-package-with-report visual-regexp-steroids
