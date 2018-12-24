@@ -67,8 +67,8 @@
          (file-path (concat "~/.emacs.d/wrepo/" file-name))
          (exist-that? (file-exists-p file-path)))
     (when (not exist-that?)
-      (shell-command-to-string
-       (concat "cd ~/.emacs.d/wrepo/ & wget " url-string))))
+      (cd "~/.emacs.d/wrepo/")
+      (shell-command-to-string (concat "wget " url-string))))
   `(progn (require ,name) . ,body))
 
 ;;; ---------------------------------------------------------------------------
@@ -83,8 +83,8 @@
     (print "git-packages")
     `(progn
        (when (not ,exist-that?)
-         (shell-command-to-string
-          (concat "cd ~/.emacs.d/gitrepo/ & git clone " ,git-repository)))
+         (cd "~/.emacs.d/gitrepo/")
+         (shell-command (concat "git clone " ,git-repository)))
        (add-to-list 'load-path ,file-path)
        (require (quote ,name))
        ,body)))
