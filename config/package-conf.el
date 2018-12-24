@@ -54,9 +54,9 @@
 ;;; ---------------------------------------------------------------------------
 ;;; package-func : git complete : git-grep自動補完
 ;;; ---------------------------------------------------------------------------
-(wconst-pakcage 'git-complete
-  "https://raw.githubusercontent.com/zk-phi/git-complete/master/git-complete.el"
-  nil)
+;; (wconst-pakcage 'git-complete
+;;   "https://raw.githubusercontent.com/zk-phi/git-complete/master/git-complete.el"
+;;   nil)
 
 ;;; ---------------------------------------------------------------------------
 ;;; package-func : google this : ググる
