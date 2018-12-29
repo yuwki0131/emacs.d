@@ -286,7 +286,7 @@
 (gssk-bind "C-a C-q" 'quoted-insert)
 
 (gssk-explain-function "(´･_･`)を挿入")
-(gssk-bind "C-a C-s" 'insert-shoborn)
+(gssk-bind "C-a C-s" 'insert-turapoyo)
 
 (gssk-explain-function "現在時刻挿入")
 (gssk-bind "C-a C-d" 'insert-date-normal)
