@@ -22,6 +22,8 @@
 ;;; ---------------------------------------------------------------------------
 ;; usepackageが存在しない場合は、インストール
 (when (not (require 'use-package nil 'noerror))
+  (package-initialize)
+  (package-refresh-contents)
   (package-install 'use-package)
   (setq use-package-verbose t))
 ;; 以降、use-packageでrequire
