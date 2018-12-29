@@ -144,7 +144,7 @@
 (gssk-subcategory "検索")
 
 (gssk-explain-function "grep this: バッファ内Grep")
-(gssk-bind "C-z C-b" 'grep-this)
+(gssk-bind "C-z g" 'grep-this)
 
 (gssk-explain-function "grep find this: ディレクトリ配下Grep")
 (gssk-bind "C-z C-f" 'grep-find-this)
@@ -163,7 +163,7 @@
 (gssk-bind "C-z r"   'rgrep)
 
 (gssk-explain-function "counsel-git-grep: Git-Grep")
-(gssk-bind "C-z g"   'counsel-git-grep)
+(gssk-bind "C-z C-b"   'counsel-git-grep)
 
 (gssk-explain-function "google-this(Googleで検索)")
 (gssk-bind "C-z M-g" 'google-this)
