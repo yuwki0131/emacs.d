@@ -333,10 +333,13 @@
 
 (gssk-subcategory "バッファ間")
 
+(gssk-explain-function "ace-window: Window間移動")
+(gssk-bind "C-e C-z" 'ace-window)
+
 (gssk-explain-function "shell/repl/grepxへ")
 (gssk-bind "C-e C-c" 'shell)
 (gssk-bind "C-e C-v" 'move-to-scratch)
-(gssk-bind "C-e g" 'move-to-grep)
+(gssk-bind "C-e g"   'move-to-grep)
 (gssk-bind "C-e C-w" 'move-to-repl)
 
 (gssk-explain-function "次/前のバッファへ (*付バッファはスキップ)")
