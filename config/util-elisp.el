@@ -247,7 +247,7 @@
 
 (defun generate-readme-text ()
   (concat
-   (slurp "~/.emacs.d/datafiles/readme-template.rm")
+   (slurp "~/.emacs.d/datafiles/README.template.md")
    ;; explain key binds
    "\n## キーバインド\n\n"
    "デフォルト以外のglobal-set-key設定\n\n"
