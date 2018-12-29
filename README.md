@@ -124,11 +124,12 @@ M-x refresh-byte-compile
 |機能|検索|C-z w|define-word|define-word: 英英辞典|
 |機能|検索|C-z C-w|define-word-at-point|define-word: 英英辞典|
 |機能|検索|C-z r|rgrep|rgrep: ディレクトリ内Grep|
-|機能|検索|C-z g|google-this|google-this(Googleで検索)|
+|機能|検索|C-z g|counsel-git-grep|counsel-git-grep: Git-Grep|
+|機能|検索|C-z M-g|google-this|google-this(Googleで検索)|
 |機能|検索|C-z C-a|goto-address-at-point|現在のURLリンクを開く<br/>(goto-address-mode)|
 |機能|検索|C-z i l|imenu-list-smart-toggle|imenu-list(関数定義一覧表示)|
 |機能|検索|C-z i b|ibuffer|ibuffer(バッファ一覧表示)|
-|機能|表示|C-z s|make-buffer-small|バッファのウィンドウサイズを縮小|
+|機能|表示|C-z s|make-buffer-small|バッファのフレームサイズを縮小|
 |機能|表示|C-z C-n|neotree-toggle|ディレクトリ階層を表示 (neo tree)|
 |機能|表示|C-z m|magit-status|magit (Emacs Git)|
 |機能|表示|C-z C-k|describe-bindings|キーバインド表示|
@@ -145,11 +146,10 @@ M-x refresh-byte-compile
 |編集||C-a C-p|downcase-word|upcase/downcase word|
 |編集|削除|C-a C-c|kill-until-corresp-paren|括弧削除|
 |編集|削除|C-a C-k|kill-this-buffer|現在のバッファを削除|
-|編集|削除|C-a C-h|backward-kill-word|後ろ向きな単語削除|
 |編集|削除|C-a C-f|merge2lines|行のマージ(インデント用などの空白削除) <br/> (不要かも)|
 |編集|削除|C-a C-i|just-one-space|周囲の空白を削除し、単一の空白にする|
 |編集|挿入|C-a C-q|quoted-insert|旧(C-q) 引用付き挿入(置換等で使用)|
-|編集|挿入|C-a C-s|insert-shoborn|(´･_･`)を挿入|
+|編集|挿入|C-a C-s|insert-turapoyo|(´･_･`)を挿入|
 |編集|挿入|C-a C-d|insert-date-normal|現在時刻挿入|
 |編集|挿入|C-a M-d|insert-date-markdown|現在時刻挿入|
 |編集|挿入|C-a C-e|insert-current-file-name|現在のファイルパスを挿入|
