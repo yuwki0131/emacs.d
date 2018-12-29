@@ -43,15 +43,7 @@ $ git clone https://github.com/yuwki0131/emacs.d
 $ mv emacs.d ~/.emacs.d
 ```
 
-### 要use-package
-
-* 自動で入れられない(?)ため
-
-```
-M-x package-install use-package
-```
-
-## elpaからpackage-install
+### elpaからpackage-install
 
 初期化するとエラーレポートが出るので、以下のコマンドを実行。
 不足しているelpaの最新版パッケージがインストールされる。
@@ -60,12 +52,20 @@ M-x package-install use-package
 M-x install-complements
 ```
 
+インストールしたら再起動。
+
 ## byte-compile *.el files
 
-`config/*.el`下のファイルを更新。
+`.emacs.d/*.elc`と`.emacs.d/config/*.elc`のファイルを更新。
 
 ```
 M-x refresh-byte-compile
+```
+
+`.emacs.d/*.elc`と`.emacs.d/config/*.elc`のファイルを削除。
+
+```
+M-x delete-byte-compile
 ```
 
 ## キーバインド
