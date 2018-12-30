@@ -1,3 +1,4 @@
+;;; search-package-conf.el --- packages
 ;;; Commentary:
 ;;;  Emacsインストールパッケージ(package-install要) / search-package-conf.el
 ;;;  package search : 検索
@@ -37,9 +38,11 @@
 ;;; ---------------------------------------------------------------------------
 ;;; visual regexp steroids : 正規表現の拡張
 ;;; ---------------------------------------------------------------------------
-(use-package-with-report visual-regexp-steroids
-  :config
-  (setq vr/engine 'java))
+;;; memo:
+;;;   使っていないので
+;; (use-package-with-report visual-regexp-steroids
+;;   :config
+;;   (setq vr/engine 'java))
 
 ;;; ---------------------------------------------------------------------------
 ;;; helm : helm
@@ -55,7 +58,9 @@
 ;;; ---------------------------------------------------------------------------
 ;;; zop-to-char : M-zの可視化
 ;;; ---------------------------------------------------------------------------
-(use-package-with-report zop-to-char)
+;;; memo:
+;;;   使っていないので
+;; (use-package-with-report zop-to-char)
 
 ;;; ---------------------------------------------------------------------------
 ;;; swiper : 絞り込みfuzzy検索
@@ -82,7 +87,9 @@
 ;;; ---------------------------------------------------------------------------
 ;;; ace jump mode : 任意の場所に3ストロークで移動
 ;;; ---------------------------------------------------------------------------
-(use-package-with-report ace-jump-mode)
+;;; memo:
+;;;   使っていないので
+;; (use-package-with-report ace-jump-mode)
 
 ;;; ---------------------------------------------------------------------------
 ;;; subword mode : Camel notationのシンボル移動時の単位を変更

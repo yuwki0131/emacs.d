@@ -10,7 +10,6 @@
 ;;; ---------------------------------------------------------------------------
 ;;; redo+ : 普通のredo
 ;;; ---------------------------------------------------------------------------
-
 (git-package
  (redo+ "https://github.com/emacsmirror/redo-plus.git" "redo-plus")
  (progn
@@ -23,10 +22,10 @@
 ;;; ---------------------------------------------------------------------------
 ;;; memo:
 ;;;   使わなくなったので
-(use-package-with-report smart-newline
-  :disabled t
-  :config
-  (smart-newline-mode 1))
+;; (use-package-with-report smart-newline
+;;   :disabled t
+;;   :config
+;;   (smart-newline-mode 1))
 
 ;;; ---------------------------------------------------------------------------
 ;;; edit grepped text : grep済みのテキスト編集、反映
@@ -41,10 +40,10 @@
 ;;; ---------------------------------------------------------------------------
 ;;; hungry-delete-mode : 空白の貪欲な削除
 ;;; ---------------------------------------------------------------------------
-(use-package-with-report hungry-delete
-  :disabled t
-  :config
-  (global-hungry-delete-mode))
+;; (use-package-with-report hungry-delete
+;;   :disabled t
+;;   :config
+;;   (global-hungry-delete-mode))
 
 ;;; ---------------------------------------------------------------------------
 ;;; drug-stuff : 単語単位で移動

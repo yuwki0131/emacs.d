@@ -17,10 +17,10 @@
 ;;; ---------------------------------------------------------------------------
 ;;; memo:
 ;;;   使わないかつ警告が出るので一旦、disable
-(use-package-with-report fancy-narrow
-  :disabled t
-  :config
-  (fancy-narrow-mode 1))
+;; (use-package-with-report fancy-narrow
+;;   :disabled t
+;;   :config
+;;   (fancy-narrow-mode 1))
 
 ;;; ---------------------------------------------------------------------------
 ;;; にゃーん
@@ -53,21 +53,21 @@
 ;;; ---------------------------------------------------------------------------
 ;;; column highlight line plus : カーソル桁ハイライト
 ;;; ---------------------------------------------------------------------------
-(use-package-with-report col-highlight
-  :disabled t
-  :config
-  (toggle-highlight-column-when-idle 1)
-  (col-highlight-set-interval 3)
-  (column-highlight-mode nil))
+;; (use-package-with-report col-highlight
+;;   :disabled t
+;;   :config
+;;   (toggle-highlight-column-when-idle 1)
+;;   (col-highlight-set-interval 3)
+;;   (column-highlight-mode nil))
 
 ;;; ---------------------------------------------------------------------------
 ;;; highlight current-buffer : 現在のバッファをハイライト
 ;;; ---------------------------------------------------------------------------
-(use-package-with-report hiwin
-  :disabled t
-  :config
-  (hiwin-activate)
-  (set-face-background 'hiwin-face "#D0D0D0"))
+;; (use-package-with-report hiwin
+;;   :disabled t
+;;   :config
+;;   (hiwin-activate)
+;;   (set-face-background 'hiwin-face "#D0D0D0"))
 
 ;;; ---------------------------------------------------------------------------
 ;;; hl-todo-mode : TODOをハイライト
@@ -113,10 +113,10 @@
 ;;; ---------------------------------------------------------------------------
 ;;; highlight block : 現在のブロックをハイライト
 ;;; ---------------------------------------------------------------------------
-(use-package-with-report highlight-blocks
-  :disabled
-  :config
-  (add-hook 'prog-mode-hook '(lambda () (highlight-blocks-mode 1))))
+;; (use-package-with-report highlight-blocks
+;;   :disabled
+;;   :config
+;;   (add-hook 'prog-mode-hook '(lambda () (highlight-blocks-mode 1))))
 
 ;;; ---------------------------------------------------------------------------
 ;;; rainbow delimiters : 対応括弧ハイライト
@@ -146,10 +146,10 @@
 ;;; ---------------------------------------------------------------------------
 ;;; prompt-text : ミニバッファの左側にカレントディレクトリを表示
 ;;; ---------------------------------------------------------------------------
-(use-package-with-report prompt-text
-  :disabled t
-  :config
-  (prompt-text-mode 1))
+;; (use-package-with-report prompt-text
+;;   :disabled t
+;;   :config
+;;   (prompt-text-mode 1))
 
 ;;; ---------------------------------------------------------------------------
 ;;; path header line mode : path header line mode
@@ -163,28 +163,28 @@
 ;;; ---------------------------------------------------------------------------
 ;;; memo:
 ;;;   結局すべて使わなくなってしまった
-(use-package-with-report sublimity
-  :disabled t
-  :config
-  (require 'sublimity-scroll)
-  ;; これも基本的に不要
-  ;; (require 'sublimity-map)
-  ;; 表示領域が狭くなるため基本的に不要
-  ;; (require 'sublimity-attractive)
-  (add-hook 'prog-mode-hook '(lambda () (sublimity-mode 1))))
+;; (use-package-with-report sublimity
+;;   :disabled t
+;;   :config
+;;   (require 'sublimity-scroll)
+;;   ;; これも基本的に不要
+;;   ;; (require 'sublimity-map)
+;;   ;; 表示領域が狭くなるため基本的に不要
+;;   ;; (require 'sublimity-attractive)
+;;   (add-hook 'prog-mode-hook '(lambda () (sublimity-mode 1))))
 
 ;;; ---------------------------------------------------------------------------
 ;;; golden-ratio : 黄金比で表示
 ;;; ---------------------------------------------------------------------------
 ;;; memo:
 ;;;   使わなくなったので
-(use-package-with-report golden-ratio
-  :disabled t
-  :config
-  (golden-ratio-mode 1))
+;; (use-package-with-report golden-ratio
+;;   :disabled t
+;;   :config
+;;   (golden-ratio-mode 1))
 
 ;;; --------------------------------------------------------------------------------
 ;;; provide
 ;;; --------------------------------------------------------------------------------
 (provide 'display-package-conf)
-;;; package-conf.el ends here
+;;; display-package-conf.el ends here
