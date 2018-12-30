@@ -44,11 +44,13 @@
 ;;; ---------------------------------------------------------------------------
 ;;; helm : helm
 ;;; ---------------------------------------------------------------------------
-(use-package-with-report helm
-   :diminish helm-mode
-   :config
-  (require 'helm-config)
-  (helm-mode 1))
+;;; memo:
+;;;   使っていないので
+;; (use-package-with-report helm
+;;    :diminish helm-mode
+;;    :config
+;;   (require 'helm-config)
+;;   (helm-mode 1))
 
 ;;; ---------------------------------------------------------------------------
 ;;; zop-to-char : M-zの可視化
@@ -58,7 +60,8 @@
 ;;; ---------------------------------------------------------------------------
 ;;; swiper : 絞り込みfuzzy検索
 ;;; ---------------------------------------------------------------------------
-(use-package-with-report swiper)
+(use-package-with-report swiper
+  :command "swiper")
 
 ;;; ---------------------------------------------------------------------------
 ;;; dumb-jump : 言語によらず定義にジャンプ
@@ -71,6 +74,7 @@
 ;;; swoop : トークンレベル移動(検索系)
 ;;; ---------------------------------------------------------------------------
 (use-package-with-report swoop
+  :command "swoop"
   :config
   (setq swoop-minibuffer-input-dilay 0.4)
   (setq swoop-window-split-current-window: nil)
