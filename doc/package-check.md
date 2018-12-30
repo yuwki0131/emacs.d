@@ -1,66 +1,65 @@
-
-```
-web-mode
-js2-mode
-typescript-mode
-flycheck-pyflakes
-py-autopep8
-elpy
-epc
-jedi
-python-environment
-ensime
-scala-mode
-flymake-cursor
-flycheck
-highlight-operators
-highlight-numbers
-yasnippet
-migemo
-swoop
-dumb-jump
-swiper
-counsel
-ivy
-path-headerline-mode
-anzu
-rainbow-delimiters
-highlight-symbol
-beacon
-volatile-highlights
-highlight-indentation
-hl-todo
-nlinum
-nyan-mode
-bm
-iedit
-multiple-cursors
-drag-stuff
-wgrep
-auto-complete
-auto-compile
-magit
-aozora-view
-keyfreq
-esup
-exec-path-from-shell
-disable-mouse
-shell-pop
-popwin
-goto-chg
-which-key
-hide-comnt
-define-word
-codic
-markdown-preview-mode
-twittering-mode
-open-junk-file
-neotree
-browse-kill-ring
-imenu-list
-tiny-menu
-auto-async-byte-compile
-ace-window
-google-translate
-google-this
-```
+|package name                | c | contents |
+|:---                        |:-:|:---|
+|ace-window                  | x |    |
+|anzu                        | x |    |
+|aozora-view                 | x |    |
+|auto-async-byte-compile     | x |    |
+|auto-compile                | x |    |
+|auto-complete               | x |    |
+|beacon                      | x |    |
+|bm                          | x |    |
+|browse-kill-ring            | x |    |
+|codic                       | x |    |
+|counsel                     | x |    |
+|define-word                 | x |    |
+|disable-mouse               | x |    |
+|drag-stuff                  | x |    |
+|dumb-jump                   | x |    |
+|elpy                        | x |    |
+|ensime                      | x |    |
+|epc                         | x |    |
+|esup                        | x |    |
+|exec-path-from-shell        | x |    |
+|flycheck                    | x |    |
+|flycheck-pyflakes           | x |    |
+|flymake-cursor              | x |    |
+|google-this                 | x |    |
+|google-translate            | x |    |
+|goto-chg                    | x |    |
+|hide-comnt                  | x |    |
+|highlight-indentation       | x |    |
+|highlight-numbers           | x |    |
+|highlight-operators         | x |    |
+|highlight-symbol            | x |    |
+|hl-todo                     | x |    |
+|iedit                       | x |    |
+|imenu-list                  | x |    |
+|ivy                         | x |    |
+|jedi                        | x |    |
+|js2-mode                    | x |    |
+|keyfreq                     | x |    |
+|magit                       | x |    |
+|markdown-preview-mode       | x |    |
+|migemo                      | x |    |
+|multiple-cursors            | x |    |
+|neotree                     | x |    |
+|nlinum                      | x |    |
+|nyan-mode                   | x |    |
+|open-junk-file              | x |    |
+|path-headerline-mode        | x |    |
+|popwin                      | x |    |
+|py-autopep8                 | x |    |
+|python-environment          | x |    |
+|rainbow-delimiters          | x |    |
+|scala-mode                  | x |    |
+|shell-pop                   | x |    |
+|swiper                      | x |    |
+|swoop                       | x |    |
+|tiny-menu                   | x |    |
+|twittering-mode             | x |    |
+|typescript-mode             | x |    |
+|volatile-highlights         | x |    |
+|web-mode                    | x |    |
+|wgrep                       | x |    |
+|which-key                   | x |    |
+|yasnippet                   | x |    |
