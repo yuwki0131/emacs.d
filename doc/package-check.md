@@ -18,7 +18,7 @@
 |elpy                        | x |    |
 |ensime                      | x |    |
 |epc                         | x |    |
-|esup                        | x |    |
+|esup                        | x | 実行時間計測   |
 |exec-path-from-shell        | x |    |
 |flycheck                    | x |    |
 |flycheck-pyflakes           | x |    |
