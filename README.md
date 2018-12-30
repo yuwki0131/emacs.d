@@ -117,14 +117,14 @@ M-x delete-byte-compile
 |機能||C-z C-j|open-junk-file|ジャンクファイルを作成、開く|
 |機能||C-z C-p|shell-pop|shell-popを表示/非表示|
 |機能|置換|C-z C-r|replace-string|文字列置換|
-|機能|検索|C-z C-b|grep-this|grep this: バッファ内Grep|
+|機能|検索|C-z g|grep-this|grep this: バッファ内Grep|
 |機能|検索|C-z C-f|grep-find-this|grep find this: ディレクトリ配下Grep|
 |機能|検索|C-z C-s|swoop|swoop: バッファ内を動的検索/移動|
 |機能|検索|C-z C-c|codic|codic: コーディング用辞書|
 |機能|検索|C-z w|define-word|define-word: 英英辞典|
 |機能|検索|C-z C-w|define-word-at-point|define-word: 英英辞典|
 |機能|検索|C-z r|rgrep|rgrep: ディレクトリ内Grep|
-|機能|検索|C-z g|counsel-git-grep|counsel-git-grep: Git-Grep|
+|機能|検索|C-z C-b|counsel-git-grep|counsel-git-grep: Git-Grep|
 |機能|検索|C-z M-g|google-this|google-this(Googleで検索)|
 |機能|検索|C-z C-a|goto-address-at-point|現在のURLリンクを開く<br/>(goto-address-mode)|
 |機能|検索|C-z i l|imenu-list-smart-toggle|imenu-list(関数定義一覧表示)|
@@ -162,6 +162,7 @@ M-x delete-byte-compile
 |移動|バッファ内|C-e C-l|recenter-top-bottom|top-center-bottom間|
 |移動|バッファ内|C-e C-l|imenu|imenu: 関数定義へ|
 |移動|バッファ内|C-e C-s|swiper|swiper: バッファ内を動的検索/移動|
+|移動|バッファ間|C-e C-z|ace-window|ace-window: Window間移動|
 |移動|バッファ間|C-e C-c|shell|shell/repl/grepxへ|
 |移動|バッファ間|C-e C-v|move-to-scratch|shell/repl/grepxへ|
 |移動|バッファ間|C-e g|move-to-grep|shell/repl/grepxへ|
