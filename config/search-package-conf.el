@@ -26,8 +26,9 @@
 (use-package-with-report counsel
   :config
   ;; counsel設定
-  (when counsel-M-x
-    (global-set-key (kbd "M-x") 'counsel-M-x))
+  ;; 上手く行かない
+  ;; (when counsel-M-x
+  ;;   (global-set-key (kbd "M-x") 'counsel-M-x))
   (when counsel-find-file
     (global-set-key (kbd "C-x C-f") 'counsel-find-file))
   (defvar counsel-find-file-ignore-regexp
