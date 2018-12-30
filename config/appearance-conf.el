@@ -63,16 +63,19 @@
   (set-face-italic     attr-symbol italic))
 
 ;; coloring program
-(set-face-app1 'font-lock-comment-face       color/comment   nil t)
-(set-face-app1 'font-lock-doc-face           color/deeppink  nil t)
-(set-face-app1 'font-lock-string-face        color/limegreen t   nil)
-(set-face-app1 'font-lock-keyword-face       color/darkcyan  t   nil)
-(set-face-app1 'font-lock-builtin-face       color/darkcyan  nil nil)
-(set-face-app1 'font-lock-function-name-face color/orange    t   nil)
-(set-face-app1 'font-lock-variable-name-face color/orange    t   nil)
-(set-face-app1 'font-lock-type-face          color/darkcyan  t   nil)
-(set-face-app1 'font-lock-constant-face      color/deeppink  t   nil)
-(set-face-app1 'font-lock-warning-face       color/deeppink  nil t)
+(set-face-app1 'font-lock-comment-face           color/comment   nil t)
+(set-face-app1 'font-lock-comment-delimiter-face color/comment   nil t)
+(set-face-app1 'font-lock-doc-face               color/deeppink  nil t)
+(set-face-app1 'font-lock-string-face            color/limegreen t   nil)
+(set-face-app1 'font-lock-keyword-face           color/darkcyan  t   nil)
+(set-face-app1 'font-lock-builtin-face           color/darkcyan  nil nil)
+(set-face-app1 'font-lock-function-name-face     color/orange    t   nil)
+(set-face-app1 'font-lock-variable-name-face     color/orange    nil nil)
+(set-face-app1 'font-lock-type-face              color/darkcyan  t   nil)
+(set-face-app1 'font-lock-constant-face          color/deeppink  t   nil)
+(set-face-app1 'font-lock-warning-face           color/deeppink  nil t)
+(set-face-app1 'font-lock-preprocessor-face      color/darkcyan  nil nil)
+(set-face-app1 'font-lock-negation-char-face     color/darkcyan  nil nil)
 
 ;; coloring property
 (ignore-errors
