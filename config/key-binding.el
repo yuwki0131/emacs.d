@@ -57,18 +57,11 @@
 (gssk-category-function "編集" "挿入" "kill-ringを表示")
 (gssk-bind "M-y"    'browse-kill-ring)
 
-(gssk-category-function "編集" "置換" "vr/isearch側の正規表現置換")
-(gssk-bind "C-M-s"  'vr/isearch-forward)
-(gssk-bind "C-M-r"  'vr/isearch-backward)
-
 (gssk-category-function "編集" "括弧" "括弧挿入")
 (gssk-bind "C-l"    'insert-parenthesis)
 (gssk-bind "C-S-l"  'insert-angle-brackets)
 (gssk-bind "M-l"    'insert-brackets)
 (gssk-bind "M-S-l"  'insert-squares)
-
-(gssk-category-function "編集" "改行" "スマートな改行")
-(gssk-bind "C-m"    'smart-newline)
 
 (gssk-category-function "移動" "バッファ内" "パラグラフ単位の移動")
 ;; (gssk-bind "C-m"    'forward-paragraph)

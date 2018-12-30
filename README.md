@@ -86,13 +86,10 @@ M-x delete-byte-compile
 |編集|挿入|C-:|insert-underscore|アンダースコア挿入|
 |編集|挿入|M-RET|yas-insert-snippet|snippet: yaスニペット挿入|
 |編集|挿入|M-y|browse-kill-ring|kill-ringを表示|
-|編集|置換|C-M-s|vr/isearch-forward|vr/isearch側の正規表現置換|
-|編集|置換|C-M-r|vr/isearch-backward|vr/isearch側の正規表現置換|
 |編集|括弧|C-l|insert-parenthesis|括弧挿入|
 |編集|括弧|C-S-l|insert-angle-brackets|括弧挿入|
 |編集|括弧|M-l|insert-brackets|括弧挿入|
 |編集|括弧|M-S-l|insert-squares|括弧挿入|
-|編集|改行|C-m|smart-newline|スマートな改行|
 |移動|バッファ内|M-m|backward-paragraph|パラグラフ単位の移動|
 |移動|バッファ内|M-p|scroll-up-in-place|1行スクロール(カーソル位置固定)|
 |移動|バッファ内|M-n|scroll-down-in-place|1行スクロール(カーソル位置固定)|
