@@ -29,8 +29,8 @@
   ;; 上手く行かない
   ;; (when counsel-M-x
   ;;   (global-set-key (kbd "M-x") 'counsel-M-x))
-  (when counsel-find-file
-    (global-set-key (kbd "C-x C-f") 'counsel-find-file))
+  ;; (when counsel-find-file
+  ;;   (global-set-key (kbd "C-x C-f") 'counsel-find-file))
   (defvar counsel-find-file-ignore-regexp
     (regexp-opt '("./" "../"))))
 
@@ -72,7 +72,10 @@
 ;;; ---------------------------------------------------------------------------
 (use-package-with-report swoop
   :config
-  (setq swoop-minibuffer-input-dilay 0.4))
+  (setq swoop-minibuffer-input-dilay 0.4)
+  (setq swoop-window-split-current-window: nil)
+  (setq swoop-font-size-change: t)
+  (setq swoop-font-size: 0.9))
 
 ;;; ---------------------------------------------------------------------------
 ;;; ace jump mode : 任意の場所に3ストロークで移動
