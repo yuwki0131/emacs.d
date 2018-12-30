@@ -60,8 +60,7 @@
 ;;; ---------------------------------------------------------------------------
 ;;; swiper : 絞り込みfuzzy検索
 ;;; ---------------------------------------------------------------------------
-(use-package-with-report swiper
-  :command "swiper")
+(use-package-with-report swiper)
 
 ;;; ---------------------------------------------------------------------------
 ;;; dumb-jump : 言語によらず定義にジャンプ
@@ -74,7 +73,6 @@
 ;;; swoop : トークンレベル移動(検索系)
 ;;; ---------------------------------------------------------------------------
 (use-package-with-report swoop
-  :command "swoop"
   :config
   (setq swoop-minibuffer-input-dilay 0.4)
   (setq swoop-window-split-current-window: nil)
