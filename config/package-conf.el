@@ -85,9 +85,10 @@
 ;;; ---------------------------------------------------------------------------
 ;;; package-func : w3m : w3m in emacs
 ;;; ---------------------------------------------------------------------------
-(use-package-with-report w3m
-  :config
-  (setq w3m-command "w3m"))
+;; ;高速化のため不使用
+;; (use-package-with-report w3m
+;;   :config
+;;   (setq w3m-command "w3m"))
 
 ;;; ---------------------------------------------------------------------------
 ;;; package-func : auto async byte compile : emacsのバイトコンパイルの自動化
