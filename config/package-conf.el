@@ -93,8 +93,10 @@
 ;;; package-func : auto async byte compile : emacsのバイトコンパイルの自動化
 ;;; ---------------------------------------------------------------------------
 (use-package-with-report auto-async-byte-compile
+  :disabled t
   :config
-  (add-hook 'emacs-lisp-mode-hook 'enable-auto-async-byte-compile-mode))
+  ;(add-hook 'emacs-lisp-mode-hook 'enable-auto-async-byte-compile-mode)
+  )
 
 ;;; ---------------------------------------------------------------------------
 ;;; package-func : tiny menu : tiny menu
