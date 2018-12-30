@@ -23,15 +23,15 @@
 ;;; ---------------------------------------------------------------------------
 ;;; counsel: 補完
 ;;; ---------------------------------------------------------------------------
-;; (use-package-with-report counsel
-;;   :config
-;;   ;; counsel設定
-;;   (when counsel-M-x
-;;     (global-set-key (kbd "M-x") 'counsel-M-x))
-;;   (when counsel-find-file
-;;     (global-set-key (kbd "C-x C-f") 'counsel-find-file))
-;;   (defvar counsel-find-file-ignore-regexp
-;;     (regexp-opt '("./" "../"))))
+(use-package-with-report counsel
+  :config
+  ;; counsel設定
+  (when counsel-M-x
+    (global-set-key (kbd "M-x") 'counsel-M-x))
+  (when counsel-find-file
+    (global-set-key (kbd "C-x C-f") 'counsel-find-file))
+  (defvar counsel-find-file-ignore-regexp
+    (regexp-opt '("./" "../"))))
 
 ;;; ---------------------------------------------------------------------------
 ;;; visual regexp steroids : 正規表現の拡張
