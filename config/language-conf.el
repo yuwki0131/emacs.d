@@ -18,7 +18,7 @@
 ;;;  - Lua
 ;;;  - Python
 ;;;  AltJavascripts
-;;;  - Type Script
+;;;  - JavaScript/TypeScript
 ;;;  Other Languages
 ;;;  - Processing
 ;;;  - Prolog
@@ -218,23 +218,31 @@
 
 (add-hook 'python-mode-hook 'my-python-mode)
 
-;;; --------------------------------------------------------------------------------
-;;; config : AltJavascripts
-;;; --------------------------------------------------------------------------------
-
-(add-hook 'js2-mode-hook
-          (lambda ()
-            (setq my-js-mode-indent-num 2)
-            (setq js2-basic-offset my-js-mode-indent-num)
-            (setq js-switch-indent-offset my-js-mode-indent-num)
-            ))
-
 ;;; ---------------------------------------------------------------------------
-;;; prolog-mode : Type Script (unchecked)
+;;; js2(js/ts)-mode : JavaScript/TypeScript (unchecked)
 ;;; ---------------------------------------------------------------------------
 (use-package-with-report typescript-mode
   :mode
-  (("\\.ts$" . typescript-mode)))
+  (("\\.ts$" . typescript-mode))
+  :config
+  (defun my-ts-mode ()
+    (progn
+      (setq indent-level 2)
+      (setq tab-width 2)
+      (flycheck-mode t)
+      ))
+  (add-hook 'ts-mode-hook 'my-ts-mode))
+
+(use-package-with-report js2-mode
+  :config
+  (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
+  (defun my-js-mode ()
+    (progn
+      (setq indent-level 2)
+      (setq tab-width 2)
+      (flycheck-mode t)
+      ))
+  (add-hook 'js2-mode-hook 'my-js-mode))
 
 ;;; --------------------------------------------------------------------------------
 ;;; config : Other Languages
@@ -267,7 +275,7 @@
 ;;; ---------------------------------------------------------------------------
 (use-package-with-report web-mode
   :mode
-  (("\\.jsp$" . web-mode))
+  (("\\.js$" . web-mode))
   (("\\.html$" . web-mode))
   :config
   (setq web-mode-markup-indent-offset 2)
