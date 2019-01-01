@@ -60,7 +60,7 @@
    (mapcar #'add-comment-out (split-string text "\n"))))
 
 ;;; ---------------------------------------------------------------------------
-;;; wget-construct-package : wgetで*.elをロード、configを記述
+;;; wget-construct-package : wgetで*.elをDownload、ロード、configを記述
 ;;; ---------------------------------------------------------------------------
 (defmacro wconst-pakcage (name url-string &rest body)
   (let* ((file-name (car (last (split-string url-string "/"))))
@@ -72,7 +72,7 @@
   `(progn (require ,name) . ,body))
 
 ;;; ---------------------------------------------------------------------------
-;;; wget-construct-package : wgetで*.elをロード、configを記述
+;;; wget-construct-package : git cloneで*.elをDownload、ロード、configを記述
 ;;; ---------------------------------------------------------------------------
 (defmacro git-package (name-repo-save-path body)
   (let* ((name (car name-repo-save-path))
