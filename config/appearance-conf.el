@@ -77,6 +77,9 @@
 (set-face-app1 'font-lock-preprocessor-face      color/darkcyan  nil nil)
 (set-face-app1 'font-lock-negation-char-face     color/darkcyan  nil nil)
 
+;; fringe colors
+(set-face-attribute 'fringe nil :foreground "white" :background "white")
+
 ;; coloring property
 (ignore-errors
   (set-face-app1 'info-header-xref  color/darkcyan nil t)
@@ -254,7 +257,7 @@
         ))
 
 ;; 余計なマージンを削除
-(set-fringe-mode 0)
+;; (set-fringe-mode 0)
 
 ;;;---------------------------------------------------------------------------
 ;;; provide

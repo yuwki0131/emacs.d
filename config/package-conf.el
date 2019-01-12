@@ -220,6 +220,14 @@
 (use-package-with-report aozora-view)
 
 ;;; ---------------------------------------------------------------------------
+;;; package-git : git-gutter
+;;; ---------------------------------------------------------------------------
+;; nlinumで設定あり
+(use-package-with-report git-gutter-fringe
+  :config
+  (setq git-gutter-fr:side 'right-fringe))
+
+;;; ---------------------------------------------------------------------------
 ;;; package-func : simon : system monitor
 ;;; ---------------------------------------------------------------------------
 (use-package-with-report symon
