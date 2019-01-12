@@ -88,7 +88,9 @@
 ;; coloring ac
 (ignore-errors
   (set-face-app2 'ac-completion-face           color/deeppink  "gray"         nil t)
-  (set-face-app2 'ac-slime-menu-face           color/deeppink  "gray"         nil t)
+  (set-face-app2 'ac-slime-menu-face           color/deeppink  "gray"         nil t))
+
+(ignore-errors
   ;; candidates
   (set-face-app2 'ac-candidate-face            color/lightcyan color/inactive t nil)
   (set-face-app2 'ac-candidate-mouse-face      color/lightcyan color/inactive t nil)
