@@ -124,7 +124,10 @@
   (setq neo-keymap-style 'concise)
   (setq neo-smart-open t)
   (setq neo-theme 'ascii)
-  (add-hook 'neotree-mode-hook '(lambda () (nlinum-mode -1))))
+  (setq neo-window-fixed-size nil)
+  (setq neo-window-width 30)
+  (add-hook 'neotree-mode-hook '(lambda () (nlinum-mode -1)))
+  (setq neo-theme (if (display-graphic-p) 'icons 'arrow)))
 
 ;;; ---------------------------------------------------------------------------
 ;;; package-func : open junk file : ジャンクファイル生成
