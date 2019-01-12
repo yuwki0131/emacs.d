@@ -21,7 +21,7 @@
 | spread sheet   | csv          | csv-mode                       |      |
 | spread sheet   | spread sheet | emacs spread sheet             |      |
 | dictionary     | codic        | codic                          |      |
-| dictionary     | en/jp        | e2j, j2e, ac                   |      |
+| dictionary     | en/jp        | e2j, j2e, ac, defnie-word      |      |
 | calendar       | -            | calendar                       |      |
 | calculator     | -            | ielm                           |      |
 | game           | -            | ???                            |      |
