@@ -59,6 +59,9 @@
 ;; 検索系パッケージの設定(要package-install)
 (use-package search-package-conf)
 
+;; 移動系パッケージの設定(要package-install)
+(use-package jump-package-conf)
+
 ;; 雑多な設定
 (use-package builtin-conf)
 

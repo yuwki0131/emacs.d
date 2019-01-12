@@ -128,3 +128,8 @@
 ;; (use-package-with-report google-translate
 ;;   ;;TODO: Fix config
 ;; )
+
+;;; ---------------------------------------------------------------------------
+;;; package-func : tiny menu : tiny menu
+;;; ---------------------------------------------------------------------------
+;; (use-package-with-report tiny-menu)
