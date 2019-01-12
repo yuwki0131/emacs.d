@@ -3,9 +3,6 @@
 ;;;  デフォルト機能の諸設定 / bizz-conf.el
 ;;; Code:
 
-;; デフォルト起動時の画面非表示
-(setq inhibit-startup-message t)
-
 ;; ツールバー非表示
 (tool-bar-mode -1)
 
@@ -27,42 +24,42 @@
 ;; 行番号を表示(標準) => 使用しない
 ;; (global-linum-mode t)
 
-;; scratchの初期のメッセージ消去
-(setq initial-scratch-message nil)
-
 ;; beep音消す => ミニバッファへ反映
 ;; (setq visible-bell t)
 ;; (setq ring-bell-function 'ignore)
 
-;; backupfile(*.~) つくらない
-(setq make-backup-files nil)
-
-;; backupfile(*.#) つくらない
-(setq auto-save-default nil)
-
-;; 折り返しを表示
-(setq truncate-lines t)
-
-;;  折り返しを表示(ウインドウ分割時)
-(setq truncate-partial-width-windows nil)
-
 ;; マークのリージョンに色を付ける
 ;; (setq transient-mark-mode t)
 
-;; スタートメッセージを非表示
-(setq inhibit-startup-message t)
-
-;; file名の補完で大文字小文字を区別しない
-(setq completion-ignore-case t)
-
-;; 最終行に1行挿入
-(setq require-final-newline t)
+(setq
+ ;; scratchの初期のメッセージ消去
+ initial-scratch-message nil
+ ;; backupfile(*.~) つくらない
+ make-backup-files nil
+ ;; backupfile(*.# つくらない)
+ auto-save-default nil
+ ;; 折り返しを表示
+ truncate-lines t
+ ;; 折り返しを表示(ウインドウ分割時)
+ truncate-partial-width-windows nil
+ ;; スタートメッセージを非表示
+ inhibit-startup-message t
+ ;; file名の補完で大文字小文字を区別しない
+ completion-ignore-case t
+ ;; 最終行に1行挿入
+ require-final-newline t
+ ;; 再帰的ミニバッファ
+ enable-recursive-minibuffers t
+ ;; ファイル読込補完、大文字/小文字無視
+ read-file-name-completion-ignore-case t
+ ;; デフォルト起動時の画面非表示
+ inhibit-startup-message t)
 
 ;; バッファの終端を表示(空行表示)
 (setq-default indicate-empty-lines t)
 
-;; 再帰的ミニバッファ
-(setq enable-recursive-minibuffers t)
+;; インデントでタブを挿入しない
+(setq-default indent-tabs-mode nil)
 
 ;; 再帰的ミニバッファの深さを表示
 (minibuffer-depth-indicate-mode 1)
@@ -73,14 +70,8 @@
 ;; ファイル保存時に空白削除
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
-;; ファイル読込補完、大文字/小文字無視
-(setq read-file-name-completion-ignore-case t)
-
 ;; すべてのプログラムモードに対してタブ幅設定
 (add-hook 'prog-mode-hook '(lambda () (setq tab-width 2)))
-
-;; インデントでタブを挿入しない
-(setq-default indent-tabs-mode nil)
 
 ;; ダイアログボックス非表示
 (defalias 'message-box 'message)
@@ -103,8 +94,8 @@
 ;;; デフォルトエンコーディング
 ;;; ---------------------------------------------------------------------------
 (prefer-coding-system 'utf-8)
-(setq coding-system-for-read 'utf-8)
-(setq coding-system-for-write 'utf-8)
+(setq coding-system-for-read 'utf-8
+      coding-system-for-write 'utf-8)
 
 ;;; ---------------------------------------------------------------------------
 ;;; 別ディレクトリの同名バッファにディレクトリ名を付与する
@@ -115,18 +106,27 @@
 ;;; ---------------------------------------------------------------------------
 ;;; 最近開いたファイルを再度開く
 ;;; ---------------------------------------------------------------------------
-(setq recentf-max-saved-items 2000) ;; 2000ファイルまで履歴保存する
-(setq recentf-auto-cleanup 'never)  ;; 存在しないファイルは消さない
-(setq recentf-exclude '("/recentf")) ;; resentfで無視するファイル
-(setq recentf-auto-save-timer (run-with-idle-timer 30 t 'recentf-save-list))
+(setq
+ ;; 2000ファイルまで履歴保存する
+ recentf-max-saved-items 2000
+ ;; 存在しないファイルは消さない
+ recentf-auto-cleanup 'never
+ ;; resentfで無視するファイル
+ recentf-exclude '("/recentf")
+ recentf-auto-save-timer (run-with-idle-timer 30 t 'recentf-save-list))
+
+;; enable
 (recentf-mode 1)
 
 ;;; ---------------------------------------------------------------------------
 ;;; 特定のバッファではlinum-modeをoff
 ;;; ---------------------------------------------------------------------------
-(add-hook 'shell-mode-hook    (lambda () (nlinum-mode -1)))
-(add-hook 'eshell-mode-hook   (lambda () (nlinum-mode -1)))
-(add-hook 'emacs-startup-hook (lambda () (nlinum-mode -1)))
+(defvar disable-nlinum-hooks
+  '(shell-mode-hook eshell-mode-hook emacs-startup-hook grep-mode-hook))
+
+(while (not (null disable-nlinum-hooks))
+  (add-hook (car disable-nlinum-hooks) (lambda () (nlinum-mode -1)))
+  (setq disable-nlinum-hooks (cdr disable-nlinum-hooks)))
 
 ;;; ---------------------------------------------------------------------------
 ;;; provide
