@@ -251,13 +251,7 @@
 (setq initial-frame-alist
       '((top . 20) (left . 0) (width . 128) (height . 75)
         (alpha . (100 100))
-        ;(minibuffer . nil)
         ))
-
-'(setq minibuffer-frame-alist
-      '((top . 1) (left . 1) (height . 2)
-        ;; You'll need to adjust the following number.
-        (width . 127)))
 
 ;; 余計なマージンを削除
 (set-fringe-mode 0)
