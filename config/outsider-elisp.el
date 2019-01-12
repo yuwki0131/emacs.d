@@ -26,3 +26,4 @@
 ;;; provide
 ;;; ---------------------------------------------------------------------------
 (provide 'outsider-elisp)
+;;; outsider-conf.el ends here

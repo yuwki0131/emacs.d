@@ -266,3 +266,4 @@
 ;;; provide
 ;;;---------------------------------------------------------------------------
 (provide 'appearance-conf)
+;;; appearance-conf.el ends here

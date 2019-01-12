@@ -132,4 +132,4 @@
 ;;; provide
 ;;; ---------------------------------------------------------------------------
 (provide 'builtin-conf)
-;;; bizz-conf.el ends here
+;;; builtin-conf.el ends here

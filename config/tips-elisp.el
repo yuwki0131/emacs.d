@@ -471,4 +471,4 @@
 ;;; provide
 ;;; ---------------------------------------------------------------------------
 (provide 'tips-elisp)
-;;; internal-elisp.el ends here
+;;; tips-elisp.el ends here
