@@ -6,6 +6,8 @@
 ;;; ---------------------------------------------------------------------------
 ;;; フォント設定
 ;;; ---------------------------------------------------------------------------
+(global-font-lock-mode t)
+(setq font-lock-support-mode 'jit-lock-mode)
 
 (defvar default-font-family "Ubuntu Mono")
 (setq default-font-family "Fira Code")
