@@ -12,7 +12,7 @@
 | info-lookup-symobl    | 編集中のプログラミング言語に基づき、symbolのinfoドキュメントを表示(あれば) |
 | face-list-display     | set-face-font                                                              |
 | set-face-font         |                                                                            |
-
+| apropos-variable      | apropos-variable then type “-hook”.
 
 | M-x command general | 説明 |
 |:------------------------|:------------------------------------------------------|
