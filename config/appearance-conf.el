@@ -87,8 +87,7 @@
 
 ;; coloring ac
 (ignore-errors
-  (set-face-app2 'ac-completion-face           color/deeppink  "gray"         nil t)
-  (set-face-app2 'ac-slime-menu-face           color/deeppink  "gray"         nil t))
+  (set-face-app2 'ac-completion-face           color/deeppink  "white"        nil nil))
 
 (ignore-errors
   ;; candidates
@@ -100,12 +99,22 @@
   (set-face-app2 'ac-selection-face            color/deeppink color/inactive nil t)
   (set-face-app2 'ac-gtags-selection-face      color/deeppink color/inactive nil t)
   (set-face-app2 'ac-selection-face            color/deeppink color/inactive nil t)
-  (set-face-app2 'ac-slime-selection-face      color/deeppink color/inactive nil t)
-  (set-face-app2 'ac-yasnippet-selection-face  color/deeppink color/inactive nil t)
-  ;; popup
-  (set-face-app2 'popup-tip-face               color/lightcyan color/darkcyan nil t)
-  (set-face-app2 'pulse-highlight-face         color/lightcyan color/darkcyan nil t)
-  (set-face-app2 'pulse-highlight-start-face   color/darkcyan  color/darkcyan nil t))
+  (set-face-app2 'ac-yasnippet-selection-face  color/deeppink color/inactive nil t))
+
+;; popup
+(ignore-errors
+  (set-face-app2 'popup-face                       color/deeppink "gray95" nil t)
+  (set-face-app2 'popup-isearch-match              color/deeppink "gray95" nil t)
+  (set-face-app2 'popup-menu-face                  color/deeppink "gray95" nil t)
+  (set-face-app2 'popup-menu-mouse-face            color/deeppink "gray95" nil t)
+  (set-face-app2 'popup-menu-selection-face        color/deeppink "gray95" nil t)
+  (set-face-app2 'popup-menu-summary-face          color/deeppink "gray95" nil t)
+  (set-face-app2 'popup-scroll-bar-background-face color/darkcyan "black"  nil t)
+  (set-face-app2 'popup-scroll-bar-foreground-face color/darkcyan "gray95" nil t)
+  (set-face-app2 'popup-summary-face               color/darkcyan "gray95" nil t)
+  (set-face-app2 'popup-tip-face                   color/darkcyan "gray95" nil t)
+  (set-face-app2 'pulse-highlight-face             color/darkcyan "gray95" nil t)
+  (set-face-app2 'pulse-highlight-start-face       color/darkcyan "gray95" nil t))
 
 ;; coloring bm
 (ignore-errors
