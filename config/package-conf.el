@@ -126,7 +126,12 @@
   (setq neo-theme 'ascii)
   (setq neo-window-fixed-size nil)
   (setq neo-window-width 30)
-  (add-hook 'neotree-mode-hook '(lambda () (nlinum-mode -1)))
+  (add-hook 'neotree-mode-hook
+            '(lambda ()
+               (nlinum-mode -1)
+               (setq mode-line-format nil)
+               (force-mode-line-update)
+               ))
   (setq neo-theme (if (display-graphic-p) 'icons 'arrow)))
 
 ;;; ---------------------------------------------------------------------------
