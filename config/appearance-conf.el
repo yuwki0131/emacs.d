@@ -125,6 +125,19 @@
   (set-face-app2 'swoop-face-target-line        "white"         color/deeppink nil t)
   (set-face-app2 'swoop-face-target-words       "white"         color/darkcyan nil t))
 
+;; fontset swoop
+(ignore-errors
+  (set-face-attribute
+   'swoop-face-header-format-line nil
+   :weight 'bold
+   :height 100
+   :font default-font-family)
+  (set-face-attribute
+   'swoop-face-line-buffer-name nil
+   :weight 'bold
+   :height 100
+   :font default-font-family))
+
 ;; coloring paren
 (ignore-errors
   (set-face-app2 'show-paren-match              "white"         color/darkcyan nil t)
