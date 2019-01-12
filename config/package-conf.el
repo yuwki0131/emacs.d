@@ -225,7 +225,14 @@
 ;; nlinumで設定あり
 (use-package-with-report git-gutter-fringe
   :config
-  (setq git-gutter-fr:side 'right-fringe))
+  (setq git-gutter-fr:side 'right-fringe)
+  (setq-default right-fringe-width 20)
+  (custom-set-variables
+   '(git-gutter:window-width 2)
+   '(git-gutter:modified-sign "●")
+   '(git-gutter:added-sign "◀")
+   '(git-gutter:deleted-sign "▶"))
+  (global-git-gutter-mode 1))
 
 ;;; ---------------------------------------------------------------------------
 ;;; package-func : simon : system monitor
