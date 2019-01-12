@@ -43,7 +43,7 @@
 (use-package-with-report nlinum
   :config
   (global-nlinum-mode t)
-  (setq nlinum-format " %4d "))
+  (setq nlinum-format " %4d  "))
 
 ;;; ---------------------------------------------------------------------------
 ;;; highlight line plus : カーソル行ハイライト(拡張)

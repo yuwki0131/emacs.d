@@ -181,8 +181,8 @@
 (ignore-errors
   (set-face-attribute
    'linum nil
-   :foreground "white"
-   :background color/inactive
+   :foreground color/inactive
+   :background "white"
    :weight 'bold))
 
 ;; ヘッダーラインの設定(active)
