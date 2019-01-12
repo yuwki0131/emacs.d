@@ -53,13 +53,19 @@
  ;; ファイル読込補完、大文字/小文字無視
  read-file-name-completion-ignore-case t
  ;; デフォルト起動時の画面非表示
- inhibit-startup-message t)
+ inhibit-startup-message t
+ ;; 規則文字のdisable
+ enable-kinsoku nil
+ )
 
 ;; バッファの終端を表示(空行表示)
 (setq-default indicate-empty-lines t)
 
 ;; インデントでタブを挿入しない
 (setq-default indent-tabs-mode nil)
+
+;; デフォルトインデント幅: 2
+(setq standard-indent 2)
 
 ;; 再帰的ミニバッファの深さを表示
 (minibuffer-depth-indicate-mode 1)
@@ -93,9 +99,13 @@
 ;;; ---------------------------------------------------------------------------
 ;;; デフォルトエンコーディング
 ;;; ---------------------------------------------------------------------------
-(prefer-coding-system 'utf-8)
-(setq coding-system-for-read 'utf-8
-      coding-system-for-write 'utf-8)
+(set-language-environment "Japanese")
+(set-terminal-coding-system   'utf-8)
+(prefer-coding-system         'utf-8)
+(setq coding-system-for-read  'utf-8
+      coding-system-for-write 'utf-8
+      default-process-coding-system '(utf-8 . utf-8))
+(setenv "LANG" "ja_JP.UTF-8")
 
 ;;; ---------------------------------------------------------------------------
 ;;; 別ディレクトリの同名バッファにディレクトリ名を付与する
