@@ -9,21 +9,23 @@
 ;;;  - Clojure
 ;;;  - Hylang
 ;;;  Functional Programming Languages
-;;;  - Scala
 ;;;  - GHC/Haskell
 ;;;  - OCaml
 ;;;  - SML
 ;;;  - Erlang
+;;;  - Elixir
+;;;  + Scala
 ;;;  Lightweight Languages
 ;;;  - Lua
-;;;  - Python
+;;;  + Python
 ;;;  AltJavascripts
-;;;  - JavaScript/TypeScript
+;;;  + JavaScript/TypeScript
 ;;;  Other Languages
+;;;  - Rust
 ;;;  - Processing
 ;;;  - Prolog
 ;;;  - Vimrc
-;;;  - Web
+;;;  + Web
 ;;; Code:
 (require 'package)
 (require 'use-package)
