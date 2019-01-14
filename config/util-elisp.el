@@ -72,7 +72,7 @@
   `(progn (require ,name) . ,body))
 
 ;;; ---------------------------------------------------------------------------
-;;; wget-construct-package : git cloneで*.elをDownload、ロード、configを記述
+;;; git-package : git cloneで*.elをDownload、ロード、configを記述
 ;;; ---------------------------------------------------------------------------
 (defmacro git-package (name-repo-save-path body)
   (let* ((name (car name-repo-save-path))
