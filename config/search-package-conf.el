@@ -60,6 +60,18 @@
     (setq migemo-command "cmigemo")
     (setq migemo-dictionary "/usr/share/cmigemo/utf-8/migemo-dict")))
 
+;;; ---------------------------------------------------------------------------
+;;; package-func : google this : ググる
+;;; ---------------------------------------------------------------------------
+(use-package-with-report google-this
+  :config
+  (google-this-mode t)
+  (setq google-this-location-suffix "co.jp")
+  (defun google-this-url ()
+    "URL for google searches."
+    (concat google-this-base-url google-this-location-suffix
+	    "/search?q=%s&hl=ja&num=100&as_qdr=y5&lr=lang_ja")))
+
 ;;; --------------------------------------------------------------------------------
 ;;; provide
 ;;; --------------------------------------------------------------------------------
