@@ -80,12 +80,6 @@
 ;; fringe colors
 (set-face-attribute 'fringe nil :foreground "white" :background "white")
 
-;; git gutter
-(ignore-errors
-  (set-face-app2 'git-gutter:modified color/orange    "white" t nil)
-  (set-face-app2 'git-gutter:added    color/darkcyan  "white" t nil)
-  (set-face-app2 'git-gutter:deleted  color/deeppink  "white" t nil))
-
 ;; coloring property
 (ignore-errors
   (set-face-app1 'info-header-xref  color/darkcyan nil t)
