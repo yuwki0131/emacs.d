@@ -24,6 +24,7 @@
 | D | display-package-conf | o           | 表示系パッケージの設定項目             |
 | E | edit-package-conf    | o           | 編集系パッケージの設定項目             |
 | F | font-conf            | -           | フォント設定                           |
+| G | grep-package-conf    | o           | 補完/grep系パッケージの設定項目             |
 | J | jump-package-conf    | o           | 移動系パッケージの設定項目             |
 | K | key-binding          | -           | Globalなキーバインドはここに一括       |
 | L | language-conf        | o           | 各言語設定                             |
