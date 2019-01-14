@@ -102,6 +102,9 @@
 ;;; failed packages scenario
 (generate-package-install-scenario)
 
+;;; ignored errors
+(report-ignore&report)
+
 ;;; ---------------------------------------------------------------------------
 ;;; custom set vaiables抑止
 ;;; ---------------------------------------------------------------------------

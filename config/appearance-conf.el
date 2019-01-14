@@ -81,7 +81,7 @@
 (set-face-attribute 'fringe nil :foreground "white" :background "white")
 
 ;; coloring property
-(ignore-errors
+(ignore-report
   (set-face-app1 'info-header-xref  color/darkcyan nil t)
   (set-face-app1 'info-xref         color/darkcyan nil t)
   (set-face-app1 'link              color/deeppink nil t)
@@ -89,10 +89,10 @@
   (set-face-app1 'minibuffer-prompt color/deeppink t   nil))
 
 ;; coloring ac
-(ignore-errors
+(ignore-report
   (set-face-app2 'ac-completion-face           color/deeppink  "white"        nil nil))
 
-(ignore-errors
+(ignore-report
   ;; candidates
   (set-face-app2 'ac-candidate-face            color/lightcyan color/inactive t nil)
   (set-face-app2 'ac-candidate-mouse-face      color/lightcyan color/inactive t nil)
@@ -105,7 +105,7 @@
   (set-face-app2 'ac-yasnippet-selection-face  color/deeppink color/inactive nil t))
 
 ;; popup
-(ignore-errors
+(ignore-report
   (set-face-app2 'popup-face                       color/deeppink "gray95" nil t)
   (set-face-app2 'popup-isearch-match              color/deeppink "gray95" nil t)
   (set-face-app2 'popup-menu-face                  color/deeppink "gray95" nil t)
@@ -120,19 +120,19 @@
   (set-face-app2 'pulse-highlight-start-face       color/darkcyan "gray95" nil t))
 
 ;; coloring bm
-(ignore-errors
+(ignore-report
   (set-face-app2 'bm-face                      color/lightcyan color/deeppink nil t)
   (set-face-app2 'bm-fringe-face               color/lightcyan color/deeppink nil t)
   (set-face-app2 'bm-fringe-persistent-face    "white"         color/orange   nil t)
   (set-face-app2 'bm-persistent-face           "white"         color/orange   nil t))
 
 ;; coloring isearch
-(ignore-errors
+(ignore-report
   (set-face-app2 'isearch                      "white"         color/darkcyan nil t)
   (set-face-app2 'isearch-fail                 "white"         color/darkred  nil t))
 
 ;; coloring swoop
-(ignore-errors
+(ignore-report
   (set-face-app2 'swoop-face-header-format-line color/lightcyan color/inactive nil t)
   (set-face-app2 'swoop-face-line-buffer-name   "white"         color/darkcyan nil t)
   (set-face-app2 'swoop-face-line-number        "white"         color/inactive nil t)
@@ -140,7 +140,7 @@
   (set-face-app2 'swoop-face-target-words       "white"         color/darkcyan nil t))
 
 ;; fontset swoop
-(ignore-errors
+(ignore-report
   (set-face-attribute
    'swoop-face-header-format-line nil
    :weight 'bold
@@ -153,12 +153,12 @@
    :font default-font-family))
 
 ;; coloring paren
-(ignore-errors
+(ignore-report
   (set-face-app2 'show-paren-match              "white"         color/darkcyan nil t)
   (set-face-app2 'show-paren-mismatch           "white"         color/deeppink nil t))
 
 ;; color after inserted
-(ignore-errors
+(ignore-report
   (set-face-app2 'secondary-selection           "deeppink"      color/inactive nil t))
 
 ;; カーソルの色
@@ -173,7 +173,7 @@
 (setq hl-line-face 'hlline-face)
 
 ;; カーソル桁ハイライト
-(ignore-errors
+(ignore-report
   (custom-set-faces '(col-highlight ((t (:inherit hl-line))))))
 
 ;; 選択範囲
@@ -181,7 +181,7 @@
 (set-face-background 'region "gray20")
 
 ;; 行番号(line-num)の色の設定
-(ignore-errors
+(ignore-report
   (set-face-attribute
    'linum nil
    :foreground color/inactive
@@ -189,7 +189,7 @@
    :weight 'bold))
 
 ;; ヘッダーラインの設定(active)
-(ignore-errors
+(ignore-report
   (set-face-attribute 'header-line nil
    :foreground color/lightcyan
    :background color/inactive
@@ -200,7 +200,7 @@
    :overline "orange"))
 
 ;; ヘッダーラインの設定(inactive)
-(ignore-errors
+(ignore-report
   (set-face-attribute 'header-line-inactive nil
    :foreground color/lightcyan
    :background color/inactive
@@ -211,7 +211,7 @@
    :box '(:line-width 1 :color "gray30" :style nil)))
 
 ;; モードラインの設定(active)
-(ignore-errors
+(ignore-report
   (set-face-attribute 'mode-line nil
    :foreground color/lightcyan
    :background color/inactive
@@ -222,7 +222,7 @@
    :box '(:line-width 1 :color "black" :style nil)))
 
 ;; モードラインの設定(inactive)
-(ignore-errors
+(ignore-report
   (set-face-attribute 'mode-line-inactive nil
    :foreground color/lightcyan
    :background color/inactive
@@ -232,7 +232,7 @@
    :font default-font-family
    :box '(:line-width 1 :color "gray30" :style nil)))
 
-(ignore-errors
+(ignore-report
   (custom-set-variables '(hl-sexp-background-color color/lightpink)))
 
 ;;;---------------------------------------------------------------------------

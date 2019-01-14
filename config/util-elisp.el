@@ -90,6 +90,28 @@
        ,body)))
 
 ;;; ---------------------------------------------------------------------------
+;;; failed-packages ignore&report : ignore-errorでエラーが発生した箇所のログを取る
+;;; ---------------------------------------------------------------------------
+
+(defvar ignore&report-log-file "~/.emacs.d/error.log")
+
+(defvar ignore&report-error-seq '())
+
+(defmacro ignore-report (&rest body)
+  `(let ((report (condition-case err
+                     (progn (progn . ,body) "")
+                   (error (format "\nThe error was: %s" err)))))
+     (when (not (string= "" report))
+       (setq ignore&report-error-seq
+             (cons (concat report (format "\nsexp=%s\n" (quote (,body))))
+                   ignore&report-error-seq)))))
+
+(defun report-ignore&report ()
+  (delete-file ignore&report-log-file)
+  (when ignore&report-error-seq
+    (spit ignore&report-log-file (apply 'concat ignore&report-error-seq))))
+
+;;; ---------------------------------------------------------------------------
 ;;; failed-packages report : use-packageに失敗したパッケージのレポート
 ;;; ---------------------------------------------------------------------------
 ;; パッケージのLoading 状況をレポートする。 *scratch*バッファに結果出力
