@@ -22,6 +22,8 @@ session.*
 *.elc
 eshell
 wrepo/*
+ido.last
+.#ido.last
 !.gitkeep
 gitrepo/*
 !.gitkeep
