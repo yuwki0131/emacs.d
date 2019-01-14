@@ -257,13 +257,13 @@
 ;; (setq linum-format " %4d")
 
 ;; 画面サイズ初期化
-(setq initial-frame-alist
-      '((top . 20) (left . 0) (width . 128) (height . 75)
-        (alpha . (100 100))
-        ))
+;; (setq initial-frame-alist
+;;       '((top . 20) (left . 0) (width . 128) (height . 75)
+;;         (alpha . (100 100))
+;;         ))
 
 ;; 余計なマージンを削除
-;; (set-fringe-mode 0)
+(set-fringe-mode 0)
 
 ;;;---------------------------------------------------------------------------
 ;;; provide
