@@ -8,28 +8,6 @@
 (require 'util-elisp)
 
 ;;; ---------------------------------------------------------------------------
-;;; ivy: 補完
-;;; ---------------------------------------------------------------------------
-(use-package-with-report ivy
-  :config
-  ;; ivy設定
-  (ivy-mode 1)
-  (setq ivy-use-virtual-buffers t)
-  (setq enable-recursive-minibuffers t)
-  (setq ivy-height 30)
-  (setq ivy-extra-directories nil)
-  (setq ivy-re-builders-alist
-        '((t . ivy--regex-plus))))
-
-;;; ---------------------------------------------------------------------------
-;;; counsel: 補完
-;;; ---------------------------------------------------------------------------
-(use-package-with-report counsel
-  :config
-  (defvar counsel-find-file-ignore-regexp
-    (regexp-opt '("./" "../"))))
-
-;;; ---------------------------------------------------------------------------
 ;;; swiper : 絞り込みfuzzy検索
 ;;; ---------------------------------------------------------------------------
 (use-package-with-report swiper)

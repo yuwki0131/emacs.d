@@ -42,23 +42,6 @@
   (auto-compile-on-save-mode))
 
 ;;; ---------------------------------------------------------------------------
-;;; package-func : auto complete : 自動補完
-;;; ---------------------------------------------------------------------------
-(use-package-with-report auto-complete
-  :config
-  (ac-config-default)
-  (setq ac-auto-start 1)
-  (setq ac-candidate-max 40)
-  (add-to-list 'ac-dictionary-directories "~/.emacs.d/ac-dict"))
-
-;;; ---------------------------------------------------------------------------
-;;; package-func : git complete : git-grep自動補完
-;;; ---------------------------------------------------------------------------
-(wconst-pakcage 'git-complete
-  "https://raw.githubusercontent.com/zk-phi/git-complete/master/git-complete.el"
-  nil)
-
-;;; ---------------------------------------------------------------------------
 ;;; package-func : auto async byte compile : emacsのバイトコンパイルの自動化
 ;;; ---------------------------------------------------------------------------
 (use-package-with-report auto-async-byte-compile
