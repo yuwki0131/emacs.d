@@ -90,6 +90,28 @@
 (use-package key-binding)
 
 ;;; ---------------------------------------------------------------------------
+;;; exwm
+;;; ---------------------------------------------------------------------------
+;;; exwm
+
+;; (require 'exwm)
+;; (require 'exwm-config)
+;; (exwm-config-default)
+;; (setq exwm-workspace-show-all-buffers t)
+;; (setq exwm-layout-show-all-buffers t)
+
+;; (require 'exwm-randr)
+;; (setq exwm-randr-workspace-output-plist '(0 "VGA1"))
+;; (add-hook 'exwm-randr-screen-change-hook
+;;           (lambda ()
+;;             (start-process-shell-command
+;;              "xrandr" nil "xrandr --output VGA1 --left-of LVDS1 --auto")))
+;; (exwm-randr-enable)
+
+;; on your magic
+;; setxkbmap -option ctrl:swapcaps
+
+;;; ---------------------------------------------------------------------------
 ;;; reports
 ;;; ---------------------------------------------------------------------------
 ;;; 設定レポート
