@@ -60,4 +60,4 @@
 ;;; provide
 ;;; --------------------------------------------------------------------------------
 (provide 'grep-package-conf)
-;;; package-conf.el ends here
+;;; grep-package-conf.el ends here
