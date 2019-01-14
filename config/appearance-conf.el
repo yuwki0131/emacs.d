@@ -80,6 +80,14 @@
 ;; fringe colors
 (set-face-attribute 'fringe nil :foreground "white" :background "white")
 
+;; for grep
+(ignore-report
+ (set-face-app2 'compilation-info   color/deeppink "white" nil nil)
+ (set-face-app2 'wgrep-delete-face "gray95"        color/darkcyan nil t)
+ (set-face-app2 'wgrep-done-face    color/darkcyan "white"        nil nil)
+ (set-face-app2 'wgrep-face        "white"         color/darkcyan nil t)
+ (set-face-app2 'wgrep-file-face   "white"         color/darkcyan nil t))
+
 ;; coloring property
 (ignore-report
   (set-face-app1 'info-header-xref  color/darkcyan nil t)
