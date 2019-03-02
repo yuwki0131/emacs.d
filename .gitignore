@@ -1,27 +1,40 @@
-auto-save-list
-elpa
 kkcrc
-semanticdb
-yasnippets
-TAGS
-dicts
-install-scenario.el
-install-scenario.elc
 mysnippets
 tramp
 ac-comphist.dat
-custom.el
-junk
-recentf
 url
-network-security.data
-session.*
 .markdown-preview.html
 .python-environments
 .no-package-refresh-contents
+
+# sessions
+session.*
+
+# packages
+auto-save-list
+elpa
+wrepo/*
+
+# package specific records
+semanticdb
+yasnippets
+TAGS
+ido.last
+.#ido.last
+dicts
+network-security.data
+junk
+recentf
+
+# for composition
 *.elc
 eshell
-wrepo/*
+error.log
+custom.el
+install-scenario.el
+install-scenario.elc
+
+# git
 !.gitkeep
 gitrepo/*
 !.gitkeep

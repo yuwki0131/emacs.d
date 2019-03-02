@@ -60,7 +60,7 @@
    (mapcar #'add-comment-out (split-string text "\n"))))
 
 ;;; ---------------------------------------------------------------------------
-;;; wget-construct-package : wgetで*.elをロード、configを記述
+;;; wget-construct-package : wgetで*.elをDownload、ロード、configを記述
 ;;; ---------------------------------------------------------------------------
 (defmacro wconst-pakcage (name url-string &rest body)
   (let* ((file-name (car (last (split-string url-string "/"))))
@@ -72,7 +72,7 @@
   `(progn (require ,name) . ,body))
 
 ;;; ---------------------------------------------------------------------------
-;;; wget-construct-package : wgetで*.elをロード、configを記述
+;;; git-package : git cloneで*.elをDownload、ロード、configを記述
 ;;; ---------------------------------------------------------------------------
 (defmacro git-package (name-repo-save-path body)
   (let* ((name (car name-repo-save-path))
@@ -88,6 +88,28 @@
        (add-to-list 'load-path ,file-path)
        (require (quote ,name))
        ,body)))
+
+;;; ---------------------------------------------------------------------------
+;;; failed-packages ignore&report : ignore-errorでエラーが発生した箇所のログを取る
+;;; ---------------------------------------------------------------------------
+
+(defvar ignore&report-log-file "~/.emacs.d/error.log")
+
+(defvar ignore&report-error-seq '())
+
+(defmacro ignore-report (&rest body)
+  `(let ((report (condition-case err
+                     (progn (progn . ,body) "")
+                   (error (format "\nThe error was: %s" err)))))
+     (when (not (string= "" report))
+       (setq ignore&report-error-seq
+             (cons (concat report (format "\nsexp=%s\n" (quote (,body))))
+                   ignore&report-error-seq)))))
+
+(defun report-ignore&report ()
+  (delete-file ignore&report-log-file)
+  (when ignore&report-error-seq
+    (spit ignore&report-log-file (apply 'concat ignore&report-error-seq))))
 
 ;;; ---------------------------------------------------------------------------
 ;;; failed-packages report : use-packageに失敗したパッケージのレポート
@@ -247,7 +269,7 @@
 
 (defun generate-readme-text ()
   (concat
-   (slurp "~/.emacs.d/datafiles/readme-template.rm")
+   (slurp "~/.emacs.d/datafiles/README.template.md")
    ;; explain key binds
    "\n## キーバインド\n\n"
    "デフォルト以外のglobal-set-key設定\n\n"

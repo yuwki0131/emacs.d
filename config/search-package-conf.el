@@ -1,3 +1,4 @@
+;;; search-package-conf.el --- packages
 ;;; Commentary:
 ;;;  Emacsインストールパッケージ(package-install要) / search-package-conf.el
 ;;;  package search : 検索
@@ -7,57 +8,19 @@
 (require 'util-elisp)
 
 ;;; ---------------------------------------------------------------------------
-;;; visual regexp steroids : 正規表現の拡張
-;;; ---------------------------------------------------------------------------
-(use-package-with-report visual-regexp-steroids
-  :config
-  (setq vr/engine 'java))
-
-;;; ---------------------------------------------------------------------------
-;;; helm : helm
-;;; ---------------------------------------------------------------------------
-(use-package-with-report helm
-   :diminish helm-mode
-   :config
-  (require 'helm-config)
-  (helm-mode 1))
-
-;;; ---------------------------------------------------------------------------
-;;; zop-to-char : M-zの可視化
-;;; ---------------------------------------------------------------------------
-(use-package-with-report zop-to-char)
-
-;;; ---------------------------------------------------------------------------
 ;;; swiper : 絞り込みfuzzy検索
 ;;; ---------------------------------------------------------------------------
 (use-package-with-report swiper)
-
-;;; ---------------------------------------------------------------------------
-;;; dumb-jump : 言語によらず定義にジャンプ
-;;; ---------------------------------------------------------------------------
-(use-package-with-report dumb-jump
-  :config
-  (setq dumb-jump-mode t))
 
 ;;; ---------------------------------------------------------------------------
 ;;; swoop : トークンレベル移動(検索系)
 ;;; ---------------------------------------------------------------------------
 (use-package-with-report swoop
   :config
-  (setq swoop-minibuffer-input-dilay 0.4))
-
-;;; ---------------------------------------------------------------------------
-;;; ace jump mode : 任意の場所に3ストロークで移動
-;;; ---------------------------------------------------------------------------
-(use-package-with-report ace-jump-mode)
-
-;;; ---------------------------------------------------------------------------
-;;; subword mode : Camel notationのシンボル移動時の単位を変更
-;;; ---------------------------------------------------------------------------
-;;; (before) |ITransientAssociative| -> (after) |I|Transient|Associative|
-(use-package-with-report subword
-  :config
- (global-subword-mode +1))
+  (setq swoop-minibuffer-input-dilay 0.4)
+  (setq swoop-window-split-current-window: nil)
+  (setq swoop-font-size-change: t)
+  (setq swoop-font-size: 0.9))
 
 ;;; ---------------------------------------------------------------------------
 ;;; migemo : isearchをローマ字のままで日本語も検索可能に
@@ -74,6 +37,18 @@
     (migemo-init)
     (setq migemo-command "cmigemo")
     (setq migemo-dictionary "/usr/share/cmigemo/utf-8/migemo-dict")))
+
+;;; ---------------------------------------------------------------------------
+;;; package-func : google this : ググる
+;;; ---------------------------------------------------------------------------
+(use-package-with-report google-this
+  :config
+  (google-this-mode t)
+  (setq google-this-location-suffix "co.jp")
+  (defun google-this-url ()
+    "URL for google searches."
+    (concat google-this-base-url google-this-location-suffix
+	    "/search?q=%s&hl=ja&num=100&as_qdr=y5&lr=lang_ja")))
 
 ;;; --------------------------------------------------------------------------------
 ;;; provide

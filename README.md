@@ -10,31 +10,34 @@
 
 ## スクリーンショット
 
-<img src="img/img_use1.png" width="320" hspace="10"><img src="img/img_use2.png" width="320" hspace="10">
+<img src="img/img_use1.png" width="200" hspace="10"><img src="img/img_use2.png" width="200" hspace="10"><img src="img/img_use3.png" width="200" hspace="10">
 
 ## ~/.emacs.d/configディレクトリ以下構成
 
 ### elispファイル構成
 
-| | *.elファイル |use-package|設定|
-|:---:|:------------------|:-:|:------------------------------------------------------------|
-| A | appearance-conf     | - | emacsデフォルトの外見設定 |
-| B | builtin-conf        | - | emacsデフォルトの設定項目 |
-| C | common-lang-conf    | o | 言語共通設定 or 複数言語に共通する設定 |
-| D | display-package-conf| o | 表示系パッケージの設定項目 |
-| E | edit-package-conf   | o | 編集系パッケージの設定項目 |
-| F | font-conf           | - | フォント設定 |
-| K | key-binding         | - | Globalなキーバインドはここに一括 |
-| L | language-conf       | o | 各言語設定 |
-| M | modeline-conf       | - | モードライン設定 |
-| O | outsider-eslip      | - | 外部から持ち込んだコード |
-| P | package-conf        | o | 各パッケージの設定項目 |
-| S | search-package-conf | o | 検索系パッケージの設定項目 |
-| T | tips-eslip          | - | 雑多な追加機能のコード |
-| U | util-elisp          | - | configファイル用のユーティリティ |
+|   | *.elファイル         | use-package | 設定                                   |
+|:-:|:---------------------|:-----------:|:---------------------------------------|
+| A | appearance-conf      | -           | emacsデフォルトの外見設定              |
+| B | builtin-conf         | -           | emacsデフォルトの設定項目              |
+| C | common-lang-conf     | o           | 言語共通設定 or 複数言語に共通する設定 |
+| D | display-package-conf | o           | 表示系パッケージの設定項目             |
+| E | edit-package-conf    | o           | 編集系パッケージの設定項目             |
+| F | font-conf            | -           | フォント設定                          |
+| G | grep-package-conf    | o           | 補完/grep系パッケージの設定項目        |
+| J | jump-package-conf    | o           | 移動系パッケージの設定項目             |
+| K | key-binding          | -           | Globalなキーバインドはここに一括       |
+| L | language-conf        | o           | 各言語設定                             |
+| M | modeline-conf        | -           | モードライン設定                       |
+| O | outsider-eslip       | -           | 外部から持ち込んだコード               |
+| P | package-conf         | o           | 各パッケージの設定項目                 |
+| S | search-package-conf  | o           | 検索系パッケージの設定項目             |
+| T | tips-eslip           | -           | 雑多な追加機能のコード                 |
+| U | util-elisp           | -           | configファイル用のユーティリティ       |
+| W | wm-conf              | -           | emacsをWindowManagerにする時の設定       |
 
 * 順不同
-* 残り(G, H, I, J, N, Q, R, V, W, X, Y, Z)
+* 残り(G, H, I, N, Q, R, V, X, Y, Z)
 
 ## 設定
 
@@ -43,15 +46,7 @@ $ git clone https://github.com/yuwki0131/emacs.d
 $ mv emacs.d ~/.emacs.d
 ```
 
-### 要use-package
-
-* 自動で入れられない(?)ため
-
-```
-M-x package-install use-package
-```
-
-## elpaからpackage-install
+### elpaからpackage-install
 
 初期化するとエラーレポートが出るので、以下のコマンドを実行。
 不足しているelpaの最新版パッケージがインストールされる。
@@ -60,12 +55,20 @@ M-x package-install use-package
 M-x install-complements
 ```
 
+インストールしたら再起動。
+
 ## byte-compile *.el files
 
-`config/*.el`下のファイルを更新。
+`.emacs.d/*.elc`と`.emacs.d/config/*.elc`のファイルを更新。
 
 ```
 M-x refresh-byte-compile
+```
+
+`.emacs.d/*.elc`と`.emacs.d/config/*.elc`のファイルを削除。
+
+```
+M-x delete-byte-compile
 ```
 
 ## キーバインド
@@ -86,13 +89,10 @@ M-x refresh-byte-compile
 |編集|挿入|C-:|insert-underscore|アンダースコア挿入|
 |編集|挿入|M-RET|yas-insert-snippet|snippet: yaスニペット挿入|
 |編集|挿入|M-y|browse-kill-ring|kill-ringを表示|
-|編集|置換|C-M-s|vr/isearch-forward|vr/isearch側の正規表現置換|
-|編集|置換|C-M-r|vr/isearch-backward|vr/isearch側の正規表現置換|
 |編集|括弧|C-l|insert-parenthesis|括弧挿入|
 |編集|括弧|C-S-l|insert-angle-brackets|括弧挿入|
 |編集|括弧|M-l|insert-brackets|括弧挿入|
 |編集|括弧|M-S-l|insert-squares|括弧挿入|
-|編集|改行|C-m|smart-newline|スマートな改行|
 |移動|バッファ内|M-m|backward-paragraph|パラグラフ単位の移動|
 |移動|バッファ内|M-p|scroll-up-in-place|1行スクロール(カーソル位置固定)|
 |移動|バッファ内|M-n|scroll-down-in-place|1行スクロール(カーソル位置固定)|
@@ -117,18 +117,20 @@ M-x refresh-byte-compile
 |機能||C-z C-j|open-junk-file|ジャンクファイルを作成、開く|
 |機能||C-z C-p|shell-pop|shell-popを表示/非表示|
 |機能|置換|C-z C-r|replace-string|文字列置換|
-|機能|検索|C-z C-b|grep-this|grep this: バッファ内Grep|
+|機能|検索|C-z g|grep-this|grep this: バッファ内Grep|
 |機能|検索|C-z C-f|grep-find-this|grep find this: ディレクトリ配下Grep|
 |機能|検索|C-z C-s|swoop|swoop: バッファ内を動的検索/移動|
 |機能|検索|C-z C-c|codic|codic: コーディング用辞書|
 |機能|検索|C-z w|define-word|define-word: 英英辞典|
 |機能|検索|C-z C-w|define-word-at-point|define-word: 英英辞典|
 |機能|検索|C-z r|rgrep|rgrep: ディレクトリ内Grep|
-|機能|検索|C-z g|google-this|google-this(Googleで検索)|
+|機能|検索|C-z C-y|counsel-ag|counsel-ag: ag search|
+|機能|検索|C-z C-b|counsel-git-grep|counsel-git-grep: Git-Grep|
+|機能|検索|C-z M-g|google-this|google-this(Googleで検索)|
 |機能|検索|C-z C-a|goto-address-at-point|現在のURLリンクを開く<br/>(goto-address-mode)|
 |機能|検索|C-z i l|imenu-list-smart-toggle|imenu-list(関数定義一覧表示)|
 |機能|検索|C-z i b|ibuffer|ibuffer(バッファ一覧表示)|
-|機能|表示|C-z s|make-buffer-small|バッファのウィンドウサイズを縮小|
+|機能|表示|C-z s|make-buffer-small|バッファのフレームサイズを縮小|
 |機能|表示|C-z C-n|neotree-toggle|ディレクトリ階層を表示 (neo tree)|
 |機能|表示|C-z m|magit-status|magit (Emacs Git)|
 |機能|表示|C-z C-k|describe-bindings|キーバインド表示|
@@ -145,15 +147,15 @@ M-x refresh-byte-compile
 |編集||C-a C-p|downcase-word|upcase/downcase word|
 |編集|削除|C-a C-c|kill-until-corresp-paren|括弧削除|
 |編集|削除|C-a C-k|kill-this-buffer|現在のバッファを削除|
-|編集|削除|C-a C-h|backward-kill-word|後ろ向きな単語削除|
 |編集|削除|C-a C-f|merge2lines|行のマージ(インデント用などの空白削除) <br/> (不要かも)|
 |編集|削除|C-a C-i|just-one-space|周囲の空白を削除し、単一の空白にする|
 |編集|挿入|C-a C-q|quoted-insert|旧(C-q) 引用付き挿入(置換等で使用)|
-|編集|挿入|C-a C-s|insert-shoborn|(´･_･`)を挿入|
+|編集|挿入|C-a C-s|insert-turapoyo|(´･_･`)を挿入|
 |編集|挿入|C-a C-d|insert-date-normal|現在時刻挿入|
 |編集|挿入|C-a M-d|insert-date-markdown|現在時刻挿入|
 |編集|挿入|C-a C-e|insert-current-file-name|現在のファイルパスを挿入|
 |編集|挿入|C-a C-m|insert--s|コメント用の線を挿入|
+|編集|挿入|C-a C-y|counsel-yank-pop|killringから選択して挿入|
 |編集|refactoring|C-a i|iedit-mode|iedit-mode: 同一のシンボルを同時置換|
 |編集|その他|C-a C-r|rectangle-mark-mode|矩形選択|
 |移動|バッファ内|C-e C-l|goto-last-change|最後の変更箇所へ|
@@ -162,6 +164,7 @@ M-x refresh-byte-compile
 |移動|バッファ内|C-e C-l|recenter-top-bottom|top-center-bottom間|
 |移動|バッファ内|C-e C-l|imenu|imenu: 関数定義へ|
 |移動|バッファ内|C-e C-s|swiper|swiper: バッファ内を動的検索/移動|
+|移動|バッファ間|C-e C-z|ace-window|ace-window: Window間移動|
 |移動|バッファ間|C-e C-c|shell|shell/repl/grepxへ|
 |移動|バッファ間|C-e C-v|move-to-scratch|shell/repl/grepxへ|
 |移動|バッファ間|C-e g|move-to-grep|shell/repl/grepxへ|

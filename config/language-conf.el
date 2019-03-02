@@ -7,23 +7,26 @@
 ;;;  - Guile/Scheme
 ;;;  - SBCL/CommonLisp
 ;;;  - Clojure
-;;;  - Hylang
+;;;  + Hylang
 ;;;  Functional Programming Languages
-;;;  - Scala
 ;;;  - GHC/Haskell
 ;;;  - OCaml
 ;;;  - SML
 ;;;  - Erlang
+;;;  - Elixir
+;;;  + Scala
 ;;;  Lightweight Languages
 ;;;  - Lua
-;;;  - Python
+;;;  + Python
 ;;;  AltJavascripts
-;;;  - Type Script
+;;;  + JavaScript/TypeScript
 ;;;  Other Languages
+;;;  - Rust
 ;;;  - Processing
 ;;;  - Prolog
 ;;;  - Vimrc
-;;;  - Web
+;;;  - yaml
+;;;  + Web
 ;;; Code:
 (require 'package)
 (require 'use-package)
@@ -36,51 +39,51 @@
 ;;; ---------------------------------------------------------------------------
 ;;; Gauche/Scheme (checked)
 ;;; ---------------------------------------------------------------------------
-(defvar scheme-program-name "/usr/bin/gosh")
+;; (defvar scheme-program-name "/usr/bin/gosh")
 
 ;;; ---------------------------------------------------------------------------
 ;;; racket-mode : Racket/Scheme (checked)
 ;;; ---------------------------------------------------------------------------
-(use-package-with-report racket-mode
-  :mode (("\\.rkt$" . racket-mode))
-  :config
-  (defun my-racket-mode ()
-    (define-key racket-mode-map (kbd "C-c r") 'racket-run))
-  (add-hook 'racket-mode-hook 'my-racket-mode))
+;; (use-package-with-report racket-mode
+;;   :mode (("\\.rkt$" . racket-mode))
+;;   :config
+;;   (defun my-racket-mode ()
+;;     (define-key racket-mode-map (kbd "C-c r") 'racket-run))
+;;   (add-hook 'racket-mode-hook 'my-racket-mode))
 
 ;;; ---------------------------------------------------------------------------
 ;;; geiser-mode : Guile/Scheme (checked)
 ;;; ---------------------------------------------------------------------------
-(use-package-with-report geiser
-  :config
-  (defvar geiser-active-implementations '(guile)))
+;; (use-package-with-report geiser
+;;   :config
+;;   (defvar geiser-active-implementations '(guile)))
 
 ;;; ---------------------------------------------------------------------------
 ;;; Common Lisp (SBCL/SLIME)の設定 (checked)
 ;;; ---------------------------------------------------------------------------
-(defvar inferior-lisp-program "/usr/bin/sbcl")
+;; (defvar inferior-lisp-program "/usr/bin/sbcl")
 
-(use-package-with-report slime
-  :config
-  (setq slime-contribs '(slime-fancy))
-  (slime-setup '(slime-repl slime-fancy slime-banner slime-indentation)))
+;; (use-package-with-report slime
+;;   :config
+;;   (setq slime-contribs '(slime-fancy))
+;;   (slime-setup '(slime-repl slime-fancy slime-banner slime-indentation)))
 
-(use-package-with-report ac-slime
-  :config
-  (add-hook 'slime-mode-hook 'set-up-slime-ac)
-  (add-hook 'slime-repl-mode-hook 'set-up-slime-ac))
+;; (use-package-with-report ac-slime
+;;   :config
+;;   (add-hook 'slime-mode-hook 'set-up-slime-ac)
+;;   (add-hook 'slime-repl-mode-hook 'set-up-slime-ac))
 
 ;;; ---------------------------------------------------------------------------
 ;;; clojure-mode : Clojure (unchecked)
 ;;; ---------------------------------------------------------------------------
-(use-package-with-report clojure-mode)
-'(use-package-with-report clj-refactor
-  :config
-  (defun my-clojure-mode-hook ()
-    (clj-refactor-mode 1)
-    (yas-minor-mode 1)
-    (cljr-add-keybindings-with-prefix "C-c C-m"))
-  (add-hook 'clojure-mode-hook 'my-clojure-mode-hook))
+;; (use-package-with-report clojure-mode)
+;; '(use-package-with-report clj-refactor
+;;   :config
+;;   (defun my-clojure-mode-hook ()
+;;     (clj-refactor-mode 1)
+;;     (yas-minor-mode 1)
+;;     (cljr-add-keybindings-with-prefix "C-c C-m"))
+;;   (add-hook 'clojure-mode-hook 'my-clojure-mode-hook))
 
 ;;; ---------------------------------------------------------------------------
 ;;; hy-mode : Hylang (checked)
@@ -104,46 +107,46 @@
 ;;; ---------------------------------------------------------------------------
 ;;; haskell-mode : Haskell (checked)
 ;;; ---------------------------------------------------------------------------
-(use-package-with-report haskell-mode
-  :mode (("\\.hs$" . haskell-mode)
-         ("\\.lhs$" . literate-haskell-mode))
-  :config
-  (defvar haskell-program-name "ghci"))
+;; (use-package-with-report haskell-mode
+;;   :mode (("\\.hs$" . haskell-mode)
+;;          ("\\.lhs$" . literate-haskell-mode))
+;;   :config
+;;   (defvar haskell-program-name "ghci"))
 
-(ignore-require-with-report
- "failed tot load inf-haskell, haskell-cabal"
- (use-package inf-haskell)
- (use-package haskell-cabal
-   :mode (("\\.cabal$" . haskell-cabal-mode)))
- (setq haskell-font-lock-symbols t))
+;; (ignore-require-with-report
+;;  "failed tot load inf-haskell, haskell-cabal"
+;;  (use-package inf-haskell)
+;;  (use-package haskell-cabal
+;;    :mode (("\\.cabal$" . haskell-cabal-mode)))
+;;  (setq haskell-font-lock-symbols t))
 
 ;;; ---------------------------------------------------------------------------
 ;;; taureg-mode ocaml : OCaml (unchecked)
 ;;; ---------------------------------------------------------------------------
-(ignore-require-with-report
- "failed to load taureg-mode & others ... (OCaml)"
- (use-package taureg-mode
-   :mode (("\\.ml[iylp]?" . tuareg-mode))))
+;; (ignore-require-with-report
+;;  "failed to load taureg-mode & others ... (OCaml)"
+;;  (use-package taureg-mode
+;;    :mode (("\\.ml[iylp]?" . tuareg-mode))))
 
 ;;; ---------------------------------------------------------------------------
 ;;; sml-mode : SML (checked)
 ;;; ---------------------------------------------------------------------------
 ;; 設定はSML/NJ
-(use-package-with-report sml-mode
-  :config
-  (setq sml-program-name "sml"))
+;; (use-package-with-report sml-mode
+;;   :config
+;;   (setq sml-program-name "sml"))
 
 ;;; ---------------------------------------------------------------------------
 ;;; erlang-mode : Erlang (unchecked)
 ;;; ---------------------------------------------------------------------------
 ;; erlangのinstall pathを指定 (設定場所が微妙)
-(ignore-require-with-report
- "failed tot load taureg-start & others ... (Erlang)"
- (add-to-list 'load-path "/usr/lib/erlang/lib/tools-2.8.3/emacs")
- (setq erlang-root-dir "/usr/local/otp")
- (setq exec-path (cons "/usr/local/otp" exec-path))
- (use-package erlang-start)
- (use-package erlang-flymake))
+;; (ignore-require-with-report
+;;  "failed tot load taureg-start & others ... (Erlang)"
+;;  (add-to-list 'load-path "/usr/lib/erlang/lib/tools-2.8.3/emacs")
+;;  (setq erlang-root-dir "/usr/local/otp")
+;;  (setq exec-path (cons "/usr/local/otp" exec-path))
+;;  (use-package erlang-start)
+;;  (use-package erlang-flymake))
 
 ;;; --------------------------------------------------------------------------------
 ;;; config : LL
@@ -153,12 +156,12 @@
 ;;; lua-mode : Lua (checked)
 ;;; ---------------------------------------------------------------------------
 ;; luaのinstall pathを指定
-(add-to-list 'load-path "/path/to/directory/where/lua-mode-el/resides")
-(use-package-with-report lua-mode
-  :mode
-  (("\\.lua$" . lua-mode))
-  :interpreter
-  (("lua" . lua-mode)))
+;; (add-to-list 'load-path "/path/to/directory/where/lua-mode-el/resides")
+;; (use-package-with-report lua-mode
+;;   :mode
+;;   (("\\.lua$" . lua-mode))
+;;   :interpreter
+;;   (("lua" . lua-mode)))
 
 ;;; ---------------------------------------------------------------------------
 ;;; jedi, epc, elpy, flycheck : Python (unchecked)
@@ -218,16 +221,31 @@
 
 (add-hook 'python-mode-hook 'my-python-mode)
 
-;;; --------------------------------------------------------------------------------
-;;; config : AltJavascripts
-;;; --------------------------------------------------------------------------------
-
 ;;; ---------------------------------------------------------------------------
-;;; prolog-mode : Type Script (unchecked)
+;;; js2(js/ts)-mode : JavaScript/TypeScript (unchecked)
 ;;; ---------------------------------------------------------------------------
 (use-package-with-report typescript-mode
   :mode
-  (("\\.ts$" . typescript-mode)))
+  (("\\.ts$" . typescript-mode))
+  :config
+  (defun my-ts-mode ()
+    (progn
+      (setq indent-level 2)
+      (setq tab-width 2)
+      (flycheck-mode t)
+      ))
+  (add-hook 'ts-mode-hook 'my-ts-mode))
+
+(use-package-with-report js2-mode
+  :config
+  (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
+  (defun my-js-mode ()
+    (progn
+      (setq indent-level 2)
+      (setq tab-width 2)
+      (flycheck-mode t)
+      ))
+  (add-hook 'js2-mode-hook 'my-js-mode))
 
 ;;; --------------------------------------------------------------------------------
 ;;; config : Other Languages
@@ -236,31 +254,41 @@
 ;;; ---------------------------------------------------------------------------
 ;;; rust-mode : rust用 (rust)
 ;;; ---------------------------------------------------------------------------
-(use-package-with-report rust-mode)
+;; (use-package-with-report rust-mode)
 
 ;;; ---------------------------------------------------------------------------
 ;;; processing-mode : Processing
 ;;; ---------------------------------------------------------------------------
-(use-package-with-report processing-mode)
+;; (use-package-with-report processing-mode)
 
 ;;; ---------------------------------------------------------------------------
 ;;; prolog-mode : Prolog (checked)
 ;;; ---------------------------------------------------------------------------
-(add-to-list 'auto-mode-alist '("\\.pl$" . prolog-mode))
-(setq prolog-program-name "swipl")
-(setq prolog-consult-string "[user].\n")
+;; (add-to-list 'auto-mode-alist '("\\.pl$" . prolog-mode))
+;; (setq prolog-program-name "swipl")
+;; (setq prolog-consult-string "[user].\n")
 
 ;;; ---------------------------------------------------------------------------
 ;;; vimrc-mode : vimrc編集用 (checked)
 ;;; ---------------------------------------------------------------------------
-(use-package-with-report vimrc-mode)
+;; (use-package-with-report vimrc-mode)
+
+;;; ---------------------------------------------------------------------------
+;;; yaml-mode : yaml (checked)
+;;; ---------------------------------------------------------------------------
+(use-package-with-report yaml-mode)
+
+;;; ---------------------------------------------------------------------------
+;;; dockerfile-mode : for docker (checked)
+;;; ---------------------------------------------------------------------------
+(use-package-with-report dockerfile-mode)
 
 ;;; ---------------------------------------------------------------------------
 ;;; web-mode : web編集用
 ;;; ---------------------------------------------------------------------------
 (use-package-with-report web-mode
   :mode
-  (("\\.jsp$" . web-mode))
+  (("\\.js$" . web-mode))
   (("\\.html$" . web-mode))
   :config
   (setq web-mode-markup-indent-offset 2)

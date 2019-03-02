@@ -27,7 +27,9 @@
 ;;; ---------------------------------------------------------------------------
 ;;; origami : ford the inner of parenthesis
 ;;; ---------------------------------------------------------------------------
-(use-package-with-report origami)
+;;; memo:
+;;;   使わないので
+;; (use-package-with-report origami)
 
 ;;; ---------------------------------------------------------------------------
 ;;; highlight numbers : 数値のハイライト
@@ -47,7 +49,9 @@
 ;;; ---------------------------------------------------------------------------
 ;;; flymake : 文法チェッカ
 ;;; ---------------------------------------------------------------------------
-(use-package-with-report flycheck)
+(use-package-with-report flycheck
+  :config
+  (add-hook 'after-init-hook #'global-flycheck-mode))
 
 (use-package-with-report flymake-cursor)
 

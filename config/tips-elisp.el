@@ -442,13 +442,28 @@
   (async-shell-command (concat "cd " quickblog-project-root "; lein ring server")))
 
 ;;; ---------------------------------------------------------------------------
+;;; delete byte-compile files
+;;; ---------------------------------------------------------------------------
+
+(defun delete-byte-compile ()
+  (interactive)
+  (shell-command
+   "rm ~/.emacs.d/*.elc")
+  (shell-command
+   "rm ~/.emacs.d/config/*.elc"))
+
+;;; ---------------------------------------------------------------------------
 ;;; refresh byte-compile files
 ;;; ---------------------------------------------------------------------------
 
 (defun refresh-byte-compile ()
   (interactive)
   (shell-command
+   "rm ~/.emacs.d/*.elc")
+  (shell-command
    "rm ~/.emacs.d/config/*.elc")
+  (shell-command
+   "emacs -batch -f batch-byte-compile ~/.emacs.d/*.el")
   (shell-command
    "emacs -batch -f batch-byte-compile ~/.emacs.d/config/*.el"))
 
@@ -456,4 +471,4 @@
 ;;; provide
 ;;; ---------------------------------------------------------------------------
 (provide 'tips-elisp)
-;;; internal-elisp.el ends here
+;;; tips-elisp.el ends here

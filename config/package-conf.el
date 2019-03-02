@@ -42,64 +42,23 @@
   (auto-compile-on-save-mode))
 
 ;;; ---------------------------------------------------------------------------
-;;; package-func : auto complete : 自動補完
-;;; ---------------------------------------------------------------------------
-(use-package-with-report auto-complete
-  :config
-  (ac-config-default)
-  (setq ac-auto-start 1)
-  (setq ac-candidate-max 40)
-  (add-to-list 'ac-dictionary-directories "~/.emacs.d/ac-dict"))
-
-;;; ---------------------------------------------------------------------------
-;;; package-func : git complete : git-grep自動補完
-;;; ---------------------------------------------------------------------------
-;; (wconst-pakcage 'git-complete
-;;   "https://raw.githubusercontent.com/zk-phi/git-complete/master/git-complete.el"
-;;   nil)
-
-;;; ---------------------------------------------------------------------------
-;;; package-func : google this : ググる
-;;; ---------------------------------------------------------------------------
-(use-package-with-report google-this
-  :config
-  (google-this-mode t)
-  (setq google-this-location-suffix "co.jp")
-  (defun google-this-url ()
-    "URL for google searches."
-    (concat google-this-base-url google-this-location-suffix
-	    "/search?q=%s&hl=ja&num=100&as_qdr=y5&lr=lang_ja")))
-
-;;; ---------------------------------------------------------------------------
-;;; package-func : google translate : google翻訳
-;;; ---------------------------------------------------------------------------
-(use-package-with-report google-translate
-  ;;TODO: Fix config
-)
-
-;;; ---------------------------------------------------------------------------
-;;; package-func : w3m : w3m in emacs
-;;; ---------------------------------------------------------------------------
-(use-package-with-report w3m
-  :config
-  (setq w3m-command "w3m"))
-
-;;; ---------------------------------------------------------------------------
 ;;; package-func : auto async byte compile : emacsのバイトコンパイルの自動化
 ;;; ---------------------------------------------------------------------------
 (use-package-with-report auto-async-byte-compile
+  :disabled t
   :config
-  (add-hook 'emacs-lisp-mode-hook 'enable-auto-async-byte-compile-mode))
-
-;;; ---------------------------------------------------------------------------
-;;; package-func : tiny menu : tiny menu
-;;; ---------------------------------------------------------------------------
-(use-package-with-report tiny-menu)
+  ;(add-hook 'emacs-lisp-mode-hook 'enable-auto-async-byte-compile-mode)
+  )
 
 ;;; ---------------------------------------------------------------------------
 ;;; package-func : imenu list : 関数(クラス)定義一覧を横に表示
 ;;; ---------------------------------------------------------------------------
 (use-package-with-report imenu-list)
+
+;;; ---------------------------------------------------------------------------
+;;; package-func : restclient
+;;; ---------------------------------------------------------------------------
+(use-package-with-report restclient)
 
 ;;; ---------------------------------------------------------------------------
 ;;; package-func : browse kill ring : kill ring
@@ -116,7 +75,15 @@
   (setq neo-keymap-style 'concise)
   (setq neo-smart-open t)
   (setq neo-theme 'ascii)
-  (add-hook 'neotree-mode-hook '(lambda () (nlinum-mode -1))))
+  (setq neo-window-fixed-size nil)
+  (setq neo-window-width 30)
+  (add-hook 'neotree-mode-hook
+            '(lambda ()
+               (nlinum-mode -1)
+               (setq mode-line-format nil)
+               (force-mode-line-update)
+               ))
+  (setq neo-theme (if (display-graphic-p) 'icons 'arrow)))
 
 ;;; ---------------------------------------------------------------------------
 ;;; package-func : open junk file : ジャンクファイル生成
@@ -173,11 +140,6 @@
   (which-key-mode))
 
 ;;; ---------------------------------------------------------------------------
-;;; package-move : goto chg : 最後に変更した箇所へカーソルを移動
-;;; ---------------------------------------------------------------------------
-(use-package-with-report goto-chg)
-
-;;; ---------------------------------------------------------------------------
 ;;; package-move : popwin : ヘルプ/補完バッファをポップアップで表示
 ;;; ---------------------------------------------------------------------------
 (use-package-with-report popwin
@@ -224,9 +186,17 @@
   (keyfreq-autosave-mode 1))
 
 ;;; ---------------------------------------------------------------------------
-;;; package-report : key freq mode : keyfreq
+;;; package-report : aozora-view
 ;;; ---------------------------------------------------------------------------
 (use-package-with-report aozora-view)
+
+;;; ---------------------------------------------------------------------------
+;;; package-func : simon : system monitor
+;;; ---------------------------------------------------------------------------
+(use-package-with-report symon
+  :config
+  (setq symon-delay 30)
+  (symon-mode))
 
 ;;; --------------------------------------------------------------------------------
 ;;; provide

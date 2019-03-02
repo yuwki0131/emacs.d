@@ -22,12 +22,14 @@
 ;;; ---------------------------------------------------------------------------
 ;; usepackageが存在しない場合は、インストール
 (when (not (require 'use-package nil 'noerror))
+  (package-initialize)
+  (package-refresh-contents)
   (package-install 'use-package)
   (setq use-package-verbose t))
 ;; 以降、use-packageでrequire
 
 ;;; ---------------------------------------------------------------------------
-;;; local elisp files
+;;; set load path
 ;;; ---------------------------------------------------------------------------
 
 ;; 設定ファイルのディレクトリ
@@ -36,6 +38,10 @@
 ;; 外部設定ファイルのディレクトリ
 (add-to-list 'load-path "~/.emacs.d/wrepo")
 (add-to-list 'load-path "~/.emacs.d/gitrepo")
+
+;;; ---------------------------------------------------------------------------
+;;; local elisp files
+;;; ---------------------------------------------------------------------------
 
 ;; utils (※use-package-with-report系より先頭に持ってくること)
 (use-package util-elisp)
@@ -52,6 +58,9 @@
 
 ;; 検索系パッケージの設定(要package-install)
 (use-package search-package-conf)
+
+;; 移動系パッケージの設定(要package-install)
+(use-package jump-package-conf)
 
 ;; 雑多な設定
 (use-package builtin-conf)
@@ -80,6 +89,9 @@
 ;; キーバインド設定(package-install不要)
 (use-package key-binding)
 
+;; emacs用のWindowsManager設定
+;; (use-package wm-conf)
+
 ;;; ---------------------------------------------------------------------------
 ;;; reports
 ;;; ---------------------------------------------------------------------------
@@ -93,6 +105,9 @@
 ;;; failed packages scenario
 (generate-package-install-scenario)
 
+;;; ignored errors
+(report-ignore&report)
+
 ;;; ---------------------------------------------------------------------------
 ;;; custom set vaiables抑止
 ;;; ---------------------------------------------------------------------------
@@ -102,3 +117,4 @@
 ;;; temp (playground)
 ;;; ---------------------------------------------------------------------------
 (provide 'init)
+;;; init.el ends here

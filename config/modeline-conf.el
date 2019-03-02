@@ -30,15 +30,30 @@
     "(  ´･_)"
     "(   ´･)"
     "(    ´)"
-    "(      )"
-    "(`     )"
-    "(･`    )"
-    "(_･`   )"
-    "(･_･`  )"))
+    "(     )"
+    "(`    )"
+    "(･`   )"
+    "(_･`  )"
+    "(･_･` )"))
+
+(defvar tanakh-chain-v2-list
+  '("(´･_･`)´･_･`) "
+    "(´･_･`)･_･`)  "
+    "(´･_･`)_･`)  "
+    "(´･_･`)･`)  "
+    "(´･_･`)`)  "
+    "(´･_･`))  "
+    "(´･_･`)   "
+    "((´･_･`)  "
+    "(´(´･_･`) "
+    "(´･(´･_･`) "
+    "(´･_(´･_･`) "
+    "(´･_･`(´･_･`) "
+    "(´･_･`)(´･_･`) "))
 
 (defun insert-tanakh-chain ()
-    (let ((i (% (cadr (current-time)) (length tanakh-chain-list))))
-      (propertize (nth i tanakh-chain-list))))
+    (let ((i (% (cadr (current-time)) (length tanakh-chain-v2-list))))
+      (propertize (nth i tanakh-chain-v2-list))))
 
 ;;; ---------------------------------------------------------------------------
 ;;; line-num characters counter (while selecting region)

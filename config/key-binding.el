@@ -34,6 +34,12 @@
 (global-unset-key "\M-j")
 
 ;;; ---------------------------------------------------------------------------
+;;; overwrite default keybind
+;;; ---------------------------------------------------------------------------
+(ignore-report
+  (global-set-key (kbd "C-x C-f") 'counsel-find-file))
+
+;;; ---------------------------------------------------------------------------
 ;;; no prefix
 ;;; ---------------------------------------------------------------------------
 (defun temp-command ()
@@ -57,18 +63,11 @@
 (gssk-category-function "編集" "挿入" "kill-ringを表示")
 (gssk-bind "M-y"    'browse-kill-ring)
 
-(gssk-category-function "編集" "置換" "vr/isearch側の正規表現置換")
-(gssk-bind "C-M-s"  'vr/isearch-forward)
-(gssk-bind "C-M-r"  'vr/isearch-backward)
-
 (gssk-category-function "編集" "括弧" "括弧挿入")
 (gssk-bind "C-l"    'insert-parenthesis)
 (gssk-bind "C-S-l"  'insert-angle-brackets)
 (gssk-bind "M-l"    'insert-brackets)
 (gssk-bind "M-S-l"  'insert-squares)
-
-(gssk-category-function "編集" "改行" "スマートな改行")
-(gssk-bind "C-m"    'smart-newline)
 
 (gssk-category-function "移動" "バッファ内" "パラグラフ単位の移動")
 ;; (gssk-bind "C-m"    'forward-paragraph)
@@ -144,7 +143,7 @@
 (gssk-subcategory "検索")
 
 (gssk-explain-function "grep this: バッファ内Grep")
-(gssk-bind "C-z C-b" 'grep-this)
+(gssk-bind "C-z g" 'grep-this)
 
 (gssk-explain-function "grep find this: ディレクトリ配下Grep")
 (gssk-bind "C-z C-f" 'grep-find-this)
@@ -162,21 +161,27 @@
 (gssk-explain-function "rgrep: ディレクトリ内Grep")
 (gssk-bind "C-z r"   'rgrep)
 
+(gssk-explain-function "counsel-ag: ag search")
+(gssk-bind "C-z C-y"   'counsel-ag)
+
+(gssk-explain-function "counsel-git-grep: Git-Grep")
+(gssk-bind "C-z C-b"   'counsel-git-grep)
+
 (gssk-explain-function "google-this(Googleで検索)")
-(gssk-bind "C-z g"   'google-this)
+(gssk-bind "C-z M-g" 'google-this)
 
 (gssk-explain-function "現在のURLリンクを開く<br/>(goto-address-mode)")
 (gssk-bind "C-z C-a" 'goto-address-at-point)
 
 (gssk-explain-function "imenu-list(関数定義一覧表示)")
-(gssk-bind "C-z i l"   'imenu-list-smart-toggle)
+(gssk-bind "C-z i l" 'imenu-list-smart-toggle)
 
 (gssk-explain-function "ibuffer(バッファ一覧表示)")
-(gssk-bind "C-z i b"   'ibuffer)
+(gssk-bind "C-z i b" 'ibuffer)
 
 (gssk-subcategory "表示")
 
-(gssk-explain-function "バッファのウィンドウサイズを縮小")
+(gssk-explain-function "バッファのフレームサイズを縮小")
 (gssk-bind "C-z s"   'make-buffer-small)
 
 (gssk-explain-function "ディレクトリ階層を表示 (neo tree)")
@@ -246,7 +251,7 @@
 
 (gssk-explain-function "white space insertion")
 
-(defun insert-shoborn ()
+(defun insert-turapoyo ()
   (interactive)
   (insert "(´･_･`)"))
 
@@ -271,9 +276,6 @@
 (gssk-explain-function "現在のバッファを削除")
 (gssk-bind "C-a C-k" 'kill-this-buffer)
 
-(gssk-explain-function "後ろ向きな単語削除")
-(gssk-bind "C-a C-h" 'backward-kill-word)
-
 (gssk-explain-function "行のマージ(インデント用などの空白削除) <br/> (不要かも)")
 (gssk-bind "C-a C-f" 'merge2lines)
 
@@ -286,7 +288,7 @@
 (gssk-bind "C-a C-q" 'quoted-insert)
 
 (gssk-explain-function "(´･_･`)を挿入")
-(gssk-bind "C-a C-s" 'insert-shoborn)
+(gssk-bind "C-a C-s" 'insert-turapoyo)
 
 (gssk-explain-function "現在時刻挿入")
 (gssk-bind "C-a C-d" 'insert-date-normal)
@@ -297,6 +299,9 @@
 
 (gssk-explain-function "コメント用の線を挿入")
 (gssk-bind "C-a C-m" 'insert--s)
+
+(gssk-explain-function "killringから選択して挿入")
+(gssk-bind "C-a C-y" 'counsel-yank-pop)
 
 (gssk-subcategory "refactoring")
 
@@ -333,10 +338,13 @@
 
 (gssk-subcategory "バッファ間")
 
+(gssk-explain-function "ace-window: Window間移動")
+(gssk-bind "C-e C-z" 'ace-window)
+
 (gssk-explain-function "shell/repl/grepxへ")
 (gssk-bind "C-e C-c" 'shell)
 (gssk-bind "C-e C-v" 'move-to-scratch)
-(gssk-bind "C-e g" 'move-to-grep)
+(gssk-bind "C-e g"   'move-to-grep)
 (gssk-bind "C-e C-w" 'move-to-repl)
 
 (gssk-explain-function "次/前のバッファへ (*付バッファはスキップ)")
