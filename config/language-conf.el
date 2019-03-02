@@ -7,7 +7,7 @@
 ;;;  - Guile/Scheme
 ;;;  - SBCL/CommonLisp
 ;;;  - Clojure
-;;;  - Hylang
+;;;  + Hylang
 ;;;  Functional Programming Languages
 ;;;  - GHC/Haskell
 ;;;  - OCaml
@@ -87,7 +87,7 @@
 ;;; ---------------------------------------------------------------------------
 ;;; hy-mode : Hylang (checked)
 ;;; ---------------------------------------------------------------------------
-;; (use-package-with-report hy-mode)
+(use-package-with-report hy-mode)
 
 ;;; --------------------------------------------------------------------------------
 ;;; config : Functional programming languages
