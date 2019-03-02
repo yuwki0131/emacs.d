@@ -12,9 +12,11 @@
 | info-lookup-symobl    | 編集中のプログラミング言語に基づき、symbolのinfoドキュメントを表示(あれば) |
 | face-list-display     | set-face-font                                                              |
 | set-face-font         |                                                                            |
-| apropos-variable      | apropos-variable then type “-hook”.
+| apropos-variable      | apropos-variable then type “-hook”.                                      |
+| ispell-buffer         | バッファ内のスペルチェック                                                 |
+| ispell-region         | 範囲内でスペルチェック                                                     |
 
-| M-x command general | 説明 |
-|:------------------------|:------------------------------------------------------|
-| describe-               | 何かをdescribeする |
-| kill-                   | 何かをkillする |
+| M-x command general   | 説明                                                                       |
+|:----------------------|:---------------------------------------------------------------------------|
+| describe-             | 何かをdescribeする                                                         |
+| kill-                 | 何かをkillする                                                             |
