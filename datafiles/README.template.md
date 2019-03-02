@@ -23,8 +23,8 @@
 | C | common-lang-conf     | o           | 言語共通設定 or 複数言語に共通する設定 |
 | D | display-package-conf | o           | 表示系パッケージの設定項目             |
 | E | edit-package-conf    | o           | 編集系パッケージの設定項目             |
-| F | font-conf            | -           | フォント設定                           |
-| G | grep-package-conf    | o           | 補完/grep系パッケージの設定項目             |
+| F | font-conf            | -           | フォント設定                          |
+| G | grep-package-conf    | o           | 補完/grep系パッケージの設定項目        |
 | J | jump-package-conf    | o           | 移動系パッケージの設定項目             |
 | K | key-binding          | -           | Globalなキーバインドはここに一括       |
 | L | language-conf        | o           | 各言語設定                             |
@@ -34,9 +34,10 @@
 | S | search-package-conf  | o           | 検索系パッケージの設定項目             |
 | T | tips-eslip           | -           | 雑多な追加機能のコード                 |
 | U | util-elisp           | -           | configファイル用のユーティリティ       |
+| W | wm-conf              | -           | emacsをWindowManagerにする時の設定       |
 
 * 順不同
-* 残り(G, H, I, N, Q, R, V, W, X, Y, Z)
+* 残り(G, H, I, N, Q, R, V, X, Y, Z)
 
 ## 設定
 

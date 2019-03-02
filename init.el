@@ -89,27 +89,8 @@
 ;; キーバインド設定(package-install不要)
 (use-package key-binding)
 
-;;; ---------------------------------------------------------------------------
-;;; exwm
-;;; ---------------------------------------------------------------------------
-;;; exwm
-
-;; (require 'exwm)
-;; (require 'exwm-config)
-;; (exwm-config-default)
-;; (setq exwm-workspace-show-all-buffers t)
-;; (setq exwm-layout-show-all-buffers t)
-
-;; (require 'exwm-randr)
-;; (setq exwm-randr-workspace-output-plist '(0 "VGA1"))
-;; (add-hook 'exwm-randr-screen-change-hook
-;;           (lambda ()
-;;             (start-process-shell-command
-;;              "xrandr" nil "xrandr --output VGA1 --left-of LVDS1 --auto")))
-;; (exwm-randr-enable)
-
-;; on your magic
-;; setxkbmap -option ctrl:swapcaps
+;; emacs用のWindowsManager設定
+;; (use-package wm-conf)
 
 ;;; ---------------------------------------------------------------------------
 ;;; reports
