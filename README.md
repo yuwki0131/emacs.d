@@ -124,6 +124,7 @@ M-x delete-byte-compile
 |機能|検索|C-z w|define-word|define-word: 英英辞典|
 |機能|検索|C-z C-w|define-word-at-point|define-word: 英英辞典|
 |機能|検索|C-z r|rgrep|rgrep: ディレクトリ内Grep|
+|機能|検索|C-z C-y|counsel-ag|counsel-ag: ag search|
 |機能|検索|C-z C-b|counsel-git-grep|counsel-git-grep: Git-Grep|
 |機能|検索|C-z M-g|google-this|google-this(Googleで検索)|
 |機能|検索|C-z C-a|goto-address-at-point|現在のURLリンクを開く<br/>(goto-address-mode)|
@@ -154,6 +155,7 @@ M-x delete-byte-compile
 |編集|挿入|C-a M-d|insert-date-markdown|現在時刻挿入|
 |編集|挿入|C-a C-e|insert-current-file-name|現在のファイルパスを挿入|
 |編集|挿入|C-a C-m|insert--s|コメント用の線を挿入|
+|編集|挿入|C-a C-y|counsel-yank-pop|killringから選択して挿入|
 |編集|refactoring|C-a i|iedit-mode|iedit-mode: 同一のシンボルを同時置換|
 |編集|その他|C-a C-r|rectangle-mark-mode|矩形選択|
 |移動|バッファ内|C-e C-l|goto-last-change|最後の変更箇所へ|

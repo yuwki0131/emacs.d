@@ -161,6 +161,9 @@
 (gssk-explain-function "rgrep: ディレクトリ内Grep")
 (gssk-bind "C-z r"   'rgrep)
 
+(gssk-explain-function "counsel-ag: ag search")
+(gssk-bind "C-z C-y"   'counsel-ag)
+
 (gssk-explain-function "counsel-git-grep: Git-Grep")
 (gssk-bind "C-z C-b"   'counsel-git-grep)
 
@@ -296,6 +299,9 @@
 
 (gssk-explain-function "コメント用の線を挿入")
 (gssk-bind "C-a C-m" 'insert--s)
+
+(gssk-explain-function "killringから選択して挿入")
+(gssk-bind "C-a C-y" 'counsel-yank-pop)
 
 (gssk-subcategory "refactoring")
 

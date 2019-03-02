@@ -37,19 +37,20 @@
   (ac-config-default)
   (setq ac-auto-start 1)
   (setq ac-candidate-max 40)
-  (add-to-list 'ac-dictionary-directories "~/.emacs.d/ac-dict"))
+  (add-to-list 'ac-dictionary-directories "~/.emacs.d/ac-dict")
+  (global-auto-complete-mode t))
 
-;; (use-package-with-report company
-;;   :config
-;;   (global-company-mode 1)
-;;   ;; デフォルトは0.5
-;;   (setq company-idle-delay 0)
-;;   ;; デフォルトは4
-;;   (setq company-minimum-prefix-length 2)
-;;   ;; help tip
-;;   (company-quickhelp-mode +1)
-;;   ;; loop
-;;   (setq company-selection-wrap-around t))
+(use-package-with-report company
+  :config
+  (global-company-mode 1)
+  ;; デフォルトは0.5
+  (setq company-idle-delay 0)
+  ;; デフォルトは4
+  (setq company-minimum-prefix-length 2)
+  ;; help tip
+  (company-quickhelp-mode +1)
+  ;; loop
+  (setq company-selection-wrap-around t))
 
 ;;; ---------------------------------------------------------------------------
 ;;; package-func : git complete : git-grep自動補完
