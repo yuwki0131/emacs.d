@@ -28,7 +28,6 @@
 | J | jump-package-conf    | o           | 移動系パッケージの設定項目             |
 | K | key-binding          | -           | Globalなキーバインドはここに一括       |
 | L | language-conf        | o           | 各言語設定                             |
-| M | modeline-conf        | -           | モードライン設定                       |
 | O | outsider-eslip       | -           | 外部から持ち込んだコード               |
 | P | package-conf         | o           | 各パッケージの設定項目                 |
 | S | search-package-conf  | o           | 検索系パッケージの設定項目             |
@@ -37,7 +36,7 @@
 | W | wm-conf              | -           | emacsをWindowManagerにする時の設定       |
 
 * 順不同
-* 残り(G, H, I, N, Q, R, V, X, Y, Z)
+* 残り(G, H, I, M, N, Q, R, V, X, Y, Z)
 
 ## 設定
 
