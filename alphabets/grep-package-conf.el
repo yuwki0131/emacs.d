@@ -64,10 +64,13 @@
   (setq company-idle-delay 0)
   ;; デフォルトは4
   (setq company-minimum-prefix-length 2)
-  ;; help tip
-  (company-quickhelp-mode +1)
   ;; loop
   (setq company-selection-wrap-around t))
+
+(use-package-with-report company-quickhelp
+  :config
+  ;; help tip
+  (company-quickhelp-mode +1))
 
 ;;; ---------------------------------------------------------------------------
 ;;; git complete : git-grep自動補完
