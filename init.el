@@ -83,9 +83,6 @@
 ;; エディタの外観/サイズ調整
 (use-package appearance-conf)
 
-;; モードライン設定
-(use-package modeline-conf)
-
 ;; キーバインド設定(package-install不要)
 (use-package key-binding)
 

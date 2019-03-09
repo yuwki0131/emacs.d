@@ -214,7 +214,7 @@
    :background color/inactive
    :inverse-video nil
    :weight 'extra-light
-   :height 110
+   :height 100
    :font default-font-family
    :box '(:line-width 1 :color "black" :style nil)))
 
@@ -225,7 +225,7 @@
    :background color/inactive
    :inverse-video nil
    :weight 'extra-light
-   :height 110
+   :height 100
    :font default-font-family
    :box '(:line-width 1 :color "gray30" :style nil)))
 

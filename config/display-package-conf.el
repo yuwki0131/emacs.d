@@ -22,16 +22,25 @@
 ;;; にゃーん
 ;;; ---------------------------------------------------------------------------
 ;; original : https://www.youtube.com/watch?v=QH2-TGUlwu4
-(use-package-with-report nyan-mode
-  :config
-  (nyan-mode)
-  (nyan-start-animation))
+;; (use-package-with-report nyan-mode
+;;   :config
+;;   (nyan-mode)
+;;   (nyan-start-animation))
 
 ;;; ---------------------------------------------------------------------------
 ;;; parrot
 ;;; ---------------------------------------------------------------------------
 ;; original : https://cultofthepartyparrot.com/
-(use-package-with-report parrot)
+;; (use-package-with-report parrot)
+
+;;; ---------------------------------------------------------------------------
+;;; modern emacs modeline: doom-modeline
+;;; ---------------------------------------------------------------------------
+(use-package-with-report doom-modeline
+  :ensure t
+  :hook (after-init . doom-modeline-mode)
+  :config
+  (setq doom-modeline-height 22))
 
 ;;; ---------------------------------------------------------------------------
 ;;; nlinum-hl-mode : 軽量化された行番号表示
