@@ -47,7 +47,7 @@
   (all-the-icons-ivy-setup))
 
 ;;; ---------------------------------------------------------------------------
-;;; package-func : auto complete : 自動補完
+;;; package-func : company : 自動補完
 ;;; ---------------------------------------------------------------------------
 ;; (use-package-with-report auto-complete
 ;;   :config
@@ -70,7 +70,7 @@
   (setq company-selection-wrap-around t))
 
 ;;; ---------------------------------------------------------------------------
-;;; package-func : git complete : git-grep自動補完
+;;; git complete : git-grep自動補完
 ;;; ---------------------------------------------------------------------------
 (wconst-pakcage 'git-complete
   "https://raw.githubusercontent.com/zk-phi/git-complete/master/git-complete.el"
