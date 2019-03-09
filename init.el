@@ -47,6 +47,12 @@
 (use-package util-elisp)
 ;; 以降、config下では、use-package-with-reportでrequire
 
+;; 雑多な設定
+(use-package builtin-conf)
+
+;; 雑多な追加機能(package-install不要)
+(use-package tips-elisp)
+
 ;; 外部パッケージの設定(要package-install)
 (use-package package-conf)
 
@@ -62,18 +68,6 @@
 ;; 移動系パッケージの設定(要package-install)
 (use-package jump-package-conf)
 
-;; 雑多な設定
-(use-package builtin-conf)
-
-;; フォント設定
-(use-package font-conf)
-
-;; エディタの外観/サイズ調整
-(use-package appearance-conf)
-
-;; モードライン設定
-(use-package modeline-conf)
-
 ;; 言語共通設定(要package-install)
 (use-package common-lang-conf)
 
@@ -83,8 +77,14 @@
 ;; 外部のpackage化されてない追加機能(package-install不要)
 (use-package outsider-elisp)
 
-;; 雑多な追加機能(package-install不要)
-(use-package tips-elisp)
+;; フォント設定
+(use-package font-conf)
+
+;; エディタの外観/サイズ調整
+(use-package appearance-conf)
+
+;; モードライン設定
+(use-package modeline-conf)
 
 ;; キーバインド設定(package-install不要)
 (use-package key-binding)
