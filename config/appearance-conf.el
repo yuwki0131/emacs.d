@@ -101,16 +101,16 @@
   (set-face-app2 'ac-completion-face           color/deeppink  "white"        nil nil))
 
 (ignore-report
-  ;; candidates
-  (set-face-app2 'ac-candidate-face            color/lightcyan color/inactive t nil)
-  (set-face-app2 'ac-candidate-mouse-face      color/lightcyan color/inactive t nil)
-  (set-face-app2 'ac-yasnippet-candidate-face  color/lightcyan color/inactive t nil)
-  (set-face-app2 'ac-gtags-candidate-face      color/lightcyan color/inactive t nil)
-  ;; selections
-  (set-face-app2 'ac-selection-face            color/deeppink color/inactive nil t)
-  (set-face-app2 'ac-gtags-selection-face      color/deeppink color/inactive nil t)
-  (set-face-app2 'ac-selection-face            color/deeppink color/inactive nil t)
-  (set-face-app2 'ac-yasnippet-selection-face  color/deeppink color/inactive nil t))
+ ;; candidates
+ (set-face-app2 'ac-candidate-face            color/lightcyan color/inactive t nil)
+ (set-face-app2 'ac-candidate-mouse-face      color/lightcyan color/inactive t nil)
+ (set-face-app2 'ac-yasnippet-candidate-face  color/lightcyan color/inactive t nil)
+ (set-face-app2 'ac-gtags-candidate-face      color/lightcyan color/inactive t nil)
+ ;; selections
+ (set-face-app2 'ac-selection-face            color/deeppink color/inactive nil t)
+ (set-face-app2 'ac-gtags-selection-face      color/deeppink color/inactive nil t)
+ (set-face-app2 'ac-selection-face            color/deeppink color/inactive nil t)
+ (set-face-app2 'ac-yasnippet-selection-face  color/deeppink color/inactive nil t))
 
 ;; popup
 (ignore-report
@@ -204,19 +204,8 @@
    :weight 'bold
    :height 100
    :font default-font-family
-   :box '(:line-width 4 :color color/inactive :style nil)
+   :box `(:line-width 4 :color ,color/inactive :style nil)
    :overline "orange"))
-
-;; ヘッダーラインの設定(inactive)
-(ignore-report
-  (set-face-attribute 'header-line-inactive nil
-   :foreground color/lightcyan
-   :background color/inactive
-   :inverse-video nil
-   :weight 'extra-light
-   :height 100
-   :font default-font-family
-   :box '(:line-width 1 :color "gray30" :style nil)))
 
 ;; モードラインの設定(active)
 (ignore-report
