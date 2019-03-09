@@ -97,20 +97,20 @@
   (set-face-app1 'minibuffer-prompt color/deeppink t   nil))
 
 ;; coloring ac
-(ignore-report
-  (set-face-app2 'ac-completion-face           color/deeppink  "white"        nil nil))
+;; (ignore-report
+;;   (set-face-app2 'ac-completion-face           color/deeppink  "white"        nil nil))
 
-(ignore-report
- ;; candidates
- (set-face-app2 'ac-candidate-face            color/lightcyan color/inactive t nil)
- (set-face-app2 'ac-candidate-mouse-face      color/lightcyan color/inactive t nil)
- (set-face-app2 'ac-yasnippet-candidate-face  color/lightcyan color/inactive t nil)
- (set-face-app2 'ac-gtags-candidate-face      color/lightcyan color/inactive t nil)
- ;; selections
- (set-face-app2 'ac-selection-face            color/deeppink color/inactive nil t)
- (set-face-app2 'ac-gtags-selection-face      color/deeppink color/inactive nil t)
- (set-face-app2 'ac-selection-face            color/deeppink color/inactive nil t)
- (set-face-app2 'ac-yasnippet-selection-face  color/deeppink color/inactive nil t))
+;; (ignore-report
+;;  ;; candidates
+;;  (set-face-app2 'ac-candidate-face            color/lightcyan color/inactive t nil)
+;;  (set-face-app2 'ac-candidate-mouse-face      color/lightcyan color/inactive t nil)
+;;  (set-face-app2 'ac-yasnippet-candidate-face  color/lightcyan color/inactive t nil)
+;;  (set-face-app2 'ac-gtags-candidate-face      color/lightcyan color/inactive t nil)
+;;  ;; selections
+;;  (set-face-app2 'ac-selection-face            color/deeppink color/inactive nil t)
+;;  (set-face-app2 'ac-gtags-selection-face      color/deeppink color/inactive nil t)
+;;  (set-face-app2 'ac-selection-face            color/deeppink color/inactive nil t)
+;;  (set-face-app2 'ac-yasnippet-selection-face  color/deeppink color/inactive nil t))
 
 ;; popup
 (ignore-report

@@ -49,13 +49,13 @@
 ;;; ---------------------------------------------------------------------------
 ;;; package-func : auto complete : 自動補完
 ;;; ---------------------------------------------------------------------------
-(use-package-with-report auto-complete
-  :config
-  (ac-config-default)
-  (setq ac-auto-start 1)
-  (setq ac-candidate-max 40)
-  (add-to-list 'ac-dictionary-directories "~/.emacs.d/ac-dict")
-  (global-auto-complete-mode t))
+;; (use-package-with-report auto-complete
+;;   :config
+;;   (ac-config-default)
+;;   (setq ac-auto-start 1)
+;;   (setq ac-candidate-max 40)
+;;   (add-to-list 'ac-dictionary-directories "~/.emacs.d/ac-dict")
+;;   (global-auto-complete-mode t))
 
 (use-package-with-report company
   :config
