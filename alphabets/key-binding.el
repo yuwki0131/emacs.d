@@ -161,8 +161,8 @@
 (gssk-explain-function "rgrep: ディレクトリ内Grep")
 (gssk-bind "C-z r"   'rgrep)
 
-(gssk-explain-function "counsel-ag: ag search")
-(gssk-bind "C-z C-y"   'counsel-ag)
+(gssk-explain-function "minimap: ソースコードのアウトライン表示")
+(gssk-bind "C-z C-y"   'minimap-mode)
 
 (gssk-explain-function "counsel-git-grep: Git-Grep")
 (gssk-bind "C-z C-b"   'counsel-git-grep)

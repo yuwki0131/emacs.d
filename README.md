@@ -123,7 +123,7 @@ M-x delete-byte-compile
 |機能|検索|C-z w|define-word|define-word: 英英辞典|
 |機能|検索|C-z C-w|define-word-at-point|define-word: 英英辞典|
 |機能|検索|C-z r|rgrep|rgrep: ディレクトリ内Grep|
-|機能|検索|C-z C-y|counsel-ag|counsel-ag: ag search|
+|機能|検索|C-z C-y|minimap-mode|minimap: ソースコードのアウトライン表示|
 |機能|検索|C-z C-b|counsel-git-grep|counsel-git-grep: Git-Grep|
 |機能|検索|C-z M-g|google-this|google-this(Googleで検索)|
 |機能|検索|C-z C-a|goto-address-at-point|現在のURLリンクを開く<br/>(goto-address-mode)|
