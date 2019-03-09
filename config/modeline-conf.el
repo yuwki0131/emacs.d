@@ -67,7 +67,6 @@
 ;;; ---------------------------------------------------------------------------
 ;;; show git branch
 ;;; ---------------------------------------------------------------------------
-
 (defun show-branch ()
   (let ((result (shell-command-to-string "git branch")))
     (cond
@@ -83,8 +82,7 @@
                     'face '(:foreground "#FF6C20" :weight 'bold)
                     'help-echo "buffer is read-only !!!")))
      (t
-      "error(git branch check)")
-     )))
+      "error(git branch check)"))))
 
 ;;; ---------------------------------------------------------------------------
 ;;; customized mode-line
