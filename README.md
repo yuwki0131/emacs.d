@@ -12,7 +12,7 @@
 
 <img src="img/img_use1.png" width="200" hspace="10"><img src="img/img_use2.png" width="200" hspace="10"><img src="img/img_use3.png" width="200" hspace="10">
 
-## ~/.emacs.d/configディレクトリ以下構成
+## ~/.emacs.d/alphabetsディレクトリ以下構成
 
 ### elispファイル構成
 
@@ -32,7 +32,7 @@
 | P | package-conf         | o           | 各パッケージの設定項目                 |
 | S | search-package-conf  | o           | 検索系パッケージの設定項目             |
 | T | tips-eslip           | -           | 雑多な追加機能のコード                 |
-| U | util-elisp           | -           | configファイル用のユーティリティ       |
+| U | util-elisp           | -           | alphabetsファイル用のユーティリティ       |
 | W | wm-conf              | -           | emacsをWindowManagerにする時の設定       |
 
 * 順不同
@@ -58,13 +58,13 @@ M-x install-complements
 
 ## byte-compile *.el files
 
-`.emacs.d/*.elc`と`.emacs.d/config/*.elc`のファイルを更新。
+`.emacs.d/*.elc`と`.emacs.d/alphabets/*.elc`のファイルを更新。
 
 ```
 M-x refresh-byte-compile
 ```
 
-`.emacs.d/*.elc`と`.emacs.d/config/*.elc`のファイルを削除。
+`.emacs.d/*.elc`と`.emacs.d/alphabets/*.elc`のファイルを削除。
 
 ```
 M-x delete-byte-compile

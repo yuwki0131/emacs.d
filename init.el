@@ -33,7 +33,7 @@
 ;;; ---------------------------------------------------------------------------
 
 ;; 設定ファイルのディレクトリ
-(add-to-list 'load-path "~/.emacs.d/config")
+(add-to-list 'load-path "~/.emacs.d/alphabets")
 
 ;; 外部設定ファイルのディレクトリ
 (add-to-list 'load-path "~/.emacs.d/wrepo")
@@ -45,7 +45,7 @@
 
 ;; utils (※use-package-with-report系より先頭に持ってくること)
 (use-package util-elisp)
-;; 以降、config下では、use-package-with-reportでrequire
+;; 以降、alphabets下では、use-package-with-reportでrequire
 
 ;; 雑多な設定
 (use-package builtin-conf)

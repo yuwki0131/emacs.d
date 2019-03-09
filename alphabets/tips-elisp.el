@@ -450,7 +450,7 @@
   (shell-command
    "rm ~/.emacs.d/*.elc")
   (shell-command
-   "rm ~/.emacs.d/config/*.elc"))
+   "rm ~/.emacs.d/alphabets/*.elc"))
 
 ;;; ---------------------------------------------------------------------------
 ;;; refresh byte-compile files
@@ -461,11 +461,11 @@
   (shell-command
    "rm ~/.emacs.d/*.elc")
   (shell-command
-   "rm ~/.emacs.d/config/*.elc")
+   "rm ~/.emacs.d/alphabets/*.elc")
   (shell-command
    "emacs -batch -f batch-byte-compile ~/.emacs.d/*.el")
   (shell-command
-   "emacs -batch -f batch-byte-compile ~/.emacs.d/config/*.el"))
+   "emacs -batch -f batch-byte-compile ~/.emacs.d/alphabets/*.el"))
 
 ;;; ---------------------------------------------------------------------------
 ;;; provide
