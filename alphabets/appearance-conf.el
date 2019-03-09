@@ -112,6 +112,22 @@
 ;;  (set-face-app2 'ac-selection-face            color/deeppink color/inactive nil t)
 ;;  (set-face-app2 'ac-yasnippet-selection-face  color/deeppink color/inactive nil t))
 
+;; (set-face-attribute 'company-tooltip nil
+;;                     :foreground "black" :background "lightgrey")
+;; (set-face-attribute 'company-tooltip-common nil
+;;                     :foreground "black" :background "lightgrey")
+;; (set-face-attribute 'company-tooltip-common-selection nil
+;;                     :foreground "white" :background "steelblue")
+;; (set-face-attribute 'company-tooltip-selection nil
+;;                     :foreground "black" :background "steelblue")
+;; (set-face-attribute 'company-preview-common nil
+;;                     :background nil :foreground "lightgrey" :underline t)
+;; (set-face-attribute 'company-scrollbar-fg nil
+;;                     :background "orange")
+;; (set-face-attribute 'company-scrollbar-bg nil
+;;                     :background "gray40")
+
+
 ;; popup
 (ignore-report
   (set-face-app2 'popup-face                       color/deeppink "gray95" nil t)
