@@ -124,8 +124,9 @@
   (set-face-app2 'popup-scroll-bar-foreground-face color/darkcyan "gray95" nil t)
   (set-face-app2 'popup-summary-face               color/darkcyan "gray95" nil t)
   (set-face-app2 'popup-tip-face                   color/darkcyan "gray95" nil t)
-  (set-face-app2 'pulse-highlight-face             color/darkcyan "gray95" nil t)
-  (set-face-app2 'pulse-highlight-start-face       color/darkcyan "gray95" nil t))
+  ;; (set-face-app2 'pulse-highlight-face             color/darkcyan "gray95" nil t)
+  ;; (set-face-app2 'pulse-highlight-start-face       color/darkcyan "gray95" nil t)
+  )
 
 ;; coloring bm
 (ignore-report
