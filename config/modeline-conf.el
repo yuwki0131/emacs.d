@@ -65,6 +65,28 @@
                     (- (region-end) (region-beginning))))))
 
 ;;; ---------------------------------------------------------------------------
+;;; show git branch
+;;; ---------------------------------------------------------------------------
+
+(defun show-branch ()
+  (let ((result (shell-command-to-string "git branch")))
+    (cond
+     ((string-prefix-p "fatal" result)
+      "no git")
+     ((string-prefix-p "*" result)
+      (let ((branch
+             (concat
+              (all-the-icons-octicon "git-branch" :height 1 :v-adjust -0.01)
+              " "
+              (substring result 2 -1))))
+        (propertize branch
+                    'face '(:foreground "#FF6C20" :weight 'bold)
+                    'help-echo "buffer is read-only !!!")))
+     (t
+      "error(git branch check)")
+     )))
+
+;;; ---------------------------------------------------------------------------
 ;;; customized mode-line
 ;;; ---------------------------------------------------------------------------
 (defvar mode-line-format-customized
@@ -76,7 +98,9 @@
         ;; * カレントバッファの修正通知 (fly-noticeがあるのでoff)
         ;; mode-line-modified
         ;; * 修正/readonly通知
-        " "  fly-notice " "
+        " "
+        fly-notice
+        " "
         ;; mode-line-auto-compile
         ;; mode-line-remote
         ;; (:eval (mode-line-frame-control))
@@ -84,8 +108,11 @@
         mode-line-buffer-identification
         " "
         mode-line-position
+        ;; " "
+        ;; mode-line-counter-lines-and-chars
+        (all-the-icons-alltheicon "git" :height 1 :v-adjust -0.01)
         " "
-        mode-line-counter-lines-and-chars
+        '(:eval (show-branch))
         " "
         '(:eval (insert-tanakh-chain))
         ;; * VC + modes
