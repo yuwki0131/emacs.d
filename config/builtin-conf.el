@@ -96,6 +96,12 @@
 ;; find-file時に、elcファイルを無視
 (setq counsel-find-file-ignore-regexp "\\.elc\\'")
 
+;; 巨大なファイルを開く時に警告しない
+(setq large-file-warning-threshold nil)
+
+;; bufferが横に分割されるのを防ぐ
+(setq large-file-warning-threshold nil)
+
 ;;; ---------------------------------------------------------------------------
 ;;; デフォルトエンコーディング
 ;;; ---------------------------------------------------------------------------
