@@ -99,8 +99,7 @@
 (report-configuration)
 
 ;;; README.md生成 (標準ではOFF)
-(when t
-  (spit readme-file-md (generate-readme-text)))
+(when t (spit readme-file-md (generate-readme-text)))
 
 ;;; failed packages scenario
 (generate-package-install-scenario)

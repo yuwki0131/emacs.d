@@ -11,9 +11,9 @@
 (defun grep-this ()
   (interactive)
   (let ((word (read-from-minibuffer "grep this buffer : "))
-	      (file-name (buffer-file-name (current-buffer))))
+        (file-name (buffer-file-name (current-buffer))))
     (if (not file-name)
-	      (message "unknown file")
+        (message "unknown file")
       (grep (format "grep --color -nH -e \"%s\" %s" word file-name)))))
 
 (defun grep-find-this ()
