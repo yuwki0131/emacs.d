@@ -65,6 +65,9 @@
 ;; 検索系パッケージの設定(要package-install)
 (use-package search-package-conf)
 
+;; 検索移動(grep)系パッケージの設定(要package-install)
+(use-package grep-package-conf)
+
 ;; 移動系パッケージの設定(要package-install)
 (use-package jump-package-conf)
 
