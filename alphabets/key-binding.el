@@ -374,6 +374,9 @@
 (gssk-explain-function "最近開いたファイルを開く")
 (gssk-bind "C-e o" 'recentf-open-files)
 
+(gssk-explain-function "counsel-ag: ag search")
+(gssk-bind "C-e C-y"   'counsel-ag)
+
 (gssk-subcategory "Bookmark")
 (gssk-explain-function "現在行をブックマーク、ハイライト表示")
 (gssk-bind "C-e C-t" 'bm-toggle)
