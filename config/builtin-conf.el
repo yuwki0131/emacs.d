@@ -56,6 +56,8 @@
  inhibit-startup-message t
  ;; 規則文字のdisable
  enable-kinsoku nil
+ ;; elcとelで新しい方のファイルを読み込む(byte compile忘れ対策)
+ load-prefer-newer t
  )
 
 ;; バッファの終端を表示(空行表示)
