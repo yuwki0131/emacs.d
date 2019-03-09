@@ -290,10 +290,17 @@
   :mode
   (("\\.js$" . web-mode))
   (("\\.html$" . web-mode))
+  (("\\.css$" . css-mode))
   :config
+  (setq web-mode-attr-indent-offset 2)
+  (setq web-mode-indent-style 2)
   (setq web-mode-markup-indent-offset 2)
   (setq web-mode-css-indent-offset 2)
   (setq web-mode-code-indent-offset 2))
+
+(use-package-with-report emmet-mode
+  :mode
+  (("\\.html$" . emmet-mode)))
 
 ;;; ---------------------------------------------------------------------------------
 ;;; provide
