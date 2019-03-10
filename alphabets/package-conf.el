@@ -42,7 +42,6 @@
 (use-package-with-report auto-compile
   :disabled t
   :config
-  (setq load-prefer-newer t)
   (auto-compile-on-load-mode)
   (auto-compile-on-save-mode))
 

@@ -140,7 +140,10 @@
 ;;; 特定のバッファではlinum-modeをoff
 ;;; ---------------------------------------------------------------------------
 (defvar disable-nlinum-hooks
-  '(shell-mode-hook eshell-mode-hook emacs-startup-hook grep-mode-hook))
+  '(shell-mode-hook
+    eshell-mode-hook emacs-startup-hook grep-mode-hook
+    swoop-mode-hook term-mode-hook imenu-list-major-mode-hook
+    ))
 
 (while (not (null disable-nlinum-hooks))
   (add-hook (car disable-nlinum-hooks) (lambda () (nlinum-mode -1)))

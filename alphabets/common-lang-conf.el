@@ -51,7 +51,9 @@
 ;;; ---------------------------------------------------------------------------
 (use-package-with-report flycheck
   :config
-  (add-hook 'after-init-hook #'global-flycheck-mode))
+  (add-hook 'after-init-hook #'global-flycheck-mode)
+  (with-eval-after-load 'flycheck
+    (setq-default flycheck-disabled-checkers '(emacs-lisp-checkdoc))))
 
 (use-package-with-report flymake-cursor)
 
