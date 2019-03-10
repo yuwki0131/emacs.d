@@ -155,7 +155,7 @@ M-x delete-byte-compile
 |編集|挿入|C-a C-e|insert-current-file-name|現在のファイルパスを挿入|
 |編集|挿入|C-a C-m|insert--s|コメント用の線を挿入|
 |編集|挿入|C-a C-y|counsel-yank-pop|killringから選択して挿入|
-|編集|refactoring|C-a i|iedit-mode|iedit-mode: 同一のシンボルを同時置換|
+|編集|修正|C-a i|iedit-mode|iedit-mode: 同一のシンボルを同時置換|
 |編集|その他|C-a C-r|rectangle-mark-mode|矩形選択|
 |移動|バッファ内|C-e C-l|goto-last-change|最後の変更箇所へ|
 |移動|バッファ内|C-e C-a|move-beginning-of-line|行頭/行末へ(unbindの再設定)|

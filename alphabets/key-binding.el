@@ -303,7 +303,7 @@
 (gssk-explain-function "killringから選択して挿入")
 (gssk-bind "C-a C-y" 'counsel-yank-pop)
 
-(gssk-subcategory "refactoring")
+(gssk-subcategory "修正")
 
 (gssk-explain-function "iedit-mode: 同一のシンボルを同時置換")
 (gssk-bind "C-a i" 'iedit-mode)
