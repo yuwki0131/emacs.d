@@ -21,9 +21,6 @@
 ;; バッファ自動再読み込み
 (global-auto-revert-mode t)
 
-;; 行番号を表示(標準) => 使用しない
-;; (global-linum-mode t)
-
 ;; beep音消す => ミニバッファへ反映
 ;; (setq visible-bell t)
 ;; (setq ring-bell-function 'ignore)
@@ -78,8 +75,16 @@
 ;; ファイル保存時に空白削除
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
-;; すべてのプログラムモードに対してタブ幅設定
-(add-hook 'prog-mode-hook '(lambda () (setq tab-width 2)))
+;; すべてのプログラムモードに対して
+(add-hook
+ 'prog-mode-hook
+ '(lambda ()
+    ;;タブ幅設定
+    (setq tab-width 2)
+    ;; 行番号を表示(標準)
+    (setq display-line-numbers-width 4)
+    (setq display-line-numbers t)
+    ))
 
 ;; ダイアログボックス非表示
 (defalias 'message-box 'message)
@@ -146,7 +151,8 @@
     ))
 
 (while (not (null disable-nlinum-hooks))
-  (add-hook (car disable-nlinum-hooks) (lambda () (nlinum-mode -1)))
+  (add-hook (car disable-nlinum-hooks)
+            (lambda () (setq display-line-numbers nil)))
   (setq disable-nlinum-hooks (cdr disable-nlinum-hooks)))
 
 ;;; ---------------------------------------------------------------------------

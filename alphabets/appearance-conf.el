@@ -222,7 +222,7 @@
 ;; 行番号(line-num)の色の設定
 (ignore-report
   (set-face-attribute
-   'linum nil
+   'line-number nil
    :foreground color/inactive
    :background color/white
    :weight 'bold))
