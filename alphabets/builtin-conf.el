@@ -124,17 +124,17 @@
 ;;; ---------------------------------------------------------------------------
 ;;; 最近開いたファイルを再度開く
 ;;; ---------------------------------------------------------------------------
-(setq
- ;; 2000ファイルまで履歴保存する
- recentf-max-saved-items 2000
- ;; 存在しないファイルは消さない
- recentf-auto-cleanup 'never
- ;; resentfで無視するファイル
- recentf-exclude '("/recentf")
- recentf-auto-save-timer (run-with-idle-timer 30 t 'recentf-save-list))
+;; (setq
+;;  ;; 2000ファイルまで履歴保存する
+;;  recentf-max-saved-items 2000
+;;  ;; 存在しないファイルは消さない
+;;  recentf-auto-cleanup 'never
+;;  ;; resentfで無視するファイル
+;;  recentf-exclude '("/recentf")
+;;  recentf-auto-save-timer (run-with-idle-timer 30 t 'recentf-save-list))
 
 ;; enable
-(recentf-mode 1)
+(recentf-mode nil)
 
 ;;; ---------------------------------------------------------------------------
 ;;; 特定のバッファではlinum-modeをoff
