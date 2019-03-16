@@ -36,11 +36,6 @@
 (use-package-with-report restclient)
 
 ;;; ---------------------------------------------------------------------------
-;;; package-func : browse kill ring : kill ring
-;;; ---------------------------------------------------------------------------
-(use-package-with-report browse-kill-ring)
-
-;;; ---------------------------------------------------------------------------
 ;;; package-func : neotree : ディレクトリ表示
 ;;; ---------------------------------------------------------------------------
 (use-package-with-report neotree
@@ -66,22 +61,6 @@
 (use-package-with-report open-junk-file
   :config
   (setq open-junk-file-format "~/.emacs.d/junk/%Y-%m-%d-%H%M%S."))
-
-;;; ---------------------------------------------------------------------------
-;;; package-func : twittering mode : ついった
-;;; ---------------------------------------------------------------------------
-;; (use-package-with-report twittering-mode
-;;   :config
-;;   (setq twittering-use-master-password t)
-;;   ;; 更新頻度(sec)
-;;   (setq twittering-timer-interval 30)
-;;   ;; 単位時間あたりのツイート取得数
-;;   (setq twittering-number-of-tweets-on-retrieval 50)
-;;   ;; アイコン表示
-;;   (setq twittering-icon-mode t)
-;;   ;; 表示形式
-;;   (setq twittering-status-format "%i @%s %S %p: \n %T
-;; ──────────────────────────────────────────────────────────────────────────"))
 
 ;;; ---------------------------------------------------------------------------
 ;;; package-func : markdown preview mode : markdown preview
