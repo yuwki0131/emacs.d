@@ -108,7 +108,7 @@ M-x delete-byte-compile
 |その他|その他|C-S--|text-scale-decrease|文字の拡大/縮小|
 |その他|その他|C-+|increment-number|数値のインクリメント/デクリメント|
 |その他|その他|C--|decrement-number|数値のインクリメント/デクリメント|
-|その他|その他|M-j|counsel-faces|一時的なコマンド束縛用(テスト用/試用)|
+|その他|その他|M-j|temp-command|一時的なコマンド束縛用(テスト用/試用)|
 |機能||C-z p|toggle-truncate-lines|enable/disable toggle-truncate-line|
 |機能||C-z C-k|kill-the-other-buffers|現在のバッファ以外のバッファを閉じる|
 |機能||C-z f|set-file-name-coding-system|エンコーディングを変更|
@@ -178,7 +178,6 @@ M-x delete-byte-compile
 |移動|検索|C-e C-k|dumb-jump-back|関数の定義位置に移動(dumb-jump)|
 |移動|検索|C-e C-n|highlight-symbol-next|次/前のシンボルの位置へ|
 |移動|検索|C-e C-p|highlight-symbol-prev|次/前のシンボルの位置へ|
-|移動|検索|C-e d|counsel-ack|ディレクトリ内Grep (counsel-ack)|
 |移動|ファイル|C-e o|recentf-open-files|最近開いたファイルを開く|
 |移動|ファイル|C-e f|counsel-git|ファイルを開く(Gitベース)|
 |移動|ファイル|C-e C-y|counsel-ag|counsel-ag: ag search|
