@@ -9,11 +9,11 @@
 (require 'package)
 
 (setq package-archives
-      '(("melpa" . "https://melpa.org/packages/")
+      '(("melpa"        . "https://melpa.org/packages/")
         ("melpa-stable" . "https://stable.melpa.org/packages/")
-        ("marmalade" . "http://marmalade-repo.org/packages/")
-        ("elpa-gnu" . "http://elpa.gnu.org/packages/")
-        ("org" . "http://orgmode.org/elpa/")))
+        ("marmalade"    . "http://marmalade-repo.org/packages/")
+        ("elpa-gnu"     . "http://elpa.gnu.org/packages/")
+        ("org"          . "http://orgmode.org/elpa/")))
 
 (package-initialize)
 
@@ -44,53 +44,53 @@
 ;;; ---------------------------------------------------------------------------
 
 ;; utils (※use-package-with-report系より先頭に持ってくること)
-(use-package util-elisp)
+(require 'util-elisp)
 ;; 以降、alphabets下では、use-package-with-reportでrequire
 
 ;; 雑多な設定
-(use-package builtin-conf)
+(require 'builtin-conf)
 
 ;; 雑多な追加機能(package-install不要)
-(use-package tips-elisp)
+(require 'tips-elisp)
 
 ;; 外部パッケージの設定(要package-install)
-(use-package package-conf)
+(require 'package-conf)
 
 ;; 編集系パッケージの設定(要package-install)
-(use-package edit-package-conf)
+(require 'edit-package-conf)
 
 ;; 表示系パッケージの設定(要package-install)
-(use-package display-package-conf)
+(require 'display-package-conf)
 
 ;; 検索系パッケージの設定(要package-install)
-(use-package search-package-conf)
+(require 'search-package-conf)
 
 ;; 検索移動(grep)系パッケージの設定(要package-install)
-(use-package grep-package-conf)
+(require 'grep-package-conf)
 
 ;; 移動系パッケージの設定(要package-install)
-(use-package jump-package-conf)
+(require 'jump-package-conf)
 
 ;; 言語共通設定(要package-install)
-(use-package common-lang-conf)
+(require 'common-lang-conf)
 
 ;; 言語設定(要package-install)
-(use-package language-conf)
+(require 'language-conf)
 
 ;; 外部のpackage化されてない追加機能(package-install不要)
-(use-package outsider-elisp)
+(require 'outsider-elisp)
 
 ;; フォント設定
-(use-package font-conf)
+(require 'font-conf)
 
 ;; エディタの外観/サイズ調整
-(use-package appearance-conf)
+(require 'appearance-conf)
 
 ;; キーバインド設定(package-install不要)
-(use-package key-binding)
+(require 'key-binding)
 
 ;; emacs用のWindowsManager設定
-;; (use-package wm-conf)
+;; (require 'wm-conf)
 
 ;;; ---------------------------------------------------------------------------
 ;;; reports
