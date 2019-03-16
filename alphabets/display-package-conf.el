@@ -45,7 +45,13 @@
   :ensure t
   :hook (after-init . doom-modeline-mode)
   :config
-  (setq doom-modeline-height 22))
+  (setq doom-modeline-height 22)
+  (doom-modeline-def-modeline 'my-simple-line
+    '(bar matches buffer-info remote-host)
+    '(misc-info buffer-encoding major-mode process vcs checker))
+  (defun setup-custom-doom-modeline ()
+    (doom-modeline-set-modeline 'my-simple-line 'default))
+  (add-hook 'doom-modeline-mode-hook 'setup-custom-doom-modeline))
 
 ;;; ---------------------------------------------------------------------------
 ;;; anzu : モードラインの左側に検索中の単語数を表示
