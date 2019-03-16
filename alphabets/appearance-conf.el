@@ -90,11 +90,11 @@
 
 ;; coloring property
 (ignore-report
-  (set-face-app1 'info-header-xref  color/darkcyan nil t)
-  (set-face-app1 'info-xref         color/darkcyan nil t)
-  (set-face-app1 'link              color/deeppink nil t)
-  (set-face-app1 'escape-glyph      color/darkcyan nil nil)
-  (set-face-app1 'minibuffer-prompt color/deeppink t   nil))
+ (set-face-app1 'info-header-xref  color/darkcyan nil t)
+ (set-face-app1 'info-xref         color/darkcyan nil t)
+ (set-face-app1 'link              color/deeppink nil t)
+ (set-face-app1 'escape-glyph      color/darkcyan nil nil)
+ (set-face-app1 'minibuffer-prompt color/deeppink t   nil))
 
 ;; coloring ac
 ;; (ignore-report
@@ -247,7 +247,7 @@
    :box '(:line-width 1 :color "gray30" :style nil)))
 
 (ignore-report
-  (custom-set-variables '(hl-sexp-background-color color/lightpink)))
+ (custom-set-variables '(hl-sexp-background-color color/lightpink)))
 
 ;;;---------------------------------------------------------------------------
 ;;; ウィンドウ幅などの設定
