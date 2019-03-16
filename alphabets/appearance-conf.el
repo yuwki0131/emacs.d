@@ -30,7 +30,7 @@
 ;; magenta系
 (defvar color/deeppink   "#E5266A")
 (defvar color/purpledark "#9B8B9B")
-(defvar color/lightpink  "lightpink")
+(defvar color/lightpink  "light pink")
 
 ;; orange系
 (defvar color/orange     "#FF4C00")
@@ -192,16 +192,7 @@
 (set-cursor-color color/deeppink)
 
 ;; カーソル行ハイライト
-(defface hlline-face
-  `((((class color) (background dark))  (:background ,color/inactive))
-    (((class color) (background light)) (:background "light pink"))
-    (t ())) "*Face used by hl-line.")
-
-(setq hl-line-face 'hlline-face)
-
-;; カーソル桁ハイライト
-(ignore-report
-  (custom-set-faces '(col-highlight ((t (:inherit hl-line))))))
+(set-face-attribute 'hl-line nil :inherit nil :background color/lightpink)
 
 ;; 選択範囲
 (set-face-foreground 'region "gray80")
@@ -222,28 +213,23 @@
    :background color/inactive
    :weight 'bold
    :height 100
-   :box `(:line-width 4 :color ,color/inactive :style nil)
    :overline color/orange))
 
 ;; モードラインの設定(active)
 (ignore-report
   (set-face-attribute 'mode-line nil
    :foreground color/lightcyan
-   :background color/inactive
-   :inverse-video nil
+   :background color/active
    :weight 'extra-light
-   :height 100
-   :box '(:line-width 1 :color ,color/black :style nil)))
+   :height 100))
 
 ;; モードラインの設定(inactive)
 (ignore-report
   (set-face-attribute 'mode-line-inactive nil
    :foreground color/lightcyan
    :background color/inactive
-   :inverse-video nil
    :weight 'extra-light
-   :height 100
-   :box '(:line-width 1 :color "gray30" :style nil)))
+   :height 100))
 
 (ignore-report
  (custom-set-variables '(hl-sexp-background-color color/lightpink)))
