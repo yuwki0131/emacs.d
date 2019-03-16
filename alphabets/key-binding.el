@@ -371,8 +371,13 @@
 (gssk-bind "C-e C-n" 'highlight-symbol-next)
 (gssk-bind "C-e C-p" 'highlight-symbol-prev)
 
+(gssk-subcategory "ファイル")
+
 (gssk-explain-function "最近開いたファイルを開く")
 (gssk-bind "C-e o" 'recentf-open-files)
+
+(gssk-explain-function "ファイルを開く(Gitベース)")
+(gssk-bind "C-e f" 'counsel-git)
 
 (gssk-explain-function "counsel-ag: ag search")
 (gssk-bind "C-e C-y"   'counsel-ag)
