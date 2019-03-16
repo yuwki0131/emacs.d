@@ -31,11 +31,6 @@
     (server-start)))
 
 ;;; ---------------------------------------------------------------------------
-;;; package-func : imenu list : 関数(クラス)定義一覧を横に表示
-;;; ---------------------------------------------------------------------------
-(use-package-with-report imenu-list)
-
-;;; ---------------------------------------------------------------------------
 ;;; package-func : restclient
 ;;; ---------------------------------------------------------------------------
 (use-package-with-report restclient)
@@ -75,18 +70,18 @@
 ;;; ---------------------------------------------------------------------------
 ;;; package-func : twittering mode : ついった
 ;;; ---------------------------------------------------------------------------
-(use-package-with-report twittering-mode
-  :config
-  (setq twittering-use-master-password t)
-  ;; 更新頻度(sec)
-  (setq twittering-timer-interval 30)
-  ;; 単位時間あたりのツイート取得数
-  (setq twittering-number-of-tweets-on-retrieval 50)
-  ;; アイコン表示
-  (setq twittering-icon-mode t)
-  ;; 表示形式
-  (setq twittering-status-format "%i @%s %S %p: \n %T
-──────────────────────────────────────────────────────────────────────────"))
+;; (use-package-with-report twittering-mode
+;;   :config
+;;   (setq twittering-use-master-password t)
+;;   ;; 更新頻度(sec)
+;;   (setq twittering-timer-interval 30)
+;;   ;; 単位時間あたりのツイート取得数
+;;   (setq twittering-number-of-tweets-on-retrieval 50)
+;;   ;; アイコン表示
+;;   (setq twittering-icon-mode t)
+;;   ;; 表示形式
+;;   (setq twittering-status-format "%i @%s %S %p: \n %T
+;; ──────────────────────────────────────────────────────────────────────────"))
 
 ;;; ---------------------------------------------------------------------------
 ;;; package-func : markdown preview mode : markdown preview

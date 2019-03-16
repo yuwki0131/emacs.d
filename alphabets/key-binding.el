@@ -60,9 +60,6 @@
 (gssk-category-function "編集" "挿入" "snippet: yaスニペット挿入")
 (gssk-bind "M-RET"  'yas-insert-snippet)
 
-(gssk-category-function "編集" "挿入" "kill-ringを表示")
-(gssk-bind "M-y"    'browse-kill-ring)
-
 (gssk-category-function "編集" "括弧" "括弧挿入")
 (gssk-bind "C-l"    'insert-parenthesis)
 (gssk-bind "C-S-l"  'insert-angle-brackets)

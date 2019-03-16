@@ -1,5 +1,6 @@
 ;;; package --- language-conf.el (specific settings for languages)
 ;;; Commentary:
+;;; flymake and ...
 ;;;  言語設定 / language-conf.el
 ;;;  Lisp
 ;;;  - Gauche/Scheme
@@ -31,6 +32,17 @@
 (require 'package)
 (require 'use-package)
 (require 'util-elisp)
+
+;;; ---------------------------------------------------------------------------
+;;; flymake : 文法チェッカ
+;;; ---------------------------------------------------------------------------
+(use-package-with-report flycheck
+  :config
+  (add-hook 'after-init-hook #'global-flycheck-mode)
+  (with-eval-after-load 'flycheck
+    (setq-default flycheck-disabled-checkers '(emacs-lisp-checkdoc))))
+
+(use-package-with-report flymake-cursor)
 
 ;;; --------------------------------------------------------------------------------
 ;;; config : Lisp dialects

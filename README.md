@@ -12,32 +12,6 @@
 
 <img src="img/img_use1.png" width="200" hspace="10"><img src="img/img_use2.png" width="200" hspace="10"><img src="img/img_use3.png" width="200" hspace="10">
 
-## ~/.emacs.d/alphabetsディレクトリ以下構成
-
-### elispファイル構成
-
-|   | *.elファイル         | use-package | 設定                                   |
-|:-:|:---------------------|:-----------:|:---------------------------------------|
-| A | appearance-conf      | -           | emacsデフォルトの外見設定              |
-| B | builtin-conf         | -           | emacsデフォルトの設定項目              |
-| C | common-lang-conf     | o           | 言語共通設定 or 複数言語に共通する設定 |
-| D | display-package-conf | o           | 表示系パッケージの設定項目             |
-| E | edit-package-conf    | o           | 編集系パッケージの設定項目             |
-| F | font-conf            | -           | フォント設定                          |
-| G | grep-package-conf    | o           | 補完/grep系パッケージの設定項目        |
-| J | jump-package-conf    | o           | 移動系パッケージの設定項目             |
-| K | key-binding          | -           | Globalなキーバインドはここに一括       |
-| L | language-conf        | o           | 各言語設定                             |
-| O | outsider-eslip       | -           | 外部から持ち込んだコード               |
-| P | package-conf         | o           | 各パッケージの設定項目                 |
-| S | search-package-conf  | o           | 検索系パッケージの設定項目             |
-| T | tips-eslip           | -           | 雑多な追加機能のコード                 |
-| U | util-elisp           | -           | alphabetsファイル用のユーティリティ       |
-| W | wm-conf              | -           | emacsをWindowManagerにする時の設定       |
-
-* 順不同
-* 残り(G, H, I, M, N, Q, R, V, X, Y, Z)
-
 ## 設定
 
 ```
@@ -70,6 +44,33 @@ M-x refresh-byte-compile
 M-x delete-byte-compile
 ```
 
+## ~/.emacs.d/alphabetsディレクトリ以下構成
+
+### elispファイル構成
+
+|   | *.elファイル             | use-package | 設定                                |
+|:-:|:-------------------------|:-----------:|:------------------------------------|
+| A | appearance-conf          | -           | emacsデフォルトの外見設定           |
+| B | builtin-conf             | -           | emacsデフォルトの設定項目           |
+| C | complements-package-conf | o           | 補完系パッケージの設定項目          |
+| D | display-package-conf     | o           | 表示系パッケージの設定項目          |
+| E | edit-package-conf        | o           | 編集系パッケージの設定項目          |
+| F | font-conf                | -           | フォント設定                        |
+| G | grep-package-conf        | o           | 補完/grep系パッケージの設定項目     |
+| H | highlight-package-conf   | o           | ハイライト系パッケージの設定項目    |
+| J | jump-package-conf        | o           | 移動系パッケージの設定項目          |
+| K | key-binding              | -           | Globalなキーバインドはここに一括    |
+| L | language-conf            | o           | 各言語設定                          |
+| O | outsider-eslip           | -           | 外部から持ち込んだコード            |
+| P | package-conf             | o           | 各パッケージの設定項目              |
+| S | search-package-conf      | o           | 検索系パッケージの設定項目          |
+| T | tips-eslip               | -           | 雑多な追加機能のコード              |
+| U | util-elisp               | -           | alphabetsファイル用のユーティリティ |
+| W | wm-conf                  | -           | emacsをWindowManagerにする時の設定  |
+
+* 順不同
+* 残り(I, M, N, Q, R, V, X, Y, Z)
+
 ## キーバインド
 
 デフォルト以外のglobal-set-key設定
@@ -87,7 +88,6 @@ M-x delete-byte-compile
 |編集|削除|M-h|backward-kill-word|Backspaceで削除 (文字単位/単語単位)|
 |編集|挿入|C-:|insert-underscore|アンダースコア挿入|
 |編集|挿入|M-RET|yas-insert-snippet|snippet: yaスニペット挿入|
-|編集|挿入|M-y|browse-kill-ring|kill-ringを表示|
 |編集|括弧|C-l|insert-parenthesis|括弧挿入|
 |編集|括弧|C-S-l|insert-angle-brackets|括弧挿入|
 |編集|括弧|M-l|insert-brackets|括弧挿入|
@@ -108,7 +108,7 @@ M-x delete-byte-compile
 |その他|その他|C-S--|text-scale-decrease|文字の拡大/縮小|
 |その他|その他|C-+|increment-number|数値のインクリメント/デクリメント|
 |その他|その他|C--|decrement-number|数値のインクリメント/デクリメント|
-|その他|その他|M-j|temp-command|一時的なコマンド束縛用(テスト用/試用)|
+|その他|その他|M-j|counsel-faces|一時的なコマンド束縛用(テスト用/試用)|
 |機能||C-z p|toggle-truncate-lines|enable/disable toggle-truncate-line|
 |機能||C-z C-k|kill-the-other-buffers|現在のバッファ以外のバッファを閉じる|
 |機能||C-z f|set-file-name-coding-system|エンコーディングを変更|
@@ -178,6 +178,7 @@ M-x delete-byte-compile
 |移動|検索|C-e C-k|dumb-jump-back|関数の定義位置に移動(dumb-jump)|
 |移動|検索|C-e C-n|highlight-symbol-next|次/前のシンボルの位置へ|
 |移動|検索|C-e C-p|highlight-symbol-prev|次/前のシンボルの位置へ|
+|移動|検索|C-e d|counsel-ack|ディレクトリ内Grep (counsel-ack)|
 |移動|ファイル|C-e o|recentf-open-files|最近開いたファイルを開く|
 |移動|ファイル|C-e f|counsel-git|ファイルを開く(Gitベース)|
 |移動|ファイル|C-e C-y|counsel-ag|counsel-ag: ag search|

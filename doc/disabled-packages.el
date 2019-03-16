@@ -197,3 +197,64 @@
 ;;   :config
 ;;   (setq symon-delay 30)
 ;;   (symon-mode))
+
+;;; ---------------------------------------------------------------------------
+;;; にゃーん
+;;; ---------------------------------------------------------------------------
+;; original : https://www.youtube.com/watch?v=QH2-TGUlwu4
+;; (use-package-with-report nyan-mode
+;;   :config
+;;   (nyan-mode)
+;;   (nyan-start-animation))
+
+;;; ---------------------------------------------------------------------------
+;;; parrot
+;;; ---------------------------------------------------------------------------
+;; original : https://cultofthepartyparrot.com/
+;; (use-package-with-report parrot)
+
+;;; ---------------------------------------------------------------------------
+;;; origami : ford the inner of parenthesis
+;;; ---------------------------------------------------------------------------
+;;; memo:
+;;;   使わないので
+;; (use-package-with-report origami)
+
+;;; ---------------------------------------------------------------------------
+;;; yasnippet : スニペット
+;;; ---------------------------------------------------------------------------
+;; see : https://github.com/AndreaCrotti/yasnippet-snippets
+;; (use-package-with-report yasnippet
+;;   :diminish yas-minor-mode
+;;   :config
+;;   (setq yas-snippet-dirs
+;;  '("~/.emacs.d/mysnippets"
+;;    "~/.emacs.d/yasnippets"))
+;;   (yas-global-mode 1))
+
+;; memo :
+;; 新規スニペット作成バッファを用意する
+;; (define-key yas-minor-mode-map (kbd "C-x i n") 'yas-new-snippet)
+;; 既存スニペットを閲覧・編集する
+;; (define-key yas-minor-mode-map (kbd "C-x i v") 'yas-visit-snippet-file)
+
+;;; ---------------------------------------------------------------------------
+;;; package-func : twittering mode : ついった
+;;; ---------------------------------------------------------------------------
+;; (use-package-with-report twittering-mode
+;;   :config
+;;   (setq twittering-use-master-password t)
+;;   ;; 更新頻度(sec)
+;;   (setq twittering-timer-interval 30)
+;;   ;; 単位時間あたりのツイート取得数
+;;   (setq twittering-number-of-tweets-on-retrieval 50)
+;;   ;; アイコン表示
+;;   (setq twittering-icon-mode t)
+;;   ;; 表示形式
+;;   (setq twittering-status-format "%i @%s %S %p: \n %T
+;; ──────────────────────────────────────────────────────────────────────────"))
+
+;;; ---------------------------------------------------------------------------
+;;; package-func : browse kill ring : kill ring
+;;; ---------------------------------------------------------------------------
+;; (use-package-with-report browse-kill-ring)

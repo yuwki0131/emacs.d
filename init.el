@@ -59,8 +59,11 @@
 ;; 編集系パッケージの設定(要package-install)
 (require 'edit-package-conf)
 
-;; 表示系パッケージの設定(要package-install)
+;; 表示(オブジェクト)系パッケージの設定(要package-install)
 (require 'display-package-conf)
+
+;; 表示(ハイライト)系パッケージの設定(要package-install)
+(require 'highlight-package-conf)
 
 ;; 検索系パッケージの設定(要package-install)
 (require 'search-package-conf)
@@ -71,8 +74,8 @@
 ;; 移動系パッケージの設定(要package-install)
 (require 'jump-package-conf)
 
-;; 言語共通設定(要package-install)
-(require 'common-lang-conf)
+;; 補完系パッケージの設定
+(require 'complements-package-conf)
 
 ;; 言語設定(要package-install)
 (require 'language-conf)
