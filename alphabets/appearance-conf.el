@@ -39,11 +39,15 @@
 (defvar color/limegreen  "#32cd32")
 
 ;; gray系
+(defvar color/black      "color/black")
+(defvar color/white      "white")
+(defvar color/near-white "gray95")
 (defvar color/active     "#101010")
 (defvar color/inactive   "#393939")
 (defvar color/bggray     "#FFFFFF") ;; foreground gary
 (defvar color/fggray     "#101010") ;; background gary
 (defvar color/comment    "#777777")
+(defvar color/comment-delimitter "#666666")
 
 ;; 背景/前景の設定
 (set-background-color color/bggray)
@@ -63,8 +67,8 @@
   (set-face-italic     attr-symbol italic))
 
 ;; coloring program
+(set-face-app1 'font-lock-comment-delimiter-face color/comment-delimitter t t)
 (set-face-app1 'font-lock-comment-face           color/comment   nil t)
-(set-face-app1 'font-lock-comment-delimiter-face color/comment   nil t)
 (set-face-app1 'font-lock-doc-face               color/deeppink  nil t)
 (set-face-app1 'font-lock-string-face            color/limegreen t   nil)
 (set-face-app1 'font-lock-keyword-face           color/darkcyan  t   nil)
@@ -78,15 +82,15 @@
 (set-face-app1 'font-lock-negation-char-face     color/darkcyan  nil nil)
 
 ;; fringe colors
-(set-face-attribute 'fringe nil :foreground "white" :background "white")
+(set-face-attribute 'fringe nil :foreground color/white :background color/white)
 
 ;; for grep
 (ignore-report
- (set-face-app2 'compilation-info   color/deeppink "white" nil nil)
- (set-face-app2 'wgrep-delete-face "gray95"        color/darkcyan nil t)
- (set-face-app2 'wgrep-done-face    color/darkcyan "white"        nil nil)
- (set-face-app2 'wgrep-face        "white"         color/darkcyan nil t)
- (set-face-app2 'wgrep-file-face   "white"         color/darkcyan nil t))
+ (set-face-app2 'compilation-info   color/deeppink   color/white    nil nil)
+ (set-face-app2 'wgrep-delete-face  color/near-white color/darkcyan nil t)
+ (set-face-app2 'wgrep-done-face    color/darkcyan   color/white    nil nil)
+ (set-face-app2 'wgrep-face         color/white      color/darkcyan nil t)
+ (set-face-app2 'wgrep-file-face    color/white      color/darkcyan nil t))
 
 ;; coloring property
 (ignore-report
@@ -98,7 +102,7 @@
 
 ;; coloring ac
 ;; (ignore-report
-;;   (set-face-app2 'ac-completion-face           color/deeppink  "white"        nil nil))
+;;   (set-face-app2 'ac-completion-face           color/deeppink  color/white        nil nil))
 
 ;; (ignore-report
 ;;  ;; candidates
@@ -113,13 +117,13 @@
 ;;  (set-face-app2 'ac-yasnippet-selection-face  color/deeppink color/inactive nil t))
 
 ;; (set-face-attribute 'company-tooltip nil
-;;                     :foreground "black" :background "lightgrey")
+;;                     :foreground color/black :background "lightgrey")
 ;; (set-face-attribute 'company-tooltip-common nil
-;;                     :foreground "black" :background "lightgrey")
+;;                     :foreground color/black :background "lightgrey")
 ;; (set-face-attribute 'company-tooltip-common-selection nil
-;;                     :foreground "white" :background "steelblue")
+;;                     :foreground color/white :background "steelblue")
 ;; (set-face-attribute 'company-tooltip-selection nil
-;;                     :foreground "black" :background "steelblue")
+;;                     :foreground color/black :background "steelblue")
 ;; (set-face-attribute 'company-preview-common nil
 ;;                     :background nil :foreground "lightgrey" :underline t)
 ;; (set-face-attribute 'company-scrollbar-fg nil
@@ -127,42 +131,54 @@
 ;; (set-face-attribute 'company-scrollbar-bg nil
 ;;                     :background "gray40")
 
+;; doom-modeline bar
+(ignore-report
+  (set-face-app2 'doom-modeline-bar                color/black      color/deeppink nil t))
+
+;; doom-modeline bar
+(ignore-report
+  (set-face-app2 'ivy-current-match                color/near-white color/deeppink  nil t)
+  (set-face-app2 'ivy-minibuffer-match-face-2      color/black      color/lightpink t   t)
+  (set-face-app2 'counsel-outline-default          color/darkcyan   color/white     nil t)
+  (set-face-app2 'ivy-grep-info                    color/darkcyan   color/white     nil t)
+  (set-face-app2 'ivy-separator                    color/darkcyan   color/white     nil t)
+  )
 
 ;; popup
 (ignore-report
-  (set-face-app2 'popup-face                       color/deeppink "gray95" nil t)
-  (set-face-app2 'popup-isearch-match              color/deeppink "gray95" nil t)
-  (set-face-app2 'popup-menu-face                  color/deeppink "gray95" nil t)
-  (set-face-app2 'popup-menu-mouse-face            color/deeppink "gray95" nil t)
-  (set-face-app2 'popup-menu-selection-face        color/deeppink "gray95" nil t)
-  (set-face-app2 'popup-menu-summary-face          color/deeppink "gray95" nil t)
-  (set-face-app2 'popup-scroll-bar-background-face color/darkcyan "black"  nil t)
-  (set-face-app2 'popup-scroll-bar-foreground-face color/darkcyan "gray95" nil t)
-  (set-face-app2 'popup-summary-face               color/darkcyan "gray95" nil t)
-  (set-face-app2 'popup-tip-face                   color/darkcyan "gray95" nil t)
-  ;; (set-face-app2 'pulse-highlight-face             color/darkcyan "gray95" nil t)
-  ;; (set-face-app2 'pulse-highlight-start-face       color/darkcyan "gray95" nil t)
+  (set-face-app2 'popup-face                       color/deeppink   color/near-white nil t)
+  (set-face-app2 'popup-isearch-match              color/deeppink   color/near-white nil t)
+  (set-face-app2 'popup-menu-face                  color/deeppink   color/near-white nil t)
+  (set-face-app2 'popup-menu-mouse-face            color/deeppink   color/near-white nil t)
+  (set-face-app2 'popup-menu-selection-face        color/deeppink   color/near-white nil t)
+  (set-face-app2 'popup-menu-summary-face          color/deeppink   color/near-white nil t)
+  (set-face-app2 'popup-scroll-bar-background-face color/darkcyan   color/black      nil t)
+  (set-face-app2 'popup-scroll-bar-foreground-face color/darkcyan   color/near-white nil t)
+  (set-face-app2 'popup-summary-face               color/darkcyan   color/near-white nil t)
+  (set-face-app2 'popup-tip-face                   color/darkcyan   color/near-white nil t)
+  ;; (set-face-app2 'pulse-highlight-face             color/darkcyan color/near-white nil t)
+  ;; (set-face-app2 'pulse-highlight-start-face       color/darkcyan color/near-white nil t)
   )
 
 ;; coloring bm
 (ignore-report
-  (set-face-app2 'bm-face                      color/lightcyan color/deeppink nil t)
-  (set-face-app2 'bm-fringe-face               color/lightcyan color/deeppink nil t)
-  (set-face-app2 'bm-fringe-persistent-face    "white"         color/orange   nil t)
-  (set-face-app2 'bm-persistent-face           "white"         color/orange   nil t))
+  (set-face-app2 'bm-face                          color/lightcyan  color/deeppink nil t)
+  (set-face-app2 'bm-fringe-face                   color/lightcyan  color/deeppink nil t)
+  (set-face-app2 'bm-fringe-persistent-face        color/white      color/orange   nil t)
+  (set-face-app2 'bm-persistent-face               color/white      color/orange   nil t))
 
 ;; coloring isearch
 (ignore-report
-  (set-face-app2 'isearch                      "white"         color/darkcyan nil t)
-  (set-face-app2 'isearch-fail                 "white"         color/darkred  nil t))
+  (set-face-app2 'isearch                          color/white      color/darkcyan nil t)
+  (set-face-app2 'isearch-fail                     color/white      color/darkred  nil t))
 
 ;; coloring swoop
 (ignore-report
-  (set-face-app2 'swoop-face-header-format-line color/lightcyan color/inactive nil t)
-  (set-face-app2 'swoop-face-line-buffer-name   "white"         color/darkcyan nil t)
-  (set-face-app2 'swoop-face-line-number        "white"         color/inactive nil t)
-  (set-face-app2 'swoop-face-target-line        "white"         color/deeppink nil t)
-  (set-face-app2 'swoop-face-target-words       "white"         color/darkcyan nil t))
+  (set-face-app2 'swoop-face-header-format-line    color/lightcyan  color/inactive nil t)
+  (set-face-app2 'swoop-face-line-buffer-name      color/white      color/darkcyan nil t)
+  (set-face-app2 'swoop-face-line-number           color/white      color/inactive nil t)
+  (set-face-app2 'swoop-face-target-line           color/white      color/deeppink nil t)
+  (set-face-app2 'swoop-face-target-words          color/white      color/darkcyan nil t))
 
 ;; fontset swoop
 (ignore-report
@@ -179,12 +195,12 @@
 
 ;; coloring paren
 (ignore-report
-  (set-face-app2 'show-paren-match              "white"         color/darkcyan nil t)
-  (set-face-app2 'show-paren-mismatch           "white"         color/deeppink nil t))
+  (set-face-app2 'show-paren-match    color/white    color/darkcyan nil t)
+  (set-face-app2 'show-paren-mismatch color/white    color/deeppink nil t))
 
 ;; color after inserted
 (ignore-report
-  (set-face-app2 'secondary-selection           "deeppink"      color/inactive nil t))
+  (set-face-app2 'secondary-selection color/deeppink color/inactive nil t))
 
 ;; カーソルの色
 (set-cursor-color color/deeppink)
@@ -210,7 +226,7 @@
   (set-face-attribute
    'linum nil
    :foreground color/inactive
-   :background "white"
+   :background color/white
    :weight 'bold))
 
 ;; ヘッダーラインの設定(active)
@@ -222,7 +238,7 @@
    :height 100
    :font default-font-family
    :box `(:line-width 4 :color ,color/inactive :style nil)
-   :overline "orange"))
+   :overline color/orange))
 
 ;; モードラインの設定(active)
 (ignore-report
@@ -233,7 +249,7 @@
    :weight 'extra-light
    :height 100
    :font default-font-family
-   :box '(:line-width 1 :color "black" :style nil)))
+   :box '(:line-width 1 :color ,color/black :style nil)))
 
 ;; モードラインの設定(inactive)
 (ignore-report
