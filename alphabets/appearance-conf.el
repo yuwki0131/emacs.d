@@ -44,6 +44,8 @@
 (defvar color/near-white "gray95")
 (defvar color/active     "#101010")
 (defvar color/inactive   "#393939")
+(defvar color/tooltip-fg "#FFFFFF")
+(defvar color/tooltip-bg "#F0F0F0")
 (defvar color/bggray     "#FFFFFF") ;; foreground gary
 (defvar color/fggray     "#101010") ;; background gary
 (defvar color/comment    "#777777")
@@ -100,36 +102,16 @@
  (set-face-app1 'escape-glyph      color/darkcyan nil nil)
  (set-face-app1 'minibuffer-prompt color/deeppink t   nil))
 
-;; coloring ac
-;; (ignore-report
-;;   (set-face-app2 'ac-completion-face           color/deeppink  color/white        nil nil))
-
-;; (ignore-report
-;;  ;; candidates
-;;  (set-face-app2 'ac-candidate-face            color/lightcyan color/inactive t nil)
-;;  (set-face-app2 'ac-candidate-mouse-face      color/lightcyan color/inactive t nil)
-;;  (set-face-app2 'ac-yasnippet-candidate-face  color/lightcyan color/inactive t nil)
-;;  (set-face-app2 'ac-gtags-candidate-face      color/lightcyan color/inactive t nil)
-;;  ;; selections
-;;  (set-face-app2 'ac-selection-face            color/deeppink color/inactive nil t)
-;;  (set-face-app2 'ac-gtags-selection-face      color/deeppink color/inactive nil t)
-;;  (set-face-app2 'ac-selection-face            color/deeppink color/inactive nil t)
-;;  (set-face-app2 'ac-yasnippet-selection-face  color/deeppink color/inactive nil t))
-
-;; (set-face-attribute 'company-tooltip nil
-;;                     :foreground color/black :background "lightgrey")
-;; (set-face-attribute 'company-tooltip-common nil
-;;                     :foreground color/black :background "lightgrey")
-;; (set-face-attribute 'company-tooltip-common-selection nil
-;;                     :foreground color/white :background "steelblue")
-;; (set-face-attribute 'company-tooltip-selection nil
-;;                     :foreground color/black :background "steelblue")
-;; (set-face-attribute 'company-preview-common nil
-;;                     :background nil :foreground "lightgrey" :underline t)
-;; (set-face-attribute 'company-scrollbar-fg nil
-;;                     :background "orange")
-;; (set-face-attribute 'company-scrollbar-bg nil
-;;                     :background "gray40")
+;; coloring company
+(ignore-errors
+  (set-face-app1 'company-preview-common           "darkcyan" nil t)
+  (set-face-app2 'company-tooltip                  color/deeppink "#F0F0F0" nil t)
+  (set-face-app2 'company-tooltip-common           color/deeppink color/tooltip-bg nil t)
+  (set-face-app2 'company-tooltip-common-selection color/deeppink color/tooltip-fg nil t)
+  (set-face-app2 'company-tooltip-selection        color/darkcyan "#E0E0E0" nil t)
+  (set-face-app2 'company-scrollbar-fg             color/inactive color/deeppink nil t)
+  (set-face-app2 'company-scrollbar-bg             color/deeppink color/inactive nil t)
+  )
 
 ;; doom-modeline bar
 (ignore-report
