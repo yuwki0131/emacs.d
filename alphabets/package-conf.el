@@ -36,26 +36,6 @@
 (use-package-with-report restclient)
 
 ;;; ---------------------------------------------------------------------------
-;;; package-func : neotree : ディレクトリ表示
-;;; ---------------------------------------------------------------------------
-(use-package-with-report neotree
-  :config
-  (defvar neo-persist-show t)
-  (setq neo-show-hidden-files t)
-  (setq neo-keymap-style 'concise)
-  (setq neo-smart-open t)
-  (setq neo-theme 'ascii)
-  (setq neo-window-fixed-size nil)
-  (setq neo-window-width 30)
-  (add-hook 'neotree-mode-hook
-            '(lambda ()
-               (nlinum-mode -1)
-               (setq mode-line-format nil)
-               (force-mode-line-update)
-               ))
-  (setq neo-theme (if (display-graphic-p) 'icons 'arrow)))
-
-;;; ---------------------------------------------------------------------------
 ;;; package-func : open junk file : ジャンクファイル生成
 ;;; ---------------------------------------------------------------------------
 (use-package-with-report open-junk-file
