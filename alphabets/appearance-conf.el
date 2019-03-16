@@ -200,6 +200,12 @@
 (ignore-report
   (set-face-app2 'secondary-selection color/deeppink color/inactive nil t))
 
+;; coloring git-gutter+
+(ignore-report
+  (set-face-app2 'git-gutter+-added    color/white   color/limegreen nil t)
+  (set-face-app2 'git-gutter+-deleted  color/white   color/deeppink  nil t)
+  (set-face-app2 'git-gutter+-modified color/white   color/orange    nil t))
+
 ;; カーソルの色
 (set-cursor-color color/deeppink)
 
@@ -268,12 +274,6 @@
 
 ;; タイトルバー
 (setq frame-title-format "emacs: %b")
-
-;; モードライン(時間非表示) => もう不要
-;; (setq display-time-day-and-date -1)
-
-;; 行番号フォーマット
-;; (setq linum-format " %4d")
 
 ;; 画面サイズ初期化
 ;; (setq initial-frame-alist
