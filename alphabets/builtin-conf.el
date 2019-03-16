@@ -21,40 +21,54 @@
 ;; バッファ自動再読み込み
 (global-auto-revert-mode t)
 
-;; beep音消す => ミニバッファへ反映
-;; (setq visible-bell t)
-;; (setq ring-bell-function 'ignore)
-
-;; マークのリージョンに色を付ける
-;; (setq transient-mark-mode t)
+;; 直前のウィンドウ構成に戻せるようにするための設定
+(winner-mode 1)
 
 (setq
  ;; scratchの初期のメッセージ消去
  initial-scratch-message nil
+
  ;; backupfile(*.~) つくらない
  make-backup-files nil
+
  ;; backupfile(*.# つくらない)
  auto-save-default nil
+
  ;; 折り返しを表示
  truncate-lines t
+
  ;; 折り返しを表示(ウインドウ分割時)
  truncate-partial-width-windows nil
+
  ;; スタートメッセージを非表示
  inhibit-startup-message t
+
  ;; file名の補完で大文字小文字を区別しない
  completion-ignore-case t
+
  ;; 最終行に1行挿入
  require-final-newline t
+
  ;; 再帰的ミニバッファ
  enable-recursive-minibuffers t
+
  ;; ファイル読込補完、大文字/小文字無視
  read-file-name-completion-ignore-case t
+
  ;; デフォルト起動時の画面非表示
  inhibit-startup-message t
+
  ;; 規則文字のdisable
  enable-kinsoku nil
+
  ;; elcとelで新しい方のファイルを読み込む(byte compile忘れ対策)
  load-prefer-newer t
+
+ ;; 巨大なファイルを開く時に警告しない
+ large-file-warning-threshold nil
+
+ ;; bufferが横に分割されるのを防ぐ
+ large-file-warning-threshold nil
  )
 
 ;; バッファの終端を表示(空行表示)
@@ -69,8 +83,14 @@
 ;; 再帰的ミニバッファの深さを表示
 (minibuffer-depth-indicate-mode 1)
 
+;;; 画像ファイル表示
+(auto-image-file-mode t)
+
 ;; from yes-or-no to y-or-n
 (fset 'yes-or-no-p 'y-or-n-p)
+
+;; disable
+(recentf-mode nil)
 
 ;; ファイル保存時に空白削除
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
@@ -79,12 +99,13 @@
 (add-hook
  'prog-mode-hook
  '(lambda ()
-    ;;タブ幅設定
-    (setq tab-width 2)
-    ;; 行番号を表示(標準)
-    (setq display-line-numbers-width 4)
-    (setq display-line-numbers t)
-    ))
+    (setq
+     ;;タブ幅設定
+     tab-width 2
+     ;; 行番号を表示(標準)
+     display-line-numbers-width 4
+     display-line-numbers t
+     )))
 
 ;; ダイアログボックス非表示
 (defalias 'message-box 'message)
@@ -96,18 +117,6 @@
 
 ;; ‘isearch-word’ is an obsolete variable (as of 25.1)対策
 (defvar search-default-regexp-mode nil)
-
-;;; 画像ファイル表示
-(auto-image-file-mode t)
-
-;; find-file時に、elcファイルを無視
-(setq counsel-find-file-ignore-regexp "\\.elc\\'")
-
-;; 巨大なファイルを開く時に警告しない
-(setq large-file-warning-threshold nil)
-
-;; bufferが横に分割されるのを防ぐ
-(setq large-file-warning-threshold nil)
 
 ;;; ---------------------------------------------------------------------------
 ;;; デフォルトエンコーディング
@@ -125,21 +134,6 @@
 ;;; ---------------------------------------------------------------------------
 (require 'uniquify)
 (setq uniquify-buffer-name-style 'post-forward-angle-brackets)
-
-;;; ---------------------------------------------------------------------------
-;;; 最近開いたファイルを再度開く
-;;; ---------------------------------------------------------------------------
-;; (setq
-;;  ;; 2000ファイルまで履歴保存する
-;;  recentf-max-saved-items 2000
-;;  ;; 存在しないファイルは消さない
-;;  recentf-auto-cleanup 'never
-;;  ;; resentfで無視するファイル
-;;  recentf-exclude '("/recentf")
-;;  recentf-auto-save-timer (run-with-idle-timer 30 t 'recentf-save-list))
-
-;; enable
-(recentf-mode nil)
 
 ;;; ---------------------------------------------------------------------------
 ;;; 特定のバッファではlinum-modeをoff
