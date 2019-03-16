@@ -185,13 +185,11 @@
   (set-face-attribute
    'swoop-face-header-format-line nil
    :weight 'bold
-   :height 100
-   :font default-font-family)
+   :height 100)
   (set-face-attribute
    'swoop-face-line-buffer-name nil
    :weight 'bold
-   :height 100
-   :font default-font-family))
+   :height 100))
 
 ;; coloring paren
 (ignore-report
@@ -236,7 +234,6 @@
    :background color/inactive
    :weight 'bold
    :height 100
-   :font default-font-family
    :box `(:line-width 4 :color ,color/inactive :style nil)
    :overline color/orange))
 
@@ -248,7 +245,6 @@
    :inverse-video nil
    :weight 'extra-light
    :height 100
-   :font default-font-family
    :box '(:line-width 1 :color ,color/black :style nil)))
 
 ;; モードラインの設定(inactive)
@@ -259,7 +255,6 @@
    :inverse-video nil
    :weight 'extra-light
    :height 100
-   :font default-font-family
    :box '(:line-width 1 :color "gray30" :style nil)))
 
 (ignore-report
