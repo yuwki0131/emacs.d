@@ -107,6 +107,20 @@
   (volatile-highlights-mode t))
 
 ;;; ---------------------------------------------------------------------------
+;;; volatile highlights : escape sequenceのハイライト
+;;; ---------------------------------------------------------------------------
+(use-package-with-report highlight-escape-sequences)
+;; :config
+;; )
+
+;;; ---------------------------------------------------------------------------
+;;; highlight defined : 定義済みemacs-lisp symbolのハイライト
+;;; ---------------------------------------------------------------------------
+(use-package-with-report highlight-defined
+  :config
+  (add-hook 'emacs-lisp-mode-hook 'highlight-defined-mode))
+
+;;; ---------------------------------------------------------------------------
 ;;; beacon : bufferを移動時にハイライト
 ;;; ---------------------------------------------------------------------------
 (use-package-with-report beacon
