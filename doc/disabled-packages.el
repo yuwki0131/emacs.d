@@ -133,3 +133,67 @@
 ;;; package-func : tiny menu : tiny menu
 ;;; ---------------------------------------------------------------------------
 ;; (use-package-with-report tiny-menu)
+
+;;; ---------------------------------------------------------------------------
+;;; package-func : auto compile : elファイル自動コンパイル
+;;; ---------------------------------------------------------------------------
+;;; memo:
+;;;   現在不要なので一旦、使用を保留
+;; (use-package-with-report auto-compile
+;;   :disabled t
+;;   :config
+;;   (auto-compile-on-load-mode)
+;;   (auto-compile-on-save-mode))
+
+;;; ---------------------------------------------------------------------------
+;;; package-func : auto async byte compile : emacsのバイトコンパイルの自動化
+;;; ---------------------------------------------------------------------------
+;; (use-package-with-report auto-async-byte-compile
+;;   :disabled t
+;;   :config
+;;   ;(add-hook 'emacs-lisp-mode-hook 'enable-auto-async-byte-compile-mode)
+;;   )
+
+;;; ---------------------------------------------------------------------------
+;;; package-func : hide comnt : hide comment
+;;; ---------------------------------------------------------------------------
+;; (use-package-with-report hide-comnt)
+
+;;; ---------------------------------------------------------------------------
+;;; package-move : popwin : ヘルプ/補完バッファをポップアップで表示
+;;; ---------------------------------------------------------------------------
+;; (use-package-with-report popwin
+;;   :config
+;;   (popwin-mode 1))
+
+;;; ---------------------------------------------------------------------------
+;;; package-move : shell-pop : popup(lightweight) shell
+;;; ---------------------------------------------------------------------------
+;; (use-package-with-report shell-pop
+;;   :config
+;;   (setq shell-pop-shell-type '("shell" "*shell*" (lambda () (shell)))))
+
+;;; --------------------------------------------------------------------------------
+;;; package-config : configuration
+;;; --------------------------------------------------------------------------------
+
+;;; ---------------------------------------------------------------------------
+;;; package-config : mouse disable : マウス禁止
+;;; ---------------------------------------------------------------------------
+;; (use-package-with-report disable-mouse
+;;   :diminish disable-mouse-mode
+;;   :config
+;;   (global-disable-mouse-mode))
+
+;;; ---------------------------------------------------------------------------
+;;; package-report : aozora-view
+;;; ---------------------------------------------------------------------------
+;; (use-package-with-report aozora-view)
+
+;;; ---------------------------------------------------------------------------
+;;; package-func : simon : system monitor
+;;; ---------------------------------------------------------------------------
+;; (use-package-with-report symon
+;;   :config
+;;   (setq symon-delay 30)
+;;   (symon-mode))
