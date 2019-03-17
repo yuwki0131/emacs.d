@@ -114,7 +114,6 @@ M-x delete-byte-compile
 |機能||C-z f|set-file-name-coding-system|エンコーディングを変更|
 |機能||C-z C-z|zsnotes-open-today-note|インスタント・メモファイルを開く|
 |機能||C-z C-j|open-junk-file|ジャンクファイルを作成、開く|
-|機能||C-z C-p|shell-pop|shell-popを表示/非表示|
 |機能|置換|C-z C-r|replace-string|文字列置換|
 |機能|検索|C-z g|grep-this|grep this: バッファ内Grep|
 |機能|検索|C-z C-f|grep-find-this|grep find this: ディレクトリ配下Grep|
@@ -161,7 +160,7 @@ M-x delete-byte-compile
 |移動|バッファ内|C-e C-a|move-beginning-of-line|行頭/行末へ(unbindの再設定)|
 |移動|バッファ内|C-e C-e|move-end-of-line|行頭/行末へ(unbindの再設定)|
 |移動|バッファ内|C-e C-l|recenter-top-bottom|top-center-bottom間|
-|移動|バッファ内|C-e C-l|imenu|imenu: 関数定義へ|
+|移動|バッファ内|C-e C-l|imenu-list|imenu: 関数定義へ|
 |移動|バッファ内|C-e C-s|swiper|swiper: バッファ内を動的検索/移動|
 |移動|バッファ間|C-e C-z|ace-window|ace-window: Window間移動|
 |移動|バッファ間|C-e C-c|shell|shell/repl/grepxへ|
