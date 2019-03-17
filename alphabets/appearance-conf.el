@@ -198,7 +198,7 @@
 (set-face-foreground 'region "gray80")
 (set-face-background 'region "gray20")
 
-;; 行番号(line-num)の色の設定
+;; 行番号(line-number)の色の設定
 (ignore-report
   (set-face-attribute
    'line-number nil
