@@ -19,7 +19,7 @@
       (global-hl-line-highlight))))
 
 (defvar global-hl-line-timer
-      (run-with-idle-timer 0.03 t 'global-hl-line-timer-function))
+  (run-with-idle-timer 0.03 t 'global-hl-line-timer-function))
 ;; (cancel-timer global-hl-line-timer)
 
 ;;; ---------------------------------------------------------------------------
