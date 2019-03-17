@@ -142,7 +142,7 @@
   '(shell-mode-hook
     eshell-mode-hook emacs-startup-hook grep-mode-hook
     swoop-mode-hook term-mode-hook imenu-list-major-mode-hook
-    imenu-list-minor-mode-hook
+    imenu-list-minor-mode-hook minimap-mode-hook
     ))
 
 (while (not (null disable-nlinum-hooks))

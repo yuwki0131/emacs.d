@@ -104,13 +104,13 @@
 
 ;; coloring company
 (ignore-errors
-  (set-face-app1 'company-preview-common           "darkcyan" nil t)
-  (set-face-app2 'company-tooltip                  color/deeppink "#F0F0F0" nil t)
+  (set-face-app1 'company-preview-common           color/darkcyan nil t)
+  (set-face-app2 'company-tooltip                  color/deeppink color/tooltip-bg nil t)
   (set-face-app2 'company-tooltip-common           color/deeppink color/tooltip-bg nil t)
   (set-face-app2 'company-tooltip-common-selection color/deeppink color/tooltip-fg nil t)
-  (set-face-app2 'company-tooltip-selection        color/darkcyan "#E0E0E0" nil t)
-  (set-face-app2 'company-scrollbar-fg             color/inactive color/deeppink nil t)
-  (set-face-app2 'company-scrollbar-bg             color/deeppink color/inactive nil t)
+  (set-face-app2 'company-tooltip-selection        color/darkcyan "#E0E0E0"        nil t)
+  (set-face-app2 'company-scrollbar-fg             color/inactive color/deeppink   nil t)
+  (set-face-app2 'company-scrollbar-bg             color/deeppink color/inactive   nil t)
   )
 
 ;; doom-modeline bar
@@ -235,19 +235,13 @@
  (custom-set-variables '(hl-sexp-background-color color/lightpink)))
 
 ;;;---------------------------------------------------------------------------
-;;; ウィンドウ幅などの設定
+;;; その他の設定
 ;;;---------------------------------------------------------------------------
 ;; カーソルタイプ
 (setq-default cursor-type '(bar . 2))
 
 ;; タイトルバー
 (setq frame-title-format "emacs: %b")
-
-;; 画面サイズ初期化
-;; (setq initial-frame-alist
-;;       '((top . 20) (left . 0) (width . 128) (height . 75)
-;;         (alpha . (100 100))
-;;         ))
 
 ;; 余計なマージンを削除
 (set-fringe-mode 0)
