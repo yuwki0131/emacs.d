@@ -75,7 +75,7 @@
 (require 'jump-package-conf)
 
 ;; 補完系パッケージの設定
-(require 'complements-package-conf)
+(require 'complement-package-conf)
 
 ;; 言語設定(要package-install)
 (require 'language-conf)
