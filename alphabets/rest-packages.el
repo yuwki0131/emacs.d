@@ -1,6 +1,6 @@
-;;; system-packages.el --- packages
+;;; rest-packages.el --- packages
 ;;; Commentary:
-;;;  Emacsインストールパッケージ(package-install要) / system-packages.el
+;;;  Emacsインストールパッケージ(package-install要) / rest-packages.el
 ;;;  package func : 機能
 ;;;  package config : 設定
 ;;;  package report : 報告・計測
@@ -83,5 +83,5 @@
 ;;; --------------------------------------------------------------------------------
 ;;; provide
 ;;; --------------------------------------------------------------------------------
-(provide 'system-packages)
-;;; system-packages.el ends here
+(provide 'rest-packages)
+;;; rest-packages.el ends here

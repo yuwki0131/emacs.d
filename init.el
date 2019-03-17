@@ -53,8 +53,8 @@
 ;; 雑多な追加機能(package-install不要)
 (require 'tips-elisp)
 
-;; 外部パッケージの設定(要package-install)
-(require 'system-packages)
+;; その他パッケージの設定(要package-install)
+(require 'rest-packages)
 
 ;; 編集系パッケージの設定(要package-install)
 (require 'edit-packages)
