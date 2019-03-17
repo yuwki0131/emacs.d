@@ -30,13 +30,14 @@
 ;;; ---------------------------------------------------------------------------
 (use-package-with-report minimap
   :config
-  ;; minimapを表示させる位置
-  (setq minimap-window-location 'right)
-  ;; 表示を更新する時間
-  (setq minimap-update-delay 0.2)
-  ;; 幅の長さ
-  (setq minimap-minimum-width 25)
-  )
+  (setq
+   ;; minimapを表示させる位置
+   minimap-window-location 'right
+   ;; 表示を更新する時間
+   minimap-update-delay 0.2
+   ;; 幅の長さ
+   minimap-minimum-width 25
+   ))
 
 ;;; ---------------------------------------------------------------------------
 ;;; modern emacs modeline: doom-modeline
@@ -74,19 +75,20 @@
 (use-package-with-report neotree
   :config
   (defvar neo-persist-show t)
-  (setq neo-show-hidden-files t)
-  (setq neo-keymap-style 'concise)
-  (setq neo-smart-open t)
-  (setq neo-theme 'ascii)
-  (setq neo-window-fixed-size nil)
-  (setq neo-window-width 30)
+  (setq
+   neo-show-hidden-files t
+   neo-keymap-style 'concise
+   neo-smart-open t
+   neo-theme 'ascii
+   neo-window-fixed-size nil
+   neo-window-width 30
+   neo-theme (if (display-graphic-p) 'icons 'arrow)
+   )
   (add-hook 'neotree-mode-hook
             '(lambda ()
-               (nlinum-mode -1)
                (setq mode-line-format nil)
                (force-mode-line-update)
-               ))
-  (setq neo-theme (if (display-graphic-p) 'icons 'arrow)))
+               )))
 
 ;;; --------------------------------------------------------------------------------
 ;;; provide
