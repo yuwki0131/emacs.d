@@ -39,7 +39,7 @@
 (defvar color/limegreen  "#32cd32")
 
 ;; gray系
-(defvar color/black      "color/black")
+(defvar color/black      "black")
 (defvar color/white      "white")
 (defvar color/near-white "gray95")
 (defvar color/active     "#101010")
