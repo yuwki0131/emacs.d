@@ -1,6 +1,6 @@
-;;; package-conf.el --- packages
+;;; system-package-conf.el --- packages
 ;;; Commentary:
-;;;  Emacsインストールパッケージ(package-install要) / package-conf.el
+;;;  Emacsインストールパッケージ(package-install要) / system-package-conf.el
 ;;;  package func : 機能
 ;;;  package config : 設定
 ;;;  package report : 報告・計測
@@ -10,17 +10,17 @@
 (require 'util-elisp)
 
 ;;; ---------------------------------------------------------------------------
-;;; package-func : magit : emacs git client
+;;; magit : emacs git client
 ;;; ---------------------------------------------------------------------------
 (use-package-with-report magit)
 
 ;;; ---------------------------------------------------------------------------
-;;; package-func : multi-term : terminal emulator
+;;; multi-term : terminal emulator
 ;;; ---------------------------------------------------------------------------
 (use-package-with-report multi-term)
 
 ;;; ---------------------------------------------------------------------------
-;;; package-func : server : emacs client/server
+;;; emacs client/server
 ;;; ---------------------------------------------------------------------------
 ;;; memo:
 ;;;   emacsclinet/ecで起動する。(* ecは自分のbashrcの設定から)
@@ -31,19 +31,19 @@
     (server-start)))
 
 ;;; ---------------------------------------------------------------------------
-;;; package-func : restclient
+;;; restclient
 ;;; ---------------------------------------------------------------------------
 (use-package-with-report restclient)
 
 ;;; ---------------------------------------------------------------------------
-;;; package-func : open junk file : ジャンクファイル生成
+;;; open junk file : ジャンクファイル生成
 ;;; ---------------------------------------------------------------------------
 (use-package-with-report open-junk-file
   :config
   (setq open-junk-file-format "~/.emacs.d/junk/%Y-%m-%d-%H%M%S."))
 
 ;;; ---------------------------------------------------------------------------
-;;; package-func : markdown preview mode : markdown preview
+;;; markdown preview mode : markdown preview
 ;;; ---------------------------------------------------------------------------
 ;; required sudo apt install node-marked
 (use-package-with-report markdown-preview-mode
@@ -51,7 +51,7 @@
   (setq markdown-command "/usr/bin/marked"))
 
 ;;; ---------------------------------------------------------------------------
-;;; package-func : which key : キーバインドサポート
+;;; which key : キーバインドサポート
 ;;; ---------------------------------------------------------------------------
 (use-package-with-report which-key
   :config
@@ -59,7 +59,7 @@
   (which-key-mode))
 
 ;;; ---------------------------------------------------------------------------
-;;; package-config : exec path from shell : シェルのpath設定引き継ぎ
+;;; exec path from shell : シェルのpath設定引き継ぎ
 ;;; ---------------------------------------------------------------------------
 ;;; memo:
 ;;;    Windowsでは使わないこと
@@ -68,12 +68,12 @@
   (exec-path-from-shell-initialize))
 
 ;;; ---------------------------------------------------------------------------
-;;; package-report : esup : emacs起動時間の計測
+;;; esup : emacs起動時間の計測
 ;;; ---------------------------------------------------------------------------
 (use-package-with-report esup)
 
 ;;; ---------------------------------------------------------------------------
-;;; package-report : key freq mode : keyfreq
+;;; key freq mode : keyfreq
 ;;; ---------------------------------------------------------------------------
 (use-package-with-report keyfreq
   :config
@@ -83,5 +83,5 @@
 ;;; --------------------------------------------------------------------------------
 ;;; provide
 ;;; --------------------------------------------------------------------------------
-(provide 'package-conf)
-;;; package-conf.el ends here
+(provide 'system-package-conf)
+;;; system-package-conf.el ends here

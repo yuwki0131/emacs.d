@@ -54,7 +54,7 @@
 (require 'tips-elisp)
 
 ;; 外部パッケージの設定(要package-install)
-(require 'package-conf)
+(require 'system-package-conf)
 
 ;; 編集系パッケージの設定(要package-install)
 (require 'edit-package-conf)
