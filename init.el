@@ -54,28 +54,28 @@
 (require 'tips-elisp)
 
 ;; 外部パッケージの設定(要package-install)
-(require 'system-package-conf)
+(require 'system-packages)
 
 ;; 編集系パッケージの設定(要package-install)
-(require 'edit-package-conf)
+(require 'edit-packages)
 
 ;; 表示(オブジェクト)系パッケージの設定(要package-install)
-(require 'display-package-conf)
+(require 'display-packages)
 
 ;; 表示(ハイライト)系パッケージの設定(要package-install)
-(require 'highlight-package-conf)
+(require 'highlight-packages)
 
 ;; 検索系パッケージの設定(要package-install)
-(require 'search-package-conf)
+(require 'search-packages)
 
 ;; 検索移動(grep)系パッケージの設定(要package-install)
-(require 'grep-package-conf)
+(require 'grep-packages)
 
 ;; 移動系パッケージの設定(要package-install)
-(require 'jump-package-conf)
+(require 'jump-packages)
 
 ;; 補完系パッケージの設定
-(require 'complement-package-conf)
+(require 'complement-packages)
 
 ;; 言語設定(要package-install)
 (require 'language-conf)

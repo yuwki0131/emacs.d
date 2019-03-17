@@ -48,25 +48,25 @@ M-x delete-byte-compile
 
 ### elispファイル構成
 
-|   | *.elファイル             | use-package | 設定                                |
-|:-:|:-------------------------|:-----------:|:------------------------------------|
-| A | appearance-conf          | -           | emacsデフォルトの外見設定           |
-| B | builtin-conf             | -           | emacsデフォルトの設定項目           |
-| C | complements-package-conf | o           | 補完系パッケージの設定項目          |
-| D | display-package-conf     | o           | 表示系パッケージの設定項目          |
-| E | edit-package-conf        | o           | 編集系パッケージの設定項目          |
-| F | font-conf                | -           | フォント設定                        |
-| G | grep-package-conf        | o           | 補完/grep系パッケージの設定項目     |
-| H | highlight-package-conf   | o           | ハイライト系パッケージの設定項目    |
-| J | jump-package-conf        | o           | 移動系パッケージの設定項目          |
-| K | key-binding              | -           | Globalなキーバインドはここに一括    |
-| L | language-conf            | o           | 各言語設定                          |
-| O | outsider-eslip           | -           | 外部から持ち込んだコード            |
-| P | package-conf             | o           | 各パッケージの設定項目              |
-| S | search-package-conf      | o           | 検索系パッケージの設定項目          |
-| T | tips-eslip               | -           | 雑多な追加機能のコード              |
-| U | util-elisp               | -           | alphabetsファイル用のユーティリティ |
-| W | wm-conf                  | -           | emacsをWindowManagerにする時の設定  |
+|   | *.elファイル         | use-package | 設定                                |
+|:-:|:---------------------|:-----------:|:------------------------------------|
+| A | appearance-conf      | -           | emacsデフォルトの外見設定           |
+| B | builtin-conf         | -           | emacsデフォルトの設定項目           |
+| C | complements-packages | o           | 補完系パッケージの設定項目          |
+| D | display-packages     | o           | 表示系パッケージの設定項目          |
+| E | edit-packages        | o           | 編集系パッケージの設定項目          |
+| F | font-conf            | -           | フォント設定                        |
+| G | grep-packages        | o           | 補完/grep系パッケージの設定項目     |
+| H | highlight-packages   | o           | ハイライト系パッケージの設定項目    |
+| J | jump-packages        | o           | 移動系パッケージの設定項目          |
+| K | key-binding          | -           | Globalなキーバインドはここに一括    |
+| L | language-conf        | o           | 各言語設定                          |
+| O | outsider-eslip       | -           | 外部から持ち込んだコード            |
+| S | system-packages      | o           | 各パッケージの設定項目              |
+| S | search-packages      | o           | 検索系パッケージの設定項目          |
+| T | tips-eslip           | -           | 雑多な追加機能のコード              |
+| U | util-elisp           | -           | alphabetsファイル用のユーティリティ |
+| W | wm-conf              | -           | emacsをWindowManagerにする時の設定  |
 
 * 順不同
 * 残り(I, M, N, Q, R, V, X, Y, Z)

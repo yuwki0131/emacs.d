@@ -1,6 +1,6 @@
-;;; system-package-conf.el --- packages
+;;; system-packages.el --- packages
 ;;; Commentary:
-;;;  Emacsインストールパッケージ(package-install要) / system-package-conf.el
+;;;  Emacsインストールパッケージ(package-install要) / system-packages.el
 ;;;  package func : 機能
 ;;;  package config : 設定
 ;;;  package report : 報告・計測
@@ -83,5 +83,5 @@
 ;;; --------------------------------------------------------------------------------
 ;;; provide
 ;;; --------------------------------------------------------------------------------
-(provide 'system-package-conf)
-;;; system-package-conf.el ends here
+(provide 'system-packages)
+;;; system-packages.el ends here

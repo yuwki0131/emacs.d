@@ -1,6 +1,6 @@
-;;; grep-package-conf.el --- packages
+;;; grep-packages.el --- packages
 ;;; Commentary:
-;;;  Emacsインストールパッケージ(package-install要) / grep-package-conf.el
+;;;  Emacsインストールパッケージ(package-install要) / grep-packages.el
 ;;;  Grep系のパッケージ
 ;;; Code:
 (require 'package)
@@ -33,5 +33,5 @@
 ;;; --------------------------------------------------------------------------------
 ;;; provide
 ;;; --------------------------------------------------------------------------------
-(provide 'grep-package-conf)
-;;; grep-package-conf.el ends here
+(provide 'grep-packages)
+;;; grep-packages.el ends here

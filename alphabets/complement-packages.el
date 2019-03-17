@@ -1,6 +1,6 @@
-;;; complement-package-conf.el --- packages
+;;; complement-packages.el --- packages
 ;;; Commentary:
-;;;  Emacsインストールパッケージ(package-install要) / complement-package-conf.el
+;;;  Emacsインストールパッケージ(package-install要) / complement-packages.el
 ;;;  補完とGrep系のパッケージ
 ;;; Code:
 (require 'package)
@@ -75,5 +75,5 @@
 ;;; --------------------------------------------------------------------------------
 ;;; provide
 ;;; --------------------------------------------------------------------------------
-(provide 'complement-package-conf)
-;;; complement-package-conf.el ends here
+(provide 'complement-packages)
+;;; complement-packages.el ends here

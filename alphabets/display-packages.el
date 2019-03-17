@@ -1,6 +1,6 @@
-;;; display-package-conf.el --- packages
+;;; display-packages.el --- packages
 ;;; Commentary:
-;;;  Emacsインストールパッケージ(package-install要) / display-package-conf.el
+;;;  Emacsインストールパッケージ(package-install要) / display-packages.el
 ;;;  package display : 表示
 ;;; Code:
 (require 'package)
@@ -91,5 +91,5 @@
 ;;; --------------------------------------------------------------------------------
 ;;; provide
 ;;; --------------------------------------------------------------------------------
-(provide 'display-package-conf)
-;;; display-package-conf.el ends here
+(provide 'display-packages)
+;;; display-packages.el ends here

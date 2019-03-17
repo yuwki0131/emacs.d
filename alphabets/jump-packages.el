@@ -1,6 +1,6 @@
-;;; jump-package-conf.el --- packages
+;;; jump-packages.el --- packages
 ;;; Commentary:
-;;;  Emacsインストールパッケージ(package-install要) / jump-package-conf.el
+;;;  Emacsインストールパッケージ(package-install要) / jump-packages.el
 ;;;  package jump : 移動
 ;;; Code:
 (require 'package)
@@ -47,5 +47,5 @@
 ;;; --------------------------------------------------------------------------------
 ;;; provide
 ;;; --------------------------------------------------------------------------------
-(provide 'jump-package-conf)
-;;; jump-package-conf.el ends here
+(provide 'jump-packages)
+;;; jump-packages.el ends here

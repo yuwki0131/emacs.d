@@ -1,6 +1,6 @@
-;;; highlight-package-conf.el --- packages
+;;; highlight-packages.el --- packages
 ;;; Commentary:
-;;;  Emacsインストールパッケージ(package-install要) / highlight-package-conf.el
+;;;  Emacsインストールパッケージ(package-install要) / highlight-packages.el
 ;;;  package highlight : 表示
 ;;; Code:
 (require 'package)
@@ -111,5 +111,5 @@
 ;;; --------------------------------------------------------------------------------
 ;;; provide
 ;;; --------------------------------------------------------------------------------
-(provide 'highlight-package-conf)
-;;; highlight-package-conf.el ends here
+(provide 'highlight-packages)
+;;; highlight-packages.el ends here
