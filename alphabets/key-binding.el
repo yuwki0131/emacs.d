@@ -137,7 +137,7 @@
 (gssk-subcategory "検索")
 
 (gssk-explain-function "grep this: バッファ内Grep")
-(gssk-bind "C-z g" 'grep-this)
+(gssk-bind "C-z g"   'grep-this)
 
 (gssk-explain-function "grep find this: ディレクトリ配下Grep")
 (gssk-bind "C-z C-f" 'grep-find-this)
@@ -156,10 +156,10 @@
 (gssk-bind "C-z r"   'rgrep)
 
 (gssk-explain-function "minimap: ソースコードのアウトライン表示")
-(gssk-bind "C-z C-y"   'minimap-mode)
+(gssk-bind "C-z C-y" 'minimap-mode)
 
 (gssk-explain-function "counsel-git-grep: Git-Grep")
-(gssk-bind "C-z C-b"   'counsel-git-grep)
+(gssk-bind "C-z C-b" 'counsel-git-grep)
 
 (gssk-explain-function "google-this(Googleで検索)")
 (gssk-bind "C-z M-g" 'google-this)
@@ -197,7 +197,7 @@
 (gssk-subcategory "実行")
 
 (gssk-explain-function "現在のディレクトリのxxx.sh実行")
-(gssk-bind "C-z e" 'execute-current-shell-script)
+(gssk-bind "C-z e"   'execute-current-shell-script)
 
 (gssk-subcategory "日記")
 
@@ -325,7 +325,7 @@
 (gssk-bind "C-e C-l" 'recenter-top-bottom)
 
 (gssk-explain-function "imenu: 関数定義へ")
-(gssk-bind "C-e C-l" 'imenu)
+(gssk-bind "C-e C-l" 'imenu-list)
 
 (gssk-explain-function "swiper: バッファ内を動的検索/移動")
 (gssk-bind "C-e C-s" 'swiper)
