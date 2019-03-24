@@ -14,12 +14,16 @@
   :config
   ;; ivy設定
   (ivy-mode 1)
-  (setq ivy-use-virtual-buffers t)
-  (setq enable-recursive-minibuffers t)
-  (setq ivy-height 30)
-  (setq ivy-extra-directories nil)
-  (setq ivy-re-builders-alist
-        '((t . ivy--regex-plus))))
+  (setq
+   ivy-use-virtual-buffers t
+   enable-recursive-minibuffers t
+   ivy-height 40
+   ivy-extra-directories nil
+   ivy-re-builders-alist '((t . ivy--regex-plus))
+   ivy-count-format "(%d/%d) "
+   ))
+
+;; (setq ivy-display-style nil)
 
 ;;; ---------------------------------------------------------------------------
 ;;; ivy-rich: 補完(ivyをさらにrichに) enhance M-x
