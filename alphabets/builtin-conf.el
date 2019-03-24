@@ -85,6 +85,18 @@
 
  ;; Do not ask for confirm when killing processes
  confirm-kill-processes nil
+
+ ;; Make Tab complete if the line is indented
+ tab-always-indent 'complete
+
+ ;; kill ringについて
+ kill-ring-max 200
+
+ ;; 複数保存しない
+ kill-do-not-save-duplicates t
+
+ ;; killringでkillされる前にclipboardにコピーする
+ save-interprogram-paste-before-kill t
  )
 
 ;; バッファの終端を表示(空行表示)
