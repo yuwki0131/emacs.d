@@ -22,13 +22,25 @@
         '((t . ivy--regex-plus))))
 
 ;;; ---------------------------------------------------------------------------
-;;; ivy-rich: 補完(ivyをさらにrichに)
+;;; ivy-rich: 補完(ivyをさらにrichに) enhance M-x
 ;;; ---------------------------------------------------------------------------
 (use-package-with-report ivy-rich
   :config
   (ivy-rich-mode 1)
   ;;; update ivy function
   (setq ivy-format-function #'ivy-format-function-line))
+
+;;; ---------------------------------------------------------------------------
+;;; all-the-icons-ivy: ivy with icons
+;;; ---------------------------------------------------------------------------
+(use-package-with-report all-the-icons-ivy
+  :config
+  (all-the-icons-ivy-setup))
+
+;;; ---------------------------------------------------------------------------
+;;; amx: enhance M-x
+;;; ---------------------------------------------------------------------------
+(use-package-with-report amx)
 
 ;;; ---------------------------------------------------------------------------
 ;;; counsel: 補完
@@ -38,13 +50,6 @@
   (defvar counsel-find-file-ignore-regexp
     (regexp-opt '("./" "../")))
   (global-set-key (kbd "M-x") 'counsel-M-x))
-
-;;; ---------------------------------------------------------------------------
-;;; ivy-rich: 補完(ivyをさらにrichに)
-;;; ---------------------------------------------------------------------------
-(use-package-with-report all-the-icons-ivy
-  :config
-  (all-the-icons-ivy-setup))
 
 ;;; ---------------------------------------------------------------------------
 ;;; package-func : company : 自動補完
