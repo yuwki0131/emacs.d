@@ -54,6 +54,10 @@
 (gssk-bind "C-h"    'delete-backward-char)
 (gssk-bind "M-h"    'backward-kill-word)
 
+(gssk-category-function "編集" "削除" "セマンティクス削除")
+(gssk-bind "M-i"    'change-inner)
+(gssk-bind "M-o"    'change-outer)
+
 (gssk-category-function "編集" "挿入" "アンダースコア挿入")
 (gssk-bind "C-:"    'insert-underscore)
 
@@ -89,9 +93,6 @@
 (gssk-category-function "移動" "バッファ内" "シンボル単位移動")
 (gssk-bind "C-?"    'highlight-symbol-next)
 (gssk-bind "C-!"    'highlight-symbol-prev)
-
-(gssk-category-function "移動" "バッファ間" "別フレームへ移動")
-(gssk-bind "M-o"     'other-window)
 
 (gssk-category-function "移動" "バッファ間" "バッファ移動 (*付バッファはスキップ)")
 (gssk-bind "C-M-f"  'next-buffer-with-skip*)

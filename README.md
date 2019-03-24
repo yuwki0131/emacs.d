@@ -86,6 +86,8 @@ M-x delete-byte-compile
 |機能||M-q|redo|undo & redo|
 |編集|削除|C-h|delete-backward-char|Backspaceで削除 (文字単位/単語単位)|
 |編集|削除|M-h|backward-kill-word|Backspaceで削除 (文字単位/単語単位)|
+|編集|削除|M-i|change-inner|セマンティクス削除|
+|編集|削除|M-o|change-outer|セマンティクス削除|
 |編集|挿入|C-:|insert-underscore|アンダースコア挿入|
 |編集|挿入|M-RET|yas-insert-snippet|snippet: yaスニペット挿入|
 |編集|括弧|C-l|insert-parenthesis|括弧挿入|
@@ -101,7 +103,6 @@ M-x delete-byte-compile
 |移動|バッファ内|C-.|goto-next-locus|次のエラー(警告)へ移動|
 |移動|バッファ内|C-?|highlight-symbol-next|シンボル単位移動|
 |移動|バッファ内|C-!|highlight-symbol-prev|シンボル単位移動|
-|移動|バッファ間|M-o|other-window|別フレームへ移動|
 |移動|バッファ間|C-M-f|next-buffer-with-skip*|バッファ移動 (*付バッファはスキップ)|
 |移動|バッファ間|C-M-p|previous-buffer-with-skip*|バッファ移動 (*付バッファはスキップ)|
 |その他|その他|C-S-+|text-scale-increase|文字の拡大/縮小|
