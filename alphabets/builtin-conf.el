@@ -82,6 +82,9 @@
 
  ;; スクロール時のカーソル位置を維持
  scroll-preserve-screen-position t
+
+ ;; Do not ask for confirm when killing processes
+ confirm-kill-processes nil
  )
 
 ;; バッファの終端を表示(空行表示)
