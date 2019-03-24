@@ -70,9 +70,8 @@
 (gssk-bind "M-l"    'insert-brackets)
 (gssk-bind "M-S-l"  'insert-squares)
 
-(gssk-category-function "移動" "バッファ内" "パラグラフ単位の移動")
-;; (gssk-bind "C-m"    'forward-paragraph)
-(gssk-bind "M-m"    'backward-paragraph)
+(gssk-category-function "移動" "バッファ内" "マーク単位の移動")
+(gssk-bind "M-m"    'counsel-mark-ring)
 
 (gssk-category-function "移動" "バッファ内" "1行スクロール(カーソル位置固定)")
 (gssk-bind "M-p"    'scroll-up-in-place)
@@ -171,6 +170,9 @@
 (gssk-explain-function "imenu-list(関数定義一覧表示)")
 (gssk-bind "C-z i l" 'imenu-list-smart-toggle)
 
+(gssk-explain-function "counsel-imenu(関数定義一覧検索)")
+(gssk-bind "C-z i f" 'counsel-imenu)
+
 (gssk-explain-function "ibuffer(バッファ一覧表示)")
 (gssk-bind "C-z i b" 'ibuffer)
 
@@ -185,8 +187,11 @@
 (gssk-explain-function "magit (Emacs Git)")
 (gssk-bind "C-z m"   'magit-status)
 
-(gssk-explain-function "キーバインド表示")
-(gssk-bind "C-z C-k" 'describe-bindings)
+(gssk-explain-function "キーバインド表示(counsel)")
+(gssk-bind "C-z C-k" 'counsel-descbinds)
+
+(gssk-explain-function "コマンド表示(counsel)")
+(gssk-bind "C-z k"   'counsel-apropos)
 
 (gssk-subcategory "辞書")
 
