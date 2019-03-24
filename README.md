@@ -94,7 +94,7 @@ M-x delete-byte-compile
 |編集|括弧|C-S-l|insert-angle-brackets|括弧挿入|
 |編集|括弧|M-l|insert-brackets|括弧挿入|
 |編集|括弧|M-S-l|insert-squares|括弧挿入|
-|移動|バッファ内|M-m|backward-paragraph|パラグラフ単位の移動|
+|移動|バッファ内|M-m|counsel-mark-ring|マーク単位の移動|
 |移動|バッファ内|M-p|scroll-up-in-place|1行スクロール(カーソル位置固定)|
 |移動|バッファ内|M-n|scroll-down-in-place|1行スクロール(カーソル位置固定)|
 |移動|バッファ内|M-g|goto-line|指定行へ移動(1回でgoto-line)|
@@ -110,6 +110,7 @@ M-x delete-byte-compile
 |その他|その他|C-+|increment-number|数値のインクリメント/デクリメント|
 |その他|その他|C--|decrement-number|数値のインクリメント/デクリメント|
 |その他|その他|M-j|temp-command|一時的なコマンド束縛用(テスト用/試用)|
+|移動|バッファ間|C-c C-f|counsel-locate|ファイル名からグローバルに検索しファイルを開く|
 |機能||C-z p|toggle-truncate-lines|enable/disable toggle-truncate-line|
 |機能||C-z C-k|kill-the-other-buffers|現在のバッファ以外のバッファを閉じる|
 |機能||C-z f|set-file-name-coding-system|エンコーディングを変更|
@@ -128,11 +129,13 @@ M-x delete-byte-compile
 |機能|検索|C-z M-g|google-this|google-this(Googleで検索)|
 |機能|検索|C-z C-a|goto-address-at-point|現在のURLリンクを開く<br/>(goto-address-mode)|
 |機能|検索|C-z i l|imenu-list-smart-toggle|imenu-list(関数定義一覧表示)|
+|機能|検索|C-z i f|counsel-imenu|counsel-imenu(関数定義一覧検索)|
 |機能|検索|C-z i b|ibuffer|ibuffer(バッファ一覧表示)|
 |機能|表示|C-z s|make-buffer-small|バッファのフレームサイズを縮小|
 |機能|表示|C-z C-n|neotree-toggle|ディレクトリ階層を表示 (neo tree)|
 |機能|表示|C-z m|magit-status|magit (Emacs Git)|
-|機能|表示|C-z C-k|describe-bindings|キーバインド表示|
+|機能|表示|C-z C-k|counsel-descbinds|キーバインド表示(counsel)|
+|機能|表示|C-z k|counsel-apropos|コマンド表示(counsel)|
 |機能|辞書|C-z C-d|search-dictionary-e2j-current-word|現在の単語の意味を表示(要辞書設定)|
 |機能|辞書|C-z d|search-dictionary-e2j|英和辞典(要辞書設定)|
 |機能|実行|C-z e|execute-current-shell-script|現在のディレクトリのxxx.sh実行|
