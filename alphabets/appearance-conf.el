@@ -3,6 +3,7 @@
 ;;;  外観 / appearance-conf.el
 ;;;  色を調べるときは、M-x list-faces-display
 ;;; Code:
+(require 'util-elisp)
 
 ;;; ---------------------------------------------------------------------------
 ;;; ハイライト系設定(標準)
@@ -20,35 +21,36 @@
 ;;; 色設定
 ;;; ---------------------------------------------------------------------------
 ;; cyan系
-(defvar color/darkcyan   "#0997B6")
-(defvar color/lightcyan  "lightcyan")
+(defvar color/darkcyan           "#0997B6")
+(defvar color/lightcyan          "lightcyan")
 
 ;; red系
-(defvar color/red        "red")
-(defvar color/darkred    "darkred")
+(defvar color/red                "red")
+(defvar color/darkred            "darkred")
 
 ;; magenta系
-(defvar color/deeppink   "#E5266A")
-(defvar color/purpledark "#9B8B9B")
-(defvar color/lightpink  "light pink")
+(defvar color/deeppink           "#E5266A")
+(defvar color/purpledark         "#9B8B9B")
+(defvar color/lightpink          "light pink")
 
 ;; orange系
-(defvar color/orange     "#FF4C00")
+(defvar color/orange             "#FF4C00")
 
 ;; lime green系
-(defvar color/limegreen  "#32cd32")
+(defvar color/limegreen          "#32cd32")
 
 ;; gray系
-(defvar color/black      "black")
-(defvar color/white      "white")
-(defvar color/near-white "gray95")
-(defvar color/active     "#101010")
-(defvar color/inactive   "#393939")
-(defvar color/tooltip-fg "#FFFFFF")
-(defvar color/tooltip-bg "#F0F0F0")
-(defvar color/bggray     "#FFFFFF") ;; foreground gary
-(defvar color/fggray     "#101010") ;; background gary
-(defvar color/comment    "#777777")
+(defvar color/black              "black")
+(defvar color/white              "white")
+(defvar color/near-white         "gray95")
+(defvar color/material           "#393939")
+(defvar color/active             "#101010")
+(defvar color/inactive           "#393939")
+(defvar color/tooltip-fg         "#D0D0D0")
+(defvar color/tooltip-bg         "#F0F0F0")
+(defvar color/bggray             "#FFFFFF") ;; foreground gary
+(defvar color/fggray             "#101010") ;; background gary
+(defvar color/comment            "#777777")
 (defvar color/comment-delimitter "#666666")
 
 ;; 背景/前景の設定
@@ -67,6 +69,14 @@
   (set-face-background attr-symbol color-bg)
   (set-face-bold       attr-symbol bold)
   (set-face-italic     attr-symbol italic))
+
+;; 各構文要素の色(foreground, background)/タイプ(normal/italic/bold/underline)の設定
+(defun set-face-app3 (attr-symbol color-fg color-bg bold italic underline)
+  (set-face-foreground  attr-symbol color-fg)
+  (set-face-background  attr-symbol color-bg)
+  (set-face-bold        attr-symbol bold)
+  (set-face-italic      attr-symbol italic)
+  (set-face-underline-p attr-symbol underline))
 
 ;; coloring program
 (set-face-app1 'font-lock-comment-delimiter-face color/comment-delimitter t t)
@@ -104,23 +114,23 @@
 
 ;; coloring company
 (ignore-errors
-  (set-face-app1 'company-preview-common           color/darkcyan nil t)
+  (set-face-app3 'company-preview-common           color/darkcyan color/bggray     nil t t)
   (set-face-app2 'company-tooltip                  color/deeppink color/tooltip-bg nil t)
   (set-face-app2 'company-tooltip-common           color/deeppink color/tooltip-bg nil t)
-  (set-face-app2 'company-tooltip-common-selection color/deeppink color/tooltip-fg nil t)
-  (set-face-app2 'company-tooltip-selection        color/darkcyan "#E0E0E0"        nil t)
-  (set-face-app2 'company-scrollbar-fg             color/inactive color/deeppink   nil t)
-  (set-face-app2 'company-scrollbar-bg             color/deeppink color/inactive   nil t)
+  (set-face-app2 'company-tooltip-common-selection color/darkcyan color/tooltip-fg nil t)
+  (set-face-app2 'company-tooltip-selection        color/darkcyan color/tooltip-fg nil t)
+  (set-face-app2 'company-scrollbar-fg             color/material color/deeppink   nil t)
+  (set-face-app2 'company-scrollbar-bg             color/deeppink color/material   nil t)
   )
 
 ;; doom-modeline bar
 (ignore-report
-  (set-face-app2 'doom-modeline-bar                color/black      color/deeppink nil t))
+  (set-face-app2 'doom-modeline-bar                color/material   color/deeppink nil t))
 
-;; doom-modeline bar
+;; ivy colors
 (ignore-report
   (set-face-app2 'ivy-current-match                color/near-white color/deeppink  nil t)
-  (set-face-app2 'ivy-minibuffer-match-face-2      color/black      color/lightpink t   t)
+  (set-face-app2 'ivy-minibuffer-match-face-2      color/material   color/lightpink t   t)
   (set-face-app2 'counsel-outline-default          color/darkcyan   color/white     nil t)
   (set-face-app2 'ivy-grep-info                    color/darkcyan   color/white     nil t)
   (set-face-app2 'ivy-separator                    color/darkcyan   color/white     nil t)
@@ -156,9 +166,9 @@
 
 ;; coloring swoop
 (ignore-report
-  (set-face-app2 'swoop-face-header-format-line    color/lightcyan  color/inactive nil t)
+  (set-face-app2 'swoop-face-header-format-line    color/lightcyan  color/material nil t)
   (set-face-app2 'swoop-face-line-buffer-name      color/white      color/darkcyan nil t)
-  (set-face-app2 'swoop-face-line-number           color/white      color/inactive nil t)
+  (set-face-app2 'swoop-face-line-number           color/white      color/material nil t)
   (set-face-app2 'swoop-face-target-line           color/white      color/deeppink nil t)
   (set-face-app2 'swoop-face-target-words          color/white      color/darkcyan nil t))
 
@@ -202,7 +212,7 @@
 (ignore-report
   (set-face-attribute
    'line-number nil
-   :foreground color/inactive
+   :foreground color/material
    :background color/white
    :weight 'bold))
 
@@ -210,7 +220,7 @@
 (ignore-report
   (set-face-attribute 'header-line nil
    :foreground color/lightcyan
-   :background color/inactive
+   :background color/material
    :weight 'bold
    :height 100
    :overline color/orange))
@@ -227,7 +237,7 @@
 (ignore-report
   (set-face-attribute 'mode-line-inactive nil
    :foreground color/lightcyan
-   :background color/inactive
+   :background color/material
    :weight 'extra-light
    :height 100))
 
