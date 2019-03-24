@@ -34,6 +34,19 @@
  ;; backupfile(*.# つくらない)
  auto-save-default nil
 
+ ;; 編集中ファイルの自動backup
+ backup-inhibited nil
+
+ ;; 終了時に自動バックアップファイルを削除
+ delete-auto-save-files nil
+
+ ;; 編集中ファイルのバックアップ
+ auto-save-list-file-name nil
+ auto-save-list-file-prefix nil
+
+ ;; ロックファイルの生成を抑止
+ create-lockfiles nil
+
  ;; 折り返しを表示
  truncate-lines t
 
@@ -67,8 +80,8 @@
  ;; 巨大なファイルを開く時に警告しない
  large-file-warning-threshold nil
 
- ;; bufferが横に分割されるのを防ぐ
- large-file-warning-threshold nil
+ ;; スクロール時のカーソル位置を維持
+ scroll-preserve-screen-position t
  )
 
 ;; バッファの終端を表示(空行表示)
@@ -114,6 +127,9 @@
 ;; URL強調表示、URLをブラウザで表示
 (add-hook 'prog-mode-hook 'goto-address-prog-mode)
 (add-hook 'text-mode-hook 'goto-address-mode)
+
+;; 大文字・小文字を区別しないで検索
+(setq-default case-fold-search nil)
 
 ;; ‘isearch-word’ is an obsolete variable (as of 25.1)対策
 (defvar search-default-regexp-mode nil)
