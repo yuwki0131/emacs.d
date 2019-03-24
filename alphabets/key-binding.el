@@ -60,9 +60,6 @@
 (gssk-category-function "編集" "挿入" "snippet: yaスニペット挿入")
 (gssk-bind "M-RET"  'yas-insert-snippet)
 
-(gssk-category-function "編集" "挿入" "kill-ringを表示")
-(gssk-bind "M-y"    'browse-kill-ring)
-
 (gssk-category-function "編集" "括弧" "括弧挿入")
 (gssk-bind "C-l"    'insert-parenthesis)
 (gssk-bind "C-S-l"  'insert-angle-brackets)
@@ -132,9 +129,6 @@
 (gssk-explain-function "ジャンクファイルを作成、開く")
 (gssk-bind "C-z C-j" 'open-junk-file)
 
-(gssk-explain-function "shell-popを表示/非表示")
-(gssk-bind "C-z C-p" 'shell-pop)
-
 (gssk-subcategory "置換")
 
 (gssk-explain-function "文字列置換")
@@ -143,7 +137,7 @@
 (gssk-subcategory "検索")
 
 (gssk-explain-function "grep this: バッファ内Grep")
-(gssk-bind "C-z g" 'grep-this)
+(gssk-bind "C-z g"   'grep-this)
 
 (gssk-explain-function "grep find this: ディレクトリ配下Grep")
 (gssk-bind "C-z C-f" 'grep-find-this)
@@ -161,11 +155,11 @@
 (gssk-explain-function "rgrep: ディレクトリ内Grep")
 (gssk-bind "C-z r"   'rgrep)
 
-(gssk-explain-function "counsel-ag: ag search")
-(gssk-bind "C-z C-y"   'counsel-ag)
+(gssk-explain-function "minimap: ソースコードのアウトライン表示")
+(gssk-bind "C-z C-y" 'minimap-mode)
 
 (gssk-explain-function "counsel-git-grep: Git-Grep")
-(gssk-bind "C-z C-b"   'counsel-git-grep)
+(gssk-bind "C-z C-b" 'counsel-git-grep)
 
 (gssk-explain-function "google-this(Googleで検索)")
 (gssk-bind "C-z M-g" 'google-this)
@@ -203,7 +197,7 @@
 (gssk-subcategory "実行")
 
 (gssk-explain-function "現在のディレクトリのxxx.sh実行")
-(gssk-bind "C-z e" 'execute-current-shell-script)
+(gssk-bind "C-z e"   'execute-current-shell-script)
 
 (gssk-subcategory "日記")
 
@@ -303,7 +297,7 @@
 (gssk-explain-function "killringから選択して挿入")
 (gssk-bind "C-a C-y" 'counsel-yank-pop)
 
-(gssk-subcategory "refactoring")
+(gssk-subcategory "修正")
 
 (gssk-explain-function "iedit-mode: 同一のシンボルを同時置換")
 (gssk-bind "C-a i" 'iedit-mode)
@@ -331,7 +325,7 @@
 (gssk-bind "C-e C-l" 'recenter-top-bottom)
 
 (gssk-explain-function "imenu: 関数定義へ")
-(gssk-bind "C-e C-l" 'imenu)
+(gssk-bind "C-e C-l" 'imenu-list)
 
 (gssk-explain-function "swiper: バッファ内を動的検索/移動")
 (gssk-bind "C-e C-s" 'swiper)
@@ -371,8 +365,16 @@
 (gssk-bind "C-e C-n" 'highlight-symbol-next)
 (gssk-bind "C-e C-p" 'highlight-symbol-prev)
 
+(gssk-subcategory "ファイル")
+
 (gssk-explain-function "最近開いたファイルを開く")
 (gssk-bind "C-e o" 'recentf-open-files)
+
+(gssk-explain-function "ファイルを開く(Gitベース)")
+(gssk-bind "C-e f" 'counsel-git)
+
+(gssk-explain-function "counsel-ag: ag search")
+(gssk-bind "C-e C-y"   'counsel-ag)
 
 (gssk-subcategory "Bookmark")
 (gssk-explain-function "現在行をブックマーク、ハイライト表示")

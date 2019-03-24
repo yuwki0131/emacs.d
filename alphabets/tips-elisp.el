@@ -11,9 +11,9 @@
 (defun grep-this ()
   (interactive)
   (let ((word (read-from-minibuffer "grep this buffer : "))
-	      (file-name (buffer-file-name (current-buffer))))
+        (file-name (buffer-file-name (current-buffer))))
     (if (not file-name)
-	      (message "unknown file")
+        (message "unknown file")
       (grep (format "grep --color -nH -e \"%s\" %s" word file-name)))))
 
 (defun grep-find-this ()
@@ -450,7 +450,7 @@
   (shell-command
    "rm ~/.emacs.d/*.elc")
   (shell-command
-   "rm ~/.emacs.d/config/*.elc"))
+   "rm ~/.emacs.d/alphabets/*.elc"))
 
 ;;; ---------------------------------------------------------------------------
 ;;; refresh byte-compile files
@@ -461,11 +461,11 @@
   (shell-command
    "rm ~/.emacs.d/*.elc")
   (shell-command
-   "rm ~/.emacs.d/config/*.elc")
+   "rm ~/.emacs.d/alphabets/*.elc")
   (shell-command
    "emacs -batch -f batch-byte-compile ~/.emacs.d/*.el")
   (shell-command
-   "emacs -batch -f batch-byte-compile ~/.emacs.d/config/*.el"))
+   "emacs -batch -f batch-byte-compile ~/.emacs.d/alphabets/*.el"))
 
 ;;; ---------------------------------------------------------------------------
 ;;; provide

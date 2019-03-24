@@ -1,11 +1,16 @@
-;;; jump-package-conf.el --- packages
+;;; jump-packages.el --- packages
 ;;; Commentary:
-;;;  Emacsインストールパッケージ(package-install要) / jump-package-conf.el
+;;;  Emacsインストールパッケージ(package-install要) / jump-packages.el
 ;;;  package jump : 移動
 ;;; Code:
 (require 'package)
 (require 'use-package)
 (require 'util-elisp)
+
+;;; ---------------------------------------------------------------------------
+;;; bm : 現在行を永続的に記憶
+;;; ---------------------------------------------------------------------------
+(use-package-with-report bm)
 
 ;;; ---------------------------------------------------------------------------
 ;;; dumb-jump : 言語によらず定義にジャンプ
@@ -42,5 +47,5 @@
 ;;; --------------------------------------------------------------------------------
 ;;; provide
 ;;; --------------------------------------------------------------------------------
-(provide 'jump-package-conf)
-;;; jump-package-conf.el ends here
+(provide 'jump-packages)
+;;; jump-packages.el ends here

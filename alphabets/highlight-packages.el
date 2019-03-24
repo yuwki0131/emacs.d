@@ -1,45 +1,11 @@
-;;; display-package-conf.el --- packages
+;;; highlight-packages.el --- packages
 ;;; Commentary:
-;;;  Emacsインストールパッケージ(package-install要) / display-package-conf.el
-;;;  package display : 表示
+;;;  Emacsインストールパッケージ(package-install要) / highlight-packages.el
+;;;  package highlight : 表示
 ;;; Code:
 (require 'package)
 (require 'use-package)
 (require 'util-elisp)
-
-;;; ---------------------------------------------------------------------------
-;;; bm : 現在行を永続的に記憶
-;;; ---------------------------------------------------------------------------
-(use-package-with-report bm)
-
-;;; ---------------------------------------------------------------------------
-;;; all-the-icons : 現在行を永続的に記憶
-;;; ---------------------------------------------------------------------------
-(use-package-with-report all-the-icons)
-
-;;; ---------------------------------------------------------------------------
-;;; にゃーん
-;;; ---------------------------------------------------------------------------
-;; original : https://www.youtube.com/watch?v=QH2-TGUlwu4
-(use-package-with-report nyan-mode
-  :config
-  (nyan-mode)
-  (nyan-start-animation))
-
-;;; ---------------------------------------------------------------------------
-;;; parrot
-;;; ---------------------------------------------------------------------------
-;; original : https://cultofthepartyparrot.com/
-(use-package-with-report parrot)
-
-;;; ---------------------------------------------------------------------------
-;;; nlinum-hl-mode : 軽量化された行番号表示
-;;; ---------------------------------------------------------------------------
-;; 標準は重いので使用しない
-(use-package-with-report nlinum
-  :config
-  (global-nlinum-mode t)
-  (setq nlinum-format " %4d "))
 
 ;;; ---------------------------------------------------------------------------
 ;;; highlight line plus : カーソル行ハイライト(拡張)
@@ -64,12 +30,16 @@
   (global-hl-todo-mode 1))
 
 ;;; ---------------------------------------------------------------------------
-;;; highlight indententation-mode : インデント表示
+;;; highlight-indent-guides : インデント表示
 ;;; ---------------------------------------------------------------------------
-(use-package-with-report highlight-indentation
+(use-package-with-report highlight-indent-guides
   :config
-  (set-face-background 'highlight-indentation-face "#e0e0e0")
-  (add-hook 'prog-mode-hook 'highlight-indentation-mode))
+  (setq highlight-indent-guides-method 'character)
+  (setq highlight-indent-guides-responsive 'stack)
+  (setq highlight-indent-guides-auto-odd-face-perc 15)
+  (setq highlight-indent-guides-auto-even-face-perc 15)
+  (setq highlight-indent-guides-auto-character-face-perc 30)
+  (add-hook 'prog-mode-hook 'highlight-indent-guides-mode))
 
 ;;; ---------------------------------------------------------------------------
 ;;; volatile highlights : 修正箇所のハイライト
@@ -77,6 +47,20 @@
 (use-package-with-report volatile-highlights
   :config
   (volatile-highlights-mode t))
+
+;;; ---------------------------------------------------------------------------
+;;; volatile highlights : escape sequenceのハイライト
+;;; ---------------------------------------------------------------------------
+(use-package-with-report highlight-escape-sequences)
+;; :config
+;; )
+
+;;; ---------------------------------------------------------------------------
+;;; highlight defined : 定義済みemacs-lisp symbolのハイライト
+;;; ---------------------------------------------------------------------------
+(use-package-with-report highlight-defined
+  :config
+  (add-hook 'emacs-lisp-mode-hook 'highlight-defined-mode))
 
 ;;; ---------------------------------------------------------------------------
 ;;; beacon : bufferを移動時にハイライト
@@ -110,22 +94,22 @@
        (cl-callf color-saturate-name (face-foreground face) 30)))))
 
 ;;; ---------------------------------------------------------------------------
-;;; anzu : モードラインの左側に検索中の単語数を表示
+;;; highlight numbers : 数値のハイライト
 ;;; ---------------------------------------------------------------------------
-(use-package-with-report anzu
-  :diminish anzu-mode
+(use-package-with-report highlight-numbers
   :config
-  (global-anzu-mode t))
+  (add-hook 'prog-mode-hook 'highlight-numbers-mode))
 
 ;;; ---------------------------------------------------------------------------
-;;; path header line mode : path header line mode
+;;; highlight operators : 演算子のハイライト
 ;;; ---------------------------------------------------------------------------
-(use-package-with-report path-headerline-mode
+(use-package-with-report highlight-operators
   :config
-  (path-headerline-mode +1))
+  (add-hook 'python-mode-hook 'highlight-operators-mode)
+  (add-hook 'lua-mode-hook 'highlight-operators-mode))
 
 ;;; --------------------------------------------------------------------------------
 ;;; provide
 ;;; --------------------------------------------------------------------------------
-(provide 'display-package-conf)
-;;; display-package-conf.el ends here
+(provide 'highlight-packages)
+;;; highlight-packages.el ends here

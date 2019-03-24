@@ -12,33 +12,6 @@
 
 <img src="img/img_use1.png" width="200" hspace="10"><img src="img/img_use2.png" width="200" hspace="10"><img src="img/img_use3.png" width="200" hspace="10">
 
-## ~/.emacs.d/configディレクトリ以下構成
-
-### elispファイル構成
-
-|   | *.elファイル         | use-package | 設定                                   |
-|:-:|:---------------------|:-----------:|:---------------------------------------|
-| A | appearance-conf      | -           | emacsデフォルトの外見設定              |
-| B | builtin-conf         | -           | emacsデフォルトの設定項目              |
-| C | common-lang-conf     | o           | 言語共通設定 or 複数言語に共通する設定 |
-| D | display-package-conf | o           | 表示系パッケージの設定項目             |
-| E | edit-package-conf    | o           | 編集系パッケージの設定項目             |
-| F | font-conf            | -           | フォント設定                          |
-| G | grep-package-conf    | o           | 補完/grep系パッケージの設定項目        |
-| J | jump-package-conf    | o           | 移動系パッケージの設定項目             |
-| K | key-binding          | -           | Globalなキーバインドはここに一括       |
-| L | language-conf        | o           | 各言語設定                             |
-| M | modeline-conf        | -           | モードライン設定                       |
-| O | outsider-eslip       | -           | 外部から持ち込んだコード               |
-| P | package-conf         | o           | 各パッケージの設定項目                 |
-| S | search-package-conf  | o           | 検索系パッケージの設定項目             |
-| T | tips-eslip           | -           | 雑多な追加機能のコード                 |
-| U | util-elisp           | -           | configファイル用のユーティリティ       |
-| W | wm-conf              | -           | emacsをWindowManagerにする時の設定       |
-
-* 順不同
-* 残り(G, H, I, N, Q, R, V, X, Y, Z)
-
 ## 設定
 
 ```
@@ -59,17 +32,44 @@ M-x install-complements
 
 ## byte-compile *.el files
 
-`.emacs.d/*.elc`と`.emacs.d/config/*.elc`のファイルを更新。
+`.emacs.d/*.elc`と`.emacs.d/alphabets/*.elc`のファイルを更新。
 
 ```
 M-x refresh-byte-compile
 ```
 
-`.emacs.d/*.elc`と`.emacs.d/config/*.elc`のファイルを削除。
+`.emacs.d/*.elc`と`.emacs.d/alphabets/*.elc`のファイルを削除。
 
 ```
 M-x delete-byte-compile
 ```
+
+## ~/.emacs.d/alphabetsディレクトリ以下構成
+
+### elispファイル構成
+
+|   | *.elファイル         | use-package | 設定                                 |
+|:-:|:---------------------|:-----------:|:-------------------------------------|
+| A | appearance-conf      | -           | emacsデフォルトの外見設定            |
+| B | builtin-conf         | -           | emacsデフォルトの設定項目            |
+| C | complements-packages | o           | 補完系パッケージの設定項目           |
+| D | display-packages     | o           | 表示系パッケージの設定項目           |
+| E | edit-packages        | o           | 編集系パッケージの設定項目           |
+| F | font-conf            | -           | フォント設定                         |
+| G | grep-packages        | o           | 補完/grep系パッケージの設定項目      |
+| H | highlight-packages   | o           | ハイライト系パッケージの設定項目     |
+| J | jump-packages        | o           | 移動系パッケージの設定項目           |
+| K | key-binding          | -           | Globalなキーバインドはここに一括     |
+| L | language-conf        | o           | 各言語設定                           |
+| O | outsider-eslip       | -           | 外部から持ち込んだコード             |
+| R | rest-packages        | o           | 分類できなかったパッケージの設定項目 |
+| S | search-packages      | o           | 検索系パッケージの設定項目           |
+| T | tips-eslip           | -           | 雑多な追加機能のコード               |
+| U | util-elisp           | -           | alphabetsファイル用のユーティリティ  |
+| W | wm-conf              | -           | emacsをWindowManagerにする時の設定   |
+
+* 順不同
+* 残り(I, M, N, Q, R, V, X, Y, Z)
 
 ## キーバインド
 
@@ -88,7 +88,6 @@ M-x delete-byte-compile
 |編集|削除|M-h|backward-kill-word|Backspaceで削除 (文字単位/単語単位)|
 |編集|挿入|C-:|insert-underscore|アンダースコア挿入|
 |編集|挿入|M-RET|yas-insert-snippet|snippet: yaスニペット挿入|
-|編集|挿入|M-y|browse-kill-ring|kill-ringを表示|
 |編集|括弧|C-l|insert-parenthesis|括弧挿入|
 |編集|括弧|C-S-l|insert-angle-brackets|括弧挿入|
 |編集|括弧|M-l|insert-brackets|括弧挿入|
@@ -115,7 +114,6 @@ M-x delete-byte-compile
 |機能||C-z f|set-file-name-coding-system|エンコーディングを変更|
 |機能||C-z C-z|zsnotes-open-today-note|インスタント・メモファイルを開く|
 |機能||C-z C-j|open-junk-file|ジャンクファイルを作成、開く|
-|機能||C-z C-p|shell-pop|shell-popを表示/非表示|
 |機能|置換|C-z C-r|replace-string|文字列置換|
 |機能|検索|C-z g|grep-this|grep this: バッファ内Grep|
 |機能|検索|C-z C-f|grep-find-this|grep find this: ディレクトリ配下Grep|
@@ -124,7 +122,7 @@ M-x delete-byte-compile
 |機能|検索|C-z w|define-word|define-word: 英英辞典|
 |機能|検索|C-z C-w|define-word-at-point|define-word: 英英辞典|
 |機能|検索|C-z r|rgrep|rgrep: ディレクトリ内Grep|
-|機能|検索|C-z C-y|counsel-ag|counsel-ag: ag search|
+|機能|検索|C-z C-y|minimap-mode|minimap: ソースコードのアウトライン表示|
 |機能|検索|C-z C-b|counsel-git-grep|counsel-git-grep: Git-Grep|
 |機能|検索|C-z M-g|google-this|google-this(Googleで検索)|
 |機能|検索|C-z C-a|goto-address-at-point|現在のURLリンクを開く<br/>(goto-address-mode)|
@@ -156,13 +154,13 @@ M-x delete-byte-compile
 |編集|挿入|C-a C-e|insert-current-file-name|現在のファイルパスを挿入|
 |編集|挿入|C-a C-m|insert--s|コメント用の線を挿入|
 |編集|挿入|C-a C-y|counsel-yank-pop|killringから選択して挿入|
-|編集|refactoring|C-a i|iedit-mode|iedit-mode: 同一のシンボルを同時置換|
+|編集|修正|C-a i|iedit-mode|iedit-mode: 同一のシンボルを同時置換|
 |編集|その他|C-a C-r|rectangle-mark-mode|矩形選択|
 |移動|バッファ内|C-e C-l|goto-last-change|最後の変更箇所へ|
 |移動|バッファ内|C-e C-a|move-beginning-of-line|行頭/行末へ(unbindの再設定)|
 |移動|バッファ内|C-e C-e|move-end-of-line|行頭/行末へ(unbindの再設定)|
 |移動|バッファ内|C-e C-l|recenter-top-bottom|top-center-bottom間|
-|移動|バッファ内|C-e C-l|imenu|imenu: 関数定義へ|
+|移動|バッファ内|C-e C-l|imenu-list|imenu: 関数定義へ|
 |移動|バッファ内|C-e C-s|swiper|swiper: バッファ内を動的検索/移動|
 |移動|バッファ間|C-e C-z|ace-window|ace-window: Window間移動|
 |移動|バッファ間|C-e C-c|shell|shell/repl/grepxへ|
@@ -179,7 +177,9 @@ M-x delete-byte-compile
 |移動|検索|C-e C-k|dumb-jump-back|関数の定義位置に移動(dumb-jump)|
 |移動|検索|C-e C-n|highlight-symbol-next|次/前のシンボルの位置へ|
 |移動|検索|C-e C-p|highlight-symbol-prev|次/前のシンボルの位置へ|
-|移動|検索|C-e o|recentf-open-files|最近開いたファイルを開く|
+|移動|ファイル|C-e o|recentf-open-files|最近開いたファイルを開く|
+|移動|ファイル|C-e f|counsel-git|ファイルを開く(Gitベース)|
+|移動|ファイル|C-e C-y|counsel-ag|counsel-ag: ag search|
 |移動|Bookmark|C-e C-t|bm-toggle|現在行をブックマーク、ハイライト表示|
 |移動|Bookmark|C-e C-i|bm-next|現在行をブックマーク、ハイライト表示|
 |移動|Bookmark|C-e C-u|bm-previous|現在行をブックマーク、ハイライト表示|

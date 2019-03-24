@@ -1,6 +1,6 @@
-;;; edit-package-conf.el --- packages
+;;; edit-packages.el --- packages
 ;;; Commentary:
-;;;  Emacsインストールパッケージ(package-install要) / edit-package-conf.el
+;;;  Emacsインストールパッケージ(package-install要) / edit-packages.el
 ;;;  package edit : 編集
 ;;; Code:
 (require 'package)
@@ -40,5 +40,5 @@
 ;;; --------------------------------------------------------------------------------
 ;;; provide
 ;;; --------------------------------------------------------------------------------
-(provide 'edit-package-conf)
-;;; edit-package-conf.el ends here
+(provide 'edit-packages)
+;;; edit-packages.el ends here

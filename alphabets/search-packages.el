@@ -1,6 +1,6 @@
-;;; search-package-conf.el --- packages
+;;; search-packages.el --- packages
 ;;; Commentary:
-;;;  Emacsインストールパッケージ(package-install要) / search-package-conf.el
+;;;  Emacsインストールパッケージ(package-install要) / search-packages.el
 ;;;  package search : 検索
 ;;; Code:
 (require 'package)
@@ -50,8 +50,18 @@
     (concat google-this-base-url google-this-location-suffix
 	    "/search?q=%s&hl=ja&num=100&as_qdr=y5&lr=lang_ja")))
 
+;;; ---------------------------------------------------------------------------
+;;; package-func : codic : j2e/e2j dictionary
+;;; ---------------------------------------------------------------------------
+(use-package-with-report codic)
+
+;;; ---------------------------------------------------------------------------
+;;; package-func : codic : e2e dictionary
+;;; ---------------------------------------------------------------------------
+(use-package-with-report define-word)
+
 ;;; --------------------------------------------------------------------------------
 ;;; provide
 ;;; --------------------------------------------------------------------------------
-(provide 'search-package-conf)
-;;; search-package-conf.el ends here
+(provide 'search-packages)
+;;; search-packages.el ends here

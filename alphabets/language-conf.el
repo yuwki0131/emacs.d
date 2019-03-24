@@ -1,5 +1,6 @@
 ;;; package --- language-conf.el (specific settings for languages)
 ;;; Commentary:
+;;; flymake and ...
 ;;;  言語設定 / language-conf.el
 ;;;  Lisp
 ;;;  - Gauche/Scheme
@@ -31,6 +32,17 @@
 (require 'package)
 (require 'use-package)
 (require 'util-elisp)
+
+;;; ---------------------------------------------------------------------------
+;;; flymake : 文法チェッカ
+;;; ---------------------------------------------------------------------------
+(use-package-with-report flycheck
+  :config
+  (add-hook 'after-init-hook #'global-flycheck-mode)
+  (with-eval-after-load 'flycheck
+    (setq-default flycheck-disabled-checkers '(emacs-lisp-checkdoc))))
+
+(use-package-with-report flymake-cursor)
 
 ;;; --------------------------------------------------------------------------------
 ;;; config : Lisp dialects
@@ -168,13 +180,20 @@
 ;;; ---------------------------------------------------------------------------
 (use-package-with-report python-environment)
 
+(use-package-with-report company-jedi)
+
 (use-package-with-report jedi
   :bind (("\C-cd" . jedi:goto-definition)
          ("\C-cp" . jedi:goto-definition-pop-marker)
          ("\C-cr" . helm-jedi-related-names))
   :config
   (add-hook 'python-mode-hook 'jedi:setup)
-  (setq jedi:complete-on-dot t))
+  (require 'jedi-core)
+  (setq jedi:complete-on-dot t)
+  (setq jedi:use-shortcuts t)
+  (add-hook 'python-mode-hook 'jedi:setup)
+  (add-to-list 'company-backends 'company-jedi)
+  )
 
 (use-package-with-report epc)
 (use-package-with-report elpy)
@@ -213,10 +232,6 @@
     (setq tab-width 4)
     (flycheck-mode t)
     (setq imenu-create-index-function 'python-imenu-create-index)
-    ;; 元々のauto-complete補完候補を消す
-    (setq ac-sources (delete 'ac-source-words-in-same-mode-buffers ac-sources))
-    (add-to-list 'ac-sources 'ac-source-filename)
-    (add-to-list 'ac-sources 'ac-source-jedi-direct)
     (flymake-mode t)))
 
 (add-hook 'python-mode-hook 'my-python-mode)
@@ -290,10 +305,17 @@
   :mode
   (("\\.js$" . web-mode))
   (("\\.html$" . web-mode))
+  (("\\.css$" . css-mode))
   :config
+  (setq web-mode-attr-indent-offset 2)
+  (setq web-mode-indent-style 2)
   (setq web-mode-markup-indent-offset 2)
   (setq web-mode-css-indent-offset 2)
   (setq web-mode-code-indent-offset 2))
+
+(use-package-with-report emmet-mode
+  :mode
+  (("\\.html$" . emmet-mode)))
 
 ;;; ---------------------------------------------------------------------------------
 ;;; provide
