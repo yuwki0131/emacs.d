@@ -8,8 +8,8 @@
 ;;; ---------------------------------------------------------------------------
 ;;; unset
 ;;; ---------------------------------------------------------------------------
-(gssk-category "prefix")
-(gssk-subcategory "解除")
+(gssk-category "なし")
+(gssk-subcategory "Prefix")
 
 (gssk-explain-function "prefix keyに使用")
 
@@ -46,10 +46,6 @@
   (interactive)
   (message "this shortcut is for debug or some."))
 
-(gssk-category-function "機能" "" "undo & redo")
-(gssk-bind "C-q"    'undo)
-(gssk-bind "M-q"    'redo)
-
 (gssk-category-function "機能" "表示" "文字の拡大/縮小")
 (gssk-bind "C-S-+" 'text-scale-increase)
 (gssk-bind "C-S--" 'text-scale-decrease)
@@ -61,9 +57,9 @@
 (gssk-bind "C-h"    'delete-backward-char)
 (gssk-bind "M-h"    'backward-kill-word)
 
-(gssk-category-function "編集" "削除" "セマンティクス削除")
-(gssk-bind "M-i"    'change-inner)
-(gssk-bind "M-o"    'change-outer)
+(gssk-category-function "編集" "履歴" "undo & redo")
+(gssk-bind "C-q"    'undo)
+(gssk-bind "M-q"    'redo)
 
 (gssk-category-function "編集" "挿入" "アンダースコア挿入")
 (gssk-bind "C-:"    'insert-underscore)
@@ -71,11 +67,15 @@
 (gssk-category-function "編集" "挿入" "snippet: yaスニペット挿入")
 (gssk-bind "M-RET"  'yas-insert-snippet)
 
-(gssk-category-function "編集" "括弧" "括弧挿入")
+(gssk-category-function "編集" "挿入" "括弧挿入")
 (gssk-bind "C-l"    'insert-parenthesis)
 (gssk-bind "C-S-l"  'insert-angle-brackets)
 (gssk-bind "M-l"    'insert-brackets)
 (gssk-bind "M-S-l"  'insert-squares)
+
+(gssk-category-function "編集" "削除" "セマンティクス削除")
+(gssk-bind "M-i"    'change-inner)
+(gssk-bind "M-o"    'change-outer)
 
 (gssk-category-function "編集" "数値" "数値のインクリメント/デクリメント")
 (gssk-bind "C-+"   'increment-number)
@@ -127,7 +127,7 @@
 (gssk-bind "C-z C-k" 'kill-the-other-buffers)
 
 (gssk-explain-function "エンコーディングを変更")
-(gssk-bind "C-z f"   'set-file-name-coding-system)
+(gssk-bind "C-z C-e"   'set-file-name-coding-system)
 
 (gssk-explain-function "インスタント・メモファイルを開く")
 (gssk-bind "C-z C-z" 'zsnotes-open-today-note)
@@ -141,9 +141,6 @@
 (gssk-bind "C-z C-r" 'anzu-query-replace)
 
 (gssk-subcategory "検索")
-
-(gssk-explain-function "swoop: バッファ内を動的検索/移動")
-(gssk-bind "C-z C-s" 'swoop)
 
 (gssk-explain-function "codic: コーディング用辞書")
 (gssk-bind "C-z C-c" 'codic)
@@ -332,6 +329,9 @@
 
 (gssk-explain-function "swiper: バッファ内を動的検索/移動")
 (gssk-bind "C-e C-s" 'swiper)
+
+(gssk-explain-function "swoop: バッファ内を動的検索/移動")
+(gssk-bind "C-e C-q" 'swoop)
 
 (gssk-subcategory "バッファ間")
 

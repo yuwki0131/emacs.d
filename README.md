@@ -77,26 +77,26 @@ M-x delete-byte-compile
 
 |分類1|分類2|キー|関数名|内容|
 | -------- |:----|:-------- | -------------------- |:-------|
-|prefix|解除|C-e|unbind|prefix keyに使用|
-|prefix|解除|C-a|unbind|prefix keyに使用|
-|prefix|解除|C-z|unbind|prefix keyに使用|
-|prefix|解除|M-m|unbind|別用途のため解除|
-|prefix|解除|M-j|unbind|別用途のため解除|
-|機能||C-q|undo|undo & redo|
-|機能||M-q|redo|undo & redo|
+|なし|Prefix|C-e|unbind|prefix keyに使用|
+|なし|Prefix|C-a|unbind|prefix keyに使用|
+|なし|Prefix|C-z|unbind|prefix keyに使用|
+|なし|Prefix|M-m|unbind|別用途のため解除|
+|なし|Prefix|M-j|unbind|別用途のため解除|
 |機能|表示|C-S-+|text-scale-increase|文字の拡大/縮小|
 |機能|表示|C-S--|text-scale-decrease|文字の拡大/縮小|
 |機能|その他|M-j|temp-command|一時的なコマンド束縛用(テスト用/試用)|
 |編集|削除|C-h|delete-backward-char|Backspaceで削除 (文字単位/単語単位)|
 |編集|削除|M-h|backward-kill-word|Backspaceで削除 (文字単位/単語単位)|
-|編集|削除|M-i|change-inner|セマンティクス削除|
-|編集|削除|M-o|change-outer|セマンティクス削除|
+|編集|履歴|C-q|undo|undo & redo|
+|編集|履歴|M-q|redo|undo & redo|
 |編集|挿入|C-:|insert-underscore|アンダースコア挿入|
 |編集|挿入|M-RET|yas-insert-snippet|snippet: yaスニペット挿入|
-|編集|括弧|C-l|insert-parenthesis|括弧挿入|
-|編集|括弧|C-S-l|insert-angle-brackets|括弧挿入|
-|編集|括弧|M-l|insert-brackets|括弧挿入|
-|編集|括弧|M-S-l|insert-squares|括弧挿入|
+|編集|挿入|C-l|insert-parenthesis|括弧挿入|
+|編集|挿入|C-S-l|insert-angle-brackets|括弧挿入|
+|編集|挿入|M-l|insert-brackets|括弧挿入|
+|編集|挿入|M-S-l|insert-squares|括弧挿入|
+|編集|削除|M-i|change-inner|セマンティクス削除|
+|編集|削除|M-o|change-outer|セマンティクス削除|
 |編集|数値|C-+|increment-number|数値のインクリメント/デクリメント|
 |編集|数値|C--|decrement-number|数値のインクリメント/デクリメント|
 |移動|バッファ内|M-m|counsel-mark-ring|マーク単位の移動|
@@ -113,11 +113,10 @@ M-x delete-byte-compile
 |移動|バッファ間|C-c C-f|counsel-locate|グローバルに検索しファイルを開く|
 |機能||C-z p|toggle-truncate-lines|enable/disable toggle-truncate-line|
 |機能||C-z C-k|kill-the-other-buffers|現在のバッファ以外のバッファを閉じる|
-|機能||C-z f|set-file-name-coding-system|エンコーディングを変更|
+|機能||C-z C-e|set-file-name-coding-system|エンコーディングを変更|
 |機能||C-z C-z|zsnotes-open-today-note|インスタント・メモファイルを開く|
 |機能||C-z C-j|open-junk-file|ジャンクファイルを作成、開く|
 |機能|置換|C-z C-r|anzu-query-replace|文字列置換(anzu)|
-|機能|検索|C-z C-s|swoop|swoop: バッファ内を動的検索/移動|
 |機能|検索|C-z C-c|codic|codic: コーディング用辞書|
 |機能|検索|C-z w|define-word|define-word: 英英辞典|
 |機能|検索|C-z C-w|define-word-at-point|define-word: 英英辞典|
@@ -163,6 +162,7 @@ M-x delete-byte-compile
 |移動|バッファ内|C-e C-l|recenter-top-bottom|top-center-bottom間|
 |移動|バッファ内|C-e C-l|imenu-list|imenu: 関数定義へ|
 |移動|バッファ内|C-e C-s|swiper|swiper: バッファ内を動的検索/移動|
+|移動|バッファ内|C-e C-q|swoop|swoop: バッファ内を動的検索/移動|
 |移動|バッファ間|C-e C-z|ace-window|ace-window: Window間移動|
 |移動|バッファ間|C-e C-c|shell|shell/repl/grepxへ|
 |移動|バッファ間|C-e C-v|move-to-scratch|shell/repl/grepxへ|
