@@ -140,17 +140,17 @@ M-x delete-byte-compile
 |機能|ブログ|C-z b n|quickblog-create-new-post|新しいブログポストを作成|
 |機能|ブログ|C-z b o|quickblog-open-default-file|既存のブログポスト一覧を表示|
 |機能|ブログ|C-z b r|quickblog-run-local-server|Cryogenをローカルで実行|
-|編集||C-a C-a|comment-dwim|comment out/in|
-|編集||C-a C-u|upcase-word|upcase/downcase word|
-|編集||C-a C-p|downcase-word|upcase/downcase word|
+|編集|切替|C-a C-a|comment-dwim|コメントアウト切り替え|
+|編集|切替|C-a C-u|upcase-word|upcase word|
+|編集|切替|C-a C-p|downcase-word|downcase word|
 |編集|削除|C-a C-c|kill-until-corresp-paren|括弧削除|
 |編集|削除|C-a C-k|kill-this-buffer|現在のバッファを削除|
 |編集|削除|C-a C-f|merge2lines|行のマージ(インデント用などの空白削除)|
 |編集|削除|C-a C-i|just-one-space|周囲の空白を削除し、単一の空白にする|
 |編集|挿入|C-a C-q|quoted-insert|旧(C-q) 引用付き挿入(置換等で使用)|
 |編集|挿入|C-a C-s|insert-turapoyo|(´･_･`)を挿入|
-|編集|挿入|C-a C-d|insert-date-normal|現在時刻挿入|
-|編集|挿入|C-a M-d|insert-date-markdown|現在時刻挿入|
+|編集|挿入|C-a C-d|insert-date-normal|現在時刻挿入(通常)|
+|編集|挿入|C-a M-d|insert-date-markdown|現在時刻挿入(Markdown用)|
 |編集|挿入|C-a C-e|insert-current-file-name|現在のファイルパスを挿入|
 |編集|挿入|C-a C-m|insert--s|コメント用の線を挿入|
 |編集|挿入|C-a C-y|counsel-yank-pop|killringから選択して挿入|

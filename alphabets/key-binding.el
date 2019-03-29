@@ -215,58 +215,33 @@
   (interactive)
   (insert (buffer-file-name (current-buffer))))
 
-(gssk-subcategory "")
-
-(gssk-explain-function "comment out/in")
-(gssk-bind "C-a C-a" 'comment-dwim)
-
-(gssk-explain-function "upcase/downcase word")
-(gssk-bind "C-a C-u" 'upcase-word)
-(gssk-bind "C-a C-p" 'downcase-word)
+(gssk-subcategory "切替")
+(gssk-repeat-bind-ex
+ '(("C-a C-a" comment-dwim  "コメントアウト切り替え")
+   ("C-a C-u" upcase-word   "upcase word")
+   ("C-a C-p" downcase-word "downcase word")))
 
 (gssk-subcategory "削除")
-
-(gssk-explain-function "括弧削除")
-(gssk-bind "C-a C-c" 'kill-until-corresp-paren)
-
-(gssk-explain-function "現在のバッファを削除")
-(gssk-bind "C-a C-k" 'kill-this-buffer)
-
-(gssk-explain-function "行のマージ(インデント用などの空白削除)")
-(gssk-bind "C-a C-f" 'merge2lines)
-
-(gssk-explain-function "周囲の空白を削除し、単一の空白にする")
-(gssk-bind "C-a C-i" 'just-one-space)
+(gssk-repeat-bind-ex
+ '(("C-a C-c" kill-until-corresp-paren "括弧削除")
+   ("C-a C-k" kill-this-buffer "現在のバッファを削除")
+   ("C-a C-f" merge2lines "行のマージ(インデント用などの空白削除)")
+   ("C-a C-i" just-one-space "周囲の空白を削除し、単一の空白にする")))
 
 (gssk-subcategory "挿入")
+(gssk-repeat-bind-ex
+ '(("C-a C-q" quoted-insert "旧(C-q) 引用付き挿入(置換等で使用)")
+   ("C-a C-s" insert-turapoyo "(´･_･`)を挿入")
+   ("C-a C-d" insert-date-normal "現在時刻挿入(通常)")
+   ("C-a M-d" insert-date-markdown "現在時刻挿入(Markdown用)")
+   ("C-a C-e" insert-current-file-name "現在のファイルパスを挿入")
+   ("C-a C-m" insert--s "コメント用の線を挿入")
+   ("C-a C-y" counsel-yank-pop "killringから選択して挿入")))
 
-(gssk-explain-function "旧(C-q) 引用付き挿入(置換等で使用)")
-(gssk-bind "C-a C-q" 'quoted-insert)
-
-(gssk-explain-function "(´･_･`)を挿入")
-(gssk-bind "C-a C-s" 'insert-turapoyo)
-
-(gssk-explain-function "現在時刻挿入")
-(gssk-bind "C-a C-d" 'insert-date-normal)
-(gssk-bind "C-a M-d" 'insert-date-markdown)
-
-(gssk-explain-function "現在のファイルパスを挿入")
-(gssk-bind "C-a C-e" 'insert-current-file-name)
-
-(gssk-explain-function "コメント用の線を挿入")
-(gssk-bind "C-a C-m" 'insert--s)
-
-(gssk-explain-function "killringから選択して挿入")
-(gssk-bind "C-a C-y" 'counsel-yank-pop)
-
-(gssk-subcategory "修正")
-
-(gssk-explain-function "iedit-mode: 同一のシンボルを同時置換")
+(gssk-subcategory-function "修正" "iedit-mode: 同一のシンボルを同時置換")
 (gssk-bind "C-a i" 'iedit-mode)
 
-(gssk-subcategory "その他")
-
-(gssk-explain-function "矩形選択")
+(gssk-subcategory-function "その他" "矩形選択")
 (gssk-bind "C-a C-r" 'rectangle-mark-mode)
 
 ;;; ---------------------------------------------------------------------------
