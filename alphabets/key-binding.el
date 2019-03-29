@@ -163,8 +163,8 @@
  '(("C-z C-d" search-dictionary-e2j-current-word "現在の単語の意味を表示(要辞書設定)")
    ("C-z d"   search-dictionary-e2j              "英和辞典(要辞書設定)")))
 
-(gssk-subcategory-function "実行" "現在のディレクトリのxxx.sh実行")
-(gssk-bind "C-z e" 'execute-current-shell-script)
+(gssk-subcategory "実行")
+(gssk-bind-ex "C-z e" 'execute-current-shell-script "現在のディレクトリのxxx.sh実行")
 
 (gssk-subcategory "日記")
 (gssk-repeat-bind-ex
@@ -238,11 +238,11 @@
    ("C-a C-m" insert--s "コメント用の線を挿入")
    ("C-a C-y" counsel-yank-pop "killringから選択して挿入")))
 
-(gssk-subcategory-function "修正" "iedit-mode: 同一のシンボルを同時置換")
-(gssk-bind "C-a i" 'iedit-mode)
+(gssk-subcategory "修正")
+(gssk-bind-ex "C-a i" 'iedit-mode "iedit-mode: 同一のシンボルを同時置換")
 
-(gssk-subcategory-function "その他" "矩形選択")
-(gssk-bind "C-a C-r" 'rectangle-mark-mode)
+(gssk-subcategory "その他")
+(gssk-bind-ex "C-a C-r" 'rectangle-mark-mode "矩形選択")
 
 ;;; ---------------------------------------------------------------------------
 ;;; E prefix (to move somewhere)
