@@ -250,93 +250,56 @@
 (gssk-category "移動")
 
 (gssk-subcategory "バッファ内")
-
-(gssk-explain-function "最後の変更箇所へ")
-(gssk-bind "C-e C-l" 'goto-last-change)
-
-(gssk-explain-function "行頭/行末へ(unbindの再設定)")
-(gssk-bind "C-e C-a" 'move-beginning-of-line)
-(gssk-bind "C-e C-e" 'move-end-of-line)
-
-(gssk-explain-function "top-center-bottom間")
-(gssk-bind "C-e C-l" 'recenter-top-bottom)
-
-(gssk-explain-function "imenu: 関数定義へ")
-(gssk-bind "C-e C-l" 'imenu-list)
-
-(gssk-explain-function "swiper: バッファ内を動的検索/移動")
-(gssk-bind "C-e C-s" 'swiper)
-
-(gssk-explain-function "swoop: バッファ内を動的検索/移動")
-(gssk-bind "C-e C-q" 'swoop)
+(gssk-repeat-bind-ex
+ '(("C-e C-l" goto-last-change "最後の変更箇所へ")
+   ("C-e C-a" move-beginning-of-line "行頭へ(unbindの再設定)")
+   ("C-e C-e" move-end-of-line "行末へ(unbindの再設定)")
+   ("C-e C-l" recenter-top-bottom "top-center-bottom間")
+   ("C-e C-l" imenu-list "imenu: 関数定義へ")
+   ("C-e C-s" swiper "swiper: バッファ内を動的検索/移動")
+   ("C-e C-q" swoop "swoop: バッファ内を動的検索/移動")))
 
 (gssk-subcategory "バッファ間")
-
-(gssk-explain-function "ace-window: Window間移動")
-(gssk-bind "C-e C-z" 'ace-window)
-
-(gssk-explain-function "shell/repl/grepxへ")
-(gssk-bind "C-e C-c" 'shell)
-(gssk-bind "C-e C-v" 'move-to-scratch)
-(gssk-bind "C-e g"   'move-to-grep)
-(gssk-bind "C-e C-w" 'move-to-repl)
-
-(gssk-explain-function "次/前のバッファへ (*付バッファはスキップ)")
-(gssk-bind "C-e C-b" 'previous-buffer-with-skip*)
-(gssk-bind "C-e C-f" 'next-buffer-with-skip*)
+(gssk-repeat-bind-ex
+ '(("C-e C-z" ace-window "ace-window: Window間移動")
+   ("C-e C-c" shell "shellへ移動")
+   ("C-e C-v" move-to-scratch "scratchへ移動")
+   ("C-e g"   move-to-grep "grepへ移動")
+   ("C-e C-w" move-to-repl "replへ移動")
+   ("C-e C-b" previous-buffer-with-skip* "前のバッファへ (*付バッファはスキップ)")
+   ("C-e C-f" next-buffer-with-skip* "次のバッファへ (*付バッファはスキップ)")))
 
 (gssk-subcategory "検索")
-
-(gssk-explain-function "正規表現検索 (通常)")
-(gssk-bind "C-e s" 'search-forward-regexp)
-(gssk-bind "C-e r" 'search-backward-regexp)
-
-(gssk-explain-function "正規表現検索 (一覧表示)")
-(gssk-bind "C-e C-o" 'occur)
-
-(gssk-explain-function "正規表現置換 (anzu)")
-(gssk-bind "C-e C-r" 'anzu-query-replace-regexp)
-
-(gssk-explain-function "関数の定義位置に移動(dumb-jump)")
-(gssk-bind "C-e C-j" 'dumb-jump-go)
-(gssk-bind "C-e C-k" 'dumb-jump-back)
-
-(gssk-explain-function "次/前のシンボルの位置へ")
-(gssk-bind "C-e C-n" 'highlight-symbol-next)
-(gssk-bind "C-e C-p" 'highlight-symbol-prev)
+(gssk-repeat-bind-ex
+ '(("C-e s"   search-forward-regexp "正規表現検索 (通常/前方)")
+   ("C-e r"   search-backward-regexp "正規表現検索 (通常/後方)")
+   ("C-e C-o" occur "正規表現検索 (一覧表示)")
+   ("C-e C-r" anzu-query-replace-regexp "正規表現置換 (anzu)")
+   ("C-e C-j" dumb-jump-go "関数の定義位置に移動(dumb-jump)")
+   ("C-e C-k" dumb-jump-back "関数の定義位置に移動(dumb-jump)")
+   ("C-e C-n" highlight-symbol-next "次のシンボルの位置へ")
+   ("C-e C-p" highlight-symbol-prev "前のシンボルの位置へ")))
 
 (gssk-subcategory "Grep")
-
-(gssk-explain-function "rgrep: ディレクトリ内Grep")
-(gssk-bind "C-e C-d C-r" 'rgrep)
-
-(gssk-explain-function "grep find this: ディレクトリ配下Grep")
-(gssk-bind "C-e C-d C-f" 'grep-find-this)
-
-(gssk-explain-function "grep this: バッファ内Grep")
-(gssk-bind "C-e C-d C-t" 'grep-this)
-
-(gssk-explain-function "counsel-git-grep: Git-Grep")
-(gssk-bind "C-e C-d C-c" 'counsel-git-grep)
-
-(gssk-explain-function "counsel-ag: ag search")
-(gssk-bind "C-e C-y"      'counsel-ag)
+(gssk-repeat-bind-ex
+ '(("C-e C-d C-r" rgrep "rgrep: ディレクトリ内Grep")
+   ("C-e C-d C-f" grep-find-this "grep find this: ディレクトリ配下Grep")
+   ("C-e C-d C-t" grep-this "grep this: バッファ内Grep")
+   ("C-e C-d C-c" counsel-git-grep "counsel-git-grep: Git-Grep")
+   ("C-e C-y"     counsel-ag "counsel-ag: ag search")))
 
 (gssk-subcategory "ファイル")
-
-(gssk-explain-function "最近開いたファイルを開く")
-(gssk-bind "C-e o" 'recentf-open-files)
-
-(gssk-explain-function "ファイルを開く(Gitベース)")
-(gssk-bind "C-e f" 'counsel-git)
+(gssk-repeat-bind-ex
+ '(("C-e o" recentf-open-files "最近開いたファイルを開く")
+   ("C-e f" counsel-git "ファイルを開く(Gitベース)")))
 
 (gssk-subcategory "Bookmark")
-(gssk-explain-function "現在行をブックマーク、ハイライト表示")
-(gssk-bind "C-e C-t" 'bm-toggle)
-(gssk-bind "C-e C-i" 'bm-next)
-(gssk-bind "C-e C-u" 'bm-previous)
-(gssk-bind "C-e t"   'bm-show)
-(gssk-bind "C-e M-t" 'bm-show-all)
+(gssk-repeat-bind-ex
+ '(("C-e C-t" bm-toggle "現在行をブックマーク、ハイライト表示")
+   ("C-e C-i" bm-next "次のブックマークへ移動")
+   ("C-e C-u" bm-previous "前のブックマークへ移動")
+   ("C-e t"   bm-show "ブックマークを表示")
+   ("C-e M-t" bm-show-all "ブックマークを全て表示")))
 
 ;;; ---------------------------------------------------------------------------
 ;;; provide
