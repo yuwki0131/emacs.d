@@ -50,6 +50,13 @@
 (gssk-bind "C-q"    'undo)
 (gssk-bind "M-q"    'redo)
 
+(gssk-category-function "機能" "表示" "文字の拡大/縮小")
+(gssk-bind "C-S-+" 'text-scale-increase)
+(gssk-bind "C-S--" 'text-scale-decrease)
+
+(gssk-category-function "機能" "その他" "一時的なコマンド束縛用(テスト用/試用)")
+(gssk-bind "M-j"   'temp-command)
+
 (gssk-category-function "編集" "削除" "Backspaceで削除 (文字単位/単語単位)")
 (gssk-bind "C-h"    'delete-backward-char)
 (gssk-bind "M-h"    'backward-kill-word)
@@ -69,6 +76,10 @@
 (gssk-bind "C-S-l"  'insert-angle-brackets)
 (gssk-bind "M-l"    'insert-brackets)
 (gssk-bind "M-S-l"  'insert-squares)
+
+(gssk-category-function "編集" "数値" "数値のインクリメント/デクリメント")
+(gssk-bind "C-+"   'increment-number)
+(gssk-bind "C--"   'decrement-number)
 
 (gssk-category-function "移動" "バッファ内" "マーク単位の移動")
 (gssk-bind "M-m"    'counsel-mark-ring)
@@ -96,17 +107,6 @@
 (gssk-category-function "移動" "バッファ間" "バッファ移動 (*付バッファはスキップ)")
 (gssk-bind "C-M-f"  'next-buffer-with-skip*)
 (gssk-bind "C-M-p"  'previous-buffer-with-skip*)
-
-(gssk-category-function "その他" "その他" "文字の拡大/縮小")
-(gssk-bind "C-S-+" 'text-scale-increase)
-(gssk-bind "C-S--" 'text-scale-decrease)
-
-(gssk-category-function "その他" "その他" "数値のインクリメント/デクリメント")
-(gssk-bind "C-+"   'increment-number)
-(gssk-bind "C--"   'decrement-number)
-
-(gssk-category-function "その他" "その他" "一時的なコマンド束縛用(テスト用/試用)")
-(gssk-bind "M-j"   'temp-command)
 
 ;;; ---------------------------------------------------------------------------
 ;;; other(without z a e) prefix
@@ -158,7 +158,7 @@
 (gssk-explain-function "google-this(Googleで検索)")
 (gssk-bind "C-z M-g" 'google-this)
 
-(gssk-explain-function "現在のURLリンクを開く<br/>(goto-address-mode)")
+(gssk-explain-function "現在のURLリンクを開")
 (gssk-bind "C-z C-a" 'goto-address-at-point)
 
 (gssk-explain-function "imenu-list(関数定義一覧表示)")
@@ -273,7 +273,7 @@
 (gssk-explain-function "現在のバッファを削除")
 (gssk-bind "C-a C-k" 'kill-this-buffer)
 
-(gssk-explain-function "行のマージ(インデント用などの空白削除) <br/> (不要かも)")
+(gssk-explain-function "行のマージ(インデント用などの空白削除)")
 (gssk-bind "C-a C-f" 'merge2lines)
 
 (gssk-explain-function "周囲の空白を削除し、単一の空白にする")

@@ -84,6 +84,9 @@ M-x delete-byte-compile
 |prefix|解除|M-j|unbind|別用途のため解除|
 |機能||C-q|undo|undo & redo|
 |機能||M-q|redo|undo & redo|
+|機能|表示|C-S-+|text-scale-increase|文字の拡大/縮小|
+|機能|表示|C-S--|text-scale-decrease|文字の拡大/縮小|
+|機能|その他|M-j|temp-command|一時的なコマンド束縛用(テスト用/試用)|
 |編集|削除|C-h|delete-backward-char|Backspaceで削除 (文字単位/単語単位)|
 |編集|削除|M-h|backward-kill-word|Backspaceで削除 (文字単位/単語単位)|
 |編集|削除|M-i|change-inner|セマンティクス削除|
@@ -94,6 +97,8 @@ M-x delete-byte-compile
 |編集|括弧|C-S-l|insert-angle-brackets|括弧挿入|
 |編集|括弧|M-l|insert-brackets|括弧挿入|
 |編集|括弧|M-S-l|insert-squares|括弧挿入|
+|編集|数値|C-+|increment-number|数値のインクリメント/デクリメント|
+|編集|数値|C--|decrement-number|数値のインクリメント/デクリメント|
 |移動|バッファ内|M-m|counsel-mark-ring|マーク単位の移動|
 |移動|バッファ内|M-p|scroll-up-in-place|1行スクロール(カーソル位置固定)|
 |移動|バッファ内|M-n|scroll-down-in-place|1行スクロール(カーソル位置固定)|
@@ -105,11 +110,6 @@ M-x delete-byte-compile
 |移動|バッファ内|C-!|highlight-symbol-prev|シンボル単位移動|
 |移動|バッファ間|C-M-f|next-buffer-with-skip*|バッファ移動 (*付バッファはスキップ)|
 |移動|バッファ間|C-M-p|previous-buffer-with-skip*|バッファ移動 (*付バッファはスキップ)|
-|その他|その他|C-S-+|text-scale-increase|文字の拡大/縮小|
-|その他|その他|C-S--|text-scale-decrease|文字の拡大/縮小|
-|その他|その他|C-+|increment-number|数値のインクリメント/デクリメント|
-|その他|その他|C--|decrement-number|数値のインクリメント/デクリメント|
-|その他|その他|M-j|temp-command|一時的なコマンド束縛用(テスト用/試用)|
 |移動|バッファ間|C-c C-f|counsel-locate|グローバルに検索しファイルを開く|
 |機能||C-z p|toggle-truncate-lines|enable/disable toggle-truncate-line|
 |機能||C-z C-k|kill-the-other-buffers|現在のバッファ以外のバッファを閉じる|
@@ -123,7 +123,7 @@ M-x delete-byte-compile
 |機能|検索|C-z C-w|define-word-at-point|define-word: 英英辞典|
 |機能|検索|C-z C-b|counsel-git-grep|counsel-git-grep: Git-Grep|
 |機能|検索|C-z M-g|google-this|google-this(Googleで検索)|
-|機能|検索|C-z C-a|goto-address-at-point|現在のURLリンクを開く<br/>(goto-address-mode)|
+|機能|検索|C-z C-a|goto-address-at-point|現在のURLリンクを開|
 |機能|検索|C-z i l|imenu-list-smart-toggle|imenu-list(関数定義一覧表示)|
 |機能|検索|C-z i f|counsel-imenu|counsel-imenu(関数定義一覧検索)|
 |機能|検索|C-z i b|ibuffer|ibuffer(バッファ一覧表示)|
@@ -146,7 +146,7 @@ M-x delete-byte-compile
 |編集||C-a C-p|downcase-word|upcase/downcase word|
 |編集|削除|C-a C-c|kill-until-corresp-paren|括弧削除|
 |編集|削除|C-a C-k|kill-this-buffer|現在のバッファを削除|
-|編集|削除|C-a C-f|merge2lines|行のマージ(インデント用などの空白削除) <br/> (不要かも)|
+|編集|削除|C-a C-f|merge2lines|行のマージ(インデント用などの空白削除)|
 |編集|削除|C-a C-i|just-one-space|周囲の空白を削除し、単一の空白にする|
 |編集|挿入|C-a C-q|quoted-insert|旧(C-q) 引用付き挿入(置換等で使用)|
 |編集|挿入|C-a C-s|insert-turapoyo|(´･_･`)を挿入|
