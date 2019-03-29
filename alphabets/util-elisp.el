@@ -219,6 +219,16 @@
                    (symbol-name ,sym)
                    "\n")))))
 
+(defun gssk-bind-ex (keybinding-str sym explain)
+  (setq gssk-current-function-name-state explain)
+  (gssk-bind keybinding-str sym))
+
+(defun gssk-repeat-bind-ex (ls)
+  (while (not (null ls))
+    (setq head-elem (car ls))
+    (gssk-bind-ex (car head-elem) (cadr head-elem) (caddr head-elem))
+    (setq ls (cdr ls))))
+
 (defun report-gsskey ()
   (if (not gsskey-report-text)
       "all key-bindings defined successfully"
