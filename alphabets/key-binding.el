@@ -111,7 +111,7 @@
 ;;; ---------------------------------------------------------------------------
 ;;; other(without z a e) prefix
 ;;; ---------------------------------------------------------------------------
-(gssk-category-function "移動" "バッファ間" "ファイル名からグローバルに検索しファイルを開く")
+(gssk-category-function "移動" "バッファ間" "グローバルに検索しファイルを開く")
 (gssk-bind "C-c C-f"   'counsel-locate)
 
 ;;; ---------------------------------------------------------------------------
@@ -142,12 +142,6 @@
 
 (gssk-subcategory "検索")
 
-(gssk-explain-function "grep this: バッファ内Grep")
-(gssk-bind "C-z g"   'grep-this)
-
-(gssk-explain-function "grep find this: ディレクトリ配下Grep")
-(gssk-bind "C-z C-f" 'grep-find-this)
-
 (gssk-explain-function "swoop: バッファ内を動的検索/移動")
 (gssk-bind "C-z C-s" 'swoop)
 
@@ -157,12 +151,6 @@
 (gssk-explain-function "define-word: 英英辞典")
 (gssk-bind "C-z w"   'define-word)
 (gssk-bind "C-z C-w" 'define-word-at-point)
-
-(gssk-explain-function "rgrep: ディレクトリ内Grep")
-(gssk-bind "C-z r"   'rgrep)
-
-(gssk-explain-function "minimap: ソースコードのアウトライン表示")
-(gssk-bind "C-z C-y" 'minimap-mode)
 
 (gssk-explain-function "counsel-git-grep: Git-Grep")
 (gssk-bind "C-z C-b" 'counsel-git-grep)
@@ -183,6 +171,9 @@
 (gssk-bind "C-z i b" 'ibuffer)
 
 (gssk-subcategory "表示")
+
+(gssk-explain-function "minimap: ソースコードのアウトライン表示")
+(gssk-bind "C-z C-y" 'minimap-mode)
 
 (gssk-explain-function "バッファのフレームサイズを縮小")
 (gssk-bind "C-z s"   'make-buffer-small)
@@ -377,6 +368,23 @@
 (gssk-bind "C-e C-n" 'highlight-symbol-next)
 (gssk-bind "C-e C-p" 'highlight-symbol-prev)
 
+(gssk-subcategory "Grep")
+
+(gssk-explain-function "rgrep: ディレクトリ内Grep")
+(gssk-bind "C-e C-d C-r" 'rgrep)
+
+(gssk-explain-function "grep find this: ディレクトリ配下Grep")
+(gssk-bind "C-e C-d C-f" 'grep-find-this)
+
+(gssk-explain-function "grep this: バッファ内Grep")
+(gssk-bind "C-e C-d C-t" 'grep-this)
+
+(gssk-explain-function "counsel-git-grep: Git-Grep")
+(gssk-bind "C-e C-d C-c" 'counsel-git-grep)
+
+(gssk-explain-function "counsel-ag: ag search")
+(gssk-bind "C-e C-y"      'counsel-ag)
+
 (gssk-subcategory "ファイル")
 
 (gssk-explain-function "最近開いたファイルを開く")
@@ -384,9 +392,6 @@
 
 (gssk-explain-function "ファイルを開く(Gitベース)")
 (gssk-bind "C-e f" 'counsel-git)
-
-(gssk-explain-function "counsel-ag: ag search")
-(gssk-bind "C-e C-y"   'counsel-ag)
 
 (gssk-subcategory "Bookmark")
 (gssk-explain-function "現在行をブックマーク、ハイライト表示")

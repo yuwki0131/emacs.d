@@ -110,27 +110,24 @@ M-x delete-byte-compile
 |その他|その他|C-+|increment-number|数値のインクリメント/デクリメント|
 |その他|その他|C--|decrement-number|数値のインクリメント/デクリメント|
 |その他|その他|M-j|temp-command|一時的なコマンド束縛用(テスト用/試用)|
-|移動|バッファ間|C-c C-f|counsel-locate|ファイル名からグローバルに検索しファイルを開く|
+|移動|バッファ間|C-c C-f|counsel-locate|グローバルに検索しファイルを開く|
 |機能||C-z p|toggle-truncate-lines|enable/disable toggle-truncate-line|
 |機能||C-z C-k|kill-the-other-buffers|現在のバッファ以外のバッファを閉じる|
 |機能||C-z f|set-file-name-coding-system|エンコーディングを変更|
 |機能||C-z C-z|zsnotes-open-today-note|インスタント・メモファイルを開く|
 |機能||C-z C-j|open-junk-file|ジャンクファイルを作成、開く|
 |機能|置換|C-z C-r|anzu-query-replace|文字列置換(anzu)|
-|機能|検索|C-z g|grep-this|grep this: バッファ内Grep|
-|機能|検索|C-z C-f|grep-find-this|grep find this: ディレクトリ配下Grep|
 |機能|検索|C-z C-s|swoop|swoop: バッファ内を動的検索/移動|
 |機能|検索|C-z C-c|codic|codic: コーディング用辞書|
 |機能|検索|C-z w|define-word|define-word: 英英辞典|
 |機能|検索|C-z C-w|define-word-at-point|define-word: 英英辞典|
-|機能|検索|C-z r|rgrep|rgrep: ディレクトリ内Grep|
-|機能|検索|C-z C-y|minimap-mode|minimap: ソースコードのアウトライン表示|
 |機能|検索|C-z C-b|counsel-git-grep|counsel-git-grep: Git-Grep|
 |機能|検索|C-z M-g|google-this|google-this(Googleで検索)|
 |機能|検索|C-z C-a|goto-address-at-point|現在のURLリンクを開く<br/>(goto-address-mode)|
 |機能|検索|C-z i l|imenu-list-smart-toggle|imenu-list(関数定義一覧表示)|
 |機能|検索|C-z i f|counsel-imenu|counsel-imenu(関数定義一覧検索)|
 |機能|検索|C-z i b|ibuffer|ibuffer(バッファ一覧表示)|
+|機能|表示|C-z C-y|minimap-mode|minimap: ソースコードのアウトライン表示|
 |機能|表示|C-z s|make-buffer-small|バッファのフレームサイズを縮小|
 |機能|表示|C-z C-n|neotree-toggle|ディレクトリ階層を表示 (neo tree)|
 |機能|表示|C-z m|magit-status|magit (Emacs Git)|
@@ -181,9 +178,13 @@ M-x delete-byte-compile
 |移動|検索|C-e C-k|dumb-jump-back|関数の定義位置に移動(dumb-jump)|
 |移動|検索|C-e C-n|highlight-symbol-next|次/前のシンボルの位置へ|
 |移動|検索|C-e C-p|highlight-symbol-prev|次/前のシンボルの位置へ|
+|移動|Grep|C-e C-d C-r|rgrep|rgrep: ディレクトリ内Grep|
+|移動|Grep|C-e C-d C-f|grep-find-this|grep find this: ディレクトリ配下Grep|
+|移動|Grep|C-e C-d C-t|grep-this|grep this: バッファ内Grep|
+|移動|Grep|C-e C-d C-c|counsel-git-grep|counsel-git-grep: Git-Grep|
+|移動|Grep|C-e C-y|counsel-ag|counsel-ag: ag search|
 |移動|ファイル|C-e o|recentf-open-files|最近開いたファイルを開く|
 |移動|ファイル|C-e f|counsel-git|ファイルを開く(Gitベース)|
-|移動|ファイル|C-e C-y|counsel-ag|counsel-ag: ag search|
 |移動|Bookmark|C-e C-t|bm-toggle|現在行をブックマーク、ハイライト表示|
 |移動|Bookmark|C-e C-i|bm-next|現在行をブックマーク、ハイライト表示|
 |移動|Bookmark|C-e C-u|bm-previous|現在行をブックマーク、ハイライト表示|
