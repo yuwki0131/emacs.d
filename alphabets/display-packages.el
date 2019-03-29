@@ -82,10 +82,10 @@
    neo-show-hidden-files t
    neo-keymap-style 'concise
    neo-smart-open t
-   neo-theme 'ascii
    neo-window-fixed-size nil
    neo-window-width 30
    neo-theme (if (display-graphic-p) 'icons 'arrow)
+   neo-vc-integration '(char)
    )
   (add-hook 'neotree-mode-hook
             '(lambda ()
