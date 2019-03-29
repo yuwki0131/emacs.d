@@ -60,6 +60,9 @@
 (use-package-with-report anzu
   :diminish anzu-mode
   :config
+  (setq anzu-cons-mode-line-p nil)
+  (setcar (cdr (assq 'isearch-mode minor-mode-alist))
+          '(:eval (anzu--update-mode-line)))
   (global-anzu-mode t))
 
 ;;; ---------------------------------------------------------------------------
