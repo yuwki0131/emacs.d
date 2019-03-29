@@ -116,7 +116,7 @@ M-x delete-byte-compile
 |機能||C-z f|set-file-name-coding-system|エンコーディングを変更|
 |機能||C-z C-z|zsnotes-open-today-note|インスタント・メモファイルを開く|
 |機能||C-z C-j|open-junk-file|ジャンクファイルを作成、開く|
-|機能|置換|C-z C-r|replace-string|文字列置換|
+|機能|置換|C-z C-r|anzu-query-replace|文字列置換(anzu)|
 |機能|検索|C-z g|grep-this|grep this: バッファ内Grep|
 |機能|検索|C-z C-f|grep-find-this|grep find this: ディレクトリ配下Grep|
 |機能|検索|C-z C-s|swoop|swoop: バッファ内を動的検索/移動|
@@ -176,7 +176,7 @@ M-x delete-byte-compile
 |移動|検索|C-e s|search-forward-regexp|正規表現検索 (通常)|
 |移動|検索|C-e r|search-backward-regexp|正規表現検索 (通常)|
 |移動|検索|C-e C-o|occur|正規表現検索 (一覧表示)|
-|移動|検索|C-e C-r|replace-regexp|正規表現置換 (Emacs標準)|
+|移動|検索|C-e C-r|anzu-query-replace-regexp|正規表現置換 (anzu)|
 |移動|検索|C-e C-j|dumb-jump-go|関数の定義位置に移動(dumb-jump)|
 |移動|検索|C-e C-k|dumb-jump-back|関数の定義位置に移動(dumb-jump)|
 |移動|検索|C-e C-n|highlight-symbol-next|次/前のシンボルの位置へ|

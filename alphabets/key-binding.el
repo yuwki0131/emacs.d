@@ -137,8 +137,8 @@
 
 (gssk-subcategory "置換")
 
-(gssk-explain-function "文字列置換")
-(gssk-bind "C-z C-r" 'replace-string)
+(gssk-explain-function "文字列置換(anzu)")
+(gssk-bind "C-z C-r" 'anzu-query-replace)
 
 (gssk-subcategory "検索")
 
@@ -366,8 +366,8 @@
 (gssk-explain-function "正規表現検索 (一覧表示)")
 (gssk-bind "C-e C-o" 'occur)
 
-(gssk-explain-function "正規表現置換 (Emacs標準)")
-(gssk-bind "C-e C-r" 'replace-regexp)
+(gssk-explain-function "正規表現置換 (anzu)")
+(gssk-bind "C-e C-r" 'anzu-query-replace-regexp)
 
 (gssk-explain-function "関数の定義位置に移動(dumb-jump)")
 (gssk-bind "C-e C-j" 'dumb-jump-go)
