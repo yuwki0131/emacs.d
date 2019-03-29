@@ -80,8 +80,8 @@ M-x delete-byte-compile
 |なし|Prefix|C-e|unbind|prefix keyに使用|
 |なし|Prefix|C-a|unbind|prefix keyに使用|
 |なし|Prefix|C-z|unbind|prefix keyに使用|
-|なし|Prefix|M-m|unbind|別用途のため解除|
-|なし|Prefix|M-j|unbind|別用途のため解除|
+|なし|別用途|M-m|unbind|別用途のため解除|
+|なし|別用途|M-j|unbind|別用途のため解除|
 |機能|表示|C-S-+|text-scale-increase|文字の拡大/縮小|
 |機能|表示|C-S--|text-scale-decrease|文字の拡大/縮小|
 |機能|その他|M-j|temp-command|一時的なコマンド束縛用(テスト用/試用)|
@@ -116,7 +116,7 @@ M-x delete-byte-compile
 |機能||C-z C-e|set-file-name-coding-system|エンコーディングを変更|
 |機能||C-z C-z|zsnotes-open-today-note|インスタント・メモファイルを開く|
 |機能||C-z C-j|open-junk-file|ジャンクファイルを作成、開く|
-|機能|置換|C-z C-r|anzu-query-replace|文字列置換(anzu)|
+|機能|置換|C-z C-r|replace-string|文字列置換|
 |機能|検索|C-z C-c|codic|codic: コーディング用辞書|
 |機能|検索|C-z w|define-word|define-word: 英英辞典|
 |機能|検索|C-z C-w|define-word-at-point|define-word: 英英辞典|

@@ -9,8 +9,8 @@
 ;;; unset
 ;;; ---------------------------------------------------------------------------
 (gssk-category "なし")
-(gssk-subcategory "Prefix")
 
+(gssk-subcategory "Prefix")
 (gssk-explain-function "prefix keyに使用")
 
 ;; 移動系 prefix
@@ -25,6 +25,7 @@
 (gssk-add-keybind-report "C-z" 'unbind)
 (global-unset-key "\C-z")
 
+(gssk-subcategory "別用途")
 (gssk-explain-function "別用途のため解除")
 
 (gssk-add-keybind-report "M-m" 'unbind)
@@ -46,65 +47,71 @@
   (interactive)
   (message "this shortcut is for debug or some."))
 
-(gssk-category-function "機能" "表示" "文字の拡大/縮小")
+(gssk-category "機能")
+
+(gssk-subcategory-function "表示" "文字の拡大/縮小")
 (gssk-bind "C-S-+" 'text-scale-increase)
 (gssk-bind "C-S--" 'text-scale-decrease)
 
-(gssk-category-function "機能" "その他" "一時的なコマンド束縛用(テスト用/試用)")
+(gssk-subcategory-function "その他" "一時的なコマンド束縛用(テスト用/試用)")
 (gssk-bind "M-j"   'temp-command)
 
-(gssk-category-function "編集" "削除" "Backspaceで削除 (文字単位/単語単位)")
+(gssk-category "編集")
+
+(gssk-subcategory-function "削除" "Backspaceで削除 (文字単位/単語単位)")
 (gssk-bind "C-h"    'delete-backward-char)
 (gssk-bind "M-h"    'backward-kill-word)
 
-(gssk-category-function "編集" "履歴" "undo & redo")
+(gssk-subcategory-function "履歴" "undo & redo")
 (gssk-bind "C-q"    'undo)
 (gssk-bind "M-q"    'redo)
 
-(gssk-category-function "編集" "挿入" "アンダースコア挿入")
+(gssk-subcategory-function "挿入" "アンダースコア挿入")
 (gssk-bind "C-:"    'insert-underscore)
 
-(gssk-category-function "編集" "挿入" "snippet: yaスニペット挿入")
+(gssk-subcategory-function "挿入" "snippet: yaスニペット挿入")
 (gssk-bind "M-RET"  'yas-insert-snippet)
 
-(gssk-category-function "編集" "挿入" "括弧挿入")
+(gssk-subcategory-function "挿入" "括弧挿入")
 (gssk-bind "C-l"    'insert-parenthesis)
 (gssk-bind "C-S-l"  'insert-angle-brackets)
 (gssk-bind "M-l"    'insert-brackets)
 (gssk-bind "M-S-l"  'insert-squares)
 
-(gssk-category-function "編集" "削除" "セマンティクス削除")
+(gssk-subcategory-function "削除" "セマンティクス削除")
 (gssk-bind "M-i"    'change-inner)
 (gssk-bind "M-o"    'change-outer)
 
-(gssk-category-function "編集" "数値" "数値のインクリメント/デクリメント")
+(gssk-subcategory-function "数値" "数値のインクリメント/デクリメント")
 (gssk-bind "C-+"   'increment-number)
 (gssk-bind "C--"   'decrement-number)
 
-(gssk-category-function "移動" "バッファ内" "マーク単位の移動")
+(gssk-category "移動")
+
+(gssk-subcategory-function "バッファ内" "マーク単位の移動")
 (gssk-bind "M-m"    'counsel-mark-ring)
 
-(gssk-category-function "移動" "バッファ内" "1行スクロール(カーソル位置固定)")
+(gssk-subcategory-function "バッファ内" "1行スクロール(カーソル位置固定)")
 (gssk-bind "M-p"    'scroll-up-in-place)
 (gssk-bind "M-n"    'scroll-down-in-place)
 
-(gssk-category-function "移動" "バッファ内" "指定行へ移動(1回でgoto-line)")
+(gssk-subcategory-function "バッファ内" "指定行へ移動(1回でgoto-line)")
 (gssk-bind "M-g"    'goto-line)
 
-(gssk-category-function "移動" "バッファ内" "ace jump mode")
+(gssk-subcategory-function "バッファ内" "ace jump mode")
 (gssk-bind "M-a"    'ace-jump-mode)
 
-(gssk-category-function "移動" "バッファ内" "次のTODOへ移動")
+(gssk-subcategory-function "バッファ内" "次のTODOへ移動")
 (gssk-bind "C-,"    'goto-next-TODO)
 
-(gssk-category-function "移動" "バッファ内" "次のエラー(警告)へ移動")
+(gssk-subcategory-function "バッファ内" "次のエラー(警告)へ移動")
 (gssk-bind "C-."    'goto-next-locus)
 
-(gssk-category-function "移動" "バッファ内" "シンボル単位移動")
+(gssk-subcategory-function "バッファ内" "シンボル単位移動")
 (gssk-bind "C-?"    'highlight-symbol-next)
 (gssk-bind "C-!"    'highlight-symbol-prev)
 
-(gssk-category-function "移動" "バッファ間" "バッファ移動 (*付バッファはスキップ)")
+(gssk-subcategory-function "バッファ間" "バッファ移動 (*付バッファはスキップ)")
 (gssk-bind "C-M-f"  'next-buffer-with-skip*)
 (gssk-bind "C-M-p"  'previous-buffer-with-skip*)
 
@@ -137,8 +144,8 @@
 
 (gssk-subcategory "置換")
 
-(gssk-explain-function "文字列置換(anzu)")
-(gssk-bind "C-z C-r" 'anzu-query-replace)
+(gssk-explain-function "文字列置換")
+(gssk-bind "C-z C-r" 'replace-string)
 
 (gssk-subcategory "検索")
 

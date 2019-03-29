@@ -175,21 +175,23 @@
 
 (defvar gssk-current-function-name-state "")
 
-(defun gssk-category
-  (text)
+(defun gssk-category (text)
   (setq gssk-current-category-state text))
 
-(defun gssk-subcategory
-  (text)
+(defun gssk-subcategory (text)
   (setq gssk-current-subcategory-state text))
 
-(defun gssk-explain-function
-  (text)
+(defun gssk-explain-function (text)
   (setq gssk-current-function-name-state text))
 
 (defun gssk-category-function
   (category-text subcategory-text function-text)
   (setq gssk-current-category-state category-text)
+  (setq gssk-current-subcategory-state subcategory-text)
+  (setq gssk-current-function-name-state function-text))
+
+(defun gssk-subcategory-function
+  (subcategory-text function-text)
   (setq gssk-current-subcategory-state subcategory-text)
   (setq gssk-current-function-name-state function-text))
 
