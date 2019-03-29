@@ -118,8 +118,8 @@ M-x delete-byte-compile
 |機能||C-z C-j|open-junk-file|ジャンクファイルを作成、開く|
 |機能|置換|C-z C-r|replace-string|文字列置換|
 |機能|検索|C-z C-c|codic|codic: コーディング用辞書|
-|機能|検索|C-z w|define-word|define-word: 英英辞典|
-|機能|検索|C-z C-w|define-word-at-point|define-word: 英英辞典|
+|機能|検索|C-z w|define-word|英英辞典で検索|
+|機能|検索|C-z C-w|define-word-at-point|現在位置の単語を英英辞典で検索|
 |機能|検索|C-z C-b|counsel-git-grep|counsel-git-grep: Git-Grep|
 |機能|検索|C-z M-g|google-this|google-this(Googleで検索)|
 |機能|検索|C-z C-a|goto-address-at-point|現在のURLリンクを開|

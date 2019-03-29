@@ -125,102 +125,57 @@
 ;;; Z prefix (to work something)
 ;;; ---------------------------------------------------------------------------
 (gssk-category "機能")
+
 (gssk-subcategory "")
-
-(gssk-explain-function "enable/disable toggle-truncate-line")
-(gssk-bind "C-z p"   'toggle-truncate-lines)
-
-(gssk-explain-function "現在のバッファ以外のバッファを閉じる")
-(gssk-bind "C-z C-k" 'kill-the-other-buffers)
-
-(gssk-explain-function "エンコーディングを変更")
-(gssk-bind "C-z C-e"   'set-file-name-coding-system)
-
-(gssk-explain-function "インスタント・メモファイルを開く")
-(gssk-bind "C-z C-z" 'zsnotes-open-today-note)
-
-(gssk-explain-function "ジャンクファイルを作成、開く")
-(gssk-bind "C-z C-j" 'open-junk-file)
+(gssk-repeat-bind-ex
+ '(("C-z p"   toggle-truncate-lines       "enable/disable toggle-truncate-line")
+   ("C-z C-k" kill-the-other-buffers      "現在のバッファ以外のバッファを閉じる")
+   ("C-z C-e" set-file-name-coding-system "エンコーディングを変更")
+   ("C-z C-z" zsnotes-open-today-note     "インスタント・メモファイルを開く")
+   ("C-z C-j" open-junk-file              "ジャンクファイルを作成、開く")))
 
 (gssk-subcategory "置換")
-
-(gssk-explain-function "文字列置換")
-(gssk-bind "C-z C-r" 'replace-string)
+(gssk-bind-ex "C-z C-r" 'replace-string "文字列置換")
 
 (gssk-subcategory "検索")
-
-(gssk-explain-function "codic: コーディング用辞書")
-(gssk-bind "C-z C-c" 'codic)
-
-(gssk-explain-function "define-word: 英英辞典")
-(gssk-bind "C-z w"   'define-word)
-(gssk-bind "C-z C-w" 'define-word-at-point)
-
-(gssk-explain-function "counsel-git-grep: Git-Grep")
-(gssk-bind "C-z C-b" 'counsel-git-grep)
-
-(gssk-explain-function "google-this(Googleで検索)")
-(gssk-bind "C-z M-g" 'google-this)
-
-(gssk-explain-function "現在のURLリンクを開")
-(gssk-bind "C-z C-a" 'goto-address-at-point)
-
-(gssk-explain-function "imenu-list(関数定義一覧表示)")
-(gssk-bind "C-z i l" 'imenu-list-smart-toggle)
-
-(gssk-explain-function "counsel-imenu(関数定義一覧検索)")
-(gssk-bind "C-z i f" 'counsel-imenu)
-
-(gssk-explain-function "ibuffer(バッファ一覧表示)")
-(gssk-bind "C-z i b" 'ibuffer)
+(gssk-repeat-bind-ex
+ '(("C-z C-c" codic                   "codic: コーディング用辞書")
+   ("C-z w"   define-word             "英英辞典で検索")
+   ("C-z C-w" define-word-at-point    "現在位置の単語を英英辞典で検索")
+   ("C-z C-b" counsel-git-grep        "counsel-git-grep: Git-Grep")
+   ("C-z M-g" google-this             "google-this(Googleで検索)")
+   ("C-z C-a" goto-address-at-point   "現在のURLリンクを開")
+   ("C-z i l" imenu-list-smart-toggle "imenu-list(関数定義一覧表示)")
+   ("C-z i f" counsel-imenu           "counsel-imenu(関数定義一覧検索)")
+   ("C-z i b" ibuffer                 "ibuffer(バッファ一覧表示)")))
 
 (gssk-subcategory "表示")
-
-(gssk-explain-function "minimap: ソースコードのアウトライン表示")
-(gssk-bind "C-z C-y" 'minimap-mode)
-
-(gssk-explain-function "バッファのフレームサイズを縮小")
-(gssk-bind "C-z s"   'make-buffer-small)
-
-(gssk-explain-function "ディレクトリ階層を表示 (neo tree)")
-(gssk-bind "C-z C-n" 'neotree-toggle)
-
-(gssk-explain-function "magit (Emacs Git)")
-(gssk-bind "C-z m"   'magit-status)
-
-(gssk-explain-function "キーバインド表示(counsel)")
-(gssk-bind "C-z C-k" 'counsel-descbinds)
-
-(gssk-explain-function "コマンド表示(counsel)")
-(gssk-bind "C-z k"   'counsel-apropos)
+(gssk-repeat-bind-ex
+ '(("C-z C-y" minimap-mode      "minimap: ソースコードのアウトライン表示")
+   ("C-z s"   make-buffer-small "バッファのフレームサイズを縮小")
+   ("C-z C-n" neotree-toggle    "ディレクトリ階層を表示 (neo tree)")
+   ("C-z m"   magit-status      "magit (Emacs Git)")
+   ("C-z C-k" counsel-descbinds "キーバインド表示(counsel)")
+   ("C-z k"   counsel-apropos   "コマンド表示(counsel)")))
 
 (gssk-subcategory "辞書")
+(gssk-repeat-bind-ex
+ '(("C-z C-d" search-dictionary-e2j-current-word "現在の単語の意味を表示(要辞書設定)")
+   ("C-z d"   search-dictionary-e2j              "英和辞典(要辞書設定)")))
 
-(gssk-explain-function "現在の単語の意味を表示(要辞書設定)")
-(gssk-bind "C-z C-d" 'search-dictionary-e2j-current-word)
-(gssk-explain-function "英和辞典(要辞書設定)")
-(gssk-bind "C-z d"   'search-dictionary-e2j)
-
-(gssk-subcategory "実行")
-
-(gssk-explain-function "現在のディレクトリのxxx.sh実行")
-(gssk-bind "C-z e"   'execute-current-shell-script)
+(gssk-subcategory-function "実行" "現在のディレクトリのxxx.sh実行")
+(gssk-bind "C-z e" 'execute-current-shell-script)
 
 (gssk-subcategory "日記")
-
-(gssk-explain-function "今日の日記を作成")
-(gssk-bind "C-z l n" 'daily-notes-open-today-note)
-(gssk-explain-function "既存の日記一覧を表示")
-(gssk-bind "C-z l o" 'daily-notes-open-default-file)
+(gssk-repeat-bind-ex
+ '(("C-z l n" daily-notes-open-today-note "今日の日記を作成")
+   ("C-z l o" daily-notes-open-default-file "既存の日記一覧を表示")))
 
 (gssk-subcategory "ブログ")
-
-(gssk-explain-function "新しいブログポストを作成")
-(gssk-bind "C-z b n" 'quickblog-create-new-post)
-(gssk-explain-function "既存のブログポスト一覧を表示")
-(gssk-bind "C-z b o" 'quickblog-open-default-file)
-(gssk-explain-function "Cryogenをローカルで実行")
-(gssk-bind "C-z b r" 'quickblog-run-local-server)
+(gssk-repeat-bind-ex
+ '(("C-z b n" quickblog-create-new-post "新しいブログポストを作成")
+   ("C-z b o" quickblog-open-default-file "既存のブログポスト一覧を表示")
+   ("C-z b r" quickblog-run-local-server "Cryogenをローカルで実行")))
 
 ;;; ---------------------------------------------------------------------------
 ;;; A prefix (to edit somewhat)
