@@ -229,6 +229,10 @@
     (gssk-bind-ex (car head-elem) (cadr head-elem) (caddr head-elem))
     (setq ls (cdr ls))))
 
+(defun gssk-repeat-bind-ex-with-subcategory (subcategory ls)
+  (setq gssk-current-subcategory-state subcategory)
+  (gssk-repeat-bind-ex ls))
+
 (defun report-gsskey ()
   (if (not gsskey-report-text)
       "all key-bindings defined successfully"
