@@ -34,11 +34,12 @@
 ;;; ---------------------------------------------------------------------------
 (use-package-with-report highlight-indent-guides
   :config
-  (setq highlight-indent-guides-method 'character)
-  (setq highlight-indent-guides-responsive 'stack)
-  (setq highlight-indent-guides-auto-odd-face-perc 15)
-  (setq highlight-indent-guides-auto-even-face-perc 15)
-  (setq highlight-indent-guides-auto-character-face-perc 30)
+  (setq
+   highlight-indent-guides-method 'character
+   highlight-indent-guides-responsive 'stack
+   highlight-indent-guides-auto-odd-face-perc 15
+   highlight-indent-guides-auto-even-face-perc 15
+   highlight-indent-guides-auto-character-face-perc 30)
   (add-hook 'prog-mode-hook 'highlight-indent-guides-mode))
 
 ;;; ---------------------------------------------------------------------------

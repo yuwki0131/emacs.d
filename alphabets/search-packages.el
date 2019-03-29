@@ -17,10 +17,12 @@
 ;;; ---------------------------------------------------------------------------
 (use-package-with-report swoop
   :config
-  (setq swoop-minibuffer-input-dilay 0.4)
-  (setq swoop-window-split-current-window: nil)
-  (setq swoop-font-size-change: t)
-  (setq swoop-font-size: 0.9))
+  (setq
+   swoop-minibuffer-input-dilay 0.4
+   swoop-window-split-current-window: nil
+   swoop-font-size-change: t
+   swoop-font-size: 0.9
+   ))
 
 ;;; ---------------------------------------------------------------------------
 ;;; migemo : isearchをローマ字のままで日本語も検索可能に
@@ -29,14 +31,15 @@
 (use-package-with-report migemo
   :config
   (when (executable-find "cmigemo")
-    (setq migemo-options '("-q" "--emacs"))
-    (setq migemo-user-dictionary nil)
-    (setq migemo-regex-dictionary nil)
-    (setq migemo-coding-system 'utf-8-unix)
+    (setq
+     migemo-options '("-q" "--emacs")
+     migemo-user-dictionary nil
+     migemo-regex-dictionary nil
+     migemo-coding-system 'utf-8-unix
+     migemo-command "cmigemo"
+     migemo-dictionary "/usr/share/cmigemo/utf-8/migemo-dict")
     (load-library "migemo")
-    (migemo-init)
-    (setq migemo-command "cmigemo")
-    (setq migemo-dictionary "/usr/share/cmigemo/utf-8/migemo-dict")))
+    (migemo-init)))
 
 ;;; ---------------------------------------------------------------------------
 ;;; package-func : google this : ググる
