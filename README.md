@@ -85,20 +85,20 @@ M-x delete-byte-compile
 |機能|表示|C-S-+|text-scale-increase|文字の拡大/縮小|
 |機能|表示|C-S--|text-scale-decrease|文字の拡大/縮小|
 |機能|その他|M-j|temp-command|一時的なコマンド束縛用(テスト用/試用)|
-|編集|削除|C-h|delete-backward-char|Backspaceで削除 (文字単位/単語単位)|
-|編集|削除|M-h|backward-kill-word|Backspaceで削除 (文字単位/単語単位)|
-|編集|履歴|C-q|undo|undo & redo|
-|編集|履歴|M-q|redo|undo & redo|
+|編集|履歴|C-q|undo|undo|
+|編集|履歴|M-q|redo|redo|
 |編集|挿入|C-:|insert-underscore|アンダースコア挿入|
 |編集|挿入|M-RET|yas-insert-snippet|snippet: yaスニペット挿入|
-|編集|挿入|C-l|insert-parenthesis|括弧挿入|
-|編集|挿入|C-S-l|insert-angle-brackets|括弧挿入|
-|編集|挿入|M-l|insert-brackets|括弧挿入|
-|編集|挿入|M-S-l|insert-squares|括弧挿入|
+|編集|挿入|C-l|insert-parenthesis|括弧挿入()|
+|編集|挿入|C-S-l|insert-angle-brackets|括弧挿入<>|
+|編集|挿入|M-l|insert-brackets|括弧挿入{}|
+|編集|挿入|M-S-l|insert-squares|括弧挿入[]|
+|編集|削除|C-h|delete-backward-char|Backspaceで削除 (文字単位/単語単位)|
+|編集|削除|M-h|backward-kill-word|Backspaceで削除 (文字単位/単語単位)|
 |編集|削除|M-i|change-inner|セマンティクス削除|
 |編集|削除|M-o|change-outer|セマンティクス削除|
-|編集|数値|C-+|increment-number|数値のインクリメント/デクリメント|
-|編集|数値|C--|decrement-number|数値のインクリメント/デクリメント|
+|編集|数値|C-+|increment-number|数値のインクリメント|
+|編集|数値|C--|decrement-number|数値のデクリメント|
 |移動|バッファ内|M-m|counsel-mark-ring|マーク単位の移動|
 |移動|バッファ内|M-p|scroll-up-in-place|1行スクロール(カーソル位置固定)|
 |移動|バッファ内|M-n|scroll-down-in-place|1行スクロール(カーソル位置固定)|
