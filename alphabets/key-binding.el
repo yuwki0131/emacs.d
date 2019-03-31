@@ -82,7 +82,7 @@
 
 (gssk-category "移動")
 
-(gssk-repeat-bind-ex-with-subcategory  "バッファ内"
+(gssk-repeat-bind-ex-with-subcategory "バッファ内"
  '(("M-m" counsel-mark-ring     "マーク単位の移動")
    ("M-p" scroll-up-in-place    "1行スクロール(カーソル位置固定)")
    ("M-n" scroll-down-in-place  "1行スクロール(カーソル位置固定)")
