@@ -229,7 +229,7 @@
 (ignore-report
   (set-face-attribute 'mode-line nil
    :foreground color/lightcyan
-   :background color/active
+   :background color/material
    :weight 'extra-light
    :height 100))
 
