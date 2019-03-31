@@ -252,11 +252,11 @@
 (defun generate-explanation-text ()
   (apply 'concat
 		     (mapcar #'(lambda (x) (concat "|" (car x)
-									                     "|" (car (cdr x))
-									                     "|" (car (cdr (cdr x)))
-									                     "|" (car (cdr (cdr (cdr x))))
-									                     "|" (car (cdr (cdr (cdr (cdr x))))) "|\n"))
-				         (reverse gssk-keybind-report))))
+		                                   "|" (car (cdr x))
+		                                   "|" (car (cdr (cdr x)))
+		                                   "|" (car (cdr (cdr (cdr x))))
+		                                   "|" (car (cdr (cdr (cdr (cdr x))))) "|\n"))
+		             (reverse gssk-keybind-report))))
 
 (defun key-binding-md ()
   (concat-interpose-newline
