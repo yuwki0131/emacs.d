@@ -231,6 +231,7 @@
 (gssk-repeat-bind-ex-with-subcategory "バッファ間"
  '(("C-e C-z" ace-window                 "ace-window: Window間移動")
    ("C-e C-c" shell                      "shellへ移動")
+   ("C-e c"   counsel-switch-to-shell-buffer "選択されたshellへ移動")
    ("C-e C-v" move-to-scratch            "scratchへ移動")
    ("C-e g"   move-to-grep               "grepへ移動")
    ("C-e C-w" move-to-repl               "replへ移動")
@@ -250,9 +251,11 @@
    ("C-e C-p" highlight-symbol-prev     "前のシンボルの位置へ")))
 
 (gssk-repeat-bind-ex-with-subcategory "Grep"
- '(("C-e C-d C-r" rgrep            "rgrep: ディレクトリ内Grep")
+ '(("C-e C-d C-r" rgrep            "rgrep: 再帰的Grep")
    ("C-e C-d C-f" grep-find-this   "grep find this: ディレクトリ配下Grep")
    ("C-e C-d C-t" grep-this        "grep this: バッファ内Grep")
+   ("C-e C-d C-e" counsel-grep     "counsel-grep: バッファ内動的Grep")
+   ("C-e C-d C-a" counsel-ack      "counsel-ack-grep: ディレクトリ配下Grep")
    ("C-e C-d C-c" counsel-git-grep "counsel-git-grep: Git-Grep")
    ("C-e C-y"     counsel-ag       "counsel-ag: ag search")))
 
