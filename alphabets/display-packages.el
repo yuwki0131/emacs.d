@@ -48,8 +48,12 @@
   :config
   (setq doom-modeline-height 22)
   (doom-modeline-def-modeline 'my-simple-line
-    '(bar matches buffer-info remote-host)
-    '(misc-info buffer-encoding major-mode process vcs checker))
+    '(bar
+      matches remote-host
+      misc-info buffer-encoding major-mode process vcs checker
+      buffer-info
+      )
+    '())
   (defun setup-custom-doom-modeline ()
     (doom-modeline-set-modeline 'my-simple-line 'default))
   (add-hook 'doom-modeline-mode-hook 'setup-custom-doom-modeline))
