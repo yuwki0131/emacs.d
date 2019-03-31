@@ -124,7 +124,7 @@
   )
 
 ;; doom-modeline bar
-(ignore-report
+'(ignore-report
   (set-face-app2 'doom-modeline-bar                color/material   color/deeppink nil t))
 
 ;; ivy colors
