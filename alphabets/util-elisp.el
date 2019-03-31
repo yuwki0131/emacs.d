@@ -249,14 +249,18 @@
 
 (defvar gssk-setting-md "")
 
+(defun separating-string (x)
+  (concat "|" (car x)
+		      "|" (car (cdr x))
+		      "|" (car (cdr (cdr x)))
+		      "|" (car (cdr (cdr (cdr x))))
+		      "|" (car (cdr (cdr (cdr (cdr x))))) "|\n"))
+
 (defun generate-explanation-text ()
-  (apply 'concat
-		     (mapcar #'(lambda (x) (concat "|" (car x)
-		                                   "|" (car (cdr x))
-		                                   "|" (car (cdr (cdr x)))
-		                                   "|" (car (cdr (cdr (cdr x))))
-		                                   "|" (car (cdr (cdr (cdr (cdr x))))) "|\n"))
-		             (reverse gssk-keybind-report))))
+  (apply
+   'concat
+	 (mapcar #'(lambda (x) (separating-string x))
+		       (reverse gssk-keybind-report))))
 
 (defun key-binding-md ()
   (concat-interpose-newline
@@ -268,15 +272,19 @@
 ;;; configuration report
 ;;; ---------------------------------------------------------------------------
 (defun report-configuration ()
-  (insert
-   (concat
-    (comment-out-message
-     (concat-interpose-newline
-      (list
-       (concat-interpose-newline
-        '("hello world, emacs !!" "('･_･`) ↓" "reports in loading init.el"))
-       (report-failed-packages)
-       (report-gsskey)))))))
+  (let* ((starting-message
+          '("hello world, emacs !!"
+            "('･_･`) ↓"
+            "reports in loading init.el"))
+         (message-list
+          (list
+           (concat-interpose-newline starting-message)
+           (report-failed-packages)
+           (report-gsskey))))
+    (insert
+     (concat
+      (comment-out-message (concat-interpose-newline message-list))))
+    (insert "\n")))
 
 ;;; ---------------------------------------------------------------------------
 ;;; generate readme
