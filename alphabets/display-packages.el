@@ -46,10 +46,12 @@
   :ensure t
   :hook (after-init . doom-modeline-mode)
   :config
-  (setq doom-modeline-height 22)
+  (setq
+   doom-modeline-height 22
+   doom-modeline-lsp t)
   (doom-modeline-def-modeline 'my-simple-line
-    '(bar
-      matches remote-host
+    '(bar input-method
+      matches remote-host selection-info
       misc-info buffer-encoding major-mode process vcs checker
       buffer-info
       )
