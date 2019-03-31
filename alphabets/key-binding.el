@@ -234,7 +234,9 @@
    ("C-e C-v" move-to-scratch            "scratchへ移動")
    ("C-e g"   move-to-grep               "grepへ移動")
    ("C-e C-w" move-to-repl               "replへ移動")
+   ("C-e C-s" swiper-all                 "swiper-all: 開いているバッファ横断検索")
    ("C-e C-b" previous-buffer-with-skip* "前のバッファへ (*付バッファはスキップ)")
+   ("C-e C-m" counsel-ibuffer            "選択したバッファへ移動")
    ("C-e C-f" next-buffer-with-skip*     "次のバッファへ (*付バッファはスキップ)")))
 
 (gssk-repeat-bind-ex-with-subcategory "検索"

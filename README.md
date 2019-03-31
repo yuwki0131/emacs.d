@@ -167,7 +167,9 @@ M-x delete-byte-compile
 |移動|バッファ間|C-e C-v|move-to-scratch|scratchへ移動|
 |移動|バッファ間|C-e g|move-to-grep|grepへ移動|
 |移動|バッファ間|C-e C-w|move-to-repl|replへ移動|
+|移動|バッファ間|C-e C-s|swiper-all|swiper-all: 開いているバッファ横断検索|
 |移動|バッファ間|C-e C-b|previous-buffer-with-skip*|前のバッファへ (*付バッファはスキップ)|
+|移動|バッファ間|C-e C-m|counsel-ibuffer|選択したバッファへ移動|
 |移動|バッファ間|C-e C-f|next-buffer-with-skip*|次のバッファへ (*付バッファはスキップ)|
 |移動|検索|C-e s|search-forward-regexp|正規表現検索 (通常/前方)|
 |移動|検索|C-e r|search-backward-regexp|正規表現検索 (通常/後方)|
