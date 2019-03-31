@@ -139,8 +139,8 @@
    ("C-z k"   counsel-apropos         "コマンド表示(counsel)")))
 
 (gssk-repeat-bind-ex-with-subcategory "辞書"
- '(("C-z C-d" search-dictionary-e2j-current-word "現在の単語の意味を表示(要辞書設定)")
-   ("C-z d"   search-dictionary-e2j              "英和辞典(要辞書設定)")))
+ '(("C-z C-d" search-dictionary-e2j-cw "現在の単語の意味を表示(要辞書設定)")
+   ("C-z d"   search-dictionary-e2j    "英和辞典(要辞書設定)")))
 
 (gssk-repeat-bind-ex-with-subcategory "実行"
  '(("C-z e" execute-current-shell-script "現在のディレクトリのxxx.sh実行")))

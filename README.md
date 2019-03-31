@@ -131,7 +131,7 @@ M-x delete-byte-compile
 |機能|表示|C-z m|magit-status|magit (Emacs Git)|
 |機能|表示|C-z C-k|counsel-descbinds|キーバインド表示(counsel)|
 |機能|表示|C-z k|counsel-apropos|コマンド表示(counsel)|
-|機能|辞書|C-z C-d|search-dictionary-e2j-current-word|現在の単語の意味を表示(要辞書設定)|
+|機能|辞書|C-z C-d|search-dictionary-e2j-cw|現在の単語の意味を表示(要辞書設定)|
 |機能|辞書|C-z d|search-dictionary-e2j|英和辞典(要辞書設定)|
 |機能|実行|C-z e|execute-current-shell-script|現在のディレクトリのxxx.sh実行|
 |機能|日記|C-z l n|daily-notes-open-today-note|今日の日記を作成|
