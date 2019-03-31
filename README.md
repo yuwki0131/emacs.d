@@ -111,21 +111,20 @@ M-x delete-byte-compile
 |移動|バッファ間|C-M-f|next-buffer-with-skip*|バッファ移動 (*付バッファはスキップ)|
 |移動|バッファ間|C-M-p|previous-buffer-with-skip*|バッファ移動 (*付バッファはスキップ)|
 |移動|バッファ間|C-c C-f|counsel-locate|グローバルに検索しファイルを開く|
-|機能||C-z p|toggle-truncate-lines|enable/disable toggle-truncate-line|
-|機能||C-z C-k|kill-the-other-buffers|現在のバッファ以外のバッファを閉じる|
-|機能||C-z C-e|set-file-name-coding-system|エンコーディングを変更|
-|機能||C-z C-z|zsnotes-open-today-note|インスタント・メモファイルを開く|
-|機能||C-z C-j|open-junk-file|ジャンクファイルを作成、開く|
+|機能|開く|C-z C-k|kill-the-other-buffers|現在のバッファ以外のバッファを閉じる|
+|機能|開く|C-z C-e|set-file-name-coding-system|エンコーディングを変更|
+|機能|開く|C-z C-z|zsnotes-open-today-note|インスタント・メモファイルを開く|
+|機能|開く|C-z C-j|open-junk-file|ジャンクファイルを作成、開く|
 |機能|置換|C-z C-r|replace-string|文字列置換|
-|機能|検索|C-z C-c|codic|codic: コーディング用辞書|
-|機能|検索|C-z w|define-word|英英辞典で検索|
-|機能|検索|C-z C-w|define-word-at-point|現在位置の単語を英英辞典で検索|
-|機能|検索|C-z C-b|counsel-git-grep|counsel-git-grep: Git-Grep|
-|機能|検索|C-z M-g|google-this|google-this(Googleで検索)|
-|機能|検索|C-z C-a|goto-address-at-point|現在のURLリンクを開|
-|機能|検索|C-z i l|imenu-list-smart-toggle|imenu-list(関数定義一覧表示)|
-|機能|検索|C-z i f|counsel-imenu|counsel-imenu(関数定義一覧検索)|
-|機能|検索|C-z i b|ibuffer|ibuffer(バッファ一覧表示)|
+|機能|辞書|C-z C-c|codic|codic: コーディング用辞書|
+|機能|辞書|C-z w|define-word|英英辞典で検索|
+|機能|辞書|C-z C-w|define-word-at-point|現在位置の単語を英英辞典で検索|
+|機能|Web|C-z M-g|google-this|google-this(Googleで検索)|
+|機能|Web|C-z C-a|goto-address-at-point|現在のURLリンクを開く|
+|機能|表示|C-z p|toggle-truncate-lines|enable/disable toggle-truncate-line|
+|機能|表示|C-z i l|imenu-list-smart-toggle|imenu-list(関数定義一覧表示)|
+|機能|表示|C-z i f|counsel-imenu|counsel-imenu(関数定義一覧検索)|
+|機能|表示|C-z i b|ibuffer|ibuffer(バッファ一覧表示)|
 |機能|表示|C-z C-y|minimap-mode|minimap: ソースコードのアウトライン表示|
 |機能|表示|C-z s|make-buffer-small|バッファのフレームサイズを縮小|
 |機能|表示|C-z C-n|neotree-toggle|ディレクトリ階層を表示 (neo tree)|
@@ -154,7 +153,7 @@ M-x delete-byte-compile
 |編集|挿入|C-a C-e|insert-current-file-name|現在のファイルパスを挿入|
 |編集|挿入|C-a C-m|insert--s|コメント用の線を挿入|
 |編集|挿入|C-a C-y|counsel-yank-pop|killringから選択して挿入|
-|編集|修正|C-a i|iedit-mode|iedit-mode: 同一のシンボルを同時置換|
+|編集|置換|C-a i|iedit-mode|iedit-mode: 同一のシンボルを同時置換|
 |編集|その他|C-a C-r|rectangle-mark-mode|矩形選択|
 |移動|バッファ内|C-e C-l|goto-last-change|最後の変更箇所へ|
 |移動|バッファ内|C-e C-a|move-beginning-of-line|行頭へ(unbindの再設定)|
