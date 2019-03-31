@@ -262,7 +262,9 @@
 (gssk-repeat-bind-ex-with-subcategory "ファイル"
  '(("C-e o" recentf-open-files "最近開いたファイルを開く")
    ("C-e j" counsel-file-jump  "現在のディレクトリのファイルを開く")
-   ("C-e f" counsel-git        "ファイルを開く(Gitベース)")))
+   ("C-e f" counsel-git        "ファイルを開く(Gitベース)")
+   ("C-e a" counsel-git        "ファイルを全て開く(ディレクトリベース)")
+   ("C-e n" rename-file        "ファイル名を変更")))
 
 (gssk-repeat-bind-ex-with-subcategory "Bookmark"
  '(("C-e C-t" bm-toggle   "現在行をブックマーク、ハイライト表示")
