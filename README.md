@@ -188,6 +188,7 @@ M-x delete-byte-compile
 |移動|Grep|C-e C-d C-c|counsel-git-grep|counsel-git-grep: Git-Grep|
 |移動|Grep|C-e C-y|counsel-ag|counsel-ag: ag search|
 |移動|ファイル|C-e o|recentf-open-files|最近開いたファイルを開く|
+|移動|ファイル|C-e j|counsel-file-jump|現在のディレクトリのファイルを開く|
 |移動|ファイル|C-e f|counsel-git|ファイルを開く(Gitベース)|
 |移動|Bookmark|C-e C-t|bm-toggle|現在行をブックマーク、ハイライト表示|
 |移動|Bookmark|C-e C-i|bm-next|次のブックマークへ移動|

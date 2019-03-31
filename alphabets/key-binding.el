@@ -261,6 +261,7 @@
 
 (gssk-repeat-bind-ex-with-subcategory "ファイル"
  '(("C-e o" recentf-open-files "最近開いたファイルを開く")
+   ("C-e j" counsel-file-jump  "現在のディレクトリのファイルを開く")
    ("C-e f" counsel-git        "ファイルを開く(Gitベース)")))
 
 (gssk-repeat-bind-ex-with-subcategory "Bookmark"
