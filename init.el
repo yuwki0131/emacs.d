@@ -40,6 +40,12 @@
 (add-to-list 'load-path "~/.emacs.d/gitrepo")
 
 ;;; ---------------------------------------------------------------------------
+;;; check os
+;;; ---------------------------------------------------------------------------
+
+(defvar win-os (eq system-type 'windows-nt))
+
+;;; ---------------------------------------------------------------------------
 ;;; local elisp files
 ;;; ---------------------------------------------------------------------------
 
@@ -47,37 +53,43 @@
 (require 'util-elisp)
 ;; 以降、alphabets下では、use-package-with-reportでrequire
 
-;; 雑多な設定
+;; ログ出力設定 -- ok
+(require 'logging-conf)
+
+;; 雑多な設定 -- ok
 (require 'builtin-conf)
 
-;; 雑多な追加機能(package-install不要)
+;; 雑多な追加機能(package-install不要) -- ok
 (require 'tips-elisp)
 
-;; その他パッケージの設定(要package-install)
-(require 'rest-packages)
+;; その他パッケージの設定(要package-install) -- off when windows
+(when (not win-os) (require 'rest-packages))
 
-;; 編集系パッケージの設定(要package-install)
-(require 'edit-packages)
+;; 編集系パッケージの設定(要package-install) -- off when windows
+(when (not win-os) (require 'edit-packages))
 
-;; 表示(オブジェクト)系パッケージの設定(要package-install)
+;; 表示(オブジェクト)系パッケージの設定(要package-install) -- ok(maybe)
 (require 'display-packages)
 
-;; 表示(ハイライト)系パッケージの設定(要package-install)
-(require 'highlight-packages)
+;; 表示(ハイライト)系パッケージの設定(要package-install) -- off when windows
+(when (not win-os) (require 'highlight-packages))
 
-;; 検索系パッケージの設定(要package-install)
-(require 'search-packages)
+;; 検索系パッケージの設定(要package-install) -- off when windows
+(when (not win-os) (require 'search-packages))
 
-;; 検索移動(grep)系パッケージの設定(要package-install)
+;; 検索移動(grep)系パッケージの設定(要package-install) -- ok(maybe)
 (require 'grep-packages)
 
-;; 移動系パッケージの設定(要package-install)
-(require 'jump-packages)
+;; 移動系パッケージの設定(要package-install) -- ok(maybe)
+(when (not win-os) (require 'jump-packages))
 
-;; 補完系パッケージの設定
+;; 補完系パッケージの設定 -- off when windows
 (require 'complement-packages)
 
-;; 言語設定(要package-install)
+;; windows向け軽量版の設定(要package-install) -- on when windows
+(when win-os (require 'z-packages))
+
+;; 言語設定(要package-install) -- ok
 (require 'language-conf)
 
 ;; 外部のpackage化されてない追加機能(package-install不要)

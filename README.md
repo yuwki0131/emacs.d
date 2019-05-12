@@ -67,9 +67,10 @@ M-x delete-byte-compile
 | T | tips-eslip           | -           | 雑多な追加機能のコード               |
 | U | util-elisp           | -           | alphabetsファイル用のユーティリティ  |
 | W | wm-conf              | -           | emacsをWindowManagerにする時の設定   |
+| Z | z-packages           | -           | emacsのWindow用パッケージ設定        |
 
 * 順不同
-* 残り(I, M, N, Q, R, V, X, Y, Z)
+* 残り(I, M, N, Q, R, V, X, Y)
 
 ## キーバインド
 
@@ -190,6 +191,8 @@ M-x delete-byte-compile
 |移動|ファイル|C-e o|recentf-open-files|最近開いたファイルを開く|
 |移動|ファイル|C-e j|counsel-file-jump|現在のディレクトリのファイルを開く|
 |移動|ファイル|C-e f|counsel-git|ファイルを開く(Gitベース)|
+|移動|ファイル|C-e a|open-all-files|ファイルを全て開く(ディレクトリベース)|
+|移動|ファイル|C-e n|rename-file|ファイル名を変更|
 |移動|Bookmark|C-e C-t|bm-toggle|現在行をブックマーク、ハイライト表示|
 |移動|Bookmark|C-e C-i|bm-next|次のブックマークへ移動|
 |移動|Bookmark|C-e C-u|bm-previous|前のブックマークへ移動|
