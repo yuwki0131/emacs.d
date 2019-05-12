@@ -53,8 +53,6 @@
 ;;; volatile highlights : escape sequenceのハイライト
 ;;; ---------------------------------------------------------------------------
 (use-package-with-report highlight-escape-sequences)
-;; :config
-;; )
 
 ;;; ---------------------------------------------------------------------------
 ;;; highlight defined : 定義済みemacs-lisp symbolのハイライト

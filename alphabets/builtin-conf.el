@@ -131,9 +131,8 @@
      ;;タブ幅設定
      tab-width 2
      ;; 行番号を表示(標準)
-     display-line-numbers-width 4
-     display-line-numbers t
-     )))
+     display-line-numbers-width 4)
+    (setq display-line-numbers t)))
 
 ;; ダイアログボックス非表示
 (defalias 'message-box 'message)
