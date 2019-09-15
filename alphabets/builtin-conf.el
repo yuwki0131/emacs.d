@@ -150,6 +150,8 @@
             (lambda () (setq display-line-numbers nil)))
   (setq disable-nlinum-hooks (cdr disable-nlinum-hooks)))
 
+(setq ruby-insert-encoding-magic-comment nil)
+
 ;;; ---------------------------------------------------------------------------
 ;;; provide
 ;;; ---------------------------------------------------------------------------
