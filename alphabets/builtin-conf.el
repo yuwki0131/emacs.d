@@ -3,20 +3,20 @@
 ;;;  デフォルト機能の諸設定 / bizz-conf.el
 ;;; Code:
 
-;; ツールバー非表示
+;; ツールバー表示設定
 (tool-bar-mode -1)
 
-;; メニューバー表示(Linux Mint/Cinnamonだと綺麗な表示)
+;; メニューバー表示設定 (Linux Mint/Cinnamonだと綺麗な表示)
 (menu-bar-mode -1)
 
-;; スクロールバー非表示
+;; スクロールバー表示設定
 (scroll-bar-mode -1)
 
 ;; 画像ファイル表示
 (auto-image-file-mode t)
 
 ;; 列数を表示
-(column-number-mode t)
+; (column-number-mode t)
 
 ;; バッファ自動再読み込み
 (global-auto-revert-mode t)
@@ -28,11 +28,30 @@
  ;; scratchの初期のメッセージ消去
  initial-scratch-message nil
 
+ ;; スタートメッセージを非表示
+ inhibit-startup-message t
+
  ;; backupfile(*.~) つくらない
  make-backup-files nil
 
  ;; backupfile(*.# つくらない)
  auto-save-default nil
+
+ ;; 編集中ファイルの自動backup
+ backup-inhibited nil
+
+ ;; 終了時に自動バックアップファイルを削除
+ delete-auto-save-files nil
+
+ ;; 編集中ファイルのバックアップ
+ auto-save-list-file-name nil
+ auto-save-list-file-prefix nil
+
+ ;; ロックファイルの生成を抑止
+ create-lockfiles nil
+
+ ;; 複数保存しない
+ kill-do-not-save-duplicates t
 
  ;; 折り返しを表示
  truncate-lines t
@@ -40,20 +59,17 @@
  ;; 折り返しを表示(ウインドウ分割時)
  truncate-partial-width-windows nil
 
- ;; スタートメッセージを非表示
- inhibit-startup-message t
-
  ;; file名の補完で大文字小文字を区別しない
  completion-ignore-case t
+
+ ;; ファイル読込補完、大文字/小文字無視
+ read-file-name-completion-ignore-case t
 
  ;; 最終行に1行挿入
  require-final-newline t
 
  ;; 再帰的ミニバッファ
  enable-recursive-minibuffers t
-
- ;; ファイル読込補完、大文字/小文字無視
- read-file-name-completion-ignore-case t
 
  ;; デフォルト起動時の画面非表示
  inhibit-startup-message t
@@ -67,8 +83,20 @@
  ;; 巨大なファイルを開く時に警告しない
  large-file-warning-threshold nil
 
- ;; bufferが横に分割されるのを防ぐ
- large-file-warning-threshold nil
+ ;; Do not ask for confirm when killing processes
+ confirm-kill-processes nil
+
+ ;; スクロール時のカーソル位置を維持
+ scroll-preserve-screen-position t
+
+ ;; Make Tab complete if the line is indented
+ tab-always-indent 'complete
+
+ ;; kill ringについて
+ kill-ring-max 200
+
+ ;; killringでkillされる前にclipboardにコピーする
+ save-interprogram-paste-before-kill t
  )
 
 ;; バッファの終端を表示(空行表示)
@@ -103,9 +131,8 @@
      ;;タブ幅設定
      tab-width 2
      ;; 行番号を表示(標準)
-     display-line-numbers-width 4
-     display-line-numbers t
-     )))
+     display-line-numbers-width 4)
+    (setq display-line-numbers t)))
 
 ;; ダイアログボックス非表示
 (defalias 'message-box 'message)
@@ -114,6 +141,9 @@
 ;; URL強調表示、URLをブラウザで表示
 (add-hook 'prog-mode-hook 'goto-address-prog-mode)
 (add-hook 'text-mode-hook 'goto-address-mode)
+
+;; 大文字・小文字を区別しないで検索
+(setq-default case-fold-search nil)
 
 ;; ‘isearch-word’ is an obsolete variable (as of 25.1)対策
 (defvar search-default-regexp-mode nil)

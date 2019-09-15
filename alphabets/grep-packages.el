@@ -8,13 +8,6 @@
 (require 'util-elisp)
 
 ;;; ---------------------------------------------------------------------------
-;;; git complete : git-grep自動補完
-;;; ---------------------------------------------------------------------------
-'(wconst-pakcage 'git-complete
-  "https://raw.githubusercontent.com/zk-phi/git-complete/master/git-complete.el"
-  nil)
-
-;;; ---------------------------------------------------------------------------
 ;;; edit grepped text : grep済みのテキスト編集、反映
 ;;; ---------------------------------------------------------------------------
 (use-package-with-report wgrep

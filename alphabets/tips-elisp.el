@@ -372,7 +372,7 @@
          (concat "not found : " word)
        (concat word " : " result)))))
 
-(defun search-dictionary-e2j-current-word ()
+(defun search-dictionary-e2j-cw ()
   (interactive)
   (let ((result (gethash (thing-at-point 'word) dictionary-e2j-hash)))
     (message

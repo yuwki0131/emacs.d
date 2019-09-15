@@ -25,6 +25,8 @@ dicts
 network-security.data
 junk
 recentf
+amx-items
+transient
 
 # for composition
 *.elc

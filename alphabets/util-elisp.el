@@ -175,21 +175,23 @@
 
 (defvar gssk-current-function-name-state "")
 
-(defun gssk-category
-  (text)
+(defun gssk-category (text)
   (setq gssk-current-category-state text))
 
-(defun gssk-subcategory
-  (text)
+(defun gssk-subcategory (text)
   (setq gssk-current-subcategory-state text))
 
-(defun gssk-explain-function
-  (text)
+(defun gssk-explain-function (text)
   (setq gssk-current-function-name-state text))
 
 (defun gssk-category-function
   (category-text subcategory-text function-text)
   (setq gssk-current-category-state category-text)
+  (setq gssk-current-subcategory-state subcategory-text)
+  (setq gssk-current-function-name-state function-text))
+
+(defun gssk-subcategory-function
+  (subcategory-text function-text)
   (setq gssk-current-subcategory-state subcategory-text)
   (setq gssk-current-function-name-state function-text))
 
@@ -217,6 +219,20 @@
                    (symbol-name ,sym)
                    "\n")))))
 
+(defun gssk-bind-ex (keybinding-str sym explain)
+  (setq gssk-current-function-name-state explain)
+  (gssk-bind keybinding-str sym))
+
+(defun gssk-repeat-bind-ex (ls)
+  (while (not (null ls))
+    (setq head-elem (car ls))
+    (gssk-bind-ex (car head-elem) (cadr head-elem) (caddr head-elem))
+    (setq ls (cdr ls))))
+
+(defun gssk-repeat-bind-ex-with-subcategory (subcategory ls)
+  (setq gssk-current-subcategory-state subcategory)
+  (gssk-repeat-bind-ex ls))
+
 (defun report-gsskey ()
   (if (not gsskey-report-text)
       "all key-bindings defined successfully"
@@ -233,14 +249,18 @@
 
 (defvar gssk-setting-md "")
 
+(defun separating-string (x)
+  (concat "|" (car x)
+		      "|" (car (cdr x))
+		      "|" (car (cdr (cdr x)))
+		      "|" (car (cdr (cdr (cdr x))))
+		      "|" (car (cdr (cdr (cdr (cdr x))))) "|\n"))
+
 (defun generate-explanation-text ()
-  (apply 'concat
-		     (mapcar #'(lambda (x) (concat "|" (car x)
-									                     "|" (car (cdr x))
-									                     "|" (car (cdr (cdr x)))
-									                     "|" (car (cdr (cdr (cdr x))))
-									                     "|" (car (cdr (cdr (cdr (cdr x))))) "|\n"))
-				         (reverse gssk-keybind-report))))
+  (apply
+   'concat
+	 (mapcar #'(lambda (x) (separating-string x))
+		       (reverse gssk-keybind-report))))
 
 (defun key-binding-md ()
   (concat-interpose-newline
@@ -252,15 +272,19 @@
 ;;; configuration report
 ;;; ---------------------------------------------------------------------------
 (defun report-configuration ()
-  (insert
-   (concat
-    (comment-out-message
-     (concat-interpose-newline
-      (list
-       (concat-interpose-newline
-        '("hello world, emacs !!" "('･_･`) ↓" "reports in loading init.el"))
-       (report-failed-packages)
-       (report-gsskey)))))))
+  (let* ((starting-message
+          '("hello world, emacs !!"
+            "('･_･`) ↓"
+            "reports in loading init.el"))
+         (message-list
+          (list
+           (concat-interpose-newline starting-message)
+           (report-failed-packages)
+           (report-gsskey))))
+    (insert
+     (concat
+      (comment-out-message (concat-interpose-newline message-list))))
+    (insert "\n")))
 
 ;;; ---------------------------------------------------------------------------
 ;;; generate readme

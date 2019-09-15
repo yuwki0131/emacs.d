@@ -67,6 +67,7 @@ M-x delete-byte-compile
 | T | tips-eslip           | -           | 雑多な追加機能のコード               |
 | U | util-elisp           | -           | alphabetsファイル用のユーティリティ  |
 | W | wm-conf              | -           | emacsをWindowManagerにする時の設定   |
+| Z | z-packages           | -           | emacsのWindow用パッケージ設定        |
 
 * 順不同
-* 残り(I, M, N, Q, R, V, X, Y, Z)
+* 残り(I, M, N, Q, R, V, X, Y)

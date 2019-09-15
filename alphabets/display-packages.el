@@ -46,10 +46,16 @@
   :ensure t
   :hook (after-init . doom-modeline-mode)
   :config
-  (setq doom-modeline-height 22)
+  (setq
+   doom-modeline-height 22
+   doom-modeline-lsp t)
   (doom-modeline-def-modeline 'my-simple-line
-    '(bar matches buffer-info remote-host)
-    '(misc-info buffer-encoding major-mode process vcs checker))
+    '(bar input-method
+      matches remote-host selection-info
+      misc-info buffer-encoding major-mode process vcs checker
+      buffer-info
+      )
+    '())
   (defun setup-custom-doom-modeline ()
     (doom-modeline-set-modeline 'my-simple-line 'default))
   (add-hook 'doom-modeline-mode-hook 'setup-custom-doom-modeline))
@@ -60,6 +66,9 @@
 (use-package-with-report anzu
   :diminish anzu-mode
   :config
+  (setq anzu-cons-mode-line-p nil)
+  (setcar (cdr (assq 'isearch-mode minor-mode-alist))
+          '(:eval (anzu--update-mode-line)))
   (global-anzu-mode t))
 
 ;;; ---------------------------------------------------------------------------
@@ -79,10 +88,10 @@
    neo-show-hidden-files t
    neo-keymap-style 'concise
    neo-smart-open t
-   neo-theme 'ascii
    neo-window-fixed-size nil
    neo-window-width 30
    neo-theme (if (display-graphic-p) 'icons 'arrow)
+   neo-vc-integration '(char)
    )
   (add-hook 'neotree-mode-hook
             '(lambda ()

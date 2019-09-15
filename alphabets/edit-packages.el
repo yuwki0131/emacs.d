@@ -13,9 +13,10 @@
 (git-package
  (redo+ "https://github.com/emacsmirror/redo-plus.git" "redo-plus")
  (progn
-   (setq undo-no-redo t)
-   (setq undo-limit 60000)
-   (setq undo-strong-limit 90000)))
+   (setq
+    undo-no-redo t
+    undo-limit 60000
+    undo-strong-limit 90000)))
 
 ;;; ---------------------------------------------------------------------------
 ;;; drug-stuff : 単語単位で移動
@@ -36,6 +37,11 @@
 ;;; iedit-mode
 ;;; ---------------------------------------------------------------------------
 (use-package-with-report iedit)
+
+;;; ---------------------------------------------------------------------------
+;;; change-inner
+;;; ---------------------------------------------------------------------------
+(use-package-with-report change-inner)
 
 ;;; --------------------------------------------------------------------------------
 ;;; provide
