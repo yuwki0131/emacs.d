@@ -54,7 +54,7 @@
 ;; 以降、alphabets下では、use-package-with-reportでrequire
 
 ;; ログ出力設定 -- ok
-(require 'logging-conf)
+'(require 'logging-conf)
 
 ;; 雑多な設定 -- ok
 (require 'builtin-conf)
