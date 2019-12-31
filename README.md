@@ -96,8 +96,6 @@ M-x delete-byte-compile
 |編集|挿入|M-S-l|insert-squares|括弧挿入[]|
 |編集|削除|C-h|delete-backward-char|Backspaceで削除 (文字単位/単語単位)|
 |編集|削除|M-h|backward-kill-word|Backspaceで削除 (文字単位/単語単位)|
-|編集|削除|M-i|change-inner|セマンティクス削除|
-|編集|削除|M-o|change-outer|セマンティクス削除|
 |編集|数値|C-+|increment-number|数値のインクリメント|
 |編集|数値|C--|decrement-number|数値のデクリメント|
 |移動|バッファ内|M-m|counsel-mark-ring|マーク単位の移動|
