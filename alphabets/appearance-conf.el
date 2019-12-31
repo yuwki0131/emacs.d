@@ -202,7 +202,7 @@
 (set-cursor-color color/deeppink)
 
 ;; カーソル行ハイライト
-(set-face-attribute 'hl-line nil :inherit nil :background color/lightpink)
+(set-face-attribute 'hl-line nil :inherit nil :background "gray95")
 
 ;; 選択範囲
 (set-face-foreground 'region "gray80")
