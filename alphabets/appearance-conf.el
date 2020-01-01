@@ -22,7 +22,6 @@
 ;;; ---------------------------------------------------------------------------
 ;; cyan系
 (defvar color/darkcyan           "#0997B6")
-(defvar color/lightcyan          "lightcyan")
 
 ;; red系
 (defvar color/red                "red")
@@ -132,23 +131,23 @@
 
 ;; coloring bm
 (ignore-report
-  (set-face-app2 'bm-face                          color/lightcyan  color/deeppink nil t)
-  (set-face-app2 'bm-fringe-face                   color/lightcyan  color/deeppink nil t)
-  (set-face-app2 'bm-fringe-persistent-face        color/inverted-active      color/orange   nil t)
-  (set-face-app2 'bm-persistent-face               color/inverted-active      color/orange   nil t))
+  (set-face-app2 'bm-face                          color/inverted-active color/deeppink nil t)
+  (set-face-app2 'bm-fringe-face                   color/inverted-active color/deeppink nil t)
+  (set-face-app2 'bm-fringe-persistent-face        color/inverted-active color/orange   nil t)
+  (set-face-app2 'bm-persistent-face               color/inverted-active color/orange   nil t))
 
 ;; coloring isearch
 (ignore-report
-  (set-face-app2 'isearch                          color/inverted-active      color/darkcyan nil t)
-  (set-face-app2 'isearch-fail                     color/inverted-active      color/darkred  nil t))
+  (set-face-app2 'isearch                          color/inverted-active color/darkcyan nil t)
+  (set-face-app2 'isearch-fail                     color/inverted-active color/darkred  nil t))
 
 ;; coloring swoop
 (ignore-report
-  (set-face-app2 'swoop-face-header-format-line    color/lightcyan  color/invert nil t)
-  (set-face-app2 'swoop-face-line-buffer-name      color/inverted-active      color/darkcyan nil t)
-  (set-face-app2 'swoop-face-line-number           color/inverted-active      color/invert nil t)
-  (set-face-app2 'swoop-face-target-line           color/inverted-active      color/deeppink nil t)
-  (set-face-app2 'swoop-face-target-words          color/inverted-active      color/darkcyan nil t))
+  (set-face-app2 'swoop-face-header-format-line    color/inverted-active color/invert nil t)
+  (set-face-app2 'swoop-face-line-buffer-name      color/inverted-active color/darkcyan nil t)
+  (set-face-app2 'swoop-face-line-number           color/inverted-active color/invert nil t)
+  (set-face-app2 'swoop-face-target-line           color/inverted-active color/deeppink nil t)
+  (set-face-app2 'swoop-face-target-words          color/inverted-active color/darkcyan nil t))
 
 ;; fontset for swoop
 (ignore-report
@@ -197,7 +196,7 @@
 ;; ヘッダーラインの設定(active)
 (ignore-report
   (set-face-attribute 'header-line nil
-   :foreground color/lightcyan
+   :foreground color/inverted-active
    :background color/invert
    :weight 'bold
    :height 100
@@ -206,7 +205,7 @@
 ;; モードラインの設定(active)
 (ignore-report
   (set-face-attribute 'mode-line nil
-   :foreground color/lightcyan
+   :foreground color/inverted-active
    :background color/invert
    :weight 'extra-light
    :height 100))
@@ -214,7 +213,7 @@
 ;; モードラインの設定(inactive)
 (ignore-report
   (set-face-attribute 'mode-line-inactive nil
-   :foreground color/lightcyan
+   :foreground color/inverted-active
    :background color/invert
    :weight 'extra-light
    :height 100))
