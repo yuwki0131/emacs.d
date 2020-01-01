@@ -46,9 +46,9 @@
 (defvar color/material           "#393939")
 (defvar color/active             "#101010")
 (defvar color/inactive           "#393939")
-(defvar color/tooltip-fg         "#D0D0D0")
-(defvar color/tooltip-bg         "#F0F0F0")
-(defvar color/bggray             "#FFFFFF") ;; foreground gary
+(defvar color/popup-active       "#D0D0D0")
+(defvar color/popup-hide         "#F0F0F0")
+(defvar color/hide               "#FFFFFF") ;; for foreground color
 (defvar color/fggray             "#101010") ;; background gary
 (defvar color/comment            "#777777")
 (defvar color/comment-delimitter "#666666")
@@ -94,15 +94,15 @@
 (set-face-app1 'font-lock-negation-char-face     color/darkcyan  nil nil)
 
 ;; fringe colors
-(set-face-attribute 'fringe nil :foreground color/white :background color/white)
+(set-face-attribute 'fringe nil :foreground color/hide :background color/hide)
 
 ;; for grep
 (ignore-report
- (set-face-app2 'compilation-info   color/deeppink   color/white    nil nil)
+ (set-face-app2 'compilation-info   color/deeppink   color/hide     nil nil)
  (set-face-app2 'wgrep-delete-face  color/near-white color/darkcyan nil t)
- (set-face-app2 'wgrep-done-face    color/darkcyan   color/white    nil nil)
- (set-face-app2 'wgrep-face         color/white      color/darkcyan nil t)
- (set-face-app2 'wgrep-file-face    color/white      color/darkcyan nil t))
+ (set-face-app2 'wgrep-done-face    color/darkcyan   color/hide     nil nil)
+ (set-face-app2 'wgrep-face         color/hide       color/darkcyan nil t)
+ (set-face-app2 'wgrep-file-face    color/hide       color/darkcyan nil t))
 
 ;; coloring property
 (ignore-report
@@ -114,11 +114,11 @@
 
 ;; coloring company
 (ignore-errors
-  (set-face-app3 'company-preview-common           color/darkcyan color/bggray     nil t t)
-  (set-face-app2 'company-tooltip                  color/deeppink color/tooltip-bg nil t)
-  (set-face-app2 'company-tooltip-common           color/deeppink color/tooltip-bg nil t)
-  (set-face-app2 'company-tooltip-common-selection color/darkcyan color/tooltip-fg nil t)
-  (set-face-app2 'company-tooltip-selection        color/darkcyan color/tooltip-fg nil t)
+  (set-face-app3 'company-preview-common           color/darkcyan color/hide       nil t t)
+  (set-face-app2 'company-tooltip                  color/deeppink color/popup-hide nil t)
+  (set-face-app2 'company-tooltip-common           color/deeppink color/popup-hide nil t)
+  (set-face-app2 'company-tooltip-common-selection color/darkcyan color/popup-active nil t)
+  (set-face-app2 'company-tooltip-selection        color/darkcyan color/popup-active nil t)
   (set-face-app2 'company-scrollbar-fg             color/material color/deeppink   nil t)
   (set-face-app2 'company-scrollbar-bg             color/deeppink color/material   nil t)
   )
@@ -202,7 +202,7 @@
 (set-cursor-color color/deeppink)
 
 ;; カーソル行ハイライト
-(set-face-attribute 'hl-line nil :inherit nil :background "gray95")
+(set-face-attribute 'hl-line nil :inherit nil :background color/near-white)
 
 ;; 選択範囲
 (set-face-foreground 'region "gray80")
