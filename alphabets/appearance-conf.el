@@ -24,7 +24,6 @@
 (defvar color/darkcyan           "#0997B6")
 (defvar color/deeppink           "#E5266A")
 (defvar color/orange             "#FF4C00")
-(defvar color/limegreen          "#32cd32")
 (defvar color/string-like        "#3CB371")
 
 ;; normal
