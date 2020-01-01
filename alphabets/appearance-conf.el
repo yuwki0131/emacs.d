@@ -42,9 +42,9 @@
 ;; gray系
 (defvar color/active             "#101010") ;; for foreground color
 (defvar color/inactive           "#393939") ;; for foreground color, but not active
-(defvar color/invert             "#393939")
+(defvar color/invert             "#393939") ;; for inverted background color
 (defvar color/out-strong         "#666666") ;; kind of comment out, but strong
-(defvar color/out                "#777777") ;; kind of comment out
+(defvar color/out                "#777777") ;; kind of comment out (removed from context)
 (defvar color/popup-active       "#D0D0D0")
 (defvar color/popup-inactive     "#E4E4E4")
 (defvar color/popup-hide         "#F0F0F0")
