@@ -42,10 +42,11 @@
 ;; gray系
 (defvar color/active             "#101010") ;; for foreground color
 (defvar color/inactive           "#393939") ;; for foreground color, but not active
-(defvar color/material           "#393939")
+(defvar color/invert             "#393939")
 (defvar color/out-strong         "#666666") ;; kind of comment out, but strong
 (defvar color/out                "#777777") ;; kind of comment out
 (defvar color/popup-active       "#D0D0D0")
+(defvar color/popup-inactive     "#E4E4E4")
 (defvar color/popup-hide         "#F0F0F0")
 (defvar color/inverted-active    "#F1F1F1") ;; for foreground color in inverted background color
 (defvar color/fade               "#F2F2F2")
@@ -113,23 +114,19 @@
 
 ;; coloring company
 (ignore-errors
-  (set-face-app3 'company-preview-common           color/darkcyan color/hide       nil t t)
-  (set-face-app2 'company-tooltip                  color/deeppink color/popup-hide nil t)
-  (set-face-app2 'company-tooltip-common           color/deeppink color/popup-hide nil t)
-  (set-face-app2 'company-tooltip-common-selection color/darkcyan color/popup-active nil t)
-  (set-face-app2 'company-tooltip-selection        color/darkcyan color/popup-active nil t)
-  (set-face-app2 'company-scrollbar-fg             color/material color/deeppink   nil t)
-  (set-face-app2 'company-scrollbar-bg             color/deeppink color/material   nil t)
+  (set-face-app3 'company-preview-common           color/darkcyan color/hide                 nil t t)
+  (set-face-app2 'company-tooltip                  color/deeppink color/popup-hide           nil t)
+  (set-face-app2 'company-tooltip-common           color/deeppink color/popup-hide           nil t)
+  (set-face-app2 'company-tooltip-common-selection color/darkcyan color/popup-active         nil t)
+  (set-face-app2 'company-tooltip-selection        color/darkcyan color/popup-active         nil t)
+  (set-face-app2 'company-scrollbar-fg             color/deeppink color/deeppink             nil t)
+  (set-face-app2 'company-scrollbar-bg             color/popup-inactive color/popup-inactive nil t)
   )
-
-;; doom-modeline bar
-'(ignore-report
-  (set-face-app2 'doom-modeline-bar                color/material   color/deeppink nil t))
 
 ;; ivy colors
 (ignore-report
   (set-face-app2 'ivy-current-match                color/inverted-active color/deeppink  nil t)
-  (set-face-app2 'ivy-minibuffer-match-face-2      color/material        color/lightpink t   t)
+  (set-face-app2 'ivy-minibuffer-match-face-2      color/active          color/lightpink t   t)
   (set-face-app2 'counsel-outline-default          color/darkcyan        color/hide      nil t)
   (set-face-app2 'ivy-grep-info                    color/darkcyan        color/hide      nil t)
   (set-face-app2 'ivy-separator                    color/darkcyan        color/hide      nil t)
@@ -149,9 +146,9 @@
 
 ;; coloring swoop
 (ignore-report
-  (set-face-app2 'swoop-face-header-format-line    color/lightcyan  color/material nil t)
+  (set-face-app2 'swoop-face-header-format-line    color/lightcyan  color/invert nil t)
   (set-face-app2 'swoop-face-line-buffer-name      color/white      color/darkcyan nil t)
-  (set-face-app2 'swoop-face-line-number           color/white      color/material nil t)
+  (set-face-app2 'swoop-face-line-number           color/white      color/invert nil t)
   (set-face-app2 'swoop-face-target-line           color/white      color/deeppink nil t)
   (set-face-app2 'swoop-face-target-words          color/white      color/darkcyan nil t))
 
@@ -195,7 +192,7 @@
 (ignore-report
   (set-face-attribute
    'line-number nil
-   :foreground color/material
+   :foreground color/inactive
    :background color/white
    :weight 'bold))
 
@@ -203,7 +200,7 @@
 (ignore-report
   (set-face-attribute 'header-line nil
    :foreground color/lightcyan
-   :background color/material
+   :background color/invert
    :weight 'bold
    :height 100
    :overline color/orange))
@@ -212,7 +209,7 @@
 (ignore-report
   (set-face-attribute 'mode-line nil
    :foreground color/lightcyan
-   :background color/material
+   :background color/invert
    :weight 'extra-light
    :height 100))
 
@@ -220,7 +217,7 @@
 (ignore-report
   (set-face-attribute 'mode-line-inactive nil
    :foreground color/lightcyan
-   :background color/material
+   :background color/invert
    :weight 'extra-light
    :height 100))
 
