@@ -20,20 +20,14 @@
 ;;; ---------------------------------------------------------------------------
 ;;; 色設定
 ;;; ---------------------------------------------------------------------------
-;; cyan系
+;; emphasis
 (defvar color/darkcyan           "#0997B6")
-
-;; magenta系
 (defvar color/deeppink           "#E5266A")
-
-;; orange系
 (defvar color/orange             "#FF4C00")
-
-;; green系
 (defvar color/limegreen          "#32cd32")
 (defvar color/string-like        "#3CB371")
 
-;; gray系
+;; normal
 (defvar color/active             "#101010") ;; for foreground color
 (defvar color/inactive           "#393939") ;; for foreground color, but not active
 (defvar color/invert             "#393939") ;; for inverted background color
