@@ -23,10 +23,6 @@
 ;; cyan系
 (defvar color/darkcyan           "#0997B6")
 
-;; red系
-(defvar color/red                "red")
-(defvar color/darkred            "darkred")
-
 ;; magenta系
 (defvar color/deeppink           "#E5266A")
 
@@ -76,7 +72,7 @@
   (set-face-underline-p attr-symbol underline))
 
 ;; coloring program
-(set-face-app1 'font-lock-comment-delimiter-face color/out-strong  t t)
+(set-face-app1 'font-lock-comment-delimiter-face color/out-strong  t   t)
 (set-face-app1 'font-lock-comment-face           color/out         nil t)
 (set-face-app1 'font-lock-doc-face               color/deeppink    nil t)
 (set-face-app1 'font-lock-string-face            color/string-like t   nil)
@@ -139,7 +135,7 @@
 ;; coloring isearch
 (ignore-report
   (set-face-app2 'isearch                          color/inverted-active color/darkcyan nil t)
-  (set-face-app2 'isearch-fail                     color/inverted-active color/darkred  nil t))
+  (set-face-app2 'isearch-fail                     color/inverted-active color/deeppink nil t))
 
 ;; coloring swoop
 (ignore-report
@@ -171,9 +167,9 @@
 
 ;; coloring git-gutter+
 (ignore-report
-  (set-face-app2 'git-gutter+-added    color/inverted-active   color/limegreen nil t)
-  (set-face-app2 'git-gutter+-deleted  color/inverted-active   color/deeppink  nil t)
-  (set-face-app2 'git-gutter+-modified color/inverted-active   color/orange    nil t))
+  (set-face-app2 'git-gutter+-added    color/inverted-active   color/darkcyan nil t)
+  (set-face-app2 'git-gutter+-deleted  color/inverted-active   color/deeppink nil t)
+  (set-face-app2 'git-gutter+-modified color/inverted-active   color/orange   nil t))
 
 ;; カーソルの色
 (set-cursor-color color/deeppink)
