@@ -40,17 +40,17 @@
 (defvar color/limegreen          "#32cd32")
 
 ;; gray系
-(defvar color/white              "white")
-(defvar color/near-white         "gray95")
 (defvar color/material           "#393939")
-(defvar color/active             "#101010")
-(defvar color/inactive           "#393939")
+(defvar color/fggray             "#101010")
+(defvar color/active             "#101010") ;; for foreground color
+(defvar color/inactive           "#393939") ;; for foreground color, but not active
+(defvar color/out-strong         "#666666") ;; kind of comment out, but strong
+(defvar color/out                "#777777") ;; kind of comment out
 (defvar color/popup-active       "#D0D0D0")
 (defvar color/popup-hide         "#F0F0F0")
-(defvar color/hide               "#FFFFFF") ;; for foreground color
-(defvar color/fggray             "#101010") ;; background gary
-(defvar color/comment            "#777777")
-(defvar color/comment-delimitter "#666666")
+(defvar color/near-white         "#F2F2F2")
+(defvar color/hide               "#FFFFFF") ;; for background color
+(defvar color/white              "white")
 
 ;; 背景/前景の設定
 (set-background-color color/hide)
@@ -78,19 +78,19 @@
   (set-face-underline-p attr-symbol underline))
 
 ;; coloring program
-(set-face-app1 'font-lock-comment-delimiter-face color/comment-delimitter t t)
-(set-face-app1 'font-lock-comment-face           color/comment   nil t)
-(set-face-app1 'font-lock-doc-face               color/deeppink  nil t)
-(set-face-app1 'font-lock-string-face            color/limegreen t   nil)
-(set-face-app1 'font-lock-keyword-face           color/darkcyan  t   nil)
-(set-face-app1 'font-lock-builtin-face           color/darkcyan  nil nil)
-(set-face-app1 'font-lock-function-name-face     color/orange    t   nil)
-(set-face-app1 'font-lock-variable-name-face     color/orange    nil nil)
-(set-face-app1 'font-lock-type-face              color/darkcyan  t   nil)
-(set-face-app1 'font-lock-constant-face          color/deeppink  t   nil)
-(set-face-app1 'font-lock-warning-face           color/deeppink  nil t)
-(set-face-app1 'font-lock-preprocessor-face      color/darkcyan  nil nil)
-(set-face-app1 'font-lock-negation-char-face     color/darkcyan  nil nil)
+(set-face-app1 'font-lock-comment-delimiter-face color/out-strong t t)
+(set-face-app1 'font-lock-comment-face           color/out        nil t)
+(set-face-app1 'font-lock-doc-face               color/deeppink   nil t)
+(set-face-app1 'font-lock-string-face            color/limegreen  t   nil)
+(set-face-app1 'font-lock-keyword-face           color/darkcyan   t   nil)
+(set-face-app1 'font-lock-builtin-face           color/darkcyan   nil nil)
+(set-face-app1 'font-lock-function-name-face     color/orange     t   nil)
+(set-face-app1 'font-lock-variable-name-face     color/orange     nil nil)
+(set-face-app1 'font-lock-type-face              color/darkcyan   t   nil)
+(set-face-app1 'font-lock-constant-face          color/deeppink   t   nil)
+(set-face-app1 'font-lock-warning-face           color/deeppink   nil t)
+(set-face-app1 'font-lock-preprocessor-face      color/darkcyan   nil nil)
+(set-face-app1 'font-lock-negation-char-face     color/darkcyan   nil nil)
 
 ;; fringe colors
 (set-face-attribute 'fringe nil :foreground color/hide :background color/hide)
