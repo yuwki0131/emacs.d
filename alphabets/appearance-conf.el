@@ -30,8 +30,6 @@
 
 ;; magenta系
 (defvar color/deeppink           "#E5266A")
-(defvar color/purpledark         "#9B8B9B")
-(defvar color/lightpink          "light pink")
 
 ;; orange系
 (defvar color/orange             "#FF4C00")
@@ -126,7 +124,7 @@
 ;; ivy colors
 (ignore-report
   (set-face-app2 'ivy-current-match                color/inverted-active color/deeppink  nil t)
-  (set-face-app2 'ivy-minibuffer-match-face-2      color/active          color/lightpink t   t)
+  (set-face-app2 'ivy-minibuffer-match-face-2      color/inverted-active color/deeppink  t   t)
   (set-face-app2 'counsel-outline-default          color/darkcyan        color/hide      nil t)
   (set-face-app2 'ivy-grep-info                    color/darkcyan        color/hide      nil t)
   (set-face-app2 'ivy-separator                    color/darkcyan        color/hide      nil t)
