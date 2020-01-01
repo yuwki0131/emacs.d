@@ -40,7 +40,6 @@
 (defvar color/limegreen          "#32cd32")
 
 ;; gray系
-(defvar color/black              "black")
 (defvar color/white              "white")
 (defvar color/near-white         "gray95")
 (defvar color/material           "#393939")
@@ -131,25 +130,9 @@
 (ignore-report
   (set-face-app2 'ivy-current-match                color/near-white color/deeppink  nil t)
   (set-face-app2 'ivy-minibuffer-match-face-2      color/material   color/lightpink t   t)
-  (set-face-app2 'counsel-outline-default          color/darkcyan   color/white     nil t)
-  (set-face-app2 'ivy-grep-info                    color/darkcyan   color/white     nil t)
-  (set-face-app2 'ivy-separator                    color/darkcyan   color/white     nil t)
-  )
-
-;; popup
-(ignore-report
-  (set-face-app2 'popup-face                       color/deeppink   color/near-white nil t)
-  (set-face-app2 'popup-isearch-match              color/deeppink   color/near-white nil t)
-  (set-face-app2 'popup-menu-face                  color/deeppink   color/near-white nil t)
-  (set-face-app2 'popup-menu-mouse-face            color/deeppink   color/near-white nil t)
-  (set-face-app2 'popup-menu-selection-face        color/deeppink   color/near-white nil t)
-  (set-face-app2 'popup-menu-summary-face          color/deeppink   color/near-white nil t)
-  (set-face-app2 'popup-scroll-bar-background-face color/darkcyan   color/black      nil t)
-  (set-face-app2 'popup-scroll-bar-foreground-face color/darkcyan   color/near-white nil t)
-  (set-face-app2 'popup-summary-face               color/darkcyan   color/near-white nil t)
-  (set-face-app2 'popup-tip-face                   color/darkcyan   color/near-white nil t)
-  ;; (set-face-app2 'pulse-highlight-face             color/darkcyan color/near-white nil t)
-  ;; (set-face-app2 'pulse-highlight-start-face       color/darkcyan color/near-white nil t)
+  (set-face-app2 'counsel-outline-default          color/darkcyan   color/hide      nil t)
+  (set-face-app2 'ivy-grep-info                    color/darkcyan   color/hide      nil t)
+  (set-face-app2 'ivy-separator                    color/darkcyan   color/hide      nil t)
   )
 
 ;; coloring bm
