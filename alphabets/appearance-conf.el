@@ -40,7 +40,6 @@
 (defvar color/limegreen          "#32cd32")
 
 ;; gray系
-(defvar color/fggray             "#101010")
 (defvar color/active             "#101010") ;; for foreground color
 (defvar color/inactive           "#393939") ;; for foreground color, but not active
 (defvar color/material           "#393939")
@@ -54,8 +53,8 @@
 (defvar color/white              "white")
 
 ;; 背景/前景の設定
+(set-foreground-color color/active)
 (set-background-color color/hide)
-(set-foreground-color color/fggray)
 
 ;; 各構文要素の色/タイプ(normal/italic/bold)の設定
 (defun set-face-app1 (attr-symbol color-name bold-param italic-param)
