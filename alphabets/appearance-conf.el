@@ -36,8 +36,9 @@
 ;; orange系
 (defvar color/orange             "#FF4C00")
 
-;; lime green系
+;; green系
 (defvar color/limegreen          "#32cd32")
+(defvar color/string-like        "#3CB371")
 
 ;; gray系
 (defvar color/active             "#101010") ;; for foreground color
@@ -78,19 +79,19 @@
   (set-face-underline-p attr-symbol underline))
 
 ;; coloring program
-(set-face-app1 'font-lock-comment-delimiter-face color/out-strong t t)
-(set-face-app1 'font-lock-comment-face           color/out        nil t)
-(set-face-app1 'font-lock-doc-face               color/deeppink   nil t)
-(set-face-app1 'font-lock-string-face            color/limegreen  t   nil)
-(set-face-app1 'font-lock-keyword-face           color/darkcyan   t   nil)
-(set-face-app1 'font-lock-builtin-face           color/darkcyan   nil nil)
-(set-face-app1 'font-lock-function-name-face     color/orange     t   nil)
-(set-face-app1 'font-lock-variable-name-face     color/orange     nil nil)
-(set-face-app1 'font-lock-type-face              color/darkcyan   t   nil)
-(set-face-app1 'font-lock-constant-face          color/deeppink   t   nil)
-(set-face-app1 'font-lock-warning-face           color/deeppink   nil t)
-(set-face-app1 'font-lock-preprocessor-face      color/darkcyan   nil nil)
-(set-face-app1 'font-lock-negation-char-face     color/darkcyan   nil nil)
+(set-face-app1 'font-lock-comment-delimiter-face color/out-strong  t t)
+(set-face-app1 'font-lock-comment-face           color/out         nil t)
+(set-face-app1 'font-lock-doc-face               color/deeppink    nil t)
+(set-face-app1 'font-lock-string-face            color/string-like t   nil)
+(set-face-app1 'font-lock-keyword-face           color/darkcyan    t   nil)
+(set-face-app1 'font-lock-builtin-face           color/darkcyan    nil nil)
+(set-face-app1 'font-lock-function-name-face     color/orange      t   nil)
+(set-face-app1 'font-lock-variable-name-face     color/orange      nil nil)
+(set-face-app1 'font-lock-type-face              color/darkcyan    t   nil)
+(set-face-app1 'font-lock-constant-face          color/deeppink    t   nil)
+(set-face-app1 'font-lock-warning-face           color/deeppink    nil t)
+(set-face-app1 'font-lock-preprocessor-face      color/darkcyan    nil nil)
+(set-face-app1 'font-lock-negation-char-face     color/darkcyan    nil nil)
 
 ;; fringe colors
 (set-face-attribute 'fringe nil :foreground color/hide :background color/hide)
