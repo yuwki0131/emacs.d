@@ -40,15 +40,16 @@
 (defvar color/limegreen          "#32cd32")
 
 ;; gray系
-(defvar color/material           "#393939")
 (defvar color/fggray             "#101010")
 (defvar color/active             "#101010") ;; for foreground color
 (defvar color/inactive           "#393939") ;; for foreground color, but not active
+(defvar color/material           "#393939")
 (defvar color/out-strong         "#666666") ;; kind of comment out, but strong
 (defvar color/out                "#777777") ;; kind of comment out
 (defvar color/popup-active       "#D0D0D0")
 (defvar color/popup-hide         "#F0F0F0")
-(defvar color/near-white         "#F2F2F2")
+(defvar color/inverted-active    "#F1F1F1") ;; for foreground color in inverted background color
+(defvar color/fade               "#F2F2F2")
 (defvar color/hide               "#FFFFFF") ;; for background color
 (defvar color/white              "white")
 
@@ -97,11 +98,11 @@
 
 ;; for grep
 (ignore-report
- (set-face-app2 'compilation-info   color/deeppink   color/hide     nil nil)
- (set-face-app2 'wgrep-delete-face  color/near-white color/darkcyan nil t)
- (set-face-app2 'wgrep-done-face    color/darkcyan   color/hide     nil nil)
- (set-face-app2 'wgrep-face         color/hide       color/darkcyan nil t)
- (set-face-app2 'wgrep-file-face    color/hide       color/darkcyan nil t))
+ (set-face-app2 'compilation-info   color/deeppink        color/hide     nil nil)
+ (set-face-app2 'wgrep-delete-face  color/inverted-active color/darkcyan nil t)
+ (set-face-app2 'wgrep-done-face    color/darkcyan        color/hide     nil nil)
+ (set-face-app2 'wgrep-face         color/hide            color/darkcyan nil t)
+ (set-face-app2 'wgrep-file-face    color/hide            color/darkcyan nil t))
 
 ;; coloring property
 (ignore-report
@@ -128,11 +129,11 @@
 
 ;; ivy colors
 (ignore-report
-  (set-face-app2 'ivy-current-match                color/near-white color/deeppink  nil t)
-  (set-face-app2 'ivy-minibuffer-match-face-2      color/material   color/lightpink t   t)
-  (set-face-app2 'counsel-outline-default          color/darkcyan   color/hide      nil t)
-  (set-face-app2 'ivy-grep-info                    color/darkcyan   color/hide      nil t)
-  (set-face-app2 'ivy-separator                    color/darkcyan   color/hide      nil t)
+  (set-face-app2 'ivy-current-match                color/inverted-active color/deeppink  nil t)
+  (set-face-app2 'ivy-minibuffer-match-face-2      color/material        color/lightpink t   t)
+  (set-face-app2 'counsel-outline-default          color/darkcyan        color/hide      nil t)
+  (set-face-app2 'ivy-grep-info                    color/darkcyan        color/hide      nil t)
+  (set-face-app2 'ivy-separator                    color/darkcyan        color/hide      nil t)
   )
 
 ;; coloring bm
@@ -185,7 +186,7 @@
 (set-cursor-color color/deeppink)
 
 ;; カーソル行ハイライト
-(set-face-attribute 'hl-line nil :inherit nil :background color/near-white)
+(set-face-attribute 'hl-line nil :inherit nil :background color/fade)
 
 ;; 選択範囲
 (set-face-foreground 'region "gray80")
