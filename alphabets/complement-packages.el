@@ -17,7 +17,7 @@
   (setq
    ivy-use-virtual-buffers t
    enable-recursive-minibuffers t
-   ivy-height 40
+   ivy-height 20
    ivy-extra-directories nil
    ivy-re-builders-alist '((t . ivy--regex-plus))
    ivy-count-format "(%d/%d) "
@@ -37,7 +37,7 @@
 ;;; ---------------------------------------------------------------------------
 ;;; all-the-icons-ivy: ivy with icons
 ;;; ---------------------------------------------------------------------------
-(use-package-with-report all-the-icons-ivy
+'(use-package-with-report all-the-icons-ivy
   :config
   (all-the-icons-ivy-setup))
 
