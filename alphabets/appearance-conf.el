@@ -51,7 +51,6 @@
 (defvar color/inverted-active    "#F1F1F1") ;; for foreground color in inverted background color
 (defvar color/fade               "#F2F2F2")
 (defvar color/hide               "#FFFFFF") ;; for background color
-(defvar color/white              "white")
 
 ;; 背景/前景の設定
 (set-foreground-color color/active)
@@ -136,23 +135,23 @@
 (ignore-report
   (set-face-app2 'bm-face                          color/lightcyan  color/deeppink nil t)
   (set-face-app2 'bm-fringe-face                   color/lightcyan  color/deeppink nil t)
-  (set-face-app2 'bm-fringe-persistent-face        color/white      color/orange   nil t)
-  (set-face-app2 'bm-persistent-face               color/white      color/orange   nil t))
+  (set-face-app2 'bm-fringe-persistent-face        color/inverted-active      color/orange   nil t)
+  (set-face-app2 'bm-persistent-face               color/inverted-active      color/orange   nil t))
 
 ;; coloring isearch
 (ignore-report
-  (set-face-app2 'isearch                          color/white      color/darkcyan nil t)
-  (set-face-app2 'isearch-fail                     color/white      color/darkred  nil t))
+  (set-face-app2 'isearch                          color/inverted-active      color/darkcyan nil t)
+  (set-face-app2 'isearch-fail                     color/inverted-active      color/darkred  nil t))
 
 ;; coloring swoop
 (ignore-report
   (set-face-app2 'swoop-face-header-format-line    color/lightcyan  color/invert nil t)
-  (set-face-app2 'swoop-face-line-buffer-name      color/white      color/darkcyan nil t)
-  (set-face-app2 'swoop-face-line-number           color/white      color/invert nil t)
-  (set-face-app2 'swoop-face-target-line           color/white      color/deeppink nil t)
-  (set-face-app2 'swoop-face-target-words          color/white      color/darkcyan nil t))
+  (set-face-app2 'swoop-face-line-buffer-name      color/inverted-active      color/darkcyan nil t)
+  (set-face-app2 'swoop-face-line-number           color/inverted-active      color/invert nil t)
+  (set-face-app2 'swoop-face-target-line           color/inverted-active      color/deeppink nil t)
+  (set-face-app2 'swoop-face-target-words          color/inverted-active      color/darkcyan nil t))
 
-;; fontset swoop
+;; fontset for swoop
 (ignore-report
   (set-face-attribute
    'swoop-face-header-format-line nil
@@ -165,18 +164,18 @@
 
 ;; coloring paren
 (ignore-report
-  (set-face-app2 'show-paren-match    color/white    color/darkcyan nil t)
-  (set-face-app2 'show-paren-mismatch color/white    color/deeppink nil t))
+  (set-face-app2 'show-paren-match    color/inverted-active    color/darkcyan nil t)
+  (set-face-app2 'show-paren-mismatch color/inverted-active    color/deeppink nil t))
 
-;; color after inserted
+;; colors after inserted
 (ignore-report
   (set-face-app2 'secondary-selection color/deeppink color/inactive nil t))
 
 ;; coloring git-gutter+
 (ignore-report
-  (set-face-app2 'git-gutter+-added    color/white   color/limegreen nil t)
-  (set-face-app2 'git-gutter+-deleted  color/white   color/deeppink  nil t)
-  (set-face-app2 'git-gutter+-modified color/white   color/orange    nil t))
+  (set-face-app2 'git-gutter+-added    color/inverted-active   color/limegreen nil t)
+  (set-face-app2 'git-gutter+-deleted  color/inverted-active   color/deeppink  nil t)
+  (set-face-app2 'git-gutter+-modified color/inverted-active   color/orange    nil t))
 
 ;; カーソルの色
 (set-cursor-color color/deeppink)
@@ -193,7 +192,7 @@
   (set-face-attribute
    'line-number nil
    :foreground color/inactive
-   :background color/white
+   :background color/hide
    :weight 'bold))
 
 ;; ヘッダーラインの設定(active)
