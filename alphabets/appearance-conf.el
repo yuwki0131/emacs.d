@@ -54,7 +54,7 @@
 (defvar color/comment-delimitter "#666666")
 
 ;; 背景/前景の設定
-(set-background-color color/bggray)
+(set-background-color color/hide)
 (set-foreground-color color/fggray)
 
 ;; 各構文要素の色/タイプ(normal/italic/bold)の設定
