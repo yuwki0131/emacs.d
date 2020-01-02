@@ -157,8 +157,8 @@
 
 ;; coloring paren
 (ignore-report
-  (set-face-app2 'show-paren-match    color/active-strong color/fade-strong t t)
-  (set-face-app2 'show-paren-mismatch color/active-strong color/fade-strong t t))
+  (set-face-app2 'show-paren-match    color/active-strong color/fade-strong t nil)
+  (set-face-app2 'show-paren-mismatch color/active-strong color/fade-strong t nil))
 
 ;; colors after inserted
 (ignore-report
