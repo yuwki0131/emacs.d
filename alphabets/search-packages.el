@@ -13,18 +13,6 @@
 (use-package-with-report swiper)
 
 ;;; ---------------------------------------------------------------------------
-;;; swoop : トークンレベル移動(検索系)
-;;; ---------------------------------------------------------------------------
-(use-package-with-report swoop
-  :config
-  (setq
-   swoop-minibuffer-input-dilay 0.4
-   swoop-window-split-current-window: nil
-   swoop-font-size-change: t
-   swoop-font-size: 0.9
-   ))
-
-;;; ---------------------------------------------------------------------------
 ;;; migemo : isearchをローマ字のままで日本語も検索可能に
 ;;; ---------------------------------------------------------------------------
 ;; required : sudo apt-get install cmigemo

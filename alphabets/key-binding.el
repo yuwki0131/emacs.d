@@ -225,8 +225,7 @@
    ("C-e C-e" move-end-of-line       "行末へ(unbindの再設定)")
    ("C-e C-l" recenter-top-bottom    "top-center-bottom間")
    ("C-e C-l" imenu-list             "imenu: 関数定義へ")
-   ("C-e C-s" swiper                 "swiper: バッファ内を動的検索/移動")
-   ("C-e C-q" swoop                  "swoop: バッファ内を動的検索/移動")))
+   ("C-e C-s" swiper                 "swiper: バッファ内を動的検索/移動")))
 
 (gssk-repeat-bind-ex-with-subcategory "バッファ間"
  '(("C-e C-z" ace-window                 "ace-window: Window間移動")

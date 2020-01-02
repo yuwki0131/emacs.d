@@ -136,25 +136,6 @@
   (set-face-app2 'isearch                          color/inverted-active color/main     nil t)
   (set-face-app2 'isearch-fail                     color/inverted-active color/emphasis nil t))
 
-;; coloring swoop
-(ignore-report
-  (set-face-app2 'swoop-face-header-format-line    color/inverted-active color/invert   nil t)
-  (set-face-app2 'swoop-face-line-buffer-name      color/inverted-active color/main     nil t)
-  (set-face-app2 'swoop-face-line-number           color/inverted-active color/invert   nil t)
-  (set-face-app2 'swoop-face-target-line           color/inverted-active color/emphasis nil t)
-  (set-face-app2 'swoop-face-target-words          color/inverted-active color/main     nil t))
-
-;; fontset for swoop
-(ignore-report
-  (set-face-attribute
-   'swoop-face-header-format-line nil
-   :weight 'bold
-   :height 100)
-  (set-face-attribute
-   'swoop-face-line-buffer-name nil
-   :weight 'bold
-   :height 100))
-
 ;; coloring paren
 (ignore-report
   (set-face-app2 'show-paren-match    color/active-strong color/fade-strong t nil)
