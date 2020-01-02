@@ -21,12 +21,12 @@
 ;;; 色設定
 ;;; ---------------------------------------------------------------------------
 ;; emphasis
-(defvar color/darkcyan           "#0997B6")
-(defvar color/deeppink           "#E5266A")
-(defvar color/orange             "#FF4C00")
-(defvar color/string-like        "#3CB371")
+(defvar color/main               "#0997B6") ;; darkcyan
+(defvar color/secondary          "#FF4C00") ;; orange
+(defvar color/emphasis           "#E5266A") ;; deep pink
+(defvar color/string-like        "#3CB371") ;; green
 
-;; normal
+;; normal (gray)
 (defvar color/active             "#101010") ;; for foreground color
 (defvar color/inactive           "#393939") ;; for foreground color, but not active
 (defvar color/invert             "#393939") ;; for inverted background color
@@ -67,76 +67,76 @@
 ;; coloring program
 (set-face-app1 'font-lock-comment-delimiter-face color/out-strong  t   t)
 (set-face-app1 'font-lock-comment-face           color/out         nil t)
-(set-face-app1 'font-lock-doc-face               color/deeppink    nil t)
+(set-face-app1 'font-lock-doc-face               color/emphasis    nil t)
 (set-face-app1 'font-lock-string-face            color/string-like t   nil)
-(set-face-app1 'font-lock-keyword-face           color/darkcyan    t   nil)
-(set-face-app1 'font-lock-builtin-face           color/darkcyan    nil nil)
-(set-face-app1 'font-lock-function-name-face     color/orange      t   nil)
-(set-face-app1 'font-lock-variable-name-face     color/orange      nil nil)
-(set-face-app1 'font-lock-type-face              color/darkcyan    t   nil)
-(set-face-app1 'font-lock-constant-face          color/deeppink    t   nil)
-(set-face-app1 'font-lock-warning-face           color/deeppink    nil t)
-(set-face-app1 'font-lock-preprocessor-face      color/darkcyan    nil nil)
-(set-face-app1 'font-lock-negation-char-face     color/darkcyan    nil nil)
+(set-face-app1 'font-lock-keyword-face           color/main        t   nil)
+(set-face-app1 'font-lock-builtin-face           color/main        nil nil)
+(set-face-app1 'font-lock-function-name-face     color/secondary   t   nil)
+(set-face-app1 'font-lock-variable-name-face     color/secondary   nil nil)
+(set-face-app1 'font-lock-type-face              color/main        t   nil)
+(set-face-app1 'font-lock-constant-face          color/emphasis    t   nil)
+(set-face-app1 'font-lock-warning-face           color/emphasis    nil t)
+(set-face-app1 'font-lock-preprocessor-face      color/main        nil nil)
+(set-face-app1 'font-lock-negation-char-face     color/main        nil nil)
 
 ;; fringe colors
 (set-face-attribute 'fringe nil :foreground color/hide :background color/hide)
 
 ;; for grep
 (ignore-report
- (set-face-app2 'compilation-info   color/deeppink        color/hide     nil nil)
- (set-face-app2 'wgrep-delete-face  color/inverted-active color/darkcyan nil t)
- (set-face-app2 'wgrep-done-face    color/darkcyan        color/hide     nil nil)
- (set-face-app2 'wgrep-face         color/hide            color/darkcyan nil t)
- (set-face-app2 'wgrep-file-face    color/hide            color/darkcyan nil t))
+ (set-face-app2 'compilation-info   color/emphasis        color/hide nil nil)
+ (set-face-app2 'wgrep-delete-face  color/inverted-active color/main nil t)
+ (set-face-app2 'wgrep-done-face    color/main            color/hide nil nil)
+ (set-face-app2 'wgrep-face         color/hide            color/main nil t)
+ (set-face-app2 'wgrep-file-face    color/hide            color/main nil t))
 
 ;; coloring property
 (ignore-report
- (set-face-app1 'info-header-xref  color/darkcyan nil t)
- (set-face-app1 'info-xref         color/darkcyan nil t)
- (set-face-app1 'link              color/deeppink nil t)
- (set-face-app1 'escape-glyph      color/darkcyan nil nil)
- (set-face-app1 'minibuffer-prompt color/deeppink t   nil))
+ (set-face-app1 'info-header-xref  color/main     nil t)
+ (set-face-app1 'info-xref         color/main     nil t)
+ (set-face-app1 'link              color/emphasis nil t)
+ (set-face-app1 'escape-glyph      color/main     nil nil)
+ (set-face-app1 'minibuffer-prompt color/emphasis t   nil))
 
 ;; coloring company
 (ignore-errors
-  (set-face-app3 'company-preview-common           color/darkcyan color/hide                 nil t t)
-  (set-face-app2 'company-tooltip                  color/deeppink color/popup-hide           nil t)
-  (set-face-app2 'company-tooltip-common           color/deeppink color/popup-hide           nil t)
-  (set-face-app2 'company-tooltip-common-selection color/darkcyan color/popup-active         nil t)
-  (set-face-app2 'company-tooltip-selection        color/darkcyan color/popup-active         nil t)
-  (set-face-app2 'company-scrollbar-fg             color/deeppink color/deeppink             nil t)
+  (set-face-app3 'company-preview-common           color/main           color/hide           nil t t)
+  (set-face-app2 'company-tooltip                  color/emphasis       color/popup-hide     nil t)
+  (set-face-app2 'company-tooltip-common           color/emphasis       color/popup-hide     nil t)
+  (set-face-app2 'company-tooltip-common-selection color/main           color/popup-active   nil t)
+  (set-face-app2 'company-tooltip-selection        color/main           color/popup-active   nil t)
+  (set-face-app2 'company-scrollbar-fg             color/emphasis       color/emphasis       nil t)
   (set-face-app2 'company-scrollbar-bg             color/popup-inactive color/popup-inactive nil t)
   )
 
 ;; ivy colors
 (ignore-report
-  (set-face-app2 'ivy-current-match                color/inverted-active color/deeppink  nil t)
-  (set-face-app2 'ivy-minibuffer-match-face-2      color/inverted-active color/deeppink  t   t)
-  (set-face-app2 'counsel-outline-default          color/darkcyan        color/hide      nil t)
-  (set-face-app2 'ivy-grep-info                    color/darkcyan        color/hide      nil t)
-  (set-face-app2 'ivy-separator                    color/darkcyan        color/hide      nil t)
+  (set-face-app2 'ivy-current-match                color/inverted-active color/emphasis  nil t)
+  (set-face-app2 'ivy-minibuffer-match-face-2      color/inverted-active color/emphasis  t   t)
+  (set-face-app2 'counsel-outline-default          color/main            color/hide      nil t)
+  (set-face-app2 'ivy-grep-info                    color/main            color/hide      nil t)
+  (set-face-app2 'ivy-separator                    color/main            color/hide      nil t)
   )
 
 ;; coloring bm
 (ignore-report
-  (set-face-app2 'bm-face                          color/inverted-active color/deeppink nil t)
-  (set-face-app2 'bm-fringe-face                   color/inverted-active color/deeppink nil t)
-  (set-face-app2 'bm-fringe-persistent-face        color/inverted-active color/orange   nil t)
-  (set-face-app2 'bm-persistent-face               color/inverted-active color/orange   nil t))
+  (set-face-app2 'bm-face                          color/inverted-active color/emphasis  nil t)
+  (set-face-app2 'bm-fringe-face                   color/inverted-active color/emphasis  nil t)
+  (set-face-app2 'bm-fringe-persistent-face        color/inverted-active color/secondary nil t)
+  (set-face-app2 'bm-persistent-face               color/inverted-active color/secondary nil t))
 
 ;; coloring isearch
 (ignore-report
-  (set-face-app2 'isearch                          color/inverted-active color/darkcyan nil t)
-  (set-face-app2 'isearch-fail                     color/inverted-active color/deeppink nil t))
+  (set-face-app2 'isearch                          color/inverted-active color/main     nil t)
+  (set-face-app2 'isearch-fail                     color/inverted-active color/emphasis nil t))
 
 ;; coloring swoop
 (ignore-report
-  (set-face-app2 'swoop-face-header-format-line    color/inverted-active color/invert nil t)
-  (set-face-app2 'swoop-face-line-buffer-name      color/inverted-active color/darkcyan nil t)
-  (set-face-app2 'swoop-face-line-number           color/inverted-active color/invert nil t)
-  (set-face-app2 'swoop-face-target-line           color/inverted-active color/deeppink nil t)
-  (set-face-app2 'swoop-face-target-words          color/inverted-active color/darkcyan nil t))
+  (set-face-app2 'swoop-face-header-format-line    color/inverted-active color/invert   nil t)
+  (set-face-app2 'swoop-face-line-buffer-name      color/inverted-active color/main     nil t)
+  (set-face-app2 'swoop-face-line-number           color/inverted-active color/invert   nil t)
+  (set-face-app2 'swoop-face-target-line           color/inverted-active color/emphasis nil t)
+  (set-face-app2 'swoop-face-target-words          color/inverted-active color/main     nil t))
 
 ;; fontset for swoop
 (ignore-report
@@ -151,21 +151,21 @@
 
 ;; coloring paren
 (ignore-report
-  (set-face-app2 'show-paren-match    color/inverted-active    color/darkcyan nil t)
-  (set-face-app2 'show-paren-mismatch color/inverted-active    color/deeppink nil t))
+  (set-face-app2 'show-paren-match    color/inverted-active color/main     nil t)
+  (set-face-app2 'show-paren-mismatch color/inverted-active color/emphasis nil t))
 
 ;; colors after inserted
 (ignore-report
-  (set-face-app2 'secondary-selection color/deeppink color/inactive nil t))
+  (set-face-app2 'secondary-selection color/emphasis    color/inactive nil t))
 
 ;; coloring git-gutter+
 (ignore-report
-  (set-face-app2 'git-gutter+-added    color/inverted-active   color/darkcyan nil t)
-  (set-face-app2 'git-gutter+-deleted  color/inverted-active   color/deeppink nil t)
-  (set-face-app2 'git-gutter+-modified color/inverted-active   color/orange   nil t))
+  (set-face-app2 'git-gutter+-added    color/inverted-active color/main      nil t)
+  (set-face-app2 'git-gutter+-deleted  color/inverted-active color/emphasis  nil t)
+  (set-face-app2 'git-gutter+-modified color/inverted-active color/secondary nil t))
 
 ;; カーソルの色
-(set-cursor-color color/deeppink)
+(set-cursor-color color/emphasis)
 
 ;; カーソル行ハイライト
 (set-face-attribute 'hl-line nil :inherit nil :background color/fade)
@@ -189,7 +189,7 @@
    :background color/invert
    :weight 'bold
    :height 100
-   :overline color/orange))
+   :overline color/secondary))
 
 ;; モードラインの設定(active)
 (ignore-report
