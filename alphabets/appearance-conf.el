@@ -116,6 +116,7 @@
   (set-face-app2 'counsel-outline-default          color/main            color/hide      nil t)
   (set-face-app2 'ivy-grep-info                    color/main            color/hide      nil t)
   (set-face-app2 'ivy-separator                    color/main            color/hide      nil t)
+  (set-face-app1 'ivy-highlight-face               color/emphasis        color/fade      nil t)
   )
 
 ;; coloring bm
