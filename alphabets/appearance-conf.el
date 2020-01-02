@@ -182,8 +182,8 @@
 (set-face-attribute 'hl-line nil :inherit nil :background color/fade)
 
 ;; 選択範囲
-(set-face-foreground 'region "gray80")
-(set-face-background 'region "gray20")
+(set-face-foreground 'region color/inverted-active)
+(set-face-background 'region color/invert)
 
 ;; 行番号(line-number)の色の設定
 (ignore-report
