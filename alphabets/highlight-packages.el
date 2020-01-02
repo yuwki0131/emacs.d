@@ -23,7 +23,7 @@
 (use-package-with-report hl-todo
   :init
   (eval-when-compile (require 'hl-todo))
-  (setq hl-todo-keyword-faces '(("TODO" . "#cc9393")))
+  (setq hl-todo-keyword-faces '(("TODO" . "deeppink")))
   :config
   ;;; global-hl-todo-modeで有効にするメジャーモード(derived-mode)
   (setq hl-todo-activate-in-modes '(prog-mode))
