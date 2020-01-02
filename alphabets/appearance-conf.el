@@ -170,9 +170,9 @@
 (ignore-report
   (set-face-attribute
    'line-number nil
-   :foreground color/inactive
+   :foreground color/secondary
    :background color/hide
-   :weight 'bold))
+   :weight 'extra-light))
 
 ;; ヘッダーラインの設定(active)
 (ignore-report
@@ -203,7 +203,7 @@
 ;;; その他の設定
 ;;;---------------------------------------------------------------------------
 ;; カーソルタイプ
-(setq-default cursor-type '(bar . 2))
+(setq-default cursor-type '(bar . 3))
 
 ;; タイトルバー
 (setq frame-title-format "emacs: %b")
