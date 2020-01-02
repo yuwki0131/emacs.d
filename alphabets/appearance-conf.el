@@ -27,11 +27,13 @@
 (defvar color/string-like        "#3CB371") ;; green
 
 ;; normal (gray)
+(defvar color/active-strong      "#080808")
 (defvar color/active             "#101010") ;; for foreground color
 (defvar color/inactive           "#393939") ;; for foreground color, but not active
 (defvar color/invert             "#393939") ;; for inverted background color
 (defvar color/out-strong         "#666666") ;; kind of comment out, but strong
 (defvar color/out                "#777777") ;; kind of comment out (removed from context)
+(defvar color/fade-strong        "#A0A0A0")
 (defvar color/popup-active       "#D0D0D0")
 (defvar color/popup-inactive     "#E4E4E4")
 (defvar color/popup-hide         "#F0F0F0")
@@ -105,6 +107,9 @@
   (set-face-app2 'company-tooltip-common           color/emphasis       color/popup-hide     nil t)
   (set-face-app2 'company-tooltip-common-selection color/main           color/popup-active   nil t)
   (set-face-app2 'company-tooltip-selection        color/main           color/popup-active   nil t)
+  (set-face-app2 'company-tooltip-mouse            color/main           color/popup-active   nil t)
+  (set-face-app2 'company-tooltip-search           color/main           color/popup-active   nil t)
+  (set-face-app2 'company-tooltip-search-selection color/main           color/popup-active   nil t)
   (set-face-app2 'company-scrollbar-fg             color/emphasis       color/emphasis       nil t)
   (set-face-app2 'company-scrollbar-bg             color/popup-inactive color/popup-inactive nil t)
   )
@@ -152,18 +157,23 @@
 
 ;; coloring paren
 (ignore-report
-  (set-face-app2 'show-paren-match    color/inverted-active color/main     nil t)
-  (set-face-app2 'show-paren-mismatch color/inverted-active color/emphasis nil t))
+  (set-face-app2 'show-paren-match    color/active-strong color/fade-strong t t)
+  (set-face-app2 'show-paren-mismatch color/active-strong color/fade-strong t t))
 
 ;; colors after inserted
 (ignore-report
-  (set-face-app2 'secondary-selection color/emphasis    color/inactive nil t))
+  (set-face-app2 'secondary-selection color/emphasis color/inactive nil t))
 
 ;; coloring git-gutter+
 (ignore-report
   (set-face-app2 'git-gutter+-added    color/inverted-active color/main      nil t)
   (set-face-app2 'git-gutter+-deleted  color/inverted-active color/emphasis  nil t)
   (set-face-app2 'git-gutter+-modified color/inverted-active color/secondary nil t))
+
+;; coloring doom
+(ignore-report
+ (set-face-app2 'doom-modeline-bar color/main color/main nil t)
+)
 
 ;; カーソルの色
 (set-cursor-color color/emphasis)
